@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SEQS | Module 8 - Where Were You Yesterday?</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#eef6ff;
+  color:#17324d;
+}
+
+header{
+  background:linear-gradient(135deg,#0d47a1,#1976d2);
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+header h1{
+  margin:0;
+  font-size:36px;
+  letter-spacing:4px;
+}
+
+header h2{
+  margin:7px 0 0;
+  font-size:21px;
+}
+
+header p{
+  margin:7px 0 0;
+}
+
+.container{
+  max-width:820px;
+  margin:auto;
+  padding:25px 15px;
+}
+
+.student-info{
+  background:white;
+  padding:18px 20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);
+}
+
+.student-info strong{
+  color:#1557a6;
+}
+
+.instruction{
+  background:#e1efff;
+  padding:15px 18px;
+  border-radius:12px;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+.section-title{
+  background:#1557a6;
+  color:white;
+  padding:13px 18px;
+  border-radius:12px;
+  margin:28px 0 15px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.reading-text{
+  background:#fff8dc;
+  border-left:5px solid #f0c419;
+  padding:20px;
+  border-radius:12px;
+  line-height:1.8;
+  margin-bottom:18px;
+}
+
+.question{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);
+}
+
+.question p{
+  margin-top:0;
+  font-weight:bold;
+  line-height:1.5;
+}
+
+.option{
+  display:block;
+  margin:9px 0;
+  padding:11px;
+  background:#f5f9ff;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.option:hover{
+  background:#e5f1ff;
+}
+
+input[type="radio"]{
+  margin-right:8px;
+}
+
+.submit-area{
+  text-align:center;
+  margin:30px 0;
+}
+
+.submit-btn{
+  border:none;
+  background:#1976d2;
+  color:white;
+  padding:15px 35px;
+  border-radius:30px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:#0d47a1;
+}
+
+.submit-btn:disabled{
+  background:#90a4ae;
+  cursor:default;
+}
+
+.result{
+  display:none;
+  background:white;
+  padding:30px 20px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+  margin-bottom:25px;
+}
+
+.result h2{
+  color:#1557a6;
+}
+
+.score{
+  font-size:42px;
+  font-weight:bold;
+  color:#1976d2;
+  margin:15px 0;
+}
+
+.percentage{
+  font-size:27px;
+  font-weight:bold;
+}
+
+.feedback{
+  margin-top:12px;
+  font-weight:bold;
+  color:#174a7c;
+}
+
+.record-status{
+  margin-top:15px;
+  font-size:14px;
+  color:#607080;
+}
+
+.home-btn{
+  display:inline-block;
+  margin-top:20px;
+  background:#1557a6;
+  color:white;
+  text-decoration:none;
+  padding:12px 25px;
+  border-radius:25px;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#718096;
+  font-size:13px;
+  line-height:1.6;
+}
+
+@media(max-width:600px){
+
+  header h1{
+    font-size:32px;
+  }
+
+  .container{
+    padding:18px 12px;
+  }
+
+  .question{
+    padding:17px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+
+<h1>SEQS</h1>
+
+<h2>
+MODULE 8 - WHERE WERE YOU YESTERDAY?
+</h2>
+
+<p>English Year 3</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- STUDENT INFO -->
+
+<div class="student-info">
+
+<strong>Name:</strong>
+<span id="displayName">-</span>
+
+<br><br>
+
+<strong>Class:</strong>
+<span id="displayClass">-</span>
+
+</div>
+
+
+<div class="instruction">
+
+<strong>Instructions:</strong>
+
+Read each question carefully and choose the best answer.
+You must answer all 20 questions before submitting.
+
+</div>
+
+
+<!-- ==================================================
+     PART A - READING
+================================================== -->
+
+<div class="section-title">
+📖 PART A - READING
+</div>
+
+
+<div class="reading-text">
+
+<strong>Read the passage.</strong>
+
+<p>
+Yesterday was Sunday. Aina was at the park with her family
+in the morning. Her brother, Adam, was at the playground.
+Their parents were near the lake. In the afternoon, Aina and
+Adam were at their grandmother's house. Their cousins were
+there too. They were very happy because they played games
+together. At night, Aina was at home. She was tired but happy.
+</p>
+
+</div>
+
+
+<!-- Q1 -->
+
+<div class="question">
+
+<p>
+1. Where was Aina yesterday morning?
+</p>
+
+<label class="option">
+<input type="radio" name="q1" value="park">
+At the park
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="school">
+At school
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="library">
+At the library
+</label>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="question">
+
+<p>
+2. Where was Adam in the morning?
+</p>
+
+<label class="option">
+<input type="radio" name="q2" value="playground">
+At the playground
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="cinema">
+At the cinema
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="shop">
+At the shop
+</label>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="question">
+
+<p>
+3. Where were Aina's parents?
+</p>
+
+<label class="option">
+<input type="radio" name="q3" value="lake">
+Near the lake
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="school">
+At school
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="hospital">
+At the hospital
+</label>
+
+</div>
+
+
+<!-- Q4 -->
+
+<div class="question">
+
+<p>
+4. Who were at Grandmother's house too?
+</p>
+
+<label class="option">
+<input type="radio" name="q4" value="cousins">
+Their cousins
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="teachers">
+Their teachers
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="neighbours">
+Their neighbours
+</label>
+
+</div>
+
+
+<!-- Q5 KBAT -->
+
+<div class="question">
+
+<p>
+5. Aina was tired at night. What is the BEST reason?
+</p>
+
+<label class="option">
+<input type="radio" name="q5" value="busy">
+She had a busy day with her family.
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="school">
+She was at school all day.
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="sick">
+She was sick all day.
+</label>
+
+</div>
+
+
+<!-- ==================================================
+     PART B - TRUE OR FALSE
+================================================== -->
+
+<div class="section-title">
+✅ PART B - TRUE OR FALSE
+</div>
+
+
+<!-- Q6 -->
+
+<div class="question">
+
+<p>
+6. Yesterday was Sunday.
+</p>
+
+<label class="option">
+<input type="radio" name="q6" value="true">
+True
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="false">
+False
+</label>
+
+</div>
+
+
+<!-- Q7 -->
+
+<div class="question">
+
+<p>
+7. Aina was at school in the morning.
+</p>
+
+<label class="option">
+<input type="radio" name="q7" value="true">
+True
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="false">
+False
+</label>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="question">
+
+<p>
+8. Aina and Adam were at their grandmother's house in the afternoon.
+</p>
+
+<label class="option">
+<input type="radio" name="q8" value="true">
+True
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="false">
+False
+</label>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="question">
+
+<p>
+9. Their cousins were not at Grandmother's house.
+</p>
+
+<label class="option">
+<input type="radio" name="q9" value="true">
+True
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="false">
+False
+</label>
+
+</div>
+
+
+<!-- Q10 KBAT -->
+
+<div class="question">
+
+<p>
+10. Aina said, “I had a good Sunday with my family.”
+The passage supports her statement.
+</p>
+
+<label class="option">
+<input type="radio" name="q10" value="true">
+True
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="false">
+False
+</label>
+
+</div>
+
+
+<!-- ==================================================
+     PART C - GRAMMAR & SPELLING
+================================================== -->
+
+<div class="section-title">
+🔤 PART C - GRAMMAR & SPELLING
+</div>
+
+
+<!-- Q11 -->
+
+<div class="question">
+
+<p>
+11. I _____ at the park yesterday.
+</p>
+
+<label class="option">
+<input type="radio" name="q11" value="was">
+was
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="were">
+were
+</label>
+
+<label class="option">
+<input type="radio" name="q11" value="are">
+are
+</label>
+
+</div>
+
+
+<!-- Q12 -->
+
+<div class="question">
+
+<p>
+12. They _____ at the cinema last night.
+</p>
+
+<label class="option">
+<input type="radio" name="q12" value="were">
+were
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="was">
+was
+</label>
+
+<label class="option">
+<input type="radio" name="q12" value="is">
+is
+</label>
+
+</div>
+
+
+<!-- Q13 -->
+
+<div class="question">
+
+<p>
+13. Choose the correct spelling.
+</p>
+
+<label class="option">
+<input type="radio" name="q13" value="yesterday">
+yesterday
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="yesturday">
+yesturday
+</label>
+
+<label class="option">
+<input type="radio" name="q13" value="yesterdayy">
+yesterdayy
+</label>
+
+</div>
+
+
+<!-- Q14 -->
+
+<div class="question">
+
+<p>
+14. Choose the correct spelling.
+</p>
+
+<label class="option">
+<input type="radio" name="q14" value="playground">
+playground
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="playgrond">
+playgrond
+</label>
+
+<label class="option">
+<input type="radio" name="q14" value="playgraund">
+playgraund
+</label>
+
+</div>
+
+
+<!-- Q15 KBAT -->
+
+<div class="question">
+
+<p>
+15. Sara says, “My parents _____ at home yesterday,
+but I _____ at the library.”
+Which pair is correct?
+</p>
+
+<label class="option">
+<input type="radio" name="q15" value="were-was">
+were / was
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="was-were">
+was / were
+</label>
+
+<label class="option">
+<input type="radio" name="q15" value="was-was">
+was / was
+</label>
+
+</div>
+
+
+<!-- ==================================================
+     PART D - WRITING / CORRECT SENTENCE
+================================================== -->
+
+<div class="section-title">
+📝 PART D - CHOOSE THE CORRECT SENTENCE
+</div>
+
+
+<!-- Q16 -->
+
+<div class="question">
+
+<p>
+16. Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q16" value="She was at the park yesterday.">
+She was at the park yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="She were at the park yesterday.">
+She were at the park yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q16" value="She yesterday park was at.">
+She yesterday park was at.
+</label>
+
+</div>
+
+
+<!-- Q17 -->
+
+<div class="question">
+
+<p>
+17. Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q17" value="We were at school yesterday.">
+We were at school yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="We was at school yesterday.">
+We was at school yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q17" value="We school yesterday were at.">
+We school yesterday were at.
+</label>
+
+</div>
+
+
+<!-- Q18 -->
+
+<div class="question">
+
+<p>
+18. Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q18" value="He wasn't at home yesterday.">
+He wasn't at home yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="He weren't at home yesterday.">
+He weren't at home yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q18" value="He not yesterday home was.">
+He not yesterday home was.
+</label>
+
+</div>
+
+
+<!-- Q19 -->
+
+<div class="question">
+
+<p>
+19. Choose the correct sentence.
+</p>
+
+<label class="option">
+<input type="radio" name="q19" value="They weren't at the cinema.">
+They weren't at the cinema.
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="They wasn't at the cinema.">
+They wasn't at the cinema.
+</label>
+
+<label class="option">
+<input type="radio" name="q19" value="They cinema weren't the at.">
+They cinema weren't the at.
+</label>
+
+</div>
+
+
+<!-- Q20 KBAT -->
+
+<div class="question">
+
+<p>
+20. Ali's friend asks, “Where were you yesterday?”
+Ali was at the zoo with his family.
+Which is the BEST answer?
+</p>
+
+<label class="option">
+<input type="radio" name="q20" value="I was at the zoo with my family yesterday.">
+I was at the zoo with my family yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="I were at zoo family yesterday.">
+I were at zoo family yesterday.
+</label>
+
+<label class="option">
+<input type="radio" name="q20" value="Yesterday zoo family.">
+Yesterday zoo family.
+</label>
+
+</div>
+
+
+<!-- SUBMIT -->
+
+<div class="submit-area">
+
+<button
+type="button"
+class="submit-btn"
+id="submitButton"
+onclick="submitQuiz()">
+
+SUBMIT QUIZ
+
+</button>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div class="result" id="resultBox">
+
+<h2>QUIZ COMPLETED!</h2>
+
+<p>Your Score</p>
+
+<div class="score" id="scoreDisplay">
+0 / 20
+</div>
+
+<div class="percentage" id="percentageDisplay">
+0%
+</div>
+
+<div class="feedback" id="feedback"></div>
+
+<div class="record-status" id="recordStatus">
+Saving your result...
+</div>
+
+<a href="index.html" class="home-btn">
+BACK TO HOME
+</a>
+
+</div>
+
+</div>
+
+
+<footer>
+
+SEQS - Smart English Quiz System
+
+<br>
+
+Module 8 - Where Were You Yesterday? | English Year 3
+
+</footer>
+
+
+<script>
+
+/* ==================================================
+   GOOGLE APPS SCRIPT
+================================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
+
+
+/* ==================================================
+   STUDENT INFORMATION
+================================================== */
+
+const studentName =
+localStorage.getItem("seqsName") || "";
+
+const studentClass =
+localStorage.getItem("seqsClass") || "";
+
+
+document.getElementById("displayName").textContent =
+studentName || "-";
+
+document.getElementById("displayClass").textContent =
+studentClass || "-";
+
+
+/* ==================================================
+   ANSWER KEY
+================================================== */
+
+const answers = {
+
+q1:"park",
+q2:"playground",
+q3:"lake",
+q4:"cousins",
+q5:"busy",
+
+q6:"true",
+q7:"false",
+q8:"true",
+q9:"false",
+q10:"true",
+
+q11:"was",
+q12:"were",
+q13:"yesterday",
+q14:"playground",
+q15:"were-was",
+
+q16:"She was at the park yesterday.",
+q17:"We were at school yesterday.",
+q18:"He wasn't at home yesterday.",
+q19:"They weren't at the cinema.",
+q20:"I was at the zoo with my family yesterday."
+
+};
+
+
+/* ==================================================
+   SUBMIT QUIZ
+================================================== */
+
+function submitQuiz(){
+
+let score = 0;
+
+
+/* CHECK ALL 20 QUESTIONS */
+
+for(let i=1;i<=20;i++){
+
+const selected =
+document.querySelector(
+'input[name="q'+i+'"]:checked'
+);
+
+
+if(!selected){
+
+alert(
+"Please answer Question " +
+i +
+" before submitting."
+);
+
+
+document
+.querySelector(
+'input[name="q'+i+'"]'
+)
+.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+
+return;
+
+}
+
+}
+
+
+/* CALCULATE SCORE */
+
+for(let i=1;i<=20;i++){
+
+const selected =
+document.querySelector(
+'input[name="q'+i+'"]:checked'
+);
+
+
+if(
+selected &&
+selected.value === answers["q"+i]
+){
+
+score++;
+
+}
+
+}
+
+
+const percentage =
+Math.round(
+(score/20)*100
+);
+
+
+document.getElementById(
+"scoreDisplay"
+).textContent =
+score + " / 20";
+
+
+document.getElementById(
+"percentageDisplay"
+).textContent =
+percentage + "%";
+
+
+/* FEEDBACK */
+
+let feedback = "";
+
+
+if(percentage >= 80){
+
+feedback =
+"Excellent work! Keep it up!";
+
+}else if(percentage >= 60){
+
+feedback =
+"Good job! Keep practising!";
+
+}else if(percentage >= 40){
+
+feedback =
+"Nice try! You can improve with more practice.";
+
+}else{
+
+feedback =
+"Keep learning and try again!";
+
+}
+
+
+document.getElementById(
+"feedback"
+).textContent =
+feedback;
+
+
+document.getElementById(
+"resultBox"
+).style.display =
+"block";
+
+
+document.getElementById(
+"submitButton"
+).disabled =
+true;
+
+
+document.getElementById(
+"submitButton"
+).textContent =
+"QUIZ SUBMITTED";
+
+
+document.getElementById(
+"resultBox"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+
+saveResult(
+score,
+percentage
+);
+
+}
+
+
+/* ==================================================
+   AUTO RECORD
+================================================== */
+
+async function saveResult(score,percentage){
+
+const recordStatus =
+document.getElementById(
+"recordStatus"
+);
+
+
+recordStatus.textContent =
+"Saving your result...";
+
+
+const data = {
+
+name:
+studentName,
+
+studentClass:
+studentClass,
+
+module:
+"Module 8 - Where Were You Yesterday?",
+
+score:
+score + "/20",
+
+percentage:
+percentage + "%"
+
+};
+
+
+try{
+
+await fetch(
+GOOGLE_SCRIPT_URL,
+{
+
+method:"POST",
+
+mode:"no-cors",
+
+headers:{
+"Content-Type":
+"text/plain;charset=utf-8"
+},
+
+body:
+JSON.stringify(data)
+
+}
+);
+
+
+recordStatus.textContent =
+"✓ Result recorded successfully.";
+
+
+}catch(error){
+
+console.error(error);
+
+recordStatus.textContent =
+"Result displayed. Record connection unavailable.";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
