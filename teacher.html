@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SEQS | Teacher Record</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef6ff;
+  color: #17324d;
+}
+
+header {
+  background: linear-gradient(135deg,#0d47a1,#1976d2);
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  margin: 7px 0 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 15px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: #607080;
+  font-size: 15px;
+}
+
+.number {
+  font-size: 34px;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.filters {
+  background: white;
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.filters input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccd8e5;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.table-box {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  overflow-x: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+th {
+  background: #1557a6;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 11px;
+  border-bottom: 1px solid #e1e7ee;
+  text-align: center;
+}
+
+tr:hover {
+  background: #f4f9ff;
+}
+
+.loading {
+  text-align: center;
+  padding: 25px;
+}
+
+.home {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.home a {
+  display: inline-block;
+  background: #1557a6;
+  color: white;
+  text-decoration: none;
+  padding: 11px 22px;
+  border-radius: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #718096;
+  font-size: 13px;
+}
+
+@media(max-width:700px) {
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>SEQS</h1>
+
+<p>TEACHER RECORD DASHBOARD</p>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="dashboard">
+
+<div class="card">
+
+<h3>TOTAL ATTEMPTS</h3>
+
+<div class="number" id="totalAttempts">
+0
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>AVERAGE SCORE</h3>
+
+<div class="number" id="averageScore">
+0%
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>HIGHEST SCORE</h3>
+
+<div class="number" id="highestScore">
+0%
+</div>
+
+</div>
+
+</div>
+
+
+<div class="filters">
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search name, class or module..."
+onkeyup="filterRecords()">
+
+</div>
+
+
+<div class="table-box">
+
+<div class="loading" id="loading">
+
+Loading student records...
+
+</div>
+
+
+<table id="recordTable" style="display:none;">
+
+<thead>
+
+<tr>
+
+<th>DATE / TIME</th>
+
+<th>NAME</th>
+
+<th>CLASS</th>
+
+<th>MODULE</th>
+
+<th>SCORE</th>
+
+<th>PERCENTAGE</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="recordBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="home">
+
+<a href="index.html">
+← BACK TO HOME
+</a>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+SEQS – Smart English Quiz System<br>
+
+Teacher Dashboard | 2026
+
+</footer>
+
+
+<script>
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbw6qRUPE6LswiWwWfDCOz5EdUHp5hFeLbUj1xOcea56HO6qcPPE_cjuu9UH_UdJAE9VHQ/exec";
+
+
+let allRecords = [];
+
+
+/* LOAD RECORDS */
+
+fetch(GOOGLE_SCRIPT_URL)
+
+.then(response => response.json())
+
+.then(data => {
+
+  allRecords = data.reverse();
+
+  displayRecords(allRecords);
+
+  calculateDashboard(allRecords);
+
+})
+
+.catch(error => {
+
+  console.error(error);
+
+  document.getElementById("loading").innerHTML =
+  "Unable to load records.";
+
+});
+
+
+/* DISPLAY TABLE */
+
+function displayRecords(records) {
+
+  const body =
+  document.getElementById("recordBody");
+
+  body.innerHTML = "";
+
+
+  records.forEach(record => {
+
+    const row =
+    document.createElement("tr");
+
+
+    let date = "-";
+
+    if (record.timestamp) {
+
+      date =
+      new Date(record.timestamp)
+      .toLocaleString("en-MY");
+
+    }
+
+
+    row.innerHTML = `
+
+      <td>${date}</td>
+
+      <td>${record.name || "-"}</td>
+
+      <td>${record.studentClass || "-"}</td>
+
+      <td>${record.module || "-"}</td>
+
+      <td>${record.score || "-"}</td>
+
+      <td>${record.percentage || "-"}</td>
+
+    `;
+
+
+    body.appendChild(row);
+
+  });
+
+
+  document.getElementById("loading")
+  .style.display = "none";
+
+
+  document.getElementById("recordTable")
+  .style.display = "table";
+
+}
+
+
+/* DASHBOARD */
+
+function calculateDashboard(records) {
+
+  const total =
+  records.length;
+
+
+  let sum = 0;
+
+  let highest = 0;
+
+
+  records.forEach(record => {
+
+    const percentage =
+    parseInt(record.percentage) || 0;
+
+    sum += percentage;
+
+    if (percentage > highest) {
+
+      highest = percentage;
+
+    }
+
+  });
+
+
+  const average =
+  total > 0
+  ? Math.round(sum / total)
+  : 0;
+
+
+  document.getElementById(
+  "totalAttempts"
+  ).textContent =
+  total;
+
+
+  document.getElementById(
+  "averageScore"
+  ).textContent =
+  average + "%";
+
+
+  document.getElementById(
+  "highestScore"
+  ).textContent =
+  highest + "%";
+
+}
+
+
+/* SEARCH */
+
+function filterRecords() {
+
+  const keyword =
+  document.getElementById("searchBox")
+  .value
+  .toLowerCase();
+
+
+  const filtered =
+  allRecords.filter(record => {
+
+    return (
+
+      String(record.name)
+      .toLowerCase()
+      .includes(keyword)
+
+      ||
+
+      String(record.studentClass)
+      .toLowerCase()
+      .includes(keyword)
+
+      ||
+
+      String(record.module)
+      .toLowerCase()
+      .includes(keyword)
+
+    );
+
+  });
+
+
+  displayRecords(filtered);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
