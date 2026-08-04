@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SEQS | Module 2 – Every Day</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef6ff;
+  color: #17324d;
+}
+
+header {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 3px;
+}
+
+header h2 {
+  margin: 7px 0 0;
+  font-size: 20px;
+}
+
+header p {
+  margin: 7px 0 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 25px 15px;
+}
+
+.student-info {
+  background: white;
+  padding: 18px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.07);
+}
+
+.student-info strong {
+  color: #1557a6;
+}
+
+.section-title {
+  background: #1557a6;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin: 25px 0 15px;
+  font-size: 17px;
+}
+
+.question {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.07);
+}
+
+.question p {
+  margin-top: 0;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.option {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background: #f5f9ff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #e5f1ff;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.text-answer {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd8e6;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.submit-area {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.submit-btn {
+  border: none;
+  background: #1976d2;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #0d47a1;
+}
+
+.result {
+  display: none;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+  margin-bottom: 25px;
+}
+
+.result h2 {
+  color: #1557a6;
+  margin-top: 0;
+}
+
+.score {
+  font-size: 42px;
+  font-weight: bold;
+  color: #1976d2;
+  margin: 15px 0;
+}
+
+.percentage {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.record-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #607080;
+}
+
+.home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #1557a6;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #718096;
+  font-size: 13px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+  <h1>SEQS</h1>
+
+  <h2>MODULE 2 – EVERY DAY</h2>
+
+  <p>English Year 3</p>
+
+</header>
+
+
+<div class="container">
+
+  <div class="student-info">
+
+    <strong>Name:</strong>
+    <span id="displayName">-</span>
+
+    <br><br>
+
+    <strong>Class:</strong>
+    <span id="displayClass">-</span>
+
+  </div>
+
+
+  <!-- =========================
+       PART A
+  ========================== -->
+
+  <div class="section-title">
+    PART A – MULTIPLE CHOICE
+  </div>
+
+
+  <div class="question">
+
+    <p>1. I _____ up at seven o'clock every morning.</p>
+
+    <label class="option">
+      <input type="radio" name="q1" value="wake">
+      wake
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="wakes">
+      wakes
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="waking">
+      waking
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>2. Ali _____ his teeth every morning.</p>
+
+    <label class="option">
+      <input type="radio" name="q2" value="brush">
+      brush
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="brushes">
+      brushes
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="brushing">
+      brushing
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>3. We _____ breakfast before going to school.</p>
+
+    <label class="option">
+      <input type="radio" name="q3" value="have">
+      have
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q3" value="has">
+      has
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q3" value="having">
+      having
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>4. Sara _____ to school at 7.15 a.m.</p>
+
+    <label class="option">
+      <input type="radio" name="q4" value="go">
+      go
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q4" value="goes">
+      goes
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q4" value="going">
+      going
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>5. I _____ my homework in the afternoon.</p>
+
+    <label class="option">
+      <input type="radio" name="q5" value="do">
+      do
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="does">
+      does
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="doing">
+      doing
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>6. My brother _____ television in the evening.</p>
+
+    <label class="option">
+      <input type="radio" name="q6" value="watch">
+      watch
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q6" value="watches">
+      watches
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q6" value="watching">
+      watching
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>7. They _____ football after school.</p>
+
+    <label class="option">
+      <input type="radio" name="q7" value="play">
+      play
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q7" value="plays">
+      plays
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q7" value="playing">
+      playing
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>8. Lina _____ lunch at school.</p>
+
+    <label class="option">
+      <input type="radio" name="q8" value="eat">
+      eat
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q8" value="eats">
+      eats
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q8" value="eating">
+      eating
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>9. We _____ to bed at night.</p>
+
+    <label class="option">
+      <input type="radio" name="q9" value="go">
+      go
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q9" value="goes">
+      goes
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q9" value="going">
+      going
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>10. Amir _____ a shower every morning.</p>
+
+    <label class="option">
+      <input type="radio" name="q10" value="takes">
+      takes
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q10" value="take">
+      take
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q10" value="taking">
+      taking
+    </label>
+
+  </div>
+
+
+  <!-- =========================
+       PART B
+  ========================== -->
+
+  <div class="section-title">
+    PART B – TRUE OR FALSE
+  </div>
+
+
+  <div class="question">
+
+    <p>11. We usually have breakfast in the morning.</p>
+
+    <label class="option">
+      <input type="radio" name="q11" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q11" value="false">
+      False
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>12. We usually go to bed in the morning.</p>
+
+    <label class="option">
+      <input type="radio" name="q12" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q12" value="false">
+      False
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>13. Pupils usually go to school during the day.</p>
+
+    <label class="option">
+      <input type="radio" name="q13" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q13" value="false">
+      False
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>14. We brush our teeth to keep them clean.</p>
+
+    <label class="option">
+      <input type="radio" name="q14" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q14" value="false">
+      False
+    </label>
+
+  </div>
+
+
+  <div class="question">
+
+    <p>15. We usually have dinner before breakfast.</p>
+
+    <label class="option">
+      <input type="radio" name="q15" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q15" value="false">
+      False
+    </label>
+
+  </div>
+
+
+  <!-- =========================
+       PART C
+  ========================== -->
+
+  <div class="section-title">
+    PART C – FILL IN THE BLANKS
+  </div>
+
+
+  <div class="question">
+
+    <p>16. I _____ up at seven o'clock. (wake)</p>
+
+    <input
+      class="text-answer"
+      type="text"
+      id="q16"
+      placeholder="Type your answer"
+    >
+
+  </div>
+
+
+  <div class="question">
+
+    <p>17. She _____ her teeth every morning. (brush)</p>
+
+    <input
+      class="text-answer"
+      type="text"
+      id="q17"
+      placeholder="Type your answer"
+    >
+
+  </div>
+
+
+  <div class="question">
+
+    <p>18. They _____ football after school. (play)</p>
+
+    <input
+      class="text-answer"
+      type="text"
+      id="q18"
+      placeholder="Type your answer"
+    >
+
+  </div>
+
+
+  <div class="question">
+
+    <p>19. Adam _____ to school every day. (go)</p>
+
+    <input
+      class="text-answer"
+      type="text"
+      id="q19"
+      placeholder="Type your answer"
+    >
+
+  </div>
+
+
+  <div class="question">
+
+    <p>20. We _____ breakfast in the morning. (have)</p>
+
+    <input
+      class="text-answer"
+      type="text"
+      id="q20"
+      placeholder="Type your answer"
+    >
+
+  </div>
+
+
+  <!-- SUBMIT -->
+
+  <div class="submit-area">
+
+    <button
+      type="button"
+      class="submit-btn"
+      id="submitButton"
+      onclick="submitQuiz()"
+    >
+      SUBMIT QUIZ
+    </button>
+
+  </div>
+
+
+  <!-- RESULT -->
+
+  <div
+    class="result"
+    id="resultBox"
+  >
+
+    <h2>QUIZ COMPLETED!</h2>
+
+    <p>Your Score</p>
+
+    <div
+      class="score"
+      id="scoreDisplay"
+    >
+      0 / 20
+    </div>
+
+    <div
+      class="percentage"
+      id="percentageDisplay"
+    >
+      0%
+    </div>
+
+    <div
+      class="record-status"
+      id="recordStatus"
+    >
+      Saving your result...
+    </div>
+
+    <a
+      href="index.html"
+      class="home-btn"
+    >
+      BACK TO HOME
+    </a>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  SEQS – Smart English Quiz System
+
+  <br>
+
+  Module 2 – Every Day | English Year 3
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   SEQS GOOGLE APPS SCRIPT
+========================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
+
+
+/* ==========================================
+   STUDENT INFORMATION
+========================================== */
+
+const studentName =
+  localStorage.getItem("seqsName") || "";
+
+const studentClass =
+  localStorage.getItem("seqsClass") || "";
+
+
+document.getElementById(
+  "displayName"
+).textContent =
+  studentName || "-";
+
+
+document.getElementById(
+  "displayClass"
+).textContent =
+  studentClass || "-";
+
+
+/* ==========================================
+   ANSWERS
+========================================== */
+
+const answers = {
+
+  q1: "wake",
+  q2: "brushes",
+  q3: "have",
+  q4: "goes",
+  q5: "do",
+
+  q6: "watches",
+  q7: "play",
+  q8: "eats",
+  q9: "go",
+  q10: "takes",
+
+  q11: "true",
+  q12: "false",
+  q13: "true",
+  q14: "true",
+  q15: "false",
+
+  q16: "wake",
+  q17: "brushes",
+  q18: "play",
+  q19: "goes",
+  q20: "have"
+
+};
+
+
+/* ==========================================
+   SUBMIT QUIZ
+========================================== */
+
+function submitQuiz() {
+
+  let score = 0;
+
+
+  /* MULTIPLE CHOICE + TRUE/FALSE */
+
+  for (
+    let i = 1;
+    i <= 15;
+    i++
+  ) {
+
+    const selected =
+      document.querySelector(
+        'input[name="q' +
+        i +
+        '"]:checked'
+      );
+
+
+    if (
+      selected &&
+      selected.value ===
+      answers["q" + i]
+    ) {
+
+      score++;
+    }
+  }
+
+
+  /* FILL IN THE BLANKS */
+
+  for (
+    let i = 16;
+    i <= 20;
+    i++
+  ) {
+
+    const answer =
+      document
+        .getElementById(
+          "q" + i
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    if (
+      answer ===
+      answers["q" + i]
+    ) {
+
+      score++;
+    }
+  }
+
+
+  /* CALCULATE PERCENTAGE */
+
+  const percentage =
+    Math.round(
+      (score / 20) * 100
+    );
+
+
+  /* DISPLAY RESULT */
+
+  document.getElementById(
+    "scoreDisplay"
+  ).textContent =
+    score + " / 20";
+
+
+  document.getElementById(
+    "percentageDisplay"
+  ).textContent =
+    percentage + "%";
+
+
+  document.getElementById(
+    "resultBox"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "submitButton"
+  ).disabled =
+    true;
+
+
+  document.getElementById(
+    "submitButton"
+  ).textContent =
+    "QUIZ SUBMITTED";
+
+
+  /* SCROLL TO RESULT */
+
+  document.getElementById(
+    "resultBox"
+  ).scrollIntoView({
+    behavior: "smooth"
+  });
+
+
+  /* AUTO RECORD */
+
+  saveResult(
+    score,
+    percentage
+  );
+}
+
+
+/* ==========================================
+   SAVE RESULT TO GOOGLE SHEET
+========================================== */
+
+async function saveResult(
+  score,
+  percentage
+) {
+
+  const recordStatus =
+    document.getElementById(
+      "recordStatus"
+    );
+
+
+  recordStatus.textContent =
+    "Saving your result...";
+
+
+  const data = {
+
+    name:
+      studentName,
+
+    studentClass:
+      studentClass,
+
+    module:
+      "Module 2 - Every Day",
+
+    score:
+      score + "/20",
+
+    percentage:
+      percentage + "%"
+
+  };
+
+
+  try {
+
+    await fetch(
+      GOOGLE_SCRIPT_URL,
+      {
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
+
+        body:
+          JSON.stringify(data)
+      }
+    );
+
+
+    recordStatus.textContent =
+      "✓ Result recorded successfully.";
+
+
+  } catch (error) {
+
+    console.error(error);
+
+
+    recordStatus.textContent =
+      "Result displayed. Record connection unavailable.";
+
+  }
+}
+
+</script>
+
+</body>
+</html>
