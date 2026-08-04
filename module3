@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SEQS | Module 3 – Right Now</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef6ff;
+  color: #17324d;
+}
+
+header {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 4px;
+}
+
+header h2 {
+  margin: 7px 0 0;
+  font-size: 21px;
+}
+
+header p {
+  margin: 7px 0 0;
+}
+
+.container {
+  max-width: 820px;
+  margin: auto;
+  padding: 25px 15px;
+}
+
+.student-info {
+  background: white;
+  padding: 18px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.07);
+}
+
+.student-info strong {
+  color: #1557a6;
+}
+
+.instruction {
+  background: #e1efff;
+  padding: 15px 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.section-title {
+  background: #1557a6;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 12px;
+  margin: 28px 0 15px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.reading-text {
+  background: #fff8dc;
+  border-left: 5px solid #f0c419;
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.question {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.07);
+}
+
+.question p {
+  margin-top: 0;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.option {
+  display: block;
+  margin: 9px 0;
+  padding: 11px;
+  background: #f5f9ff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #e5f1ff;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.submit-area {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.submit-btn {
+  border: none;
+  background: #1976d2;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #0d47a1;
+}
+
+.submit-btn:disabled {
+  background: #90a4ae;
+  cursor: default;
+}
+
+.result {
+  display: none;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+  margin-bottom: 25px;
+}
+
+.result h2 {
+  color: #1557a6;
+  margin-top: 0;
+}
+
+.score {
+  font-size: 42px;
+  font-weight: bold;
+  color: #1976d2;
+  margin: 15px 0;
+}
+
+.percentage {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.feedback {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #174a7c;
+}
+
+.record-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #607080;
+}
+
+.home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #1557a6;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .container {
+    padding: 18px 12px;
+  }
+
+  .question {
+    padding: 17px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>SEQS</h1>
+  <h2>MODULE 3 – RIGHT NOW</h2>
+  <p>English Year 3</p>
+</header>
+
+
+<div class="container">
+
+  <div class="student-info">
+    <strong>Name:</strong>
+    <span id="displayName">-</span>
+
+    <br><br>
+
+    <strong>Class:</strong>
+    <span id="displayClass">-</span>
+  </div>
+
+
+  <div class="instruction">
+    <strong>Instructions:</strong>
+    Read each question carefully and choose the best answer.
+    There are 20 questions.
+  </div>
+
+
+  <!-- ============================
+       PART A – READING
+  ============================= -->
+
+  <div class="section-title">
+    📖 PART A – READING
+  </div>
+
+  <div class="reading-text">
+
+    <strong>Read the passage.</strong>
+
+    <p>
+      It is Saturday morning. Adam and his family are at home.
+      Adam is reading a comic book in the living room.
+      His sister, Sara, is drawing a picture.
+      Their mother is cooking in the kitchen.
+      Their father is washing the car outside.
+      Their cat, Mimi, is sleeping under the table.
+      Everyone is busy right now.
+    </p>
+
+  </div>
+
+
+  <div class="question">
+    <p>1. What is Adam doing?</p>
+
+    <label class="option">
+      <input type="radio" name="q1" value="reading">
+      He is reading a comic book.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="drawing">
+      He is drawing a picture.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="cooking">
+      He is cooking.
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>2. Where is Adam's mother?</p>
+
+    <label class="option">
+      <input type="radio" name="q2" value="kitchen">
+      In the kitchen.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="garden">
+      In the garden.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="bedroom">
+      In the bedroom.
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>3. Sara is drawing a picture.</p>
+
+    <label class="option">
+      <input type="radio" name="q3" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q3" value="false">
+      False
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>4. Adam's father is sleeping.</p>
+
+    <label class="option">
+      <input type="radio" name="q4" value="true">
+      True
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q4" value="false">
+      False
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>5. What is Mimi doing?</p>
+
+    <label class="option">
+      <input type="radio" name="q5" value="sleeping">
+      It is sleeping.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="eating">
+      It is eating.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="running">
+      It is running.
+    </label>
+  </div>
+
+
+  <!-- ============================
+       PART B – GRAMMAR
+  ============================= -->
+
+  <div class="section-title">
+    🔤 PART B – GRAMMAR
+  </div>
+
+
+  <div class="question">
+    <p>6. Ali _____ football right now.</p>
+
+    <label class="option">
+      <input type="radio" name="q6" value="is playing">
+      is playing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q6" value="are playing">
+      are playing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q6" value="play">
+      play
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>7. The girls _____ in the park.</p>
+
+    <label class="option">
+      <input type="radio" name="q7" value="is running">
+      is running
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q7" value="are running">
+      are running
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q7" value="runs">
+      runs
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>8. I _____ my homework now.</p>
+
+    <label class="option">
+      <input type="radio" name="q8" value="am doing">
+      am doing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q8" value="is doing">
+      is doing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q8" value="are doing">
+      are doing
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>9. She _____ a glass of milk.</p>
+
+    <label class="option">
+      <input type="radio" name="q9" value="is drinking">
+      is drinking
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q9" value="are drinking">
+      are drinking
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q9" value="drink">
+      drink
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>10. We _____ English now.</p>
+
+    <label class="option">
+      <input type="radio" name="q10" value="are learning">
+      are learning
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q10" value="is learning">
+      is learning
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q10" value="learns">
+      learns
+    </label>
+  </div>
+
+
+  <!-- ============================
+       PART C – SPELLING
+  ============================= -->
+
+  <div class="section-title">
+    ✏️ PART C – SPELLING
+  </div>
+
+
+  <div class="question">
+    <p>11. Choose the correct spelling.</p>
+
+    <label class="option">
+      <input type="radio" name="q11" value="running">
+      running
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q11" value="runing">
+      runing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q11" value="runnning">
+      runnning
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>12. Choose the correct spelling.</p>
+
+    <label class="option">
+      <input type="radio" name="q12" value="swimming">
+      swimming
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q12" value="swiming">
+      swiming
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q12" value="swimmimg">
+      swimmimg
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>13. Choose the correct spelling.</p>
+
+    <label class="option">
+      <input type="radio" name="q13" value="writing">
+      writing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q13" value="writeing">
+      writeing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q13" value="writting">
+      writting
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>14. Choose the correct spelling.</p>
+
+    <label class="option">
+      <input type="radio" name="q14" value="dancing">
+      dancing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q14" value="danceing">
+      danceing
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q14" value="dansing">
+      dansing
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>15. Choose the correct spelling.</p>
+
+    <label class="option">
+      <input type="radio" name="q15" value="sitting">
+      sitting
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q15" value="siting">
+      siting
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q15" value="sittng">
+      sittng
+    </label>
+  </div>
+
+
+  <!-- ============================
+       PART D – WRITING
+  ============================= -->
+
+  <div class="section-title">
+    📝 PART D – WRITING: CHOOSE THE CORRECT SENTENCE
+  </div>
+
+
+  <div class="question">
+    <p>16. Choose the correct sentence.</p>
+
+    <label class="option">
+      <input type="radio" name="q16" value="She is reading a book.">
+      She is reading a book.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q16" value="She are reading a book.">
+      She are reading a book.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q16" value="She reading is a book.">
+      She reading is a book.
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>17. Choose the correct sentence.</p>
+
+    <label class="option">
+      <input type="radio" name="q17" value="They are playing football.">
+      They are playing football.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q17" value="They is playing football.">
+      They is playing football.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q17" value="They playing football are.">
+      They playing football are.
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>18. Choose the correct sentence.</p>
+
+    <label class="option">
+      <input type="radio" name="q18" value="I am eating an apple.">
+      I am eating an apple.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q18" value="I is eating an apple.">
+      I is eating an apple.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q18" value="I are eating an apple.">
+      I are eating an apple.
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>19. Choose the correct sentence.</p>
+
+    <label class="option">
+      <input type="radio" name="q19" value="The boys are swimming.">
+      The boys are swimming.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q19" value="The boys is swimming.">
+      The boys is swimming.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q19" value="The boys am swimming.">
+      The boys am swimming.
+    </label>
+  </div>
+
+
+  <div class="question">
+    <p>20. Choose the correct sentence.</p>
+
+    <label class="option">
+      <input type="radio" name="q20" value="My mother is cooking dinner.">
+      My mother is cooking dinner.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q20" value="My mother are cooking dinner.">
+      My mother are cooking dinner.
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q20" value="My mother cooking dinner is.">
+      My mother cooking dinner is.
+    </label>
+  </div>
+
+
+  <!-- ============================
+       SUBMIT
+  ============================= -->
+
+  <div class="submit-area">
+
+    <button
+      type="button"
+      class="submit-btn"
+      id="submitButton"
+      onclick="submitQuiz()"
+    >
+      SUBMIT QUIZ
+    </button>
+
+  </div>
+
+
+  <!-- ============================
+       RESULT
+  ============================= -->
+
+  <div class="result" id="resultBox">
+
+    <h2>QUIZ COMPLETED!</h2>
+
+    <p>Your Score</p>
+
+    <div class="score" id="scoreDisplay">
+      0 / 20
+    </div>
+
+    <div class="percentage" id="percentageDisplay">
+      0%
+    </div>
+
+    <div class="feedback" id="feedback">
+    </div>
+
+    <div class="record-status" id="recordStatus">
+      Saving your result...
+    </div>
+
+    <a href="index.html" class="home-btn">
+      BACK TO HOME
+    </a>
+
+  </div>
+
+</div>
+
+
+<footer>
+  SEQS – Smart English Quiz System
+  <br>
+  Module 3 – Right Now | English Year 3
+</footer>
+
+
+<script>
+
+/* =========================================
+   GOOGLE APPS SCRIPT
+========================================= */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
+
+
+/* =========================================
+   STUDENT INFORMATION
+========================================= */
+
+const studentName =
+  localStorage.getItem("seqsName") || "";
+
+const studentClass =
+  localStorage.getItem("seqsClass") || "";
+
+
+document.getElementById(
+  "displayName"
+).textContent =
+  studentName || "-";
+
+
+document.getElementById(
+  "displayClass"
+).textContent =
+  studentClass || "-";
+
+
+/* =========================================
+   ANSWER KEY
+========================================= */
+
+const answers = {
+
+  q1: "reading",
+  q2: "kitchen",
+  q3: "true",
+  q4: "false",
+  q5: "sleeping",
+
+  q6: "is playing",
+  q7: "are running",
+  q8: "am doing",
+  q9: "is drinking",
+  q10: "are learning",
+
+  q11: "running",
+  q12: "swimming",
+  q13: "writing",
+  q14: "dancing",
+  q15: "sitting",
+
+  q16: "She is reading a book.",
+  q17: "They are playing football.",
+  q18: "I am eating an apple.",
+  q19: "The boys are swimming.",
+  q20: "My mother is cooking dinner."
+
+};
+
+
+/* =========================================
+   SUBMIT QUIZ
+========================================= */
+
+function submitQuiz() {
+
+  let score = 0;
+
+
+  for (
+    let i = 1;
+    i <= 20;
+    i++
+  ) {
+
+    const selected =
+      document.querySelector(
+        'input[name="q' +
+        i +
+        '"]:checked'
+      );
+
+
+    if (
+      selected &&
+      selected.value ===
+      answers["q" + i]
+    ) {
+
+      score++;
+    }
+  }
+
+
+  const percentage =
+    Math.round(
+      (score / 20) * 100
+    );
+
+
+  document.getElementById(
+    "scoreDisplay"
+  ).textContent =
+    score + " / 20";
+
+
+  document.getElementById(
+    "percentageDisplay"
+  ).textContent =
+    percentage + "%";
+
+
+  /* FEEDBACK */
+
+  let feedback = "";
+
+
+  if (percentage >= 80) {
+
+    feedback =
+      "Excellent work! Keep it up!";
+
+  } else if (percentage >= 60) {
+
+    feedback =
+      "Good job! Keep practising!";
+
+  } else if (percentage >= 40) {
+
+    feedback =
+      "Nice try! You can improve with more practice.";
+
+  } else {
+
+    feedback =
+      "Keep learning and try again!";
+  }
+
+
+  document.getElementById(
+    "feedback"
+  ).textContent =
+    feedback;
+
+
+  document.getElementById(
+    "resultBox"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "submitButton"
+  ).disabled =
+    true;
+
+
+  document.getElementById(
+    "submitButton"
+  ).textContent =
+    "QUIZ SUBMITTED";
+
+
+  document.getElementById(
+    "resultBox"
+  ).scrollIntoView({
+    behavior: "smooth"
+  });
+
+
+  saveResult(
+    score,
+    percentage
+  );
+}
+
+
+/* =========================================
+   AUTO RECORD
+========================================= */
+
+async function saveResult(
+  score,
+  percentage
+) {
+
+  const recordStatus =
+    document.getElementById(
+      "recordStatus"
+    );
+
+
+  recordStatus.textContent =
+    "Saving your result...";
+
+
+  const data = {
+
+    name:
+      studentName,
+
+    studentClass:
+      studentClass,
+
+    module:
+      "Module 3 - Right Now",
+
+    score:
+      score + "/20",
+
+    percentage:
+      percentage + "%"
+
+  };
+
+
+  try {
+
+    await fetch(
+      GOOGLE_SCRIPT_URL,
+      {
+
+        method:
+          "POST",
+
+        mode:
+          "no-cors",
+
+        headers: {
+
+          "Content-Type":
+            "text/plain;charset=utf-8"
+
+        },
+
+        body:
+          JSON.stringify(data)
+
+      }
+    );
+
+
+    recordStatus.textContent =
+      "✓ Result recorded successfully.";
+
+
+  } catch (error) {
+
+    console.error(error);
+
+
+    recordStatus.textContent =
+      "Result displayed. Record connection unavailable.";
+
+  }
+}
+
+</script>
+
+</body>
+</html>
