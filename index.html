@@ -1,159 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SEQS | Smart English Quiz System</title>
+<title>SEQS | Smart English Quiz System</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #eaf4ff, #f7fbff);
-      min-height: 100vh;
-      color: #17324d;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f3ff, #f7fbff);
+  color: #17324d;
+  min-height: 100vh;
+}
 
-    header {
-      background: #1557a6;
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
+header {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: white;
+  text-align: center;
+  padding: 32px 20px;
+}
 
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 8px;
-    }
+.logo {
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
 
-    header p {
-      font-size: 18px;
-    }
+.subtitle {
+  font-size: 18px;
+  margin-top: 5px;
+}
 
-    .container {
-      max-width: 950px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
+.year {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #d9ecff;
+}
 
-    .welcome {
-      margin-bottom: 35px;
-    }
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 30px 20px;
+}
 
-    .welcome h2 {
-      font-size: 30px;
-      color: #1557a6;
-      margin-bottom: 10px;
-    }
+.welcome {
+  text-align: center;
+  margin-bottom: 25px;
+}
 
-    .welcome p {
-      font-size: 17px;
-      line-height: 1.6;
-    }
+.welcome h2 {
+  color: #1557a6;
+  margin-bottom: 8px;
+}
 
-    .year-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+.welcome p {
+  color: #607080;
+}
 
-    .card {
-      background: white;
-      padding: 30px 20px;
-      border-radius: 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-      transition: 0.3s;
-    }
+.student-card {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 7px;
+  color: #174a7c;
+}
 
-    .card h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-      color: #1557a6;
-    }
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #cbd8e6;
+  border-radius: 10px;
+  font-size: 16px;
+  background: white;
+}
 
-    .card p {
-      margin-bottom: 20px;
-    }
+input:focus, select:focus {
+  outline: none;
+  border-color: #1976d2;
+}
 
-    .btn {
-      display: inline-block;
-      background: #1557a6;
-      color: white;
-      text-decoration: none;
-      padding: 11px 22px;
-      border-radius: 25px;
-      font-weight: bold;
-    }
+.start-btn {
+  width: 100%;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  background: #1976d2;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .btn:hover {
-      background: #0d3f7d;
-    }
+.start-btn:hover {
+  background: #0d47a1;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-      color: #607080;
-      font-size: 14px;
-    }
-  </style>
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 22px;
+}
+
+.menu-btn {
+  background: white;
+  border: 2px solid #1976d2;
+  color: #1557a6;
+  padding: 15px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu-btn:hover {
+  background: #edf6ff;
+}
+
+footer {
+  text-align: center;
+  color: #718096;
+  padding: 28px 15px;
+  font-size: 13px;
+}
+
+@media (max-width: 500px) {
+  .logo {
+    font-size: 38px;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>SEQS</h1>
-  <p>Smart English Quiz System</p>
+  <div class="logo">SEQS</div>
+  <div class="subtitle">SMART ENGLISH QUIZ SYSTEM</div>
+  <div class="year">English Year 3</div>
 </header>
 
 <div class="container">
 
-  <section class="welcome">
+  <div class="welcome">
     <h2>Welcome to SEQS!</h2>
-    <p>
-      Learn English through fun and interactive quizzes.
-      Choose your year to begin.
-    </p>
-  </section>
+    <p>Enter your information and choose a module to begin.</p>
+  </div>
 
-  <div class="year-grid">
+  <div class="student-card">
 
-    <div class="card">
-      <h3>YEAR 1</h3>
-      <p>English quizzes for Year 1 pupils.</p>
-      <a href="#" class="btn">START</a>
-    </div>
+    <label for="studentName">NAME</label>
+    <input
+      type="text"
+      id="studentName"
+      placeholder="Enter your name"
+      autocomplete="off"
+    >
 
-    <div class="card">
-      <h3>YEAR 2</h3>
-      <p>English quizzes for Year 2 pupils.</p>
-      <a href="#" class="btn">START</a>
-    </div>
+    <label for="studentClass">CLASS</label>
+    <input
+      type="text"
+      id="studentClass"
+      placeholder="Enter your class"
+      autocomplete="off"
+    >
 
-    <div class="card">
-      <h3>YEAR 3</h3>
-      <p>English quizzes for Year 3 pupils.</p>
-      <a href="#" class="btn">START</a>
-    </div>
+    <label for="module">MODULE</label>
+
+    <select id="module">
+      <option value="">Choose a module</option>
+
+      <option value="module1">
+        Module 1
+      </option>
+
+      <option value="module2">
+        Module 2
+      </option>
+
+      <option value="module3">
+        Module 3
+      </option>
+
+      <option value="module4">
+        Module 4
+      </option>
+
+      <option value="module5">
+        Module 5
+      </option>
+
+      <option value="module6">
+        Module 6
+      </option>
+
+      <option value="module7">
+        Module 7
+      </option>
+
+      <option value="module8">
+        Module 8
+      </option>
+
+      <option value="module9">
+        Module 9
+      </option>
+
+    </select>
+
+    <button class="start-btn" onclick="startQuiz()">
+      START QUIZ
+    </button>
+
+  </div>
+
+
+  <div class="menu">
+
+    <button class="menu-btn" onclick="openLeaderboard()">
+      🏆 LEADERBOARD
+    </button>
+
+    <button class="menu-btn" onclick="openTeacherRecord()">
+      👩‍🏫 TEACHER RECORD
+    </button>
 
   </div>
 
 </div>
 
+
 <footer>
-  SEQS – Smart English Quiz System | 2026
+  SEQS – Smart English Quiz System<br>
+  English Year 3 | 2026
 </footer>
+
+
+<script>
+
+function startQuiz() {
+
+  const name =
+    document.getElementById("studentName").value.trim();
+
+  const studentClass =
+    document.getElementById("studentClass").value.trim();
+
+  const module =
+    document.getElementById("module").value;
+
+
+  if (name === "") {
+    alert("Please enter your name.");
+    return;
+  }
+
+  if (studentClass === "") {
+    alert("Please enter your class.");
+    return;
+  }
+
+  if (module === "") {
+    alert("Please choose a module.");
+    return;
+  }
+
+
+  localStorage.setItem("seqsName", name);
+  localStorage.setItem("seqsClass", studentClass);
+  localStorage.setItem("seqsModule", module);
+
+
+  alert(
+    "Welcome " + name +
+    "!\n\nClass: " + studentClass +
+    "\nModule: " + module +
+    "\n\nLet's start!"
+  );
+
+}
+
+
+function openLeaderboard() {
+  alert("Leaderboard will be available soon!");
+}
+
+
+function openTeacherRecord() {
+  alert("Teacher Record will be available soon!");
+}
+
+</script>
 
 </body>
 </html>
