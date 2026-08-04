@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SEQS | Smart English Quiz System</title>
 
 <style>
-* { box-sizing: border-box; }
+
+/* ================================
+   GENERAL
+================================ */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -17,17 +26,22 @@ body {
   min-height: 100vh;
 }
 
+
+/* ================================
+   HEADER
+================================ */
+
 header {
   background: linear-gradient(135deg, #0d47a1, #1976d2);
   color: white;
   text-align: center;
-  padding: 32px 20px;
+  padding: 35px 20px;
 }
 
 .logo {
-  font-size: 48px;
+  font-size: 50px;
   font-weight: 800;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 }
 
 .subtitle {
@@ -41,11 +55,21 @@ header {
   color: #d9ecff;
 }
 
+
+/* ================================
+   CONTAINER
+================================ */
+
 .container {
   max-width: 720px;
   margin: auto;
   padding: 30px 20px;
 }
+
+
+/* ================================
+   WELCOME
+================================ */
 
 .welcome {
   text-align: center;
@@ -59,7 +83,13 @@ header {
 
 .welcome p {
   color: #607080;
+  line-height: 1.5;
 }
+
+
+/* ================================
+   STUDENT CARD
+================================ */
 
 .student-card {
   background: white;
@@ -68,6 +98,11 @@ header {
   box-shadow: 0 8px 25px rgba(0,0,0,0.10);
 }
 
+
+/* ================================
+   FORM
+================================ */
+
 label {
   display: block;
   font-weight: bold;
@@ -75,7 +110,8 @@ label {
   color: #174a7c;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 14px;
   margin-bottom: 20px;
@@ -85,10 +121,16 @@ input, select {
   background: white;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: #1976d2;
 }
+
+
+/* ================================
+   START QUIZ BUTTON
+================================ */
 
 .start-btn {
   width: 100%;
@@ -106,6 +148,11 @@ input:focus, select:focus {
   background: #0d47a1;
 }
 
+
+/* ================================
+   BOTTOM MENU
+================================ */
+
 .menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -113,56 +160,133 @@ input:focus, select:focus {
   margin-top: 22px;
 }
 
+
+/* LINK BUTTON */
+
 .menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 58px;
+
   background: white;
   border: 2px solid #1976d2;
   color: #1557a6;
+
   padding: 15px 10px;
   border-radius: 15px;
+
   font-weight: bold;
-  cursor: pointer;
   font-size: 15px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: 0.2s;
 }
 
 .menu-btn:hover {
   background: #edf6ff;
+  transform: translateY(-2px);
 }
+
+
+/* ================================
+   FOOTER
+================================ */
 
 footer {
   text-align: center;
   color: #718096;
   padding: 28px 15px;
   font-size: 13px;
+  line-height: 1.6;
 }
 
+
+/* ================================
+   MOBILE
+================================ */
+
 @media (max-width: 500px) {
-  .logo { font-size: 38px; }
+
+  .logo {
+    font-size: 38px;
+  }
 
   .menu {
     grid-template-columns: 1fr;
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ================================
+     HEADER
+================================ -->
+
 <header>
-  <div class="logo">SEQS</div>
-  <div class="subtitle">SMART ENGLISH QUIZ SYSTEM</div>
-  <div class="year">English Year 3</div>
+
+  <div class="logo">
+    SEQS
+  </div>
+
+  <div class="subtitle">
+    SMART ENGLISH QUIZ SYSTEM
+  </div>
+
+  <div class="year">
+    English Year 3
+  </div>
+
 </header>
+
+
+<!-- ================================
+     MAIN
+================================ -->
 
 <div class="container">
 
+
+  <!-- WELCOME -->
+
   <div class="welcome">
-    <h2>Welcome to SEQS!</h2>
-    <p>Enter your information and choose a module to begin.</p>
+
+    <h2>
+      Welcome to SEQS!
+    </h2>
+
+    <p>
+      Enter your name and class,
+      then choose a module to begin.
+    </p>
+
   </div>
+
+
+  <!-- ================================
+       STUDENT INFORMATION
+  ================================= -->
 
   <div class="student-card">
 
-    <label for="studentName">NAME</label>
+
+    <!-- NAME -->
+
+    <label for="studentName">
+      NAME
+    </label>
+
     <input
       type="text"
       id="studentName"
@@ -170,7 +294,13 @@ footer {
       autocomplete="off"
     >
 
-    <label for="studentClass">CLASS</label>
+
+    <!-- CLASS -->
+
+    <label for="studentClass">
+      CLASS
+    </label>
+
     <input
       type="text"
       id="studentClass"
@@ -178,97 +308,267 @@ footer {
       autocomplete="off"
     >
 
-    <label for="module">MODULE</label>
+
+    <!-- MODULE -->
+
+    <label for="module">
+      MODULE
+    </label>
+
 
     <select id="module">
-      <option value="">Choose a module</option>
-      <option value="module1">Module 1 – Welcome!</option>
-      <option value="module2">Module 2 – Every Day</option>
-      <option value="module3">Module 3 – Right Now</option>
-      <option value="module4">Module 4 – Year In, Year Out</option>
-      <option value="module5">Module 5 – My New House</option>
-      <option value="module6">Module 6 – Food, Please!</option>
-      <option value="module7">Module 7 – Out and About</option>
-      <option value="module8">Module 8 – Where Were You Yesterday?</option>
-      <option value="module9">Module 9 – On Holiday</option>
-      <option value="module10">Module 10 – The World Around Us</option>
+
+      <option value="">
+        Choose a module
+      </option>
+
+      <option value="module1">
+        Module 1 – Welcome!
+      </option>
+
+      <option value="module2">
+        Module 2 – Every Day
+      </option>
+
+      <option value="module3">
+        Module 3 – Right Now
+      </option>
+
+      <option value="module4">
+        Module 4 – Year In, Year Out
+      </option>
+
+      <option value="module5">
+        Module 5 – My New House
+      </option>
+
+      <option value="module6">
+        Module 6 – Food, Please!
+      </option>
+
+      <option value="module7">
+        Module 7 – Out and About
+      </option>
+
+      <option value="module8">
+        Module 8 – Where Were You Yesterday?
+      </option>
+
+      <option value="module9">
+        Module 9 – On Holiday
+      </option>
+
+      <option value="module10">
+        Module 10 – The World Around Us
+      </option>
+
     </select>
 
-    <button class="start-btn" onclick="startQuiz()">
+
+    <!-- START QUIZ -->
+
+    <button
+      type="button"
+      class="start-btn"
+      onclick="startQuiz()"
+    >
       START QUIZ
     </button>
 
+
   </div>
+
+
+  <!-- ================================
+       MENU
+  ================================= -->
 
   <div class="menu">
 
-    <button class="menu-btn" onclick="openLeaderboard()">
-      🏆 LEADERBOARD
-    </button>
 
-    <button class="menu-btn" onclick="openTeacherRecord()">
+    <!-- LEADERBOARD -->
+
+    <a
+      href="leaderboard.html"
+      class="menu-btn"
+    >
+      🏆 LEADERBOARD
+    </a>
+
+
+    <!-- TEACHER RECORD -->
+
+    <a
+      href="teacher.html"
+      class="menu-btn"
+    >
       👩‍🏫 TEACHER RECORD
-    </button>
+    </a>
+
 
   </div>
 
+
 </div>
 
+
+<!-- ================================
+     FOOTER
+================================ -->
+
 <footer>
-  SEQS – Smart English Quiz System<br>
+
+  SEQS – Smart English Quiz System
+
+  <br>
+
   English Year 3 | 2026
+
 </footer>
+
+
+<!-- ================================
+     JAVASCRIPT
+================================ -->
 
 <script>
 
+
+/* ================================
+   START QUIZ
+================================ */
+
 function startQuiz() {
 
+
+  /* GET NAME */
+
   const name =
-    document.getElementById("studentName").value.trim();
+    document
+    .getElementById("studentName")
+    .value
+    .trim();
+
+
+  /* GET CLASS */
 
   const studentClass =
-    document.getElementById("studentClass").value.trim();
+    document
+    .getElementById("studentClass")
+    .value
+    .trim();
+
+
+  /* GET MODULE */
+
+  const moduleSelect =
+    document
+    .getElementById("module");
+
 
   const module =
-    document.getElementById("module").value;
+    moduleSelect.value;
+
 
   const moduleText =
-    document.getElementById("module")
-    .options[document.getElementById("module").selectedIndex]
+    moduleSelect
+    .options[moduleSelect.selectedIndex]
     .text;
 
+
+  /* ================================
+     VALIDATION
+  ================================= */
+
+
   if (name === "") {
-    alert("Please enter your name.");
+
+    alert(
+      "Please enter your name."
+    );
+
+    document
+    .getElementById("studentName")
+    .focus();
+
     return;
+
   }
+
 
   if (studentClass === "") {
-    alert("Please enter your class.");
+
+    alert(
+      "Please enter your class."
+    );
+
+    document
+    .getElementById("studentClass")
+    .focus();
+
     return;
+
   }
+
 
   if (module === "") {
-    alert("Please choose a module.");
+
+    alert(
+      "Please choose a module."
+    );
+
+    document
+    .getElementById("module")
+    .focus();
+
     return;
+
   }
 
-  localStorage.setItem("seqsName", name);
-  localStorage.setItem("seqsClass", studentClass);
-  localStorage.setItem("seqsModule", module);
-  localStorage.setItem("seqsModuleName", moduleText);
 
-  window.location.href = module + ".html";
+  /* ================================
+     SAVE STUDENT INFORMATION
+  ================================= */
+
+
+  localStorage.setItem(
+    "seqsName",
+    name
+  );
+
+
+  localStorage.setItem(
+    "seqsClass",
+    studentClass
+  );
+
+
+  localStorage.setItem(
+    "seqsModule",
+    module
+  );
+
+
+  localStorage.setItem(
+    "seqsModuleName",
+    moduleText
+  );
+
+
+  /* ================================
+     OPEN QUIZ
+  ================================= */
+
+
+  window.location.href =
+    module + ".html";
+
 }
 
-function openLeaderboard() {
-  alert("Leaderboard will be available soon!");
-}
-
-function openTeacherRecord() {
-  alert("Teacher Record will be available soon!");
-}
 
 </script>
 
+
 </body>
+
 </html>
