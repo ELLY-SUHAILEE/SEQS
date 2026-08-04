@@ -19,10 +19,13 @@ body {
   font-family: Arial, sans-serif;
   background: #eef6ff;
   color: #17324d;
+  min-height: 100vh;
 }
 
 
-/* HEADER */
+/* ===============================
+   HEADER
+================================ */
 
 header {
   background: linear-gradient(135deg, #0d47a1, #1976d2);
@@ -33,18 +36,19 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 38px;
+  font-size: 40px;
   letter-spacing: 3px;
 }
 
-header h2 {
+header p {
   margin: 7px 0 0;
-  font-size: 18px;
-  font-weight: normal;
+  font-size: 17px;
 }
 
 
-/* CONTAINER */
+/* ===============================
+   CONTAINER
+================================ */
 
 .container {
   max-width: 1200px;
@@ -53,7 +57,133 @@ header h2 {
 }
 
 
-/* DASHBOARD */
+/* ===============================
+   LOGIN
+================================ */
+
+.login-wrapper {
+  max-width: 430px;
+  margin: 50px auto;
+}
+
+.login-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.12);
+  text-align: center;
+}
+
+.lock {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.login-card h2 {
+  margin: 5px 0 10px;
+  color: #1557a6;
+}
+
+.login-card p {
+  color: #718096;
+  line-height: 1.5;
+}
+
+.password-input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  border: 1px solid #ccd8e5;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.login-btn {
+  width: 100%;
+  border: none;
+  padding: 14px;
+  margin-top: 15px;
+  border-radius: 30px;
+  background: #1976d2;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #0d47a1;
+}
+
+.login-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.login-message {
+  min-height: 22px;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #1557a6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* ===============================
+   DASHBOARD
+================================ */
+
+#dashboardSection {
+  display: none;
+}
+
+.teacher-bar {
+  background: white;
+  border-radius: 15px;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.teacher-bar strong {
+  color: #1557a6;
+}
+
+.logout-btn {
+  border: none;
+  background: #c62828;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background: #a51f1f;
+}
+
+
+/* ===============================
+   SUMMARY CARDS
+================================ */
 
 .dashboard {
   display: grid;
@@ -83,7 +213,24 @@ header h2 {
 }
 
 
-/* FILTER */
+/* ===============================
+   STATUS
+================================ */
+
+.status {
+  background: #e8f3ff;
+  color: #174a7c;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/* ===============================
+   SEARCH
+================================ */
 
 .filters {
   background: white;
@@ -102,20 +249,9 @@ header h2 {
 }
 
 
-/* STATUS */
-
-.status {
-  background: #e8f3ff;
-  color: #174a7c;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 18px;
-  text-align: center;
-  font-size: 14px;
-}
-
-
-/* TABLE */
+/* ===============================
+   TABLE
+================================ */
 
 .table-box {
   background: white;
@@ -156,7 +292,9 @@ tbody tr:hover {
 }
 
 
-/* BUTTONS */
+/* ===============================
+   ACTIONS
+================================ */
 
 .actions {
   text-align: center;
@@ -181,7 +319,9 @@ tbody tr:hover {
 }
 
 
-/* FOOTER */
+/* ===============================
+   FOOTER
+================================ */
 
 footer {
   text-align: center;
@@ -192,12 +332,19 @@ footer {
 }
 
 
-/* MOBILE */
+/* ===============================
+   MOBILE
+================================ */
 
-@media(max-width: 700px) {
+@media(max-width:700px) {
 
   .dashboard {
     grid-template-columns: 1fr;
+  }
+
+  .teacher-bar {
+    flex-direction: column;
+    text-align: center;
   }
 
 }
@@ -214,17 +361,119 @@ footer {
 
   <h1>SEQS</h1>
 
-  <h2>
-    TEACHER RECORD DASHBOARD
-  </h2>
+  <p>
+    SMART ENGLISH QUIZ SYSTEM
+  </p>
 
 </header>
 
 
-<div class="container">
+
+<!-- ==================================
+     LOGIN SECTION
+================================== -->
+
+<div
+  class="container"
+  id="loginSection"
+>
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+
+      <div class="lock">
+        🔒
+      </div>
+
+      <h2>
+        TEACHER ACCESS
+      </h2>
+
+      <p>
+        This section is restricted to
+        authorised teachers only.
+      </p>
 
 
-  <!-- DASHBOARD CARDS -->
+      <input
+        type="password"
+        id="teacherPassword"
+        class="password-input"
+        placeholder="Enter teacher password"
+        autocomplete="current-password"
+      >
+
+
+      <button
+        type="button"
+        class="login-btn"
+        id="loginButton"
+        onclick="teacherLogin()"
+      >
+        LOGIN
+      </button>
+
+
+      <div
+        class="login-message"
+        id="loginMessage"
+      >
+      </div>
+
+
+      <a
+        href="index.html"
+        class="home-link"
+      >
+        ← BACK TO SEQS
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ==================================
+     TEACHER DASHBOARD
+================================== -->
+
+<div
+  class="container"
+  id="dashboardSection"
+>
+
+
+  <!-- TEACHER BAR -->
+
+  <div class="teacher-bar">
+
+    <div>
+
+      🔒
+      <strong>
+        AUTHORISED TEACHER
+      </strong>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="logout-btn"
+      onclick="teacherLogout()"
+    >
+      LOGOUT
+    </button>
+
+  </div>
+
+
+
+  <!-- SUMMARY -->
 
   <div class="dashboard">
 
@@ -280,14 +529,16 @@ footer {
   </div>
 
 
+
   <!-- STATUS -->
 
   <div
     class="status"
     id="statusMessage"
   >
-    Connecting to SEQS Student Record...
+    Loading student records...
   </div>
+
 
 
   <!-- SEARCH -->
@@ -304,12 +555,12 @@ footer {
   </div>
 
 
-  <!-- TABLE -->
+
+  <!-- RECORD TABLE -->
 
   <div class="table-box">
 
-
-    <table id="recordTable">
+    <table>
 
       <thead>
 
@@ -352,7 +603,7 @@ footer {
             colspan="6"
             class="empty"
           >
-            Loading student records...
+            Loading records...
           </td>
 
         </tr>
@@ -361,17 +612,19 @@ footer {
 
     </table>
 
-
   </div>
 
 
-  <!-- BUTTONS -->
+
+  <!-- ACTIONS -->
 
   <div class="actions">
 
+
     <button
+      type="button"
       class="btn"
-      onclick="loadRecords()"
+      onclick="loadTeacherRecords()"
     >
       REFRESH RECORDS
     </button>
@@ -384,10 +637,12 @@ footer {
       BACK TO HOME
     </a>
 
+
   </div>
 
 
 </div>
+
 
 
 <footer>
@@ -401,13 +656,13 @@ footer {
 </footer>
 
 
+
 <script>
 
 
-/* ==========================================
-   NEW GOOGLE APPS SCRIPT URL
-========================================== */
-
+/* =====================================================
+   SEQS WEB APP
+===================================================== */
 
 const GOOGLE_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
@@ -417,82 +672,320 @@ let allRecords = [];
 
 
 
-/* ==========================================
-   LOAD RECORDS
-========================================== */
+/* =====================================================
+   TEACHER LOGIN
+===================================================== */
+
+async function teacherLogin() {
 
 
-function loadRecords() {
+  const password =
+    document
+      .getElementById(
+        "teacherPassword"
+      )
+      .value;
+
+
+  const message =
+    document
+      .getElementById(
+        "loginMessage"
+      );
+
+
+  const button =
+    document
+      .getElementById(
+        "loginButton"
+      );
+
+
+  if (!password) {
+
+    message.style.color =
+      "#c62828";
+
+    message.textContent =
+      "Please enter the teacher password.";
+
+    return;
+
+  }
+
+
+  button.disabled =
+    true;
+
+
+  button.textContent =
+    "CHECKING...";
+
+
+  message.style.color =
+    "#1557a6";
+
+
+  message.textContent =
+    "Verifying teacher access...";
+
+
+  try {
+
+
+    const response =
+      await fetch(
+        GOOGLE_SCRIPT_URL,
+        {
+
+          method:
+            "POST",
+
+          headers: {
+
+            "Content-Type":
+              "text/plain;charset=utf-8"
+
+          },
+
+          body:
+            JSON.stringify({
+
+              action:
+                "teacherLogin",
+
+              password:
+                password
+
+            })
+
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      data.authenticated === true &&
+      data.token
+    ) {
+
+
+      sessionStorage.setItem(
+        "seqsTeacherToken",
+        data.token
+      );
+
+
+      document
+        .getElementById(
+          "teacherPassword"
+        )
+        .value =
+        "";
+
+
+      showDashboard();
+
+
+      return;
+
+    }
+
+
+    message.style.color =
+      "#c62828";
+
+
+    message.textContent =
+      "Incorrect teacher password.";
+
+
+  } catch (error) {
+
+
+    console.error(
+      "Teacher login error:",
+      error
+    );
+
+
+    message.style.color =
+      "#c62828";
+
+
+    message.textContent =
+      "Unable to verify teacher access.";
+
+
+  } finally {
+
+
+    button.disabled =
+      false;
+
+
+    button.textContent =
+      "LOGIN";
+
+
+  }
+
+}
+
+
+
+/* =====================================================
+   SHOW DASHBOARD
+===================================================== */
+
+function showDashboard() {
 
 
   document
-    .getElementById("statusMessage")
+    .getElementById(
+      "loginSection"
+    )
+    .style.display =
+    "none";
+
+
+  document
+    .getElementById(
+      "dashboardSection"
+    )
+    .style.display =
+    "block";
+
+
+  loadTeacherRecords();
+
+}
+
+
+
+/* =====================================================
+   LOAD TEACHER RECORDS
+===================================================== */
+
+async function loadTeacherRecords() {
+
+
+  const token =
+    sessionStorage.getItem(
+      "seqsTeacherToken"
+    );
+
+
+  if (!token) {
+
+    showLogin();
+
+    return;
+
+  }
+
+
+  document
+    .getElementById(
+      "statusMessage"
+    )
     .textContent =
     "Loading student records...";
 
 
-  fetch(
-    GOOGLE_SCRIPT_URL +
-    "?t=" +
-    new Date().getTime()
-  )
+  try {
 
 
-  .then(function(response) {
+    const url =
+      GOOGLE_SCRIPT_URL
+      +
+      "?action=teacherRecords"
+      +
+      "&token="
+      +
+      encodeURIComponent(
+        token
+      )
+      +
+      "&t="
+      +
+      Date.now();
 
 
-    if (!response.ok) {
+    const response =
+      await fetch(url);
 
-      throw new Error(
-        "Unable to connect to server."
+
+    const data =
+      await response.json();
+
+
+
+    /* UNAUTHORIZED */
+
+    if (
+      data.status ===
+      "unauthorized"
+    ) {
+
+
+      sessionStorage.removeItem(
+        "seqsTeacherToken"
       );
+
+
+      alert(
+        "Teacher session has expired. Please login again."
+      );
+
+
+      showLogin();
+
+
+      return;
 
     }
 
 
-    return response.json();
 
-
-  })
-
-
-  .then(function(data) {
-
-
-    console.log(
-      "SEQS DATA:",
-      data
-    );
-
-
-    /* CHECK APPS SCRIPT ERROR */
+    /* ERROR */
 
     if (
-      data &&
-      data.status === "error"
+      data.status ===
+      "error"
     ) {
+
 
       throw new Error(
         data.message ||
-        "Apps Script error."
+        "Unable to load records."
       );
 
     }
 
 
-    /* CHECK DATA FORMAT */
 
-    if (!Array.isArray(data)) {
+    if (
+      !Array.isArray(data)
+    ) {
+
 
       throw new Error(
-        "Invalid record format."
+        "Invalid student record format."
       );
 
     }
+
 
 
     allRecords =
-      data.slice().reverse();
+      data
+        .slice()
+        .reverse();
+
 
 
     displayRecords(
@@ -506,55 +999,39 @@ function loadRecords() {
 
 
     document
-      .getElementById("statusMessage")
+      .getElementById(
+        "statusMessage"
+      )
       .textContent =
       "✓ Student records loaded successfully.";
 
 
-  })
-
-
-  .catch(function(error) {
+  } catch (error) {
 
 
     console.error(
-      "SEQS Teacher Record Error:",
+      "Teacher record error:",
       error
     );
 
 
     document
-      .getElementById("statusMessage")
+      .getElementById(
+        "statusMessage"
+      )
       .textContent =
-      "Unable to load student records. Please check the SEQS connection.";
+      "Unable to load student records.";
 
 
-    document
-      .getElementById("recordBody")
-      .innerHTML =
-      `
-      <tr>
-        <td
-          colspan="6"
-          class="empty"
-        >
-          No records could be loaded.
-        </td>
-      </tr>
-      `;
-
-
-  });
-
+  }
 
 }
 
 
 
-/* ==========================================
+/* =====================================================
    DISPLAY RECORDS
-========================================== */
-
+===================================================== */
 
 function displayRecords(records) {
 
@@ -566,12 +1043,13 @@ function displayRecords(records) {
       );
 
 
-  body.innerHTML = "";
+  body.innerHTML =
+    "";
 
 
-  /* NO RECORD */
-
-  if (records.length === 0) {
+  if (
+    records.length === 0
+  ) {
 
 
     body.innerHTML =
@@ -595,8 +1073,6 @@ function displayRecords(records) {
 
 
 
-  /* DISPLAY EACH RECORD */
-
   records.forEach(
     function(record) {
 
@@ -611,7 +1087,9 @@ function displayRecords(records) {
         "-";
 
 
-      if (record.timestamp) {
+      if (
+        record.timestamp
+      ) {
 
 
         const parsedDate =
@@ -629,13 +1107,13 @@ function displayRecords(records) {
 
           date =
             parsedDate
-            .toLocaleString(
-              "en-MY",
-              {
-                timeZone:
-                  "Asia/Kuala_Lumpur"
-              }
-            );
+              .toLocaleString(
+                "en-MY",
+                {
+                  timeZone:
+                    "Asia/Kuala_Lumpur"
+                }
+              );
 
 
         }
@@ -683,19 +1161,15 @@ function displayRecords(records) {
     }
   );
 
-
 }
 
 
 
-/* ==========================================
+/* =====================================================
    DASHBOARD CALCULATION
-========================================== */
+===================================================== */
 
-
-function calculateDashboard(
-  records
-) {
+function calculateDashboard(records) {
 
 
   const total =
@@ -710,17 +1184,23 @@ function calculateDashboard(
     0;
 
 
+
   records.forEach(
     function(record) {
 
 
       const percentage =
         parseFloat(
+
           String(
             record.percentage ||
             "0"
           )
-          .replace("%", "")
+          .replace(
+            "%",
+            ""
+          )
+
         ) || 0;
 
 
@@ -733,10 +1213,8 @@ function calculateDashboard(
         highest
       ) {
 
-
         highest =
           percentage;
-
 
       }
 
@@ -782,15 +1260,13 @@ function calculateDashboard(
     .textContent =
     highest + "%";
 
-
 }
 
 
 
-/* ==========================================
-   SEARCH / FILTER
-========================================== */
-
+/* =====================================================
+   FILTER
+===================================================== */
 
 function filterRecords() {
 
@@ -803,23 +1279,6 @@ function filterRecords() {
       .value
       .toLowerCase()
       .trim();
-
-
-
-  if (
-    keyword === ""
-  ) {
-
-
-    displayRecords(
-      allRecords
-    );
-
-
-    return;
-
-
-  }
 
 
 
@@ -870,25 +1329,85 @@ function filterRecords() {
 
         );
 
-
       }
     );
-
 
 
   displayRecords(
     filtered
   );
 
+}
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function teacherLogout() {
+
+
+  sessionStorage.removeItem(
+    "seqsTeacherToken"
+  );
+
+
+  allRecords =
+    [];
+
+
+  showLogin();
 
 }
 
 
 
-/* ==========================================
-   SECURITY FOR DISPLAY
-========================================== */
+/* =====================================================
+   SHOW LOGIN
+===================================================== */
 
+function showLogin() {
+
+
+  document
+    .getElementById(
+      "dashboardSection"
+    )
+    .style.display =
+    "none";
+
+
+  document
+    .getElementById(
+      "loginSection"
+    )
+    .style.display =
+    "block";
+
+
+  document
+    .getElementById(
+      "loginMessage"
+    )
+    .textContent =
+    "";
+
+
+  document
+    .getElementById(
+      "teacherPassword"
+    )
+    .value =
+    "";
+
+}
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
 function escapeHTML(value) {
 
@@ -920,17 +1439,124 @@ function escapeHTML(value) {
       "&#039;"
     );
 
+}
+
+
+
+/* =====================================================
+   CHECK EXISTING SESSION
+===================================================== */
+
+async function checkExistingSession() {
+
+
+  const token =
+    sessionStorage.getItem(
+      "seqsTeacherToken"
+    );
+
+
+  if (!token) {
+
+    showLogin();
+
+    return;
+
+  }
+
+
+  try {
+
+
+    const url =
+      GOOGLE_SCRIPT_URL
+      +
+      "?action=checkTeacher"
+      +
+      "&token="
+      +
+      encodeURIComponent(
+        token
+      )
+      +
+      "&t="
+      +
+      Date.now();
+
+
+    const response =
+      await fetch(url);
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      data.authenticated ===
+      true
+    ) {
+
+
+      showDashboard();
+
+
+    } else {
+
+
+      sessionStorage.removeItem(
+        "seqsTeacherToken"
+      );
+
+
+      showLogin();
+
+    }
+
+
+  } catch (error) {
+
+
+    sessionStorage.removeItem(
+      "seqsTeacherToken"
+    );
+
+
+    showLogin();
+
+  }
 
 }
 
 
 
-/* ==========================================
-   START
-========================================== */
+/* ENTER KEY LOGIN */
+
+document
+  .getElementById(
+    "teacherPassword"
+  )
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key ===
+        "Enter"
+      ) {
+
+        teacherLogin();
+
+      }
+
+    }
+  );
 
 
-loadRecords();
+
+/* START */
+
+checkExistingSession();
 
 
 </script>
