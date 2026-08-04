@@ -1,356 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SEQS | Leaderboard</title>
-
-<style>
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef6ff;
-  color: #17324d;
-  min-height: 100vh;
-}
-
-
-/* HEADER */
-
-header {
-  background: linear-gradient(135deg, #0d47a1, #1976d2);
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 40px;
-  letter-spacing: 3px;
-}
-
-header h2 {
-  margin: 8px 0 0;
-  font-size: 21px;
-}
-
-header p {
-  margin: 8px 0 0;
-  opacity: .9;
-}
-
-
-/* CONTAINER */
-
-.container {
-  max-width: 750px;
-  margin: auto;
-  padding: 25px 15px;
-}
-
-
-/* TITLE */
-
-.title-card {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  text-align: center;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.08);
-}
-
-.trophy {
-  font-size: 55px;
-}
-
-.title-card h2 {
-  margin: 8px 0;
-  color: #1557a6;
-}
-
-.title-card p {
-  margin: 0;
-  color: #718096;
-}
-
-
-/* STATUS */
-
-.status {
-  background: #e8f3ff;
-  color: #174a7c;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 18px;
-  text-align: center;
-  font-size: 14px;
-}
-
-
-/* LEADERBOARD */
-
-.leaderboard {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-
-/* NORMAL ROW */
-
-.leader-row {
-  background: white;
-  border-radius: 15px;
-  padding: 17px 20px;
-  display: grid;
-  grid-template-columns: 70px 1fr 100px;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.07);
-}
-
-
-/* TOP THREE */
-
-.rank-1 {
-  border: 2px solid #f0c419;
-  transform: scale(1.02);
-}
-
-.rank-2 {
-  border: 2px solid #b0bec5;
-}
-
-.rank-3 {
-  border: 2px solid #c98b5b;
-}
-
-
-/* RANK */
-
-.rank {
-  font-size: 21px;
-  font-weight: bold;
-  text-align: center;
-}
-
-
-/* NAME */
-
-.student-name {
-  font-size: 17px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-
-/* PERCENTAGE */
-
-.percentage {
-  font-size: 20px;
-  font-weight: bold;
-  color: #1976d2;
-  text-align: right;
-}
-
-
-/* TOP STUDENT */
-
-.rank-1 .student-name {
-  font-size: 19px;
-  color: #9a7000;
-}
-
-.rank-1 .percentage {
-  font-size: 23px;
-}
-
-
-/* EMPTY */
-
-.empty {
-  background: white;
-  border-radius: 15px;
-  padding: 35px;
-  text-align: center;
-  color: #718096;
-  box-shadow: 0 4px 12px rgba(0,0,0,.07);
-}
-
-
-/* BUTTONS */
-
-.actions {
-  text-align: center;
-  margin-top: 25px;
-}
-
-.btn {
-  display: inline-block;
-  background: #1557a6;
-  color: white;
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 25px;
-  margin: 5px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background: #0d47a1;
-}
-
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #718096;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px) {
-
-  header h1 {
-    font-size: 34px;
-  }
-
-  .leader-row {
-    grid-template-columns: 55px 1fr 75px;
-    padding: 15px 12px;
-  }
-
-  .student-name {
-    font-size: 14px;
-  }
-
-  .percentage {
-    font-size: 17px;
-  }
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SEQS | Leaderboard</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef6ff;
+      color: #17324d;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+
+    header {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+      letter-spacing: 4px;
+    }
+
+    header h2 {
+      margin: 8px 0 0;
+      font-size: 22px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 16px;
+    }
+
+    /* MAIN */
+
+    .container {
+      max-width: 760px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+
+    /* TITLE CARD */
+
+    .title-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .trophy {
+      font-size: 55px;
+    }
+
+    .title-card h2 {
+      margin: 8px 0;
+      color: #1557a6;
+      font-size: 28px;
+    }
+
+    .title-card p {
+      margin: 0;
+      color: #718096;
+    }
+
+    /* STATUS */
+
+    .status {
+      background: #e1efff;
+      color: #174a7c;
+      text-align: center;
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    /* LEADERBOARD */
+
+    .leaderboard {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .leader-row {
+      background: white;
+      border-radius: 15px;
+      padding: 18px 20px;
+
+      display: grid;
+      grid-template-columns: 80px 1fr 100px;
+      align-items: center;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    /* TOP 3 */
+
+    .rank-1 {
+      border: 3px solid #f0c419;
+    }
+
+    .rank-2 {
+      border: 2px solid #b0bec5;
+    }
+
+    .rank-3 {
+      border: 2px solid #c98b5b;
+    }
+
+    .rank {
+      font-size: 21px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .student-name {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .percentage {
+      font-size: 21px;
+      font-weight: bold;
+      color: #1976d2;
+      text-align: right;
+    }
+
+    .rank-1 .student-name {
+      color: #9a7000;
+      font-size: 20px;
+    }
+
+    .rank-1 .percentage {
+      font-size: 24px;
+    }
+
+    /* EMPTY / ERROR */
+
+    .empty {
+      background: white;
+      padding: 35px 20px;
+      border-radius: 15px;
+      text-align: center;
+      color: #718096;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    /* BUTTONS */
+
+    .actions {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #1557a6;
+      color: white;
+      text-decoration: none;
+      border: none;
+      padding: 13px 23px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background: #0d47a1;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      color: #718096;
+      padding: 25px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 34px;
+      }
+
+      .leader-row {
+        grid-template-columns: 60px 1fr 80px;
+        padding: 15px 12px;
+      }
+
+      .student-name {
+        font-size: 14px;
+      }
+
+      .percentage {
+        font-size: 17px;
+      }
+
+      .title-card h2 {
+        font-size: 23px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <header>
+    <h1>SEQS</h1>
+    <h2>🏆 LEADERBOARD</h2>
+    <p>Smart English Quiz System</p>
+  </header>
 
-<header>
+  <main class="container">
 
-  <h1>SEQS</h1>
+    <div class="title-card">
 
-  <h2>🏆 LEADERBOARD</h2>
+      <div class="trophy">
+        🏆
+      </div>
 
-  <p>
-    Smart English Quiz System
-  </p>
+      <h2>TOP 10 STUDENTS</h2>
 
-</header>
+      <p>
+        Keep learning. Keep improving. Keep shining!
+      </p>
 
-
-<div class="container">
-
-
-  <div class="title-card">
-
-    <div class="trophy">
-      🏆
     </div>
 
-    <h2>
-      TOP 10 STUDENTS
-    </h2>
-
-    <p>
-      Keep learning. Keep improving. Keep shining!
-    </p>
-
-  </div>
-
-
-  <div
-    class="status"
-    id="statusMessage"
-  >
-    Loading leaderboard...
-  </div>
-
-
-  <div
-    class="leaderboard"
-    id="leaderboard"
-  >
-
-    <div class="empty">
-      Loading Top 10...
+    <div
+      class="status"
+      id="statusMessage"
+    >
+      Loading leaderboard...
     </div>
 
-  </div>
-
-
-  <div class="actions">
-
-    <button
-      type="button"
-      class="btn"
-      onclick="loadLeaderboard()"
+    <div
+      class="leaderboard"
+      id="leaderboard"
     >
-      REFRESH
-    </button>
+      <div class="empty">
+        Loading Top 10...
+      </div>
+    </div>
 
-    <a
-      href="index.html"
-      class="btn"
-    >
-      BACK TO HOME
-    </a>
+    <div class="actions">
 
-  </div>
+      <button
+        class="btn"
+        type="button"
+        onclick="loadLeaderboard()"
+      >
+        REFRESH
+      </button>
 
+      <a
+        class="btn"
+        href="index.html"
+      >
+        BACK TO HOME
+      </a>
 
-</div>
+    </div>
 
+  </main>
 
-<footer>
-
-  SEQS – Smart English Quiz System
-
-  <br>
-
-  English Year 3 | 2026
-
-</footer>
+  <footer>
+    SEQS – Smart English Quiz System
+    <br>
+    English Year 3 | 2026
+  </footer>
 
 
 <script>
 
-
 /* =========================================
-   SEQS GOOGLE APPS SCRIPT
+   GOOGLE APPS SCRIPT URL
 ========================================= */
 
 const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
+  "https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
 
 
 /* =========================================
@@ -359,38 +309,33 @@ const GOOGLE_SCRIPT_URL =
 
 async function loadLeaderboard() {
 
-
   const status =
-    document.getElementById(
-      "statusMessage"
-    );
-
+    document.getElementById("statusMessage");
 
   const leaderboard =
-    document.getElementById(
-      "leaderboard"
-    );
+    document.getElementById("leaderboard");
 
 
   status.textContent =
     "Loading leaderboard...";
 
 
+  leaderboard.innerHTML =
+    '<div class="empty">Loading Top 10...</div>';
+
+
   try {
 
-
     const url =
-      GOOGLE_SCRIPT_URL
-      +
-      "?action=leaderboard"
-      +
-      "&t="
-      +
-      Date.now();
+      GOOGLE_SCRIPT_URL +
+      "?action=leaderboard";
 
 
     const response =
-      await fetch(url);
+      await fetch(url, {
+        method: "GET",
+        redirect: "follow"
+      });
 
 
     if (!response.ok) {
@@ -406,21 +351,7 @@ async function loadLeaderboard() {
       await response.json();
 
 
-    if (
-      data.status === "error"
-    ) {
-
-      throw new Error(
-        data.message ||
-        "Leaderboard error."
-      );
-
-    }
-
-
-    if (
-      !Array.isArray(data)
-    ) {
+    if (!Array.isArray(data)) {
 
       throw new Error(
         "Invalid leaderboard data."
@@ -429,9 +360,7 @@ async function loadLeaderboard() {
     }
 
 
-    displayLeaderboard(
-      data
-    );
+    displayLeaderboard(data);
 
 
     status.textContent =
@@ -439,7 +368,6 @@ async function loadLeaderboard() {
 
 
   } catch (error) {
-
 
     console.error(
       "SEQS Leaderboard Error:",
@@ -452,14 +380,18 @@ async function loadLeaderboard() {
 
 
     leaderboard.innerHTML =
-    `
-      <div class="empty">
-        Leaderboard is temporarily unavailable.
-      </div>
-    `;
+      `
+        <div class="empty">
 
+          Leaderboard is temporarily unavailable.
+
+          <br><br>
+
+          Please try again.
+
+        </div>
+      `;
   }
-
 }
 
 
@@ -469,159 +401,101 @@ async function loadLeaderboard() {
 
 function displayLeaderboard(data) {
 
-
   const leaderboard =
-    document.getElementById(
-      "leaderboard"
-    );
+    document.getElementById("leaderboard");
 
 
-  leaderboard.innerHTML =
-    "";
+  leaderboard.innerHTML = "";
 
 
-  if (
-    data.length === 0
-  ) {
-
+  if (data.length === 0) {
 
     leaderboard.innerHTML =
-    `
-      <div class="empty">
+      `
+        <div class="empty">
 
-        No leaderboard records yet.
+          No leaderboard records yet.
 
-        <br><br>
+          <br><br>
 
-        Complete a quiz to join the leaderboard!
+          Complete a quiz to join the leaderboard!
 
-      </div>
-    `;
-
+        </div>
+      `;
 
     return;
-
   }
 
 
-  data.forEach(
-    function(student) {
+  data.forEach(function(student) {
+
+    const row =
+      document.createElement("div");
 
 
-      const row =
-        document.createElement(
-          "div"
-        );
+    row.className =
+      "leader-row";
 
 
-      row.className =
-        "leader-row";
+    const rank =
+      Number(student.rank);
 
 
-      if (
-        student.rank === 1
-      ) {
+    if (rank === 1) {
 
-        row.classList.add(
-          "rank-1"
-        );
+      row.classList.add("rank-1");
 
-      }
+    } else if (rank === 2) {
 
+      row.classList.add("rank-2");
 
-      if (
-        student.rank === 2
-      ) {
+    } else if (rank === 3) {
 
-        row.classList.add(
-          "rank-2"
-        );
+      row.classList.add("rank-3");
 
-      }
+    }
 
 
-      if (
-        student.rank === 3
-      ) {
-
-        row.classList.add(
-          "rank-3"
-        );
-
-      }
+    let rankDisplay =
+      "#" + rank;
 
 
-      let rankDisplay =
-        "#" + student.rank;
+    if (rank === 1) {
+
+      rankDisplay =
+        "🥇 1";
+
+    } else if (rank === 2) {
+
+      rankDisplay =
+        "🥈 2";
+
+    } else if (rank === 3) {
+
+      rankDisplay =
+        "🥉 3";
+    }
 
 
-      if (
-        student.rank === 1
-      ) {
-
-        rankDisplay =
-          "🥇 1";
-
-      }
-
-
-      else if (
-        student.rank === 2
-      ) {
-
-        rankDisplay =
-          "🥈 2";
-
-      }
-
-
-      else if (
-        student.rank === 3
-      ) {
-
-        rankDisplay =
-          "🥉 3";
-
-      }
-
-
-      row.innerHTML =
+    row.innerHTML =
       `
-
         <div class="rank">
-
           ${rankDisplay}
-
         </div>
-
 
         <div class="student-name">
-
-          ${escapeHTML(
-            student.name
-          )}
-
+          ${escapeHTML(student.name)}
         </div>
-
 
         <div class="percentage">
-
-          ${escapeHTML(
-            student.percentage
-          )}
-
+          ${escapeHTML(student.percentage)}
         </div>
-
       `;
 
 
-      leaderboard.appendChild(
-        row
-      );
+    leaderboard.appendChild(row);
 
-    }
-  );
-
+  });
 }
 
 
@@ -631,47 +505,30 @@ function displayLeaderboard(data) {
 
 function escapeHTML(value) {
 
+  return String(value ?? "")
 
-  return String(value)
+    .replace(/&/g, "&amp;")
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
+    .replace(/</g, "&lt;")
 
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
+    .replace(/>/g, "&gt;")
 
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
+    .replace(/"/g, "&quot;")
 
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-
+    .replace(/'/g, "&#039;");
 }
 
 
 /* =========================================
-   START
+   START AUTOMATICALLY
 ========================================= */
 
-loadLeaderboard();
-
+window.addEventListener(
+  "DOMContentLoaded",
+  loadLeaderboard
+);
 
 </script>
 
-
 </body>
-
 </html>
