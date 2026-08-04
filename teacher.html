@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,11 +21,6 @@ body {
   min-height: 100vh;
 }
 
-
-/* ===============================
-   HEADER
-================================ */
-
 header {
   background: linear-gradient(135deg, #0d47a1, #1976d2);
   color: white;
@@ -45,21 +39,13 @@ header p {
   font-size: 17px;
 }
 
-
-/* ===============================
-   CONTAINER
-================================ */
-
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 25px 15px;
 }
 
-
-/* ===============================
-   LOGIN
-================================ */
+/* LOGIN */
 
 .login-wrapper {
   max-width: 430px;
@@ -140,10 +126,7 @@ header p {
   font-weight: bold;
 }
 
-
-/* ===============================
-   DASHBOARD
-================================ */
+/* DASHBOARD */
 
 #dashboardSection {
   display: none;
@@ -155,7 +138,6 @@ header p {
   padding: 15px 18px;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,.08);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -180,10 +162,7 @@ header p {
   background: #a51f1f;
 }
 
-
-/* ===============================
-   SUMMARY CARDS
-================================ */
+/* SUMMARY */
 
 .dashboard {
   display: grid;
@@ -212,10 +191,7 @@ header p {
   color: #1976d2;
 }
 
-
-/* ===============================
-   STATUS
-================================ */
+/* STATUS */
 
 .status {
   background: #e8f3ff;
@@ -227,10 +203,7 @@ header p {
   font-size: 14px;
 }
 
-
-/* ===============================
-   SEARCH
-================================ */
+/* SEARCH */
 
 .filters {
   background: white;
@@ -248,10 +221,7 @@ header p {
   font-size: 15px;
 }
 
-
-/* ===============================
-   TABLE
-================================ */
+/* TABLE */
 
 .table-box {
   background: white;
@@ -291,10 +261,7 @@ tbody tr:hover {
   color: #718096;
 }
 
-
-/* ===============================
-   ACTIONS
-================================ */
+/* ACTIONS */
 
 .actions {
   text-align: center;
@@ -318,11 +285,6 @@ tbody tr:hover {
   background: #0d47a1;
 }
 
-
-/* ===============================
-   FOOTER
-================================ */
-
 footer {
   text-align: center;
   padding: 25px;
@@ -330,11 +292,6 @@ footer {
   font-size: 13px;
   line-height: 1.6;
 }
-
-
-/* ===============================
-   MOBILE
-================================ */
 
 @media(max-width:700px) {
 
@@ -350,12 +307,10 @@ footer {
 }
 
 </style>
-
 </head>
 
 
 <body>
-
 
 <header>
 
@@ -368,15 +323,9 @@ footer {
 </header>
 
 
+<!-- LOGIN -->
 
-<!-- ==================================
-     LOGIN SECTION
-================================== -->
-
-<div
-  class="container"
-  id="loginSection"
->
+<div class="container" id="loginSection">
 
   <div class="login-wrapper">
 
@@ -391,10 +340,8 @@ footer {
       </h2>
 
       <p>
-        This section is restricted to
-        authorised teachers only.
+        This section is restricted to authorised teachers only.
       </p>
-
 
       <input
         type="password"
@@ -403,7 +350,6 @@ footer {
         placeholder="Enter teacher password"
         autocomplete="current-password"
       >
-
 
       <button
         type="button"
@@ -414,13 +360,10 @@ footer {
         LOGIN
       </button>
 
-
       <div
         class="login-message"
         id="loginMessage"
-      >
-      </div>
-
+      ></div>
 
       <a
         href="index.html"
@@ -436,30 +379,18 @@ footer {
 </div>
 
 
+<!-- TEACHER DASHBOARD -->
 
-<!-- ==================================
-     TEACHER DASHBOARD
-================================== -->
-
-<div
-  class="container"
-  id="dashboardSection"
->
-
-
-  <!-- TEACHER BAR -->
+<div class="container" id="dashboardSection">
 
   <div class="teacher-bar">
 
     <div>
-
       🔒
       <strong>
         AUTHORISED TEACHER
       </strong>
-
     </div>
-
 
     <button
       type="button"
@@ -472,11 +403,9 @@ footer {
   </div>
 
 
-
   <!-- SUMMARY -->
 
   <div class="dashboard">
-
 
     <div class="card">
 
@@ -525,12 +454,8 @@ footer {
 
     </div>
 
-
   </div>
 
-
-
-  <!-- STATUS -->
 
   <div
     class="status"
@@ -538,7 +463,6 @@ footer {
   >
     Loading student records...
   </div>
-
 
 
   <!-- SEARCH -->
@@ -555,8 +479,7 @@ footer {
   </div>
 
 
-
-  <!-- RECORD TABLE -->
+  <!-- TABLE -->
 
   <div class="table-box">
 
@@ -566,34 +489,21 @@ footer {
 
         <tr>
 
-          <th>
-            DATE / TIME
-          </th>
+          <th>DATE / TIME</th>
 
-          <th>
-            NAME
-          </th>
+          <th>NAME</th>
 
-          <th>
-            CLASS
-          </th>
+          <th>CLASS</th>
 
-          <th>
-            MODULE
-          </th>
+          <th>MODULE</th>
 
-          <th>
-            SCORE
-          </th>
+          <th>SCORE</th>
 
-          <th>
-            PERCENTAGE
-          </th>
+          <th>PERCENTAGE</th>
 
         </tr>
 
       </thead>
-
 
       <tbody id="recordBody">
 
@@ -615,11 +525,7 @@ footer {
   </div>
 
 
-
-  <!-- ACTIONS -->
-
   <div class="actions">
-
 
     <button
       type="button"
@@ -629,7 +535,6 @@ footer {
       REFRESH RECORDS
     </button>
 
-
     <a
       href="index.html"
       class="btn"
@@ -637,12 +542,9 @@ footer {
       BACK TO HOME
     </a>
 
-
   </div>
 
-
 </div>
-
 
 
 <footer>
@@ -656,75 +558,50 @@ footer {
 </footer>
 
 
-
 <script>
 
-
-/* =====================================================
+/* =========================================
    SEQS WEB APP
-===================================================== */
+========================================= */
 
 const GOOGLE_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
 
-
 let allRecords = [];
 
 
-
-/* =====================================================
+/* =========================================
    TEACHER LOGIN
-===================================================== */
+========================================= */
 
 async function teacherLogin() {
 
-
   const password =
-    document
-      .getElementById(
-        "teacherPassword"
-      )
-      .value;
-
+    document.getElementById("teacherPassword").value;
 
   const message =
-    document
-      .getElementById(
-        "loginMessage"
-      );
-
+    document.getElementById("loginMessage");
 
   const button =
-    document
-      .getElementById(
-        "loginButton"
-      );
+    document.getElementById("loginButton");
 
 
   if (!password) {
 
-    message.style.color =
-      "#c62828";
+    message.style.color = "#c62828";
 
     message.textContent =
       "Please enter the teacher password.";
 
     return;
-
   }
 
 
-  button.disabled =
-    true;
+  button.disabled = true;
 
+  button.textContent = "CHECKING...";
 
-  button.textContent =
-    "CHECKING...";
-
-
-  message.style.color =
-    "#1557a6";
-
+  message.style.color = "#1557a6";
 
   message.textContent =
     "Verifying teacher access...";
@@ -732,33 +609,22 @@ async function teacherLogin() {
 
   try {
 
-
     const response =
       await fetch(
         GOOGLE_SCRIPT_URL,
         {
-
-          method:
-            "POST",
+          method: "POST",
 
           headers: {
-
             "Content-Type":
               "text/plain;charset=utf-8"
-
           },
 
           body:
             JSON.stringify({
-
-              action:
-                "teacherLogin",
-
-              password:
-                password
-
+              action: "teacherLogin",
+              password: password
             })
-
         }
       );
 
@@ -772,32 +638,23 @@ async function teacherLogin() {
       data.token
     ) {
 
-
       sessionStorage.setItem(
         "seqsTeacherToken",
         data.token
       );
 
-
-      document
-        .getElementById(
-          "teacherPassword"
-        )
-        .value =
-        "";
-
+      document.getElementById(
+        "teacherPassword"
+      ).value = "";
 
       showDashboard();
 
-
       return;
-
     }
 
 
     message.style.color =
       "#c62828";
-
 
     message.textContent =
       "Incorrect teacher password.";
@@ -805,73 +662,52 @@ async function teacherLogin() {
 
   } catch (error) {
 
-
     console.error(
       "Teacher login error:",
       error
     );
 
-
     message.style.color =
       "#c62828";
-
 
     message.textContent =
       "Unable to verify teacher access.";
 
-
   } finally {
 
+    button.disabled = false;
 
-    button.disabled =
-      false;
-
-
-    button.textContent =
-      "LOGIN";
-
+    button.textContent = "LOGIN";
 
   }
 
 }
 
 
-
-/* =====================================================
+/* =========================================
    SHOW DASHBOARD
-===================================================== */
+========================================= */
 
 function showDashboard() {
 
+  document.getElementById(
+    "loginSection"
+  ).style.display = "none";
 
-  document
-    .getElementById(
-      "loginSection"
-    )
-    .style.display =
-    "none";
-
-
-  document
-    .getElementById(
-      "dashboardSection"
-    )
-    .style.display =
-    "block";
-
+  document.getElementById(
+    "dashboardSection"
+  ).style.display = "block";
 
   loadTeacherRecords();
 
 }
 
 
-
-/* =====================================================
-   LOAD TEACHER RECORDS
-===================================================== */
+/* =========================================
+   LOAD RECORDS
+========================================= */
 
 async function loadTeacherRecords() {
-
 
   const token =
     sessionStorage.getItem(
@@ -884,34 +720,23 @@ async function loadTeacherRecords() {
     showLogin();
 
     return;
-
   }
 
 
-  document
-    .getElementById(
-      "statusMessage"
-    )
-    .textContent =
+  document.getElementById(
+    "statusMessage"
+  ).textContent =
     "Loading student records...";
 
 
   try {
 
-
     const url =
-      GOOGLE_SCRIPT_URL
-      +
-      "?action=teacherRecords"
-      +
-      "&token="
-      +
-      encodeURIComponent(
-        token
-      )
-      +
-      "&t="
-      +
+      GOOGLE_SCRIPT_URL +
+      "?action=teacherRecords" +
+      "&token=" +
+      encodeURIComponent(token) +
+      "&t=" +
       Date.now();
 
 
@@ -923,69 +748,46 @@ async function loadTeacherRecords() {
       await response.json();
 
 
-
-    /* UNAUTHORIZED */
-
     if (
       data.status ===
       "unauthorized"
     ) {
 
-
       sessionStorage.removeItem(
         "seqsTeacherToken"
       );
-
 
       alert(
         "Teacher session has expired. Please login again."
       );
 
-
       showLogin();
 
-
       return;
-
     }
 
 
-
-    /* ERROR */
-
     if (
-      data.status ===
-      "error"
+      data.status === "error"
     ) {
-
 
       throw new Error(
         data.message ||
         "Unable to load records."
       );
-
     }
 
 
-
-    if (
-      !Array.isArray(data)
-    ) {
-
+    if (!Array.isArray(data)) {
 
       throw new Error(
         "Invalid student record format."
       );
-
     }
 
 
-
     allRecords =
-      data
-        .slice()
-        .reverse();
-
+      data.slice().reverse();
 
 
     displayRecords(
@@ -998,84 +800,168 @@ async function loadTeacherRecords() {
     );
 
 
-    document
-      .getElementById(
-        "statusMessage"
-      )
-      .textContent =
+    document.getElementById(
+      "statusMessage"
+    ).textContent =
       "✓ Student records loaded successfully.";
 
 
   } catch (error) {
-
 
     console.error(
       "Teacher record error:",
       error
     );
 
-
-    document
-      .getElementById(
-        "statusMessage"
-      )
-      .textContent =
+    document.getElementById(
+      "statusMessage"
+    ).textContent =
       "Unable to load student records.";
-
 
   }
 
 }
 
 
+/* =========================================
+   NORMALISE PERCENTAGE
+========================================= */
 
-/* =====================================================
+function getPercentage(value) {
+
+  let percentage =
+    parseFloat(
+      String(value || "0")
+        .replace("%", "")
+        .trim()
+    );
+
+
+  if (isNaN(percentage)) {
+
+    return 0;
+  }
+
+
+  /*
+     Google Sheets may return
+     35% as 0.35.
+  */
+
+  if (
+    percentage >= 0 &&
+    percentage <= 1
+  ) {
+
+    percentage =
+      percentage * 100;
+  }
+
+
+  return Math.round(
+    percentage
+  );
+
+}
+
+
+/* =========================================
+   FORMAT PERCENTAGE
+========================================= */
+
+function formatPercentage(value) {
+
+  return (
+    getPercentage(value) +
+    "%"
+  );
+
+}
+
+
+/* =========================================
+   FORMAT SCORE
+========================================= */
+
+function formatScore(score, percentage) {
+
+  /*
+     If score already arrives correctly
+     as 7/20, 15/20 etc., use it.
+  */
+
+  if (
+    typeof score === "string" &&
+    /^\d+\s*\/\s*20$/.test(
+      score.trim()
+    )
+  ) {
+
+    return score.trim();
+
+  }
+
+
+  /*
+     Otherwise calculate score
+     from percentage.
+  */
+
+  const p =
+    getPercentage(
+      percentage
+    );
+
+
+  const calculatedScore =
+    Math.round(
+      (p / 100) * 20
+    );
+
+
+  return (
+    calculatedScore +
+    "/20"
+  );
+
+}
+
+
+/* =========================================
    DISPLAY RECORDS
-===================================================== */
+========================================= */
 
 function displayRecords(records) {
 
-
   const body =
-    document
-      .getElementById(
-        "recordBody"
-      );
+    document.getElementById(
+      "recordBody"
+    );
 
 
-  body.innerHTML =
-    "";
+  body.innerHTML = "";
 
 
-  if (
-    records.length === 0
-  ) {
-
+  if (records.length === 0) {
 
     body.innerHTML =
     `
       <tr>
-
         <td
           colspan="6"
           class="empty"
         >
           No student records yet.
         </td>
-
       </tr>
     `;
 
-
     return;
-
   }
-
 
 
   records.forEach(
     function(record) {
-
 
       const row =
         document.createElement(
@@ -1083,14 +969,10 @@ function displayRecords(records) {
         );
 
 
-      let date =
-        "-";
+      let date = "-";
 
 
-      if (
-        record.timestamp
-      ) {
-
+      if (record.timestamp) {
 
         const parsedDate =
           new Date(
@@ -1104,23 +986,31 @@ function displayRecords(records) {
           )
         ) {
 
-
           date =
-            parsedDate
-              .toLocaleString(
-                "en-MY",
-                {
-                  timeZone:
-                    "Asia/Kuala_Lumpur"
-                }
-              );
-
+            parsedDate.toLocaleString(
+              "en-MY",
+              {
+                timeZone:
+                  "Asia/Kuala_Lumpur"
+              }
+            );
 
         }
 
-
       }
 
+
+      const displayScore =
+        formatScore(
+          record.score,
+          record.percentage
+        );
+
+
+      const displayPercentage =
+        formatPercentage(
+          record.percentage
+        );
 
 
       row.innerHTML =
@@ -1143,11 +1033,11 @@ function displayRecords(records) {
         </td>
 
         <td>
-          ${escapeHTML(record.score || "-")}
+          ${escapeHTML(displayScore)}
         </td>
 
         <td>
-          ${escapeHTML(record.percentage || "-")}
+          ${escapeHTML(displayPercentage)}
         </td>
 
       `;
@@ -1157,55 +1047,37 @@ function displayRecords(records) {
         row
       );
 
-
     }
   );
 
 }
 
 
-
-/* =====================================================
+/* =========================================
    DASHBOARD CALCULATION
-===================================================== */
+========================================= */
 
 function calculateDashboard(records) {
-
 
   const total =
     records.length;
 
 
-  let sum =
-    0;
+  let sum = 0;
 
-
-  let highest =
-    0;
-
+  let highest = 0;
 
 
   records.forEach(
     function(record) {
 
-
       const percentage =
-        parseFloat(
-
-          String(
-            record.percentage ||
-            "0"
-          )
-          .replace(
-            "%",
-            ""
-          )
-
-        ) || 0;
+        getPercentage(
+          record.percentage
+        );
 
 
-      sum +=
-        percentage;
+      sum += percentage;
 
 
       if (
@@ -1215,118 +1087,81 @@ function calculateDashboard(records) {
 
         highest =
           percentage;
-
       }
-
 
     }
   );
 
 
-
   const average =
     total > 0
-    ?
-    Math.round(
-      sum / total
-    )
-    :
-    0;
+      ? Math.round(
+          sum / total
+        )
+      : 0;
 
 
-
-  document
-    .getElementById(
-      "totalAttempts"
-    )
-    .textContent =
+  document.getElementById(
+    "totalAttempts"
+  ).textContent =
     total;
 
 
-
-  document
-    .getElementById(
-      "averageScore"
-    )
-    .textContent =
+  document.getElementById(
+    "averageScore"
+  ).textContent =
     average + "%";
 
 
-
-  document
-    .getElementById(
-      "highestScore"
-    )
-    .textContent =
+  document.getElementById(
+    "highestScore"
+  ).textContent =
     highest + "%";
 
 }
 
 
-
-/* =====================================================
+/* =========================================
    FILTER
-===================================================== */
+========================================= */
 
 function filterRecords() {
 
-
   const keyword =
-    document
-      .getElementById(
-        "searchBox"
-      )
-      .value
-      .toLowerCase()
-      .trim();
-
+    document.getElementById(
+      "searchBox"
+    )
+    .value
+    .toLowerCase()
+    .trim();
 
 
   const filtered =
     allRecords.filter(
       function(record) {
 
-
         const name =
           String(
             record.name || ""
-          )
-          .toLowerCase();
+          ).toLowerCase();
 
 
         const studentClass =
           String(
             record.studentClass || ""
-          )
-          .toLowerCase();
+          ).toLowerCase();
 
 
         const module =
           String(
             record.module || ""
-          )
-          .toLowerCase();
-
+          ).toLowerCase();
 
 
         return (
-
-          name.includes(
-            keyword
-          )
-
-          ||
-
-          studentClass.includes(
-            keyword
-          )
-
-          ||
-
-          module.includes(
-            keyword
-          )
-
+          name.includes(keyword) ||
+          studentClass.includes(keyword) ||
+          module.includes(keyword)
         );
 
       }
@@ -1340,77 +1175,60 @@ function filterRecords() {
 }
 
 
-
-/* =====================================================
+/* =========================================
    LOGOUT
-===================================================== */
+========================================= */
 
 function teacherLogout() {
-
 
   sessionStorage.removeItem(
     "seqsTeacherToken"
   );
 
-
-  allRecords =
-    [];
-
+  allRecords = [];
 
   showLogin();
 
 }
 
 
-
-/* =====================================================
+/* =========================================
    SHOW LOGIN
-===================================================== */
+========================================= */
 
 function showLogin() {
 
-
-  document
-    .getElementById(
-      "dashboardSection"
-    )
-    .style.display =
+  document.getElementById(
+    "dashboardSection"
+  ).style.display =
     "none";
 
 
-  document
-    .getElementById(
-      "loginSection"
-    )
-    .style.display =
+  document.getElementById(
+    "loginSection"
+  ).style.display =
     "block";
 
 
-  document
-    .getElementById(
-      "loginMessage"
-    )
-    .textContent =
+  document.getElementById(
+    "loginMessage"
+  ).textContent =
     "";
 
 
-  document
-    .getElementById(
-      "teacherPassword"
-    )
-    .value =
+  document.getElementById(
+    "teacherPassword"
+  ).value =
     "";
 
 }
 
 
-
-/* =====================================================
+/* =========================================
    ESCAPE HTML
-===================================================== */
+========================================= */
 
 function escapeHTML(value) {
-
 
   return String(value)
 
@@ -1442,13 +1260,11 @@ function escapeHTML(value) {
 }
 
 
-
-/* =====================================================
+/* =========================================
    CHECK EXISTING SESSION
-===================================================== */
+========================================= */
 
 async function checkExistingSession() {
-
 
   const token =
     sessionStorage.getItem(
@@ -1461,26 +1277,17 @@ async function checkExistingSession() {
     showLogin();
 
     return;
-
   }
 
 
   try {
 
-
     const url =
-      GOOGLE_SCRIPT_URL
-      +
-      "?action=checkTeacher"
-      +
-      "&token="
-      +
-      encodeURIComponent(
-        token
-      )
-      +
-      "&t="
-      +
+      GOOGLE_SCRIPT_URL +
+      "?action=checkTeacher" +
+      "&token=" +
+      encodeURIComponent(token) +
+      "&t=" +
       Date.now();
 
 
@@ -1493,21 +1300,16 @@ async function checkExistingSession() {
 
 
     if (
-      data.authenticated ===
-      true
+      data.authenticated === true
     ) {
-
 
       showDashboard();
 
-
     } else {
-
 
       sessionStorage.removeItem(
         "seqsTeacherToken"
       );
-
 
       showLogin();
 
@@ -1516,18 +1318,15 @@ async function checkExistingSession() {
 
   } catch (error) {
 
-
     sessionStorage.removeItem(
       "seqsTeacherToken"
     );
-
 
     showLogin();
 
   }
 
 }
-
 
 
 /* ENTER KEY LOGIN */
@@ -1541,8 +1340,7 @@ document
     function(event) {
 
       if (
-        event.key ===
-        "Enter"
+        event.key === "Enter"
       ) {
 
         teacherLogin();
@@ -1553,15 +1351,11 @@ document
   );
 
 
-
 /* START */
 
 checkExistingSession();
 
-
 </script>
 
-
 </body>
-
 </html>
