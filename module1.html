@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SEQS | Module 1 - Welcome!</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -27,7 +30,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 35px;
+  font-size: 38px;
 }
 
 header h2 {
@@ -50,7 +53,7 @@ header h2 {
 }
 
 .student-info p {
-  margin: 6px 0;
+  margin: 7px 0;
 }
 
 .question {
@@ -68,7 +71,7 @@ header h2 {
 
 .option {
   display: block;
-  padding: 9px;
+  padding: 10px;
   margin: 6px 0;
   border-radius: 8px;
   cursor: pointer;
@@ -94,6 +97,11 @@ header h2 {
   background: #0d47a1;
 }
 
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .result {
   display: none;
   background: white;
@@ -105,20 +113,24 @@ header h2 {
 }
 
 .score {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: bold;
   color: #1976d2;
+  margin: 15px 0;
 }
 
 .save-status {
   margin-top: 15px;
+  padding: 12px;
+  background: #eef6ff;
+  border-radius: 10px;
   font-size: 14px;
-  color: #607080;
+  color: #174a7c;
 }
 
 .home-btn {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 18px;
   text-decoration: none;
   background: #174a7c;
   color: white;
@@ -131,21 +143,35 @@ footer {
   padding: 25px;
   color: #718096;
   font-size: 13px;
+  line-height: 1.6;
 }
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
+
   <h1>SEQS</h1>
-  <h2>Module 1 – Welcome!</h2>
+
+  <h2>
+    Module 1 – Welcome!
+  </h2>
+
 </header>
+
 
 <div class="container">
 
+
+  <!-- STUDENT INFORMATION -->
+
   <div class="student-info">
+
     <p>
       <strong>Name:</strong>
       <span id="displayName"></span>
@@ -160,10 +186,14 @@ footer {
       <strong>Module:</strong>
       Module 1 – Welcome!
     </p>
+
   </div>
 
 
+  <!-- QUIZ -->
+
   <form id="quizForm">
+
 
     <!-- QUESTION 1 -->
 
@@ -425,31 +455,47 @@ footer {
     </div>
 
 
+    <!-- SUBMIT -->
+
     <button
       type="button"
       class="submit-btn"
-      onclick="submitQuiz()"
       id="submitButton"
+      onclick="submitQuiz()"
     >
       SUBMIT ANSWERS
     </button>
+
 
   </form>
 
 
   <!-- RESULT -->
 
-  <div class="result" id="resultBox">
+  <div
+    class="result"
+    id="resultBox"
+  >
 
-    <h2>Quiz Completed!</h2>
+    <h2>
+      Quiz Completed!
+    </h2>
 
-    <p>Well done, <strong id="resultName"></strong>!</p>
+    <p>
+      Well done,
+      <strong id="resultName"></strong>!
+    </p>
 
-    <div class="score" id="scoreText"></div>
+    <div
+      class="score"
+      id="scoreText"
+    >
+    </div>
 
     <h3 id="percentageText"></h3>
 
     <p id="feedback"></p>
+
 
     <div
       class="save-status"
@@ -457,6 +503,7 @@ footer {
     >
       Saving your result...
     </div>
+
 
     <a
       href="index.html"
@@ -467,48 +514,71 @@ footer {
 
   </div>
 
+
 </div>
 
 
 <footer>
-  SEQS – Smart English Quiz System<br>
+
+  SEQS – Smart English Quiz System
+
+  <br>
+
   English Year 3 | 2026
+
 </footer>
 
 
 <script>
 
-/* ==========================================
+
+/* =========================================
    STUDENT INFORMATION
-========================================== */
+========================================= */
+
 
 const studentName =
-  localStorage.getItem("seqsName") || "Student";
+  localStorage.getItem("seqsName")
+  || "Student";
+
 
 const studentClass =
-  localStorage.getItem("seqsClass") || "-";
+  localStorage.getItem("seqsClass")
+  || "-";
 
 
-document.getElementById("displayName").textContent =
+document
+  .getElementById("displayName")
+  .textContent =
   studentName;
 
-document.getElementById("displayClass").textContent =
+
+document
+  .getElementById("displayClass")
+  .textContent =
   studentClass;
 
 
-/* ==========================================
-   GOOGLE APPS SCRIPT URL
-========================================== */
+
+/* =========================================
+   NEW GOOGLE APPS SCRIPT URL
+========================================= */
+
 
 const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbw6qRUPE6LswiWwWfDCOz5EdUHp5hFeLbUj1xOcea56HO6qcPPE_cjuu9UH_UdJAE9VHQ/exec";
+"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
 
 
-/* ==========================================
+
+/* =========================================
    SUBMIT QUIZ
-========================================== */
+========================================= */
+
 
 function submitQuiz() {
+
+
+  /* ANSWER KEY */
 
   const answers = {
 
@@ -529,9 +599,14 @@ function submitQuiz() {
   let score = 0;
 
 
-  /* CHECK ALL ANSWERS */
+
+  /* =====================================
+     CHECK ANSWERS
+  ===================================== */
+
 
   for (let question in answers) {
+
 
     const selected =
       document.querySelector(
@@ -548,6 +623,7 @@ function submitQuiz() {
       );
 
       return;
+
     }
 
 
@@ -563,20 +639,45 @@ function submitQuiz() {
   }
 
 
-  /* CALCULATE PERCENTAGE */
+
+  /* =====================================
+     CALCULATE RESULT
+  ===================================== */
+
+
+  const totalQuestions = 10;
+
 
   const percentage =
     Math.round(
-      (score / 10) * 100
+      (score / totalQuestions)
+      * 100
     );
 
 
-  /* SAVE LOCALLY */
+
+  /* =====================================
+     DISABLE SUBMIT
+  ===================================== */
+
+
+  document
+    .getElementById("submitButton")
+    .disabled =
+    true;
+
+
+
+  /* =====================================
+     SAVE RESULT LOCALLY
+  ===================================== */
+
 
   localStorage.setItem(
     "seqsLastScore",
     score
   );
+
 
   localStorage.setItem(
     "seqsLastPercentage",
@@ -584,27 +685,37 @@ function submitQuiz() {
   );
 
 
-  /* SHOW RESULT */
 
-  document.getElementById(
-    "resultName"
-  ).textContent =
+  /* =====================================
+     DISPLAY RESULT
+  ===================================== */
+
+
+  document
+    .getElementById("resultName")
+    .textContent =
     studentName;
 
 
-  document.getElementById(
-    "scoreText"
-  ).textContent =
-    score + " / 10";
+  document
+    .getElementById("scoreText")
+    .textContent =
+    score +
+    " / " +
+    totalQuestions;
 
 
-  document.getElementById(
-    "percentageText"
-  ).textContent =
+  document
+    .getElementById("percentageText")
+    .textContent =
     percentage + "%";
 
 
-  /* FEEDBACK */
+
+  /* =====================================
+     FEEDBACK
+  ===================================== */
+
 
   let feedback = "";
 
@@ -631,21 +742,27 @@ function submitQuiz() {
   }
 
 
-  document.getElementById(
-    "feedback"
-  ).textContent =
+  document
+    .getElementById("feedback")
+    .textContent =
     feedback;
 
 
-  document.getElementById(
-    "quizForm"
-  ).style.display =
+
+  /* =====================================
+     SHOW RESULT BOX
+  ===================================== */
+
+
+  document
+    .getElementById("quizForm")
+    .style.display =
     "none";
 
 
-  document.getElementById(
-    "resultBox"
-  ).style.display =
+  document
+    .getElementById("resultBox")
+    .style.display =
     "block";
 
 
@@ -655,21 +772,25 @@ function submitQuiz() {
   });
 
 
-  /* ======================================
-     AUTO RECORD TO GOOGLE SHEETS
-  ====================================== */
+
+  /* =====================================
+     PREPARE AUTO RECORD
+  ===================================== */
+
 
   const recordData = {
 
-    name: studentName,
+    name:
+      studentName,
 
-    studentClass: studentClass,
+    studentClass:
+      studentClass,
 
     module:
       "Module 1 – Welcome!",
 
     score:
-      score + "/10",
+      score + "/" + totalQuestions,
 
     percentage:
       percentage + "%"
@@ -677,9 +798,15 @@ function submitQuiz() {
   };
 
 
-  document.getElementById(
-    "saveStatus"
-  ).textContent =
+
+  /* =====================================
+     SEND TO GOOGLE SHEETS
+  ===================================== */
+
+
+  document
+    .getElementById("saveStatus")
+    .textContent =
     "Saving your result...";
 
 
@@ -692,8 +819,10 @@ function submitQuiz() {
       mode: "no-cors",
 
       headers: {
+
         "Content-Type":
-          "text/plain;charset=utf-8"
+        "text/plain;charset=utf-8"
+
       },
 
       body:
@@ -702,35 +831,45 @@ function submitQuiz() {
         )
 
     }
-
   )
+
 
   .then(function() {
 
-    document.getElementById(
-      "saveStatus"
-    ).textContent =
+
+    document
+      .getElementById("saveStatus")
+      .textContent =
       "✓ Result recorded successfully.";
+
 
   })
 
+
   .catch(function(error) {
 
+
     console.error(
-      "Record error:",
+      "SEQS record error:",
       error
     );
 
-    document.getElementById(
-      "saveStatus"
-    ).textContent =
-      "Result completed. Please inform your teacher if the record is not saved.";
+
+    document
+      .getElementById("saveStatus")
+      .textContent =
+      "Unable to confirm the record. Please inform your teacher.";
+
 
   });
 
+
 }
+
 
 </script>
 
+
 </body>
+
 </html>
