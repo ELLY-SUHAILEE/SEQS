@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(135deg, #e8f3ff, #f7fbff);
   color: #17324d;
   min-height: 100vh;
@@ -129,7 +129,7 @@ select:focus {
 
 
 /* ================================
-   START QUIZ BUTTON
+   START QUIZ
 ================================ */
 
 .start-btn {
@@ -160,14 +160,10 @@ select:focus {
   margin-top: 22px;
 }
 
-
-/* LINK BUTTON */
-
 .menu-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-height: 58px;
 
   background: white;
@@ -181,7 +177,6 @@ select:focus {
   font-size: 15px;
 
   text-decoration: none;
-
   cursor: pointer;
 
   transition: 0.2s;
@@ -315,7 +310,6 @@ footer {
       MODULE
     </label>
 
-
     <select id="module">
 
       <option value="">
@@ -375,7 +369,6 @@ footer {
       START QUIZ
     </button>
 
-
   </div>
 
 
@@ -407,7 +400,6 @@ footer {
 
 
   </div>
-
 
 </div>
 
@@ -441,29 +433,23 @@ footer {
 function startQuiz() {
 
 
-  /* GET NAME */
-
   const name =
     document
-    .getElementById("studentName")
-    .value
-    .trim();
+      .getElementById("studentName")
+      .value
+      .trim();
 
-
-  /* GET CLASS */
 
   const studentClass =
     document
-    .getElementById("studentClass")
-    .value
-    .trim();
+      .getElementById("studentClass")
+      .value
+      .trim();
 
-
-  /* GET MODULE */
 
   const moduleSelect =
     document
-    .getElementById("module");
+      .getElementById("module");
 
 
   const module =
@@ -472,14 +458,13 @@ function startQuiz() {
 
   const moduleText =
     moduleSelect
-    .options[moduleSelect.selectedIndex]
-    .text;
+      .options[moduleSelect.selectedIndex]
+      .text;
 
 
   /* ================================
      VALIDATION
   ================================= */
-
 
   if (name === "") {
 
@@ -488,11 +473,10 @@ function startQuiz() {
     );
 
     document
-    .getElementById("studentName")
-    .focus();
+      .getElementById("studentName")
+      .focus();
 
     return;
-
   }
 
 
@@ -503,11 +487,10 @@ function startQuiz() {
     );
 
     document
-    .getElementById("studentClass")
-    .focus();
+      .getElementById("studentClass")
+      .focus();
 
     return;
-
   }
 
 
@@ -518,18 +501,16 @@ function startQuiz() {
     );
 
     document
-    .getElementById("module")
-    .focus();
+      .getElementById("module")
+      .focus();
 
     return;
-
   }
 
 
   /* ================================
      SAVE STUDENT INFORMATION
   ================================= */
-
 
   localStorage.setItem(
     "seqsName",
@@ -558,7 +539,6 @@ function startQuiz() {
   /* ================================
      OPEN QUIZ
   ================================= */
-
 
   window.location.href =
     module + ".html";
