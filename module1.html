@@ -7,7 +7,9 @@
 <title>SEQS | Module 1 - Welcome!</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -17,7 +19,7 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg,#0d47a1,#1976d2);
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
   color: white;
   text-align: center;
   padding: 25px 15px;
@@ -69,6 +71,7 @@ header h2 {
   padding: 9px;
   margin: 6px 0;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .option:hover {
@@ -102,9 +105,15 @@ header h2 {
 }
 
 .score {
-  font-size: 38px;
+  font-size: 40px;
   font-weight: bold;
   color: #1976d2;
+}
+
+.save-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #607080;
 }
 
 .home-btn {
@@ -124,6 +133,7 @@ footer {
   font-size: 13px;
 }
 </style>
+
 </head>
 
 <body>
@@ -136,91 +146,304 @@ footer {
 <div class="container">
 
   <div class="student-info">
-    <p><strong>Name:</strong> <span id="displayName"></span></p>
-    <p><strong>Class:</strong> <span id="displayClass"></span></p>
-    <p><strong>Module:</strong> Module 1 – Welcome!</p>
+    <p>
+      <strong>Name:</strong>
+      <span id="displayName"></span>
+    </p>
+
+    <p>
+      <strong>Class:</strong>
+      <span id="displayClass"></span>
+    </p>
+
+    <p>
+      <strong>Module:</strong>
+      Module 1 – Welcome!
+    </p>
   </div>
+
 
   <form id="quizForm">
 
-    <div class="question">
-      <h3>1. Hello! What's your ______?</h3>
-      <label class="option"><input type="radio" name="q1" value="A"> old</label>
-      <label class="option"><input type="radio" name="q1" value="B"> name</label>
-      <label class="option"><input type="radio" name="q1" value="C"> colour</label>
-    </div>
+    <!-- QUESTION 1 -->
 
     <div class="question">
-      <h3>2. “How are you?”</h3>
-      <label class="option"><input type="radio" name="q2" value="A"> I'm fine, thank you.</label>
-      <label class="option"><input type="radio" name="q2" value="B"> I'm nine years old.</label>
-      <label class="option"><input type="radio" name="q2" value="C"> My name is Adam.</label>
+
+      <h3>
+        1. Hello! What's your ______?
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q1" value="A">
+        old
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q1" value="B">
+        name
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q1" value="C">
+        colour
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 2 -->
 
     <div class="question">
-      <h3>3. “How old are you?”</h3>
-      <label class="option"><input type="radio" name="q3" value="A"> I'm fine.</label>
-      <label class="option"><input type="radio" name="q3" value="B"> I'm nine years old.</label>
-      <label class="option"><input type="radio" name="q3" value="C"> Goodbye.</label>
+
+      <h3>
+        2. “How are you?”
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q2" value="A">
+        I'm fine, thank you.
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q2" value="B">
+        I'm nine years old.
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q2" value="C">
+        My name is Adam.
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 3 -->
 
     <div class="question">
-      <h3>4. Choose the correct spelling.</h3>
-      <label class="option"><input type="radio" name="q4" value="A"> teacher</label>
-      <label class="option"><input type="radio" name="q4" value="B"> teecher</label>
-      <label class="option"><input type="radio" name="q4" value="C"> techer</label>
+
+      <h3>
+        3. “How old are you?”
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q3" value="A">
+        I'm fine.
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q3" value="B">
+        I'm nine years old.
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q3" value="C">
+        Goodbye.
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 4 -->
 
     <div class="question">
-      <h3>5. Which one is a classroom object?</h3>
-      <label class="option"><input type="radio" name="q5" value="A"> pencil</label>
-      <label class="option"><input type="radio" name="q5" value="B"> tiger</label>
-      <label class="option"><input type="radio" name="q5" value="C"> banana</label>
+
+      <h3>
+        4. Choose the correct spelling.
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q4" value="A">
+        teacher
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q4" value="B">
+        teecher
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q4" value="C">
+        techer
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 5 -->
 
     <div class="question">
-      <h3>6. This ______ my book.</h3>
-      <label class="option"><input type="radio" name="q6" value="A"> am</label>
-      <label class="option"><input type="radio" name="q6" value="B"> are</label>
-      <label class="option"><input type="radio" name="q6" value="C"> is</label>
+
+      <h3>
+        5. Which one is a classroom object?
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q5" value="A">
+        pencil
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q5" value="B">
+        tiger
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q5" value="C">
+        banana
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 6 -->
 
     <div class="question">
-      <h3>7. I ______ a pupil.</h3>
-      <label class="option"><input type="radio" name="q7" value="A"> am</label>
-      <label class="option"><input type="radio" name="q7" value="B"> is</label>
-      <label class="option"><input type="radio" name="q7" value="C"> are</label>
+
+      <h3>
+        6. This ______ my book.
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q6" value="A">
+        am
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q6" value="B">
+        are
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q6" value="C">
+        is
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 7 -->
 
     <div class="question">
-      <h3>8. They ______ my friends.</h3>
-      <label class="option"><input type="radio" name="q8" value="A"> am</label>
-      <label class="option"><input type="radio" name="q8" value="B"> is</label>
-      <label class="option"><input type="radio" name="q8" value="C"> are</label>
+
+      <h3>
+        7. I ______ a pupil.
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q7" value="A">
+        am
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q7" value="B">
+        is
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q7" value="C">
+        are
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 8 -->
 
     <div class="question">
-      <h3>9. Which word is a colour?</h3>
-      <label class="option"><input type="radio" name="q9" value="A"> blue</label>
-      <label class="option"><input type="radio" name="q9" value="B"> desk</label>
-      <label class="option"><input type="radio" name="q9" value="C"> ruler</label>
+
+      <h3>
+        8. They ______ my friends.
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q8" value="A">
+        am
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q8" value="B">
+        is
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q8" value="C">
+        are
+      </label>
+
     </div>
+
+
+    <!-- QUESTION 9 -->
 
     <div class="question">
-      <h3>10. “Goodbye!” means...</h3>
-      <label class="option"><input type="radio" name="q10" value="A"> Hello!</label>
-      <label class="option"><input type="radio" name="q10" value="B"> See you!</label>
-      <label class="option"><input type="radio" name="q10" value="C"> Thank you!</label>
+
+      <h3>
+        9. Which word is a colour?
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q9" value="A">
+        blue
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q9" value="B">
+        desk
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q9" value="C">
+        ruler
+      </label>
+
     </div>
 
-    <button type="button" class="submit-btn" onclick="submitQuiz()">
+
+    <!-- QUESTION 10 -->
+
+    <div class="question">
+
+      <h3>
+        10. “Goodbye!” means...
+      </h3>
+
+      <label class="option">
+        <input type="radio" name="q10" value="A">
+        Hello!
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q10" value="B">
+        See you!
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q10" value="C">
+        Thank you!
+      </label>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="submit-btn"
+      onclick="submitQuiz()"
+      id="submitButton"
+    >
       SUBMIT ANSWERS
     </button>
 
   </form>
 
+
+  <!-- RESULT -->
+
   <div class="result" id="resultBox">
+
     <h2>Quiz Completed!</h2>
+
+    <p>Well done, <strong id="resultName"></strong>!</p>
 
     <div class="score" id="scoreText"></div>
 
@@ -228,24 +451,43 @@ footer {
 
     <p id="feedback"></p>
 
-    <a href="index.html" class="home-btn">
+    <div
+      class="save-status"
+      id="saveStatus"
+    >
+      Saving your result...
+    </div>
+
+    <a
+      href="index.html"
+      class="home-btn"
+    >
       BACK TO HOME
     </a>
+
   </div>
 
 </div>
 
+
 <footer>
-SEQS – Smart English Quiz System | English Year 3 | 2026
+  SEQS – Smart English Quiz System<br>
+  English Year 3 | 2026
 </footer>
 
+
 <script>
+
+/* ==========================================
+   STUDENT INFORMATION
+========================================== */
 
 const studentName =
   localStorage.getItem("seqsName") || "Student";
 
 const studentClass =
   localStorage.getItem("seqsClass") || "-";
+
 
 document.getElementById("displayName").textContent =
   studentName;
@@ -254,78 +496,238 @@ document.getElementById("displayClass").textContent =
   studentClass;
 
 
+/* ==========================================
+   GOOGLE APPS SCRIPT URL
+========================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbw6qRUPE6LswiWwWfDCOz5EdUHp5hFeLbUj1xOcea56HO6qcPPE_cjuu9UH_UdJAE9VHQ/exec";
+
+
+/* ==========================================
+   SUBMIT QUIZ
+========================================== */
+
 function submitQuiz() {
 
   const answers = {
-    q1:"B",
-    q2:"A",
-    q3:"B",
-    q4:"A",
-    q5:"A",
-    q6:"C",
-    q7:"A",
-    q8:"C",
-    q9:"A",
-    q10:"B"
+
+    q1: "B",
+    q2: "A",
+    q3: "B",
+    q4: "A",
+    q5: "A",
+    q6: "C",
+    q7: "A",
+    q8: "C",
+    q9: "A",
+    q10: "B"
+
   };
 
+
   let score = 0;
+
+
+  /* CHECK ALL ANSWERS */
 
   for (let question in answers) {
 
     const selected =
       document.querySelector(
-        'input[name="' + question + '"]:checked'
+        'input[name="' +
+        question +
+        '"]:checked'
       );
 
+
     if (!selected) {
-      alert("Please answer all questions before submitting.");
+
+      alert(
+        "Please answer all questions before submitting."
+      );
+
       return;
     }
 
-    if (selected.value === answers[question]) {
+
+    if (
+      selected.value ===
+      answers[question]
+    ) {
+
       score++;
+
     }
+
   }
 
-  const percentage = score * 10;
 
-  document.getElementById("scoreText").textContent =
+  /* CALCULATE PERCENTAGE */
+
+  const percentage =
+    Math.round(
+      (score / 10) * 100
+    );
+
+
+  /* SAVE LOCALLY */
+
+  localStorage.setItem(
+    "seqsLastScore",
+    score
+  );
+
+  localStorage.setItem(
+    "seqsLastPercentage",
+    percentage
+  );
+
+
+  /* SHOW RESULT */
+
+  document.getElementById(
+    "resultName"
+  ).textContent =
+    studentName;
+
+
+  document.getElementById(
+    "scoreText"
+  ).textContent =
     score + " / 10";
 
-  document.getElementById("percentageText").textContent =
+
+  document.getElementById(
+    "percentageText"
+  ).textContent =
     percentage + "%";
+
+
+  /* FEEDBACK */
 
   let feedback = "";
 
+
   if (percentage >= 80) {
-    feedback = "Excellent work! Keep it up!";
+
+    feedback =
+      "Excellent work! Keep it up!";
+
   }
 
   else if (percentage >= 60) {
-    feedback = "Good job! Keep practising!";
+
+    feedback =
+      "Good job! Keep practising!";
+
   }
 
   else {
-    feedback = "Keep trying! You can do it!";
+
+    feedback =
+      "Keep trying! You can do it!";
+
   }
 
-  document.getElementById("feedback").textContent =
+
+  document.getElementById(
+    "feedback"
+  ).textContent =
     feedback;
 
-  document.getElementById("resultBox").style.display =
-    "block";
 
-  document.getElementById("quizForm").style.display =
+  document.getElementById(
+    "quizForm"
+  ).style.display =
     "none";
 
-  localStorage.setItem("seqsLastScore", score);
-  localStorage.setItem("seqsLastPercentage", percentage);
+
+  document.getElementById(
+    "resultBox"
+  ).style.display =
+    "block";
+
 
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
+
+
+  /* ======================================
+     AUTO RECORD TO GOOGLE SHEETS
+  ====================================== */
+
+  const recordData = {
+
+    name: studentName,
+
+    studentClass: studentClass,
+
+    module:
+      "Module 1 – Welcome!",
+
+    score:
+      score + "/10",
+
+    percentage:
+      percentage + "%"
+
+  };
+
+
+  document.getElementById(
+    "saveStatus"
+  ).textContent =
+    "Saving your result...";
+
+
+  fetch(
+    GOOGLE_SCRIPT_URL,
+    {
+
+      method: "POST",
+
+      mode: "no-cors",
+
+      headers: {
+        "Content-Type":
+          "text/plain;charset=utf-8"
+      },
+
+      body:
+        JSON.stringify(
+          recordData
+        )
+
+    }
+
+  )
+
+  .then(function() {
+
+    document.getElementById(
+      "saveStatus"
+    ).textContent =
+      "✓ Result recorded successfully.";
+
+  })
+
+  .catch(function(error) {
+
+    console.error(
+      "Record error:",
+      error
+    );
+
+    document.getElementById(
+      "saveStatus"
+    ).textContent =
+      "Result completed. Please inform your teacher if the record is not saved.";
+
+  });
+
 }
 
 </script>
