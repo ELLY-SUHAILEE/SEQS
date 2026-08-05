@@ -9,395 +9,433 @@
 
 <style>
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#eef6ff;
+  color:#17324d;
+  min-height:100vh;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef6ff;
-  color: #17324d;
-  min-height: 100vh;
+header{
+  background:linear-gradient(135deg,#0d47a1,#1976d2);
+  color:white;
+  text-align:center;
+  padding:30px 15px;
 }
 
-header {
-  background: linear-gradient(135deg, #0d47a1, #1976d2);
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
+header h1{
+  margin:0;
+  font-size:40px;
+  letter-spacing:3px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 40px;
-  letter-spacing: 3px;
+header p{
+  margin:7px 0 0;
+  font-size:17px;
 }
 
-header p {
-  margin: 7px 0 0;
-  font-size: 17px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 25px 15px;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:25px 15px;
 }
 
 
 /* LOGIN */
 
-.login-wrapper {
-  max-width: 430px;
-  margin: 50px auto;
+.login-wrapper{
+  max-width:430px;
+  margin:50px auto;
 }
 
-.login-card {
-  background: white;
-  border-radius: 20px;
-  padding: 35px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.12);
-  text-align: center;
+.login-card{
+  background:white;
+  border-radius:20px;
+  padding:35px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  text-align:center;
 }
 
-.lock {
-  font-size: 50px;
-  margin-bottom: 10px;
+.lock{
+  font-size:50px;
+  margin-bottom:10px;
 }
 
-.login-card h2 {
-  margin: 5px 0 10px;
-  color: #1557a6;
+.login-card h2{
+  margin:5px 0 10px;
+  color:#1557a6;
 }
 
-.login-card p {
-  color: #718096;
-  line-height: 1.5;
+.login-card p{
+  color:#718096;
+  line-height:1.5;
 }
 
-.password-input {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border: 1px solid #ccd8e5;
-  border-radius: 10px;
-  font-size: 16px;
+.password-input{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border:1px solid #ccd8e5;
+  border-radius:10px;
+  font-size:16px;
 }
 
-.password-input:focus {
-  outline: none;
-  border-color: #1976d2;
+.password-input:focus{
+  outline:none;
+  border-color:#1976d2;
 }
 
-.login-btn {
-  width: 100%;
-  border: none;
-  padding: 14px;
-  margin-top: 15px;
-  border-radius: 30px;
-  background: #1976d2;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
+.login-btn{
+  width:100%;
+  border:none;
+  padding:14px;
+  margin-top:15px;
+  border-radius:30px;
+  background:#1976d2;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.login-btn:hover {
-  background: #0d47a1;
+.login-btn:hover{
+  background:#0d47a1;
 }
 
-.login-btn:disabled {
-  opacity: .6;
-  cursor: not-allowed;
+.login-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
-.login-message {
-  min-height: 22px;
-  margin-top: 15px;
-  font-size: 14px;
-  font-weight: bold;
+.login-message{
+  min-height:22px;
+  margin-top:15px;
+  font-size:14px;
+  font-weight:bold;
 }
 
-.home-link {
-  display: inline-block;
-  margin-top: 20px;
-  color: #1557a6;
-  text-decoration: none;
-  font-weight: bold;
+.home-link{
+  display:inline-block;
+  margin-top:20px;
+  color:#1557a6;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 
 /* DASHBOARD */
 
-#dashboardSection {
-  display: none;
+#dashboardSection{
+  display:none;
 }
 
-.teacher-bar {
-  background: white;
-  border-radius: 15px;
-  padding: 15px 18px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+.teacher-bar{
+  background:white;
+  border-radius:15px;
+  padding:15px 18px;
+  margin-bottom:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
 }
 
-.teacher-bar strong {
-  color: #1557a6;
+.teacher-bar strong{
+  color:#1557a6;
 }
 
-.logout-btn {
-  border: none;
-  background: #c62828;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.logout-btn:hover {
-  background: #a51f1f;
+.logout-btn{
+  border:none;
+  background:#c62828;
+  color:white;
+  padding:10px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 
 /* HEADINGS */
 
-.section-heading {
-  margin: 28px 0 15px;
-  color: #1557a6;
-  font-size: 20px;
+.section-heading{
+  margin:28px 0 15px;
+  color:#1557a6;
+  font-size:20px;
 }
 
 
-/* OVERALL */
+/* SUMMARY */
 
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 22px;
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:22px;
 }
 
-
-/* PERFORMANCE LEVEL */
-
-.performance-dashboard {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-bottom: 22px;
+.performance-dashboard{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:22px;
 }
 
-
-/* CARDS */
-
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 22px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+.card{
+  background:white;
+  border-radius:16px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.card h3 {
-  margin: 0 0 10px;
-  color: #607080;
-  font-size: 14px;
-  line-height: 1.4;
+.card h3{
+  margin:0 0 10px;
+  color:#607080;
+  font-size:14px;
 }
 
-.number {
-  font-size: 36px;
-  font-weight: bold;
-  color: #1976d2;
+.number{
+  font-size:36px;
+  font-weight:bold;
+  color:#1976d2;
 }
 
-.level-label {
-  margin-top: 6px;
-  color: #718096;
-  font-size: 12px;
+.level-label{
+  margin-top:6px;
+  color:#718096;
+  font-size:12px;
 }
 
 
 /* MODULE PERFORMANCE */
 
-.module-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-bottom: 25px;
+.module-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-bottom:25px;
 }
 
-.module-card {
-  background: white;
-  border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+.module-card{
+  background:white;
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.module-name {
-  font-weight: bold;
-  color: #1557a6;
-  margin-bottom: 13px;
-  font-size: 15px;
+.module-name{
+  font-weight:bold;
+  color:#1557a6;
+  margin-bottom:13px;
 }
 
-.module-stats {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  color: #607080;
-  font-size: 14px;
+.module-stats{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:#607080;
+  font-size:14px;
 }
 
-.module-stats strong {
-  color: #17324d;
+.module-average{
+  color:#1976d2;
+  font-weight:bold;
 }
 
-.module-average {
-  color: #1976d2;
-  font-weight: bold;
+
+/* PERFORMANCE CHART */
+
+.chart-box{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  margin-bottom:25px;
+}
+
+.chart-description{
+  color:#718096;
+  font-size:14px;
+  margin:0 0 22px;
+}
+
+.chart-row{
+  display:grid;
+  grid-template-columns:95px 1fr 55px;
+  align-items:center;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.chart-label{
+  font-weight:bold;
+  color:#174a7c;
+  font-size:14px;
+}
+
+.chart-track{
+  width:100%;
+  height:25px;
+  background:#e8eef5;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.chart-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#1976d2,#42a5f5);
+  border-radius:20px;
+  transition:width .7s ease;
+}
+
+.chart-value{
+  text-align:right;
+  font-weight:bold;
+  color:#1557a6;
 }
 
 
 /* STATUS */
 
-.status {
-  background: #e8f3ff;
-  color: #174a7c;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 18px;
-  text-align: center;
-  font-size: 14px;
+.status{
+  background:#e8f3ff;
+  color:#174a7c;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:18px;
+  text-align:center;
+  font-size:14px;
 }
 
 
 /* SEARCH */
 
-.filters {
-  background: white;
-  padding: 18px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+.filters{
+  background:white;
+  padding:18px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.filters input {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #ccd8e5;
-  border-radius: 9px;
-  font-size: 15px;
+.filters input{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccd8e5;
+  border-radius:9px;
+  font-size:15px;
 }
 
 
 /* TABLE */
 
-.table-box {
-  background: white;
-  border-radius: 15px;
-  padding: 15px;
-  overflow-x: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+.table-box{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  overflow-x:auto;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 800px;
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:800px;
 }
 
-th {
-  background: #1557a6;
-  color: white;
-  padding: 12px 10px;
-  font-size: 14px;
+th{
+  background:#1557a6;
+  color:white;
+  padding:12px 10px;
+  font-size:14px;
 }
 
-td {
-  padding: 11px 10px;
-  border-bottom: 1px solid #e1e7ee;
-  text-align: center;
-  font-size: 14px;
+td{
+  padding:11px 10px;
+  border-bottom:1px solid #e1e7ee;
+  text-align:center;
+  font-size:14px;
 }
 
-tbody tr:hover {
-  background: #f4f9ff;
+tbody tr:hover{
+  background:#f4f9ff;
 }
 
-.empty {
-  text-align: center;
-  padding: 30px;
-  color: #718096;
+.empty{
+  text-align:center;
+  padding:30px;
+  color:#718096;
 }
 
 
 /* ACTIONS */
 
-.actions {
-  text-align: center;
-  margin-top: 25px;
+.actions{
+  text-align:center;
+  margin-top:25px;
 }
 
-.btn {
-  display: inline-block;
-  background: #1557a6;
-  color: white;
-  text-decoration: none;
-  padding: 11px 22px;
-  border-radius: 25px;
-  margin: 5px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+.btn{
+  display:inline-block;
+  background:#1557a6;
+  color:white;
+  text-decoration:none;
+  padding:11px 22px;
+  border-radius:25px;
+  margin:5px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-.btn:hover {
-  background: #0d47a1;
+.btn:hover{
+  background:#0d47a1;
 }
 
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #718096;
-  font-size: 13px;
-  line-height: 1.6;
+footer{
+  text-align:center;
+  padding:25px;
+  color:#718096;
+  font-size:13px;
+  line-height:1.6;
 }
 
 
 /* MOBILE */
 
-@media(max-width:900px) {
+@media(max-width:900px){
 
-  .performance-dashboard {
-    grid-template-columns: repeat(2, 1fr);
+  .performance-dashboard{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
 
-@media(max-width:700px) {
+@media(max-width:700px){
 
   .dashboard,
   .performance-dashboard,
-  .module-grid {
-    grid-template-columns: 1fr;
+  .module-grid{
+    grid-template-columns:1fr;
   }
 
-  .teacher-bar {
-    flex-direction: column;
-    text-align: center;
+  .teacher-bar{
+    flex-direction:column;
+    text-align:center;
   }
 
-  .module-stats {
-    flex-direction: column;
+  .module-stats{
+    flex-direction:column;
+  }
+
+  .chart-row{
+    grid-template-columns:75px 1fr 45px;
+    gap:8px;
   }
 
 }
@@ -410,11 +448,9 @@ footer {
 
 <header>
 
-  <h1>SEQS</h1>
+<h1>SEQS</h1>
 
-  <p>
-    SMART ENGLISH QUIZ SYSTEM
-  </p>
+<p>SMART ENGLISH QUIZ SYSTEM</p>
 
 </header>
 
@@ -423,1434 +459,1180 @@ footer {
 
 <div class="container" id="loginSection">
 
-  <div class="login-wrapper">
+<div class="login-wrapper">
 
-    <div class="login-card">
+<div class="login-card">
 
-      <div class="lock">
-        🔒
-      </div>
+<div class="lock">🔒</div>
 
-      <h2>
-        TEACHER ACCESS
-      </h2>
+<h2>TEACHER ACCESS</h2>
 
-      <p>
-        This section is restricted to authorised teachers only.
-      </p>
+<p>
+This section is restricted to authorised teachers only.
+</p>
 
-      <input
-        type="password"
-        id="teacherPassword"
-        class="password-input"
-        placeholder="Enter teacher password"
-        autocomplete="current-password"
-      >
+<input
+type="password"
+id="teacherPassword"
+class="password-input"
+placeholder="Enter teacher password"
+autocomplete="current-password"
+>
 
-      <button
-        type="button"
-        class="login-btn"
-        id="loginButton"
-        onclick="teacherLogin()"
-      >
-        LOGIN
-      </button>
+<button
+type="button"
+class="login-btn"
+id="loginButton"
+onclick="teacherLogin()"
+>
+LOGIN
+</button>
 
-      <div
-        class="login-message"
-        id="loginMessage"
-      ></div>
+<div
+class="login-message"
+id="loginMessage"
+></div>
 
-      <a
-        href="index.html"
-        class="home-link"
-      >
-        ← BACK TO SEQS
-      </a>
+<a href="index.html" class="home-link">
+← BACK TO SEQS
+</a>
 
-    </div>
-
-  </div>
-
+</div>
+</div>
 </div>
 
 
-<!-- TEACHER DASHBOARD -->
+<!-- DASHBOARD -->
 
 <div class="container" id="dashboardSection">
 
 
-  <div class="teacher-bar">
+<div class="teacher-bar">
 
-    <div>
-      🔒
-      <strong>
-        AUTHORISED TEACHER
-      </strong>
-    </div>
+<div>
+🔒 <strong>AUTHORISED TEACHER</strong>
+</div>
 
-    <button
-      type="button"
-      class="logout-btn"
-      onclick="teacherLogout()"
-    >
-      LOGOUT
-    </button>
+<button
+type="button"
+class="logout-btn"
+onclick="teacherLogout()"
+>
+LOGOUT
+</button>
 
-  </div>
+</div>
 
 
-  <!-- OVERALL PERFORMANCE -->
+<!-- OVERALL -->
 
-  <h2 class="section-heading">
-    Overall Performance
-  </h2>
+<h2 class="section-heading">
+Overall Performance
+</h2>
 
+<div class="dashboard">
 
-  <div class="dashboard">
+<div class="card">
+<h3>TOTAL ATTEMPTS</h3>
+<div class="number" id="totalAttempts">0</div>
+</div>
 
+<div class="card">
+<h3>AVERAGE SCORE</h3>
+<div class="number" id="averageScore">0%</div>
+</div>
 
-    <div class="card">
+<div class="card">
+<h3>HIGHEST SCORE</h3>
+<div class="number" id="highestScore">0%</div>
+</div>
 
-      <h3>
-        TOTAL ATTEMPTS
-      </h3>
+</div>
 
-      <div class="number" id="totalAttempts">
-        0
-      </div>
 
-    </div>
+<!-- PERFORMANCE LEVEL -->
 
+<h2 class="section-heading">
+Performance Level
+</h2>
 
-    <div class="card">
+<div class="performance-dashboard">
 
-      <h3>
-        AVERAGE SCORE
-      </h3>
+<div class="card">
+<h3>EXCELLENT</h3>
+<div class="number" id="excellentCount">0</div>
+<div class="level-label">80% – 100%</div>
+</div>
 
-      <div class="number" id="averageScore">
-        0%
-      </div>
+<div class="card">
+<h3>GOOD</h3>
+<div class="number" id="goodCount">0</div>
+<div class="level-label">60% – 79%</div>
+</div>
 
-    </div>
+<div class="card">
+<h3>SATISFACTORY</h3>
+<div class="number" id="satisfactoryCount">0</div>
+<div class="level-label">40% – 59%</div>
+</div>
 
+<div class="card">
+<h3>NEEDS IMPROVEMENT</h3>
+<div class="number" id="needsImprovementCount">0</div>
+<div class="level-label">0% – 39%</div>
+</div>
 
-    <div class="card">
+</div>
 
-      <h3>
-        HIGHEST SCORE
-      </h3>
 
-      <div class="number" id="highestScore">
-        0%
-      </div>
+<!-- MODULE PERFORMANCE -->
 
-    </div>
+<h2 class="section-heading">
+Module Performance
+</h2>
 
+<div
+class="module-grid"
+id="modulePerformance"
+>
 
-  </div>
+<div class="module-card">
+Loading module analysis...
+</div>
 
+</div>
 
-  <!-- PERFORMANCE LEVEL -->
 
-  <h2 class="section-heading">
-    Performance Level
-  </h2>
+<!-- PERFORMANCE CHART -->
 
+<h2 class="section-heading">
+📊 Average Score by Module
+</h2>
 
-  <div class="performance-dashboard">
+<div class="chart-box">
 
+<p class="chart-description">
+Average student performance for Module 1 to Module 10.
+</p>
 
-    <div class="card">
+<div id="moduleChart"></div>
 
-      <h3>
-        EXCELLENT
-      </h3>
+</div>
 
-      <div class="number" id="excellentCount">
-        0
-      </div>
 
-      <div class="level-label">
-        80% – 100%
-      </div>
+<!-- STATUS -->
 
-    </div>
+<div
+class="status"
+id="statusMessage"
+>
+Loading student records...
+</div>
 
 
-    <div class="card">
+<!-- SEARCH -->
 
-      <h3>
-        GOOD
-      </h3>
+<div class="filters">
 
-      <div class="number" id="goodCount">
-        0
-      </div>
+<input
+type="text"
+id="searchBox"
+placeholder="Search by student name, class or module..."
+onkeyup="filterRecords()"
+>
 
-      <div class="level-label">
-        60% – 79%
-      </div>
+</div>
 
-    </div>
 
+<!-- RECORDS -->
 
-    <div class="card">
+<h2 class="section-heading">
+Student Records
+</h2>
 
-      <h3>
-        SATISFACTORY
-      </h3>
+<div class="table-box">
 
-      <div class="number" id="satisfactoryCount">
-        0
-      </div>
+<table>
 
-      <div class="level-label">
-        40% – 59%
-      </div>
+<thead>
 
-    </div>
+<tr>
+<th>DATE / TIME</th>
+<th>NAME</th>
+<th>CLASS</th>
+<th>MODULE</th>
+<th>SCORE</th>
+<th>PERCENTAGE</th>
+</tr>
 
+</thead>
 
-    <div class="card">
+<tbody id="recordBody">
 
-      <h3>
-        NEEDS IMPROVEMENT
-      </h3>
+<tr>
 
-      <div class="number" id="needsImprovementCount">
-        0
-      </div>
+<td colspan="6" class="empty">
+Loading records...
+</td>
 
-      <div class="level-label">
-        0% – 39%
-      </div>
+</tr>
 
-    </div>
+</tbody>
 
+</table>
 
-  </div>
+</div>
 
 
-  <!-- MODULE PERFORMANCE -->
+<div class="actions">
 
-  <h2 class="section-heading">
-    Module Performance
-  </h2>
+<button
+type="button"
+class="btn"
+onclick="loadTeacherRecords()"
+>
+REFRESH RECORDS
+</button>
 
+<a href="index.html" class="btn">
+BACK TO HOME
+</a>
 
-  <div
-    class="module-grid"
-    id="modulePerformance"
-  >
-
-    <div class="module-card">
-      Loading module analysis...
-    </div>
-
-  </div>
-
-
-  <!-- STATUS -->
-
-  <div
-    class="status"
-    id="statusMessage"
-  >
-    Loading student records...
-  </div>
-
-
-  <!-- SEARCH -->
-
-  <div class="filters">
-
-    <input
-      type="text"
-      id="searchBox"
-      placeholder="Search by student name, class or module..."
-      onkeyup="filterRecords()"
-    >
-
-  </div>
-
-
-  <!-- STUDENT RECORDS -->
-
-  <h2 class="section-heading">
-    Student Records
-  </h2>
-
-
-  <div class="table-box">
-
-    <table>
-
-      <thead>
-
-        <tr>
-
-          <th>DATE / TIME</th>
-
-          <th>NAME</th>
-
-          <th>CLASS</th>
-
-          <th>MODULE</th>
-
-          <th>SCORE</th>
-
-          <th>PERCENTAGE</th>
-
-        </tr>
-
-      </thead>
-
-      <tbody id="recordBody">
-
-        <tr>
-
-          <td colspan="6" class="empty">
-            Loading records...
-          </td>
-
-        </tr>
-
-      </tbody>
-
-    </table>
-
-  </div>
-
-
-  <div class="actions">
-
-    <button
-      type="button"
-      class="btn"
-      onclick="loadTeacherRecords()"
-    >
-      REFRESH RECORDS
-    </button>
-
-    <a
-      href="index.html"
-      class="btn"
-    >
-      BACK TO HOME
-    </a>
-
-  </div>
-
+</div>
 
 </div>
 
 
 <footer>
 
-  SEQS – Smart English Quiz System
+SEQS – Smart English Quiz System
 
-  <br>
+<br>
 
-  Teacher Dashboard | English Year 3 | 2026
+Teacher Dashboard | English Year 3 | 2026
 
 </footer>
 
 
 <script>
 
-/* =========================================
-   SEQS WEB APP
-========================================= */
-
 const GOOGLE_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
-
 
 let allRecords = [];
 
 
-/* =========================================
-   TEACHER LOGIN
-========================================= */
+/* MODULE INFORMATION */
 
-async function teacherLogin() {
+const moduleList = [
 
-  const password =
-    document.getElementById(
-      "teacherPassword"
-    ).value;
+{number:1,name:"Welcome!"},
+{number:2,name:"Every Day"},
+{number:3,name:"Right Now"},
+{number:4,name:"Year In, Year Out"},
+{number:5,name:"My New House"},
+{number:6,name:"Food, Please!"},
+{number:7,name:"Out and About"},
+{number:8,name:"Where Were You Yesterday?"},
+{number:9,name:"On Holiday"},
+{number:10,name:"The World Around Us"}
 
-
-  const message =
-    document.getElementById(
-      "loginMessage"
-    );
-
-
-  const button =
-    document.getElementById(
-      "loginButton"
-    );
+];
 
 
-  if (!password) {
+/* LOGIN */
 
-    message.style.color =
-      "#c62828";
+async function teacherLogin(){
 
-    message.textContent =
-      "Please enter the teacher password.";
+const password =
+document.getElementById("teacherPassword").value;
 
-    return;
+const message =
+document.getElementById("loginMessage");
 
-  }
-
-
-  button.disabled = true;
-
-  button.textContent =
-    "CHECKING...";
+const button =
+document.getElementById("loginButton");
 
 
-  message.style.color =
-    "#1557a6";
+if(!password){
 
-  message.textContent =
-    "Verifying teacher access...";
+message.style.color="#c62828";
 
+message.textContent=
+"Please enter the teacher password.";
 
-  try {
-
-    const response =
-      await fetch(
-        GOOGLE_SCRIPT_URL,
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
-
-          body:
-            JSON.stringify({
-              action: "teacherLogin",
-              password: password
-            })
-        }
-      );
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      data.authenticated === true &&
-      data.token
-    ) {
-
-      sessionStorage.setItem(
-        "seqsTeacherToken",
-        data.token
-      );
-
-
-      document.getElementById(
-        "teacherPassword"
-      ).value = "";
-
-
-      showDashboard();
-
-      return;
-
-    }
-
-
-    message.style.color =
-      "#c62828";
-
-    message.textContent =
-      "Incorrect teacher password.";
-
-
-  } catch (error) {
-
-    console.error(
-      "Teacher login error:",
-      error
-    );
-
-
-    message.style.color =
-      "#c62828";
-
-    message.textContent =
-      "Unable to verify teacher access.";
-
-
-  } finally {
-
-    button.disabled = false;
-
-    button.textContent =
-      "LOGIN";
-
-  }
+return;
 
 }
 
 
-/* =========================================
-   SHOW DASHBOARD
-========================================= */
+button.disabled=true;
 
-function showDashboard() {
+button.textContent="CHECKING...";
 
-  document.getElementById(
-    "loginSection"
-  ).style.display =
-    "none";
+message.style.color="#1557a6";
+
+message.textContent=
+"Verifying teacher access...";
 
 
-  document.getElementById(
-    "dashboardSection"
-  ).style.display =
-    "block";
+try{
+
+const response =
+await fetch(
+GOOGLE_SCRIPT_URL,
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"text/plain;charset=utf-8"
+},
+
+body:
+JSON.stringify({
+
+action:"teacherLogin",
+password:password
+
+})
+
+}
+);
 
 
-  loadTeacherRecords();
+const data =
+await response.json();
+
+
+if(
+data.authenticated===true &&
+data.token
+){
+
+sessionStorage.setItem(
+"seqsTeacherToken",
+data.token
+);
+
+document.getElementById(
+"teacherPassword"
+).value="";
+
+showDashboard();
+
+return;
 
 }
 
 
-/* =========================================
-   LOAD RECORDS
-========================================= */
+message.style.color="#c62828";
 
-async function loadTeacherRecords() {
-
-  const token =
-    sessionStorage.getItem(
-      "seqsTeacherToken"
-    );
+message.textContent=
+"Incorrect teacher password.";
 
 
-  if (!token) {
+}catch(error){
 
-    showLogin();
+console.error(error);
 
-    return;
+message.style.color="#c62828";
 
-  }
+message.textContent=
+"Unable to verify teacher access.";
 
+}finally{
 
-  document.getElementById(
-    "statusMessage"
-  ).textContent =
-    "Loading student records...";
+button.disabled=false;
 
+button.textContent="LOGIN";
 
-  try {
-
-    const url =
-      GOOGLE_SCRIPT_URL +
-      "?action=teacherRecords" +
-      "&token=" +
-      encodeURIComponent(token) +
-      "&t=" +
-      Date.now();
-
-
-    const response =
-      await fetch(url);
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      data.status ===
-      "unauthorized"
-    ) {
-
-      sessionStorage.removeItem(
-        "seqsTeacherToken"
-      );
-
-
-      alert(
-        "Teacher session has expired. Please login again."
-      );
-
-
-      showLogin();
-
-      return;
-
-    }
-
-
-    if (
-      data.status === "error"
-    ) {
-
-      throw new Error(
-        data.message ||
-        "Unable to load records."
-      );
-
-    }
-
-
-    if (!Array.isArray(data)) {
-
-      throw new Error(
-        "Invalid student record format."
-      );
-
-    }
-
-
-    allRecords =
-      data.slice().reverse();
-
-
-    displayRecords(
-      allRecords
-    );
-
-
-    calculateDashboard(
-      allRecords
-    );
-
-
-    calculateModulePerformance(
-      allRecords
-    );
-
-
-    document.getElementById(
-      "statusMessage"
-    ).textContent =
-      "✓ Student records loaded successfully.";
-
-
-  } catch (error) {
-
-    console.error(
-      "Teacher record error:",
-      error
-    );
-
-
-    document.getElementById(
-      "statusMessage"
-    ).textContent =
-      "Unable to load student records.";
-
-  }
+}
 
 }
 
 
-/* =========================================
-   NORMALISE PERCENTAGE
-========================================= */
+/* SHOW DASHBOARD */
 
-function getPercentage(value) {
+function showDashboard(){
 
-  let percentage =
-    parseFloat(
-      String(value || "0")
-        .replace("%", "")
-        .trim()
-    );
+document.getElementById(
+"loginSection"
+).style.display="none";
 
+document.getElementById(
+"dashboardSection"
+).style.display="block";
 
-  if (isNaN(percentage)) {
-
-    return 0;
-
-  }
-
-
-  /*
-     Google Sheets may return
-     35% as 0.35.
-  */
-
-  if (
-    percentage >= 0 &&
-    percentage <= 1
-  ) {
-
-    percentage =
-      percentage * 100;
-
-  }
-
-
-  return Math.round(
-    percentage
-  );
+loadTeacherRecords();
 
 }
 
 
-/* =========================================
-   FORMAT PERCENTAGE
-========================================= */
+/* LOAD RECORDS */
 
-function formatPercentage(value) {
+async function loadTeacherRecords(){
 
-  return (
-    getPercentage(value) +
-    "%"
-  );
-
-}
+const token =
+sessionStorage.getItem(
+"seqsTeacherToken"
+);
 
 
-/* =========================================
-   FORMAT SCORE
-========================================= */
+if(!token){
 
-function formatScore(
-  score,
-  percentage
-) {
+showLogin();
 
-  if (
-    typeof score === "string" &&
-    /^\d+\s*\/\s*20$/.test(
-      score.trim()
-    )
-  ) {
-
-    return score.trim();
-
-  }
-
-
-  const p =
-    getPercentage(
-      percentage
-    );
-
-
-  const calculatedScore =
-    Math.round(
-      (p / 100) * 20
-    );
-
-
-  return (
-    calculatedScore +
-    "/20"
-  );
+return;
 
 }
 
 
-/* =========================================
-   DISPLAY RECORDS
-========================================= */
-
-function displayRecords(records) {
-
-  const body =
-    document.getElementById(
-      "recordBody"
-    );
+document.getElementById(
+"statusMessage"
+).textContent=
+"Loading student records...";
 
 
-  body.innerHTML = "";
+try{
+
+const url =
+GOOGLE_SCRIPT_URL +
+"?action=teacherRecords" +
+"&token=" +
+encodeURIComponent(token) +
+"&t=" +
+Date.now();
 
 
-  if (
-    records.length === 0
-  ) {
+const response =
+await fetch(url);
 
-    body.innerHTML =
-    `
-      <tr>
-
-        <td
-          colspan="6"
-          class="empty"
-        >
-          No student records yet.
-        </td>
-
-      </tr>
-    `;
-
-    return;
-
-  }
+const data =
+await response.json();
 
 
-  records.forEach(
-    function(record) {
+if(data.status==="unauthorized"){
 
-      const row =
-        document.createElement(
-          "tr"
-        );
+sessionStorage.removeItem(
+"seqsTeacherToken"
+);
 
+alert(
+"Teacher session has expired. Please login again."
+);
 
-      let date = "-";
+showLogin();
 
-
-      if (
-        record.timestamp
-      ) {
-
-        const parsedDate =
-          new Date(
-            record.timestamp
-          );
-
-
-        if (
-          !isNaN(
-            parsedDate.getTime()
-          )
-        ) {
-
-          date =
-            parsedDate.toLocaleString(
-              "en-MY",
-              {
-                timeZone:
-                  "Asia/Kuala_Lumpur"
-              }
-            );
-
-        }
-
-      }
-
-
-      const displayScore =
-        formatScore(
-          record.score,
-          record.percentage
-        );
-
-
-      const displayPercentage =
-        formatPercentage(
-          record.percentage
-        );
-
-
-      row.innerHTML =
-      `
-
-        <td>
-          ${escapeHTML(date)}
-        </td>
-
-        <td>
-          ${escapeHTML(
-            record.name || "-"
-          )}
-        </td>
-
-        <td>
-          ${escapeHTML(
-            record.studentClass || "-"
-          )}
-        </td>
-
-        <td>
-          ${escapeHTML(
-            record.module || "-"
-          )}
-        </td>
-
-        <td>
-          ${escapeHTML(
-            displayScore
-          )}
-        </td>
-
-        <td>
-          ${escapeHTML(
-            displayPercentage
-          )}
-        </td>
-
-      `;
-
-
-      body.appendChild(
-        row
-      );
-
-    }
-  );
+return;
 
 }
 
 
-/* =========================================
-   OVERALL DASHBOARD
-========================================= */
+if(data.status==="error"){
 
-function calculateDashboard(records) {
-
-  const total =
-    records.length;
-
-
-  let sum = 0;
-
-  let highest = 0;
-
-  let excellent = 0;
-
-  let good = 0;
-
-  let satisfactory = 0;
-
-  let needsImprovement = 0;
-
-
-  records.forEach(
-    function(record) {
-
-      const percentage =
-        getPercentage(
-          record.percentage
-        );
-
-
-      sum += percentage;
-
-
-      if (
-        percentage >
-        highest
-      ) {
-
-        highest =
-          percentage;
-
-      }
-
-
-      if (
-        percentage >= 80
-      ) {
-
-        excellent++;
-
-      } else if (
-        percentage >= 60
-      ) {
-
-        good++;
-
-      } else if (
-        percentage >= 40
-      ) {
-
-        satisfactory++;
-
-      } else {
-
-        needsImprovement++;
-
-      }
-
-    }
-  );
-
-
-  const average =
-    total > 0
-      ? Math.round(
-          sum / total
-        )
-      : 0;
-
-
-  document.getElementById(
-    "totalAttempts"
-  ).textContent =
-    total;
-
-
-  document.getElementById(
-    "averageScore"
-  ).textContent =
-    average + "%";
-
-
-  document.getElementById(
-    "highestScore"
-  ).textContent =
-    highest + "%";
-
-
-  document.getElementById(
-    "excellentCount"
-  ).textContent =
-    excellent;
-
-
-  document.getElementById(
-    "goodCount"
-  ).textContent =
-    good;
-
-
-  document.getElementById(
-    "satisfactoryCount"
-  ).textContent =
-    satisfactory;
-
-
-  document.getElementById(
-    "needsImprovementCount"
-  ).textContent =
-    needsImprovement;
+throw new Error(
+data.message ||
+"Unable to load records."
+);
 
 }
 
 
-/* =========================================
-   MODULE PERFORMANCE
-========================================= */
+if(!Array.isArray(data)){
 
-function calculateModulePerformance(records) {
-
-  const modules = [
-
-    {
-      number: 1,
-      name: "Welcome!"
-    },
-
-    {
-      number: 2,
-      name: "Every Day"
-    },
-
-    {
-      number: 3,
-      name: "Right Now"
-    },
-
-    {
-      number: 4,
-      name: "Year In, Year Out"
-    },
-
-    {
-      number: 5,
-      name: "My New House"
-    },
-
-    {
-      number: 6,
-      name: "Food, Please!"
-    },
-
-    {
-      number: 7,
-      name: "Out and About"
-    },
-
-    {
-      number: 8,
-      name: "Where Were You Yesterday?"
-    },
-
-    {
-      number: 9,
-      name: "On Holiday"
-    },
-
-    {
-      number: 10,
-      name: "The World Around Us"
-    }
-
-  ];
-
-
-  const container =
-    document.getElementById(
-      "modulePerformance"
-    );
-
-
-  container.innerHTML = "";
-
-
-  modules.forEach(
-    function(moduleInfo) {
-
-      /*
-        Match the module number at the
-        beginning of the saved module name.
-      */
-
-      const pattern =
-        new RegExp(
-          "^Module\\s+" +
-          moduleInfo.number +
-          "(?:\\s|\\s*-|$)",
-          "i"
-        );
-
-
-      const moduleRecords =
-        records.filter(
-          function(record) {
-
-            const moduleName =
-              String(
-                record.module || ""
-              ).trim();
-
-
-            return pattern.test(
-              moduleName
-            );
-
-          }
-        );
-
-
-      const attempts =
-        moduleRecords.length;
-
-
-      let totalPercentage =
-        0;
-
-
-      moduleRecords.forEach(
-        function(record) {
-
-          totalPercentage +=
-            getPercentage(
-              record.percentage
-            );
-
-        }
-      );
-
-
-      const average =
-        attempts > 0
-          ? Math.round(
-              totalPercentage /
-              attempts
-            )
-          : 0;
-
-
-      const card =
-        document.createElement(
-          "div"
-        );
-
-
-      card.className =
-        "module-card";
-
-
-      card.innerHTML =
-      `
-
-        <div class="module-name">
-
-          Module ${moduleInfo.number}
-          – ${escapeHTML(moduleInfo.name)}
-
-        </div>
-
-
-        <div class="module-stats">
-
-          <span>
-            Attempts:
-            <strong>
-              ${attempts}
-            </strong>
-          </span>
-
-          <span class="module-average">
-            Average:
-            ${average}%
-          </span>
-
-        </div>
-
-      `;
-
-
-      container.appendChild(
-        card
-      );
-
-    }
-  );
+throw new Error(
+"Invalid student record format."
+);
 
 }
 
 
-/* =========================================
-   FILTER
-========================================= */
-
-function filterRecords() {
-
-  const keyword =
-    document.getElementById(
-      "searchBox"
-    )
-    .value
-    .toLowerCase()
-    .trim();
+allRecords =
+data.slice().reverse();
 
 
-  const filtered =
-    allRecords.filter(
-      function(record) {
+displayRecords(allRecords);
 
-        const name =
-          String(
-            record.name || ""
-          ).toLowerCase();
+calculateDashboard(allRecords);
 
+calculateModulePerformance(allRecords);
 
-        const studentClass =
-          String(
-            record.studentClass || ""
-          ).toLowerCase();
+drawModuleChart(allRecords);
 
 
-        const module =
-          String(
-            record.module || ""
-          ).toLowerCase();
+document.getElementById(
+"statusMessage"
+).textContent=
+"✓ Student records loaded successfully.";
 
 
-        return (
-          name.includes(keyword) ||
-          studentClass.includes(keyword) ||
-          module.includes(keyword)
-        );
+}catch(error){
 
-      }
-    );
+console.error(error);
 
+document.getElementById(
+"statusMessage"
+).textContent=
+"Unable to load student records.";
 
-  displayRecords(
-    filtered
-  );
+}
 
 }
 
 
-/* =========================================
-   LOGOUT
-========================================= */
+/* PERCENTAGE */
 
-function teacherLogout() {
+function getPercentage(value){
 
-  sessionStorage.removeItem(
-    "seqsTeacherToken"
-  );
-
-
-  allRecords = [];
+let percentage =
+parseFloat(
+String(value || "0")
+.replace("%","")
+.trim()
+);
 
 
-  showLogin();
+if(isNaN(percentage)){
+return 0;
+}
+
+
+if(
+percentage>=0 &&
+percentage<=1
+){
+
+percentage =
+percentage*100;
 
 }
 
 
-/* =========================================
-   SHOW LOGIN
-========================================= */
-
-function showLogin() {
-
-  document.getElementById(
-    "dashboardSection"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "loginSection"
-  ).style.display =
-    "block";
-
-
-  document.getElementById(
-    "loginMessage"
-  ).textContent =
-    "";
-
-
-  document.getElementById(
-    "teacherPassword"
-  ).value =
-    "";
+return Math.round(percentage);
 
 }
 
 
-/* =========================================
-   ESCAPE HTML
-========================================= */
+function formatPercentage(value){
 
-function escapeHTML(value) {
-
-  return String(value)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+return getPercentage(value)+"%";
 
 }
 
 
-/* =========================================
-   CHECK EXISTING SESSION
-========================================= */
+/* SCORE */
 
-async function checkExistingSession() {
+function formatScore(score,percentage){
 
-  const token =
-    sessionStorage.getItem(
-      "seqsTeacherToken"
-    );
+if(
+typeof score==="string" &&
+/^\d+\s*\/\s*20$/.test(
+score.trim()
+)
+){
 
-
-  if (!token) {
-
-    showLogin();
-
-    return;
-
-  }
-
-
-  try {
-
-    const url =
-      GOOGLE_SCRIPT_URL +
-      "?action=checkTeacher" +
-      "&token=" +
-      encodeURIComponent(token) +
-      "&t=" +
-      Date.now();
-
-
-    const response =
-      await fetch(url);
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      data.authenticated === true
-    ) {
-
-      showDashboard();
-
-    } else {
-
-      sessionStorage.removeItem(
-        "seqsTeacherToken"
-      );
-
-
-      showLogin();
-
-    }
-
-
-  } catch (error) {
-
-    sessionStorage.removeItem(
-      "seqsTeacherToken"
-    );
-
-
-    showLogin();
-
-  }
+return score.trim();
 
 }
 
 
-/* =========================================
-   ENTER KEY LOGIN
-========================================= */
+const p =
+getPercentage(percentage);
+
+const calculatedScore =
+Math.round(
+(p/100)*20
+);
+
+return calculatedScore+"/20";
+
+}
+
+
+/* DISPLAY RECORDS */
+
+function displayRecords(records){
+
+const body =
+document.getElementById(
+"recordBody"
+);
+
+body.innerHTML="";
+
+
+if(records.length===0){
+
+body.innerHTML=
+`
+<tr>
+<td colspan="6" class="empty">
+No student records yet.
+</td>
+</tr>
+`;
+
+return;
+
+}
+
+
+records.forEach(function(record){
+
+const row =
+document.createElement("tr");
+
+let date="-";
+
+
+if(record.timestamp){
+
+const parsedDate =
+new Date(record.timestamp);
+
+if(!isNaN(parsedDate.getTime())){
+
+date =
+parsedDate.toLocaleString(
+"en-MY",
+{
+timeZone:"Asia/Kuala_Lumpur"
+}
+);
+
+}
+
+}
+
+
+const displayScore =
+formatScore(
+record.score,
+record.percentage
+);
+
+const displayPercentage =
+formatPercentage(
+record.percentage
+);
+
+
+row.innerHTML=
+`
+
+<td>${escapeHTML(date)}</td>
+
+<td>
+${escapeHTML(record.name || "-")}
+</td>
+
+<td>
+${escapeHTML(record.studentClass || "-")}
+</td>
+
+<td>
+${escapeHTML(record.module || "-")}
+</td>
+
+<td>
+${escapeHTML(displayScore)}
+</td>
+
+<td>
+${escapeHTML(displayPercentage)}
+</td>
+
+`;
+
+
+body.appendChild(row);
+
+});
+
+}
+
+
+/* OVERALL DASHBOARD */
+
+function calculateDashboard(records){
+
+const total =
+records.length;
+
+let sum=0;
+let highest=0;
+
+let excellent=0;
+let good=0;
+let satisfactory=0;
+let needsImprovement=0;
+
+
+records.forEach(function(record){
+
+const percentage =
+getPercentage(
+record.percentage
+);
+
+sum += percentage;
+
+if(percentage>highest){
+highest=percentage;
+}
+
+
+if(percentage>=80){
+
+excellent++;
+
+}else if(percentage>=60){
+
+good++;
+
+}else if(percentage>=40){
+
+satisfactory++;
+
+}else{
+
+needsImprovement++;
+
+}
+
+});
+
+
+const average =
+total>0
+?
+Math.round(sum/total)
+:
+0;
+
+
+document.getElementById(
+"totalAttempts"
+).textContent=total;
+
+document.getElementById(
+"averageScore"
+).textContent=average+"%";
+
+document.getElementById(
+"highestScore"
+).textContent=highest+"%";
+
+document.getElementById(
+"excellentCount"
+).textContent=excellent;
+
+document.getElementById(
+"goodCount"
+).textContent=good;
+
+document.getElementById(
+"satisfactoryCount"
+).textContent=satisfactory;
+
+document.getElementById(
+"needsImprovementCount"
+).textContent=needsImprovement;
+
+}
+
+
+/* GET MODULE DATA */
+
+function getModuleData(records,moduleNumber){
+
+const pattern =
+new RegExp(
+"^Module\\s+" +
+moduleNumber +
+"(?:\\s|\\s*-|$)",
+"i"
+);
+
+
+const moduleRecords =
+records.filter(function(record){
+
+const moduleName =
+String(
+record.module || ""
+).trim();
+
+return pattern.test(
+moduleName
+);
+
+});
+
+
+const attempts =
+moduleRecords.length;
+
+let totalPercentage=0;
+
+
+moduleRecords.forEach(
+function(record){
+
+totalPercentage +=
+getPercentage(
+record.percentage
+);
+
+}
+);
+
+
+const average =
+attempts>0
+?
+Math.round(
+totalPercentage/attempts
+)
+:
+0;
+
+
+return{
+
+attempts:attempts,
+average:average
+
+};
+
+}
+
+
+/* MODULE PERFORMANCE */
+
+function calculateModulePerformance(records){
+
+const container =
+document.getElementById(
+"modulePerformance"
+);
+
+container.innerHTML="";
+
+
+moduleList.forEach(
+function(moduleInfo){
+
+const stats =
+getModuleData(
+records,
+moduleInfo.number
+);
+
+
+const card =
+document.createElement(
+"div"
+);
+
+card.className=
+"module-card";
+
+
+card.innerHTML=
+`
+
+<div class="module-name">
+
+Module ${moduleInfo.number}
+– ${escapeHTML(moduleInfo.name)}
+
+</div>
+
+<div class="module-stats">
+
+<span>
+Attempts:
+<strong>
+${stats.attempts}
+</strong>
+</span>
+
+<span class="module-average">
+Average:
+${stats.average}%
+</span>
+
+</div>
+
+`;
+
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* MODULE BAR CHART */
+
+function drawModuleChart(records){
+
+const chart =
+document.getElementById(
+"moduleChart"
+);
+
+chart.innerHTML="";
+
+
+moduleList.forEach(
+function(moduleInfo){
+
+const stats =
+getModuleData(
+records,
+moduleInfo.number
+);
+
+
+const row =
+document.createElement(
+"div"
+);
+
+row.className=
+"chart-row";
+
+
+row.innerHTML=
+`
+
+<div class="chart-label">
+Module ${moduleInfo.number}
+</div>
+
+<div class="chart-track">
+
+<div
+class="chart-bar"
+style="width:${stats.average}%"
+></div>
+
+</div>
+
+<div class="chart-value">
+${stats.average}%
+</div>
+
+`;
+
+
+chart.appendChild(row);
+
+});
+
+}
+
+
+/* FILTER */
+
+function filterRecords(){
+
+const keyword =
+document.getElementById(
+"searchBox"
+)
+.value
+.toLowerCase()
+.trim();
+
+
+const filtered =
+allRecords.filter(
+function(record){
+
+const name =
+String(
+record.name || ""
+).toLowerCase();
+
+const studentClass =
+String(
+record.studentClass || ""
+).toLowerCase();
+
+const module =
+String(
+record.module || ""
+).toLowerCase();
+
+
+return(
+
+name.includes(keyword) ||
+
+studentClass.includes(keyword) ||
+
+module.includes(keyword)
+
+);
+
+}
+);
+
+
+displayRecords(filtered);
+
+}
+
+
+/* LOGOUT */
+
+function teacherLogout(){
+
+sessionStorage.removeItem(
+"seqsTeacherToken"
+);
+
+allRecords=[];
+
+showLogin();
+
+}
+
+
+/* SHOW LOGIN */
+
+function showLogin(){
+
+document.getElementById(
+"dashboardSection"
+).style.display="none";
+
+document.getElementById(
+"loginSection"
+).style.display="block";
+
+document.getElementById(
+"loginMessage"
+).textContent="";
+
+document.getElementById(
+"teacherPassword"
+).value="";
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(value){
+
+return String(value)
+
+.replaceAll("&","&amp;")
+
+.replaceAll("<","&lt;")
+
+.replaceAll(">","&gt;")
+
+.replaceAll('"',"&quot;")
+
+.replaceAll("'","&#039;");
+
+}
+
+
+/* CHECK SESSION */
+
+async function checkExistingSession(){
+
+const token =
+sessionStorage.getItem(
+"seqsTeacherToken"
+);
+
+
+if(!token){
+
+showLogin();
+
+return;
+
+}
+
+
+try{
+
+const url =
+GOOGLE_SCRIPT_URL +
+"?action=checkTeacher" +
+"&token=" +
+encodeURIComponent(token) +
+"&t=" +
+Date.now();
+
+
+const response =
+await fetch(url);
+
+const data =
+await response.json();
+
+
+if(data.authenticated===true){
+
+showDashboard();
+
+}else{
+
+sessionStorage.removeItem(
+"seqsTeacherToken"
+);
+
+showLogin();
+
+}
+
+
+}catch(error){
+
+sessionStorage.removeItem(
+"seqsTeacherToken"
+);
+
+showLogin();
+
+}
+
+}
+
+
+/* ENTER KEY */
 
 document
-  .getElementById(
-    "teacherPassword"
-  )
-  .addEventListener(
-    "keydown",
-    function(event) {
+.getElementById(
+"teacherPassword"
+)
+.addEventListener(
+"keydown",
+function(event){
 
-      if (
-        event.key === "Enter"
-      ) {
+if(event.key==="Enter"){
 
-        teacherLogin();
+teacherLogin();
 
-      }
+}
 
-    }
-  );
+}
+);
 
 
-/* =========================================
-   START
-========================================= */
+/* START */
 
 checkExistingSession();
 
