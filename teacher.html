@@ -46,9 +46,7 @@ header p {
 }
 
 
-/* ================================
-   LOGIN
-================================ */
+/* LOGIN */
 
 .login-wrapper {
   max-width: 430px;
@@ -130,9 +128,7 @@ header p {
 }
 
 
-/* ================================
-   DASHBOARD
-================================ */
+/* DASHBOARD */
 
 #dashboardSection {
   display: none;
@@ -170,20 +166,16 @@ header p {
 }
 
 
-/* ================================
-   SECTION TITLE
-================================ */
+/* HEADINGS */
 
 .section-heading {
-  margin: 25px 0 15px;
+  margin: 28px 0 15px;
   color: #1557a6;
   font-size: 20px;
 }
 
 
-/* ================================
-   SUMMARY CARDS
-================================ */
+/* OVERALL */
 
 .dashboard {
   display: grid;
@@ -192,12 +184,18 @@ header p {
   margin-bottom: 22px;
 }
 
+
+/* PERFORMANCE LEVEL */
+
 .performance-dashboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin-bottom: 22px;
 }
+
+
+/* CARDS */
 
 .card {
   background: white;
@@ -227,9 +225,48 @@ header p {
 }
 
 
-/* ================================
-   STATUS
-================================ */
+/* MODULE PERFORMANCE */
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.module-card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.module-name {
+  font-weight: bold;
+  color: #1557a6;
+  margin-bottom: 13px;
+  font-size: 15px;
+}
+
+.module-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #607080;
+  font-size: 14px;
+}
+
+.module-stats strong {
+  color: #17324d;
+}
+
+.module-average {
+  color: #1976d2;
+  font-weight: bold;
+}
+
+
+/* STATUS */
 
 .status {
   background: #e8f3ff;
@@ -242,9 +279,7 @@ header p {
 }
 
 
-/* ================================
-   SEARCH
-================================ */
+/* SEARCH */
 
 .filters {
   background: white;
@@ -263,9 +298,7 @@ header p {
 }
 
 
-/* ================================
-   TABLE
-================================ */
+/* TABLE */
 
 .table-box {
   background: white;
@@ -306,9 +339,7 @@ tbody tr:hover {
 }
 
 
-/* ================================
-   ACTIONS
-================================ */
+/* ACTIONS */
 
 .actions {
   text-align: center;
@@ -342,9 +373,7 @@ footer {
 }
 
 
-/* ================================
-   MOBILE
-================================ */
+/* MOBILE */
 
 @media(max-width:900px) {
 
@@ -357,7 +386,8 @@ footer {
 @media(max-width:700px) {
 
   .dashboard,
-  .performance-dashboard {
+  .performance-dashboard,
+  .module-grid {
     grid-template-columns: 1fr;
   }
 
@@ -366,15 +396,17 @@ footer {
     text-align: center;
   }
 
+  .module-stats {
+    flex-direction: column;
+  }
+
 }
 
 </style>
-
 </head>
 
 
 <body>
-
 
 <header>
 
@@ -387,9 +419,7 @@ footer {
 </header>
 
 
-<!-- ================================
-     LOGIN
-================================ -->
+<!-- LOGIN -->
 
 <div class="container" id="loginSection">
 
@@ -445,9 +475,7 @@ footer {
 </div>
 
 
-<!-- ================================
-     TEACHER DASHBOARD
-================================ -->
+<!-- TEACHER DASHBOARD -->
 
 <div class="container" id="dashboardSection">
 
@@ -472,9 +500,7 @@ footer {
   </div>
 
 
-  <!-- ================================
-       OVERALL SUMMARY
-  ================================= -->
+  <!-- OVERALL PERFORMANCE -->
 
   <h2 class="section-heading">
     Overall Performance
@@ -490,10 +516,7 @@ footer {
         TOTAL ATTEMPTS
       </h3>
 
-      <div
-        class="number"
-        id="totalAttempts"
-      >
+      <div class="number" id="totalAttempts">
         0
       </div>
 
@@ -506,10 +529,7 @@ footer {
         AVERAGE SCORE
       </h3>
 
-      <div
-        class="number"
-        id="averageScore"
-      >
+      <div class="number" id="averageScore">
         0%
       </div>
 
@@ -522,10 +542,7 @@ footer {
         HIGHEST SCORE
       </h3>
 
-      <div
-        class="number"
-        id="highestScore"
-      >
+      <div class="number" id="highestScore">
         0%
       </div>
 
@@ -535,9 +552,7 @@ footer {
   </div>
 
 
-  <!-- ================================
-       PERFORMANCE LEVEL
-  ================================= -->
+  <!-- PERFORMANCE LEVEL -->
 
   <h2 class="section-heading">
     Performance Level
@@ -553,10 +568,7 @@ footer {
         EXCELLENT
       </h3>
 
-      <div
-        class="number"
-        id="excellentCount"
-      >
+      <div class="number" id="excellentCount">
         0
       </div>
 
@@ -573,10 +585,7 @@ footer {
         GOOD
       </h3>
 
-      <div
-        class="number"
-        id="goodCount"
-      >
+      <div class="number" id="goodCount">
         0
       </div>
 
@@ -593,10 +602,7 @@ footer {
         SATISFACTORY
       </h3>
 
-      <div
-        class="number"
-        id="satisfactoryCount"
-      >
+      <div class="number" id="satisfactoryCount">
         0
       </div>
 
@@ -613,10 +619,7 @@ footer {
         NEEDS IMPROVEMENT
       </h3>
 
-      <div
-        class="number"
-        id="needsImprovementCount"
-      >
+      <div class="number" id="needsImprovementCount">
         0
       </div>
 
@@ -626,6 +629,25 @@ footer {
 
     </div>
 
+
+  </div>
+
+
+  <!-- MODULE PERFORMANCE -->
+
+  <h2 class="section-heading">
+    Module Performance
+  </h2>
+
+
+  <div
+    class="module-grid"
+    id="modulePerformance"
+  >
+
+    <div class="module-card">
+      Loading module analysis...
+    </div>
 
   </div>
 
@@ -640,9 +662,7 @@ footer {
   </div>
 
 
-  <!-- ================================
-       SEARCH
-  ================================= -->
+  <!-- SEARCH -->
 
   <div class="filters">
 
@@ -656,9 +676,7 @@ footer {
   </div>
 
 
-  <!-- ================================
-       STUDENT RECORDS
-  ================================= -->
+  <!-- STUDENT RECORDS -->
 
   <h2 class="section-heading">
     Student Records
@@ -693,10 +711,7 @@ footer {
 
         <tr>
 
-          <td
-            colspan="6"
-            class="empty"
-          >
+          <td colspan="6" class="empty">
             Loading records...
           </td>
 
@@ -745,7 +760,6 @@ footer {
 
 <script>
 
-
 /* =========================================
    SEQS WEB APP
 ========================================= */
@@ -762,7 +776,6 @@ let allRecords = [];
 ========================================= */
 
 async function teacherLogin() {
-
 
   const password =
     document.getElementById(
@@ -795,9 +808,7 @@ async function teacherLogin() {
   }
 
 
-  button.disabled =
-    true;
-
+  button.disabled = true;
 
   button.textContent =
     "CHECKING...";
@@ -806,40 +817,28 @@ async function teacherLogin() {
   message.style.color =
     "#1557a6";
 
-
   message.textContent =
     "Verifying teacher access...";
 
 
   try {
 
-
     const response =
       await fetch(
         GOOGLE_SCRIPT_URL,
         {
-
-          method:
-            "POST",
+          method: "POST",
 
           headers: {
-
             "Content-Type":
               "text/plain;charset=utf-8"
-
           },
 
           body:
             JSON.stringify({
-
-              action:
-                "teacherLogin",
-
-              password:
-                password
-
+              action: "teacherLogin",
+              password: password
             })
-
         }
       );
 
@@ -852,7 +851,6 @@ async function teacherLogin() {
       data.authenticated === true &&
       data.token
     ) {
-
 
       sessionStorage.setItem(
         "seqsTeacherToken",
@@ -867,7 +865,6 @@ async function teacherLogin() {
 
       showDashboard();
 
-
       return;
 
     }
@@ -876,13 +873,11 @@ async function teacherLogin() {
     message.style.color =
       "#c62828";
 
-
     message.textContent =
       "Incorrect teacher password.";
 
 
   } catch (error) {
-
 
     console.error(
       "Teacher login error:",
@@ -893,17 +888,13 @@ async function teacherLogin() {
     message.style.color =
       "#c62828";
 
-
     message.textContent =
       "Unable to verify teacher access.";
 
 
   } finally {
 
-
-    button.disabled =
-      false;
-
+    button.disabled = false;
 
     button.textContent =
       "LOGIN";
@@ -918,7 +909,6 @@ async function teacherLogin() {
 ========================================= */
 
 function showDashboard() {
-
 
   document.getElementById(
     "loginSection"
@@ -943,7 +933,6 @@ function showDashboard() {
 
 async function loadTeacherRecords() {
 
-
   const token =
     sessionStorage.getItem(
       "seqsTeacherToken"
@@ -967,7 +956,6 @@ async function loadTeacherRecords() {
 
   try {
 
-
     const url =
       GOOGLE_SCRIPT_URL +
       "?action=teacherRecords" +
@@ -990,7 +978,6 @@ async function loadTeacherRecords() {
       "unauthorized"
     ) {
 
-
       sessionStorage.removeItem(
         "seqsTeacherToken"
       );
@@ -1003,17 +990,14 @@ async function loadTeacherRecords() {
 
       showLogin();
 
-
       return;
 
     }
 
 
     if (
-      data.status ===
-      "error"
+      data.status === "error"
     ) {
-
 
       throw new Error(
         data.message ||
@@ -1024,7 +1008,6 @@ async function loadTeacherRecords() {
 
 
     if (!Array.isArray(data)) {
-
 
       throw new Error(
         "Invalid student record format."
@@ -1047,6 +1030,11 @@ async function loadTeacherRecords() {
     );
 
 
+    calculateModulePerformance(
+      allRecords
+    );
+
+
     document.getElementById(
       "statusMessage"
     ).textContent =
@@ -1054,7 +1042,6 @@ async function loadTeacherRecords() {
 
 
   } catch (error) {
-
 
     console.error(
       "Teacher record error:",
@@ -1077,7 +1064,6 @@ async function loadTeacherRecords() {
 ========================================= */
 
 function getPercentage(value) {
-
 
   let percentage =
     parseFloat(
@@ -1123,7 +1109,6 @@ function getPercentage(value) {
 
 function formatPercentage(value) {
 
-
   return (
     getPercentage(value) +
     "%"
@@ -1141,14 +1126,12 @@ function formatScore(
   percentage
 ) {
 
-
   if (
     typeof score === "string" &&
     /^\d+\s*\/\s*20$/.test(
       score.trim()
     )
   ) {
-
 
     return score.trim();
 
@@ -1181,21 +1164,18 @@ function formatScore(
 
 function displayRecords(records) {
 
-
   const body =
     document.getElementById(
       "recordBody"
     );
 
 
-  body.innerHTML =
-    "";
+  body.innerHTML = "";
 
 
   if (
     records.length === 0
   ) {
-
 
     body.innerHTML =
     `
@@ -1205,14 +1185,11 @@ function displayRecords(records) {
           colspan="6"
           class="empty"
         >
-
           No student records yet.
-
         </td>
 
       </tr>
     `;
-
 
     return;
 
@@ -1222,21 +1199,18 @@ function displayRecords(records) {
   records.forEach(
     function(record) {
 
-
       const row =
         document.createElement(
           "tr"
         );
 
 
-      let date =
-        "-";
+      let date = "-";
 
 
       if (
         record.timestamp
       ) {
-
 
         const parsedDate =
           new Date(
@@ -1250,15 +1224,12 @@ function displayRecords(records) {
           )
         ) {
 
-
           date =
             parsedDate.toLocaleString(
               "en-MY",
               {
-
                 timeZone:
                   "Asia/Kuala_Lumpur"
-
               }
             );
 
@@ -1331,43 +1302,30 @@ function displayRecords(records) {
 
 
 /* =========================================
-   DASHBOARD CALCULATION
+   OVERALL DASHBOARD
 ========================================= */
 
 function calculateDashboard(records) {
-
 
   const total =
     records.length;
 
 
-  let sum =
-    0;
+  let sum = 0;
 
+  let highest = 0;
 
-  let highest =
-    0;
+  let excellent = 0;
 
+  let good = 0;
 
-  let excellent =
-    0;
+  let satisfactory = 0;
 
-
-  let good =
-    0;
-
-
-  let satisfactory =
-    0;
-
-
-  let needsImprovement =
-    0;
+  let needsImprovement = 0;
 
 
   records.forEach(
     function(record) {
-
 
       const percentage =
         getPercentage(
@@ -1375,8 +1333,7 @@ function calculateDashboard(records) {
         );
 
 
-      sum +=
-        percentage;
+      sum += percentage;
 
 
       if (
@@ -1384,42 +1341,31 @@ function calculateDashboard(records) {
         highest
       ) {
 
-
         highest =
           percentage;
 
       }
 
 
-      /* PERFORMANCE LEVEL */
-
-
       if (
         percentage >= 80
       ) {
 
-
         excellent++;
-
 
       } else if (
         percentage >= 60
       ) {
 
-
         good++;
-
 
       } else if (
         percentage >= 40
       ) {
 
-
         satisfactory++;
 
-
       } else {
-
 
         needsImprovement++;
 
@@ -1482,11 +1428,194 @@ function calculateDashboard(records) {
 
 
 /* =========================================
+   MODULE PERFORMANCE
+========================================= */
+
+function calculateModulePerformance(records) {
+
+  const modules = [
+
+    {
+      number: 1,
+      name: "Welcome!"
+    },
+
+    {
+      number: 2,
+      name: "Every Day"
+    },
+
+    {
+      number: 3,
+      name: "Right Now"
+    },
+
+    {
+      number: 4,
+      name: "Year In, Year Out"
+    },
+
+    {
+      number: 5,
+      name: "My New House"
+    },
+
+    {
+      number: 6,
+      name: "Food, Please!"
+    },
+
+    {
+      number: 7,
+      name: "Out and About"
+    },
+
+    {
+      number: 8,
+      name: "Where Were You Yesterday?"
+    },
+
+    {
+      number: 9,
+      name: "On Holiday"
+    },
+
+    {
+      number: 10,
+      name: "The World Around Us"
+    }
+
+  ];
+
+
+  const container =
+    document.getElementById(
+      "modulePerformance"
+    );
+
+
+  container.innerHTML = "";
+
+
+  modules.forEach(
+    function(moduleInfo) {
+
+      /*
+        Match the module number at the
+        beginning of the saved module name.
+      */
+
+      const pattern =
+        new RegExp(
+          "^Module\\s+" +
+          moduleInfo.number +
+          "(?:\\s|\\s*-|$)",
+          "i"
+        );
+
+
+      const moduleRecords =
+        records.filter(
+          function(record) {
+
+            const moduleName =
+              String(
+                record.module || ""
+              ).trim();
+
+
+            return pattern.test(
+              moduleName
+            );
+
+          }
+        );
+
+
+      const attempts =
+        moduleRecords.length;
+
+
+      let totalPercentage =
+        0;
+
+
+      moduleRecords.forEach(
+        function(record) {
+
+          totalPercentage +=
+            getPercentage(
+              record.percentage
+            );
+
+        }
+      );
+
+
+      const average =
+        attempts > 0
+          ? Math.round(
+              totalPercentage /
+              attempts
+            )
+          : 0;
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "module-card";
+
+
+      card.innerHTML =
+      `
+
+        <div class="module-name">
+
+          Module ${moduleInfo.number}
+          – ${escapeHTML(moduleInfo.name)}
+
+        </div>
+
+
+        <div class="module-stats">
+
+          <span>
+            Attempts:
+            <strong>
+              ${attempts}
+            </strong>
+          </span>
+
+          <span class="module-average">
+            Average:
+            ${average}%
+          </span>
+
+        </div>
+
+      `;
+
+
+      container.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================
    FILTER
 ========================================= */
 
 function filterRecords() {
-
 
   const keyword =
     document.getElementById(
@@ -1500,7 +1629,6 @@ function filterRecords() {
   const filtered =
     allRecords.filter(
       function(record) {
-
 
         const name =
           String(
@@ -1521,13 +1649,9 @@ function filterRecords() {
 
 
         return (
-
           name.includes(keyword) ||
-
           studentClass.includes(keyword) ||
-
           module.includes(keyword)
-
         );
 
       }
@@ -1547,14 +1671,12 @@ function filterRecords() {
 
 function teacherLogout() {
 
-
   sessionStorage.removeItem(
     "seqsTeacherToken"
   );
 
 
-  allRecords =
-    [];
+  allRecords = [];
 
 
   showLogin();
@@ -1567,7 +1689,6 @@ function teacherLogout() {
 ========================================= */
 
 function showLogin() {
-
 
   document.getElementById(
     "dashboardSection"
@@ -1600,7 +1721,6 @@ function showLogin() {
 ========================================= */
 
 function escapeHTML(value) {
-
 
   return String(value)
 
@@ -1638,7 +1758,6 @@ function escapeHTML(value) {
 
 async function checkExistingSession() {
 
-
   const token =
     sessionStorage.getItem(
       "seqsTeacherToken"
@@ -1647,9 +1766,7 @@ async function checkExistingSession() {
 
   if (!token) {
 
-
     showLogin();
-
 
     return;
 
@@ -1657,7 +1774,6 @@ async function checkExistingSession() {
 
 
   try {
-
 
     const url =
       GOOGLE_SCRIPT_URL +
@@ -1680,12 +1796,9 @@ async function checkExistingSession() {
       data.authenticated === true
     ) {
 
-
       showDashboard();
 
-
     } else {
-
 
       sessionStorage.removeItem(
         "seqsTeacherToken"
@@ -1698,7 +1811,6 @@ async function checkExistingSession() {
 
 
   } catch (error) {
-
 
     sessionStorage.removeItem(
       "seqsTeacherToken"
@@ -1724,11 +1836,9 @@ document
     "keydown",
     function(event) {
 
-
       if (
         event.key === "Enter"
       ) {
-
 
         teacherLogin();
 
@@ -1743,7 +1853,6 @@ document
 ========================================= */
 
 checkExistingSession();
-
 
 </script>
 
