@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SEQS | Teacher Record</title>
+<title>SEQS | Teacher Dashboard</title>
 
 <style>
 
@@ -45,7 +45,10 @@ header p {
   padding: 25px 15px;
 }
 
-/* LOGIN */
+
+/* ================================
+   LOGIN
+================================ */
 
 .login-wrapper {
   max-width: 430px;
@@ -126,7 +129,10 @@ header p {
   font-weight: bold;
 }
 
-/* DASHBOARD */
+
+/* ================================
+   DASHBOARD
+================================ */
 
 #dashboardSection {
   display: none;
@@ -138,6 +144,7 @@ header p {
   padding: 15px 18px;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,11 +169,32 @@ header p {
   background: #a51f1f;
 }
 
-/* SUMMARY */
+
+/* ================================
+   SECTION TITLE
+================================ */
+
+.section-heading {
+  margin: 25px 0 15px;
+  color: #1557a6;
+  font-size: 20px;
+}
+
+
+/* ================================
+   SUMMARY CARDS
+================================ */
 
 .dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.performance-dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin-bottom: 22px;
 }
@@ -183,6 +211,7 @@ header p {
   margin: 0 0 10px;
   color: #607080;
   font-size: 14px;
+  line-height: 1.4;
 }
 
 .number {
@@ -191,7 +220,16 @@ header p {
   color: #1976d2;
 }
 
-/* STATUS */
+.level-label {
+  margin-top: 6px;
+  color: #718096;
+  font-size: 12px;
+}
+
+
+/* ================================
+   STATUS
+================================ */
 
 .status {
   background: #e8f3ff;
@@ -203,7 +241,10 @@ header p {
   font-size: 14px;
 }
 
-/* SEARCH */
+
+/* ================================
+   SEARCH
+================================ */
 
 .filters {
   background: white;
@@ -221,7 +262,10 @@ header p {
   font-size: 15px;
 }
 
-/* TABLE */
+
+/* ================================
+   TABLE
+================================ */
 
 .table-box {
   background: white;
@@ -261,7 +305,10 @@ tbody tr:hover {
   color: #718096;
 }
 
-/* ACTIONS */
+
+/* ================================
+   ACTIONS
+================================ */
 
 .actions {
   text-align: center;
@@ -285,6 +332,7 @@ tbody tr:hover {
   background: #0d47a1;
 }
 
+
 footer {
   text-align: center;
   padding: 25px;
@@ -293,9 +341,23 @@ footer {
   line-height: 1.6;
 }
 
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:900px) {
+
+  .performance-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
 @media(max-width:700px) {
 
-  .dashboard {
+  .dashboard,
+  .performance-dashboard {
     grid-template-columns: 1fr;
   }
 
@@ -307,10 +369,12 @@ footer {
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <header>
 
@@ -323,7 +387,9 @@ footer {
 </header>
 
 
-<!-- LOGIN -->
+<!-- ================================
+     LOGIN
+================================ -->
 
 <div class="container" id="loginSection">
 
@@ -379,9 +445,12 @@ footer {
 </div>
 
 
-<!-- TEACHER DASHBOARD -->
+<!-- ================================
+     TEACHER DASHBOARD
+================================ -->
 
 <div class="container" id="dashboardSection">
+
 
   <div class="teacher-bar">
 
@@ -403,9 +472,17 @@ footer {
   </div>
 
 
-  <!-- SUMMARY -->
+  <!-- ================================
+       OVERALL SUMMARY
+  ================================= -->
+
+  <h2 class="section-heading">
+    Overall Performance
+  </h2>
+
 
   <div class="dashboard">
+
 
     <div class="card">
 
@@ -454,8 +531,106 @@ footer {
 
     </div>
 
+
   </div>
 
+
+  <!-- ================================
+       PERFORMANCE LEVEL
+  ================================= -->
+
+  <h2 class="section-heading">
+    Performance Level
+  </h2>
+
+
+  <div class="performance-dashboard">
+
+
+    <div class="card">
+
+      <h3>
+        EXCELLENT
+      </h3>
+
+      <div
+        class="number"
+        id="excellentCount"
+      >
+        0
+      </div>
+
+      <div class="level-label">
+        80% – 100%
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        GOOD
+      </h3>
+
+      <div
+        class="number"
+        id="goodCount"
+      >
+        0
+      </div>
+
+      <div class="level-label">
+        60% – 79%
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        SATISFACTORY
+      </h3>
+
+      <div
+        class="number"
+        id="satisfactoryCount"
+      >
+        0
+      </div>
+
+      <div class="level-label">
+        40% – 59%
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        NEEDS IMPROVEMENT
+      </h3>
+
+      <div
+        class="number"
+        id="needsImprovementCount"
+      >
+        0
+      </div>
+
+      <div class="level-label">
+        0% – 39%
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- STATUS -->
 
   <div
     class="status"
@@ -465,7 +640,9 @@ footer {
   </div>
 
 
-  <!-- SEARCH -->
+  <!-- ================================
+       SEARCH
+  ================================= -->
 
   <div class="filters">
 
@@ -479,7 +656,14 @@ footer {
   </div>
 
 
-  <!-- TABLE -->
+  <!-- ================================
+       STUDENT RECORDS
+  ================================= -->
+
+  <h2 class="section-heading">
+    Student Records
+  </h2>
+
 
   <div class="table-box">
 
@@ -544,6 +728,7 @@ footer {
 
   </div>
 
+
 </div>
 
 
@@ -560,12 +745,14 @@ footer {
 
 <script>
 
+
 /* =========================================
    SEQS WEB APP
 ========================================= */
 
 const GOOGLE_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
+
 
 let allRecords = [];
 
@@ -576,32 +763,49 @@ let allRecords = [];
 
 async function teacherLogin() {
 
+
   const password =
-    document.getElementById("teacherPassword").value;
+    document.getElementById(
+      "teacherPassword"
+    ).value;
+
 
   const message =
-    document.getElementById("loginMessage");
+    document.getElementById(
+      "loginMessage"
+    );
+
 
   const button =
-    document.getElementById("loginButton");
+    document.getElementById(
+      "loginButton"
+    );
 
 
   if (!password) {
 
-    message.style.color = "#c62828";
+    message.style.color =
+      "#c62828";
 
     message.textContent =
       "Please enter the teacher password.";
 
     return;
+
   }
 
 
-  button.disabled = true;
+  button.disabled =
+    true;
 
-  button.textContent = "CHECKING...";
 
-  message.style.color = "#1557a6";
+  button.textContent =
+    "CHECKING...";
+
+
+  message.style.color =
+    "#1557a6";
+
 
   message.textContent =
     "Verifying teacher access...";
@@ -609,22 +813,33 @@ async function teacherLogin() {
 
   try {
 
+
     const response =
       await fetch(
         GOOGLE_SCRIPT_URL,
         {
-          method: "POST",
+
+          method:
+            "POST",
 
           headers: {
+
             "Content-Type":
               "text/plain;charset=utf-8"
+
           },
 
           body:
             JSON.stringify({
-              action: "teacherLogin",
-              password: password
+
+              action:
+                "teacherLogin",
+
+              password:
+                password
+
             })
+
         }
       );
 
@@ -638,23 +853,29 @@ async function teacherLogin() {
       data.token
     ) {
 
+
       sessionStorage.setItem(
         "seqsTeacherToken",
         data.token
       );
 
+
       document.getElementById(
         "teacherPassword"
       ).value = "";
 
+
       showDashboard();
 
+
       return;
+
     }
 
 
     message.style.color =
       "#c62828";
+
 
     message.textContent =
       "Incorrect teacher password.";
@@ -662,22 +883,30 @@ async function teacherLogin() {
 
   } catch (error) {
 
+
     console.error(
       "Teacher login error:",
       error
     );
 
+
     message.style.color =
       "#c62828";
+
 
     message.textContent =
       "Unable to verify teacher access.";
 
+
   } finally {
 
-    button.disabled = false;
 
-    button.textContent = "LOGIN";
+    button.disabled =
+      false;
+
+
+    button.textContent =
+      "LOGIN";
 
   }
 
@@ -690,13 +919,18 @@ async function teacherLogin() {
 
 function showDashboard() {
 
+
   document.getElementById(
     "loginSection"
-  ).style.display = "none";
+  ).style.display =
+    "none";
+
 
   document.getElementById(
     "dashboardSection"
-  ).style.display = "block";
+  ).style.display =
+    "block";
+
 
   loadTeacherRecords();
 
@@ -709,6 +943,7 @@ function showDashboard() {
 
 async function loadTeacherRecords() {
 
+
   const token =
     sessionStorage.getItem(
       "seqsTeacherToken"
@@ -720,6 +955,7 @@ async function loadTeacherRecords() {
     showLogin();
 
     return;
+
   }
 
 
@@ -730,6 +966,7 @@ async function loadTeacherRecords() {
 
 
   try {
+
 
     const url =
       GOOGLE_SCRIPT_URL +
@@ -753,36 +990,46 @@ async function loadTeacherRecords() {
       "unauthorized"
     ) {
 
+
       sessionStorage.removeItem(
         "seqsTeacherToken"
       );
+
 
       alert(
         "Teacher session has expired. Please login again."
       );
 
+
       showLogin();
 
+
       return;
+
     }
 
 
     if (
-      data.status === "error"
+      data.status ===
+      "error"
     ) {
+
 
       throw new Error(
         data.message ||
         "Unable to load records."
       );
+
     }
 
 
     if (!Array.isArray(data)) {
 
+
       throw new Error(
         "Invalid student record format."
       );
+
     }
 
 
@@ -808,10 +1055,12 @@ async function loadTeacherRecords() {
 
   } catch (error) {
 
+
     console.error(
       "Teacher record error:",
       error
     );
+
 
     document.getElementById(
       "statusMessage"
@@ -829,6 +1078,7 @@ async function loadTeacherRecords() {
 
 function getPercentage(value) {
 
+
   let percentage =
     parseFloat(
       String(value || "0")
@@ -840,6 +1090,7 @@ function getPercentage(value) {
   if (isNaN(percentage)) {
 
     return 0;
+
   }
 
 
@@ -855,6 +1106,7 @@ function getPercentage(value) {
 
     percentage =
       percentage * 100;
+
   }
 
 
@@ -871,6 +1123,7 @@ function getPercentage(value) {
 
 function formatPercentage(value) {
 
+
   return (
     getPercentage(value) +
     "%"
@@ -883,12 +1136,11 @@ function formatPercentage(value) {
    FORMAT SCORE
 ========================================= */
 
-function formatScore(score, percentage) {
+function formatScore(
+  score,
+  percentage
+) {
 
-  /*
-     If score already arrives correctly
-     as 7/20, 15/20 etc., use it.
-  */
 
   if (
     typeof score === "string" &&
@@ -897,15 +1149,11 @@ function formatScore(score, percentage) {
     )
   ) {
 
+
     return score.trim();
 
   }
 
-
-  /*
-     Otherwise calculate score
-     from percentage.
-  */
 
   const p =
     getPercentage(
@@ -933,35 +1181,47 @@ function formatScore(score, percentage) {
 
 function displayRecords(records) {
 
+
   const body =
     document.getElementById(
       "recordBody"
     );
 
 
-  body.innerHTML = "";
+  body.innerHTML =
+    "";
 
 
-  if (records.length === 0) {
+  if (
+    records.length === 0
+  ) {
+
 
     body.innerHTML =
     `
       <tr>
+
         <td
           colspan="6"
           class="empty"
         >
+
           No student records yet.
+
         </td>
+
       </tr>
     `;
 
+
     return;
+
   }
 
 
   records.forEach(
     function(record) {
+
 
       const row =
         document.createElement(
@@ -969,10 +1229,14 @@ function displayRecords(records) {
         );
 
 
-      let date = "-";
+      let date =
+        "-";
 
 
-      if (record.timestamp) {
+      if (
+        record.timestamp
+      ) {
+
 
         const parsedDate =
           new Date(
@@ -986,12 +1250,15 @@ function displayRecords(records) {
           )
         ) {
 
+
           date =
             parsedDate.toLocaleString(
               "en-MY",
               {
+
                 timeZone:
                   "Asia/Kuala_Lumpur"
+
               }
             );
 
@@ -1021,23 +1288,33 @@ function displayRecords(records) {
         </td>
 
         <td>
-          ${escapeHTML(record.name || "-")}
+          ${escapeHTML(
+            record.name || "-"
+          )}
         </td>
 
         <td>
-          ${escapeHTML(record.studentClass || "-")}
+          ${escapeHTML(
+            record.studentClass || "-"
+          )}
         </td>
 
         <td>
-          ${escapeHTML(record.module || "-")}
+          ${escapeHTML(
+            record.module || "-"
+          )}
         </td>
 
         <td>
-          ${escapeHTML(displayScore)}
+          ${escapeHTML(
+            displayScore
+          )}
         </td>
 
         <td>
-          ${escapeHTML(displayPercentage)}
+          ${escapeHTML(
+            displayPercentage
+          )}
         </td>
 
       `;
@@ -1059,17 +1336,38 @@ function displayRecords(records) {
 
 function calculateDashboard(records) {
 
+
   const total =
     records.length;
 
 
-  let sum = 0;
+  let sum =
+    0;
 
-  let highest = 0;
+
+  let highest =
+    0;
+
+
+  let excellent =
+    0;
+
+
+  let good =
+    0;
+
+
+  let satisfactory =
+    0;
+
+
+  let needsImprovement =
+    0;
 
 
   records.forEach(
     function(record) {
+
 
       const percentage =
         getPercentage(
@@ -1077,7 +1375,8 @@ function calculateDashboard(records) {
         );
 
 
-      sum += percentage;
+      sum +=
+        percentage;
 
 
       if (
@@ -1085,8 +1384,45 @@ function calculateDashboard(records) {
         highest
       ) {
 
+
         highest =
           percentage;
+
+      }
+
+
+      /* PERFORMANCE LEVEL */
+
+
+      if (
+        percentage >= 80
+      ) {
+
+
+        excellent++;
+
+
+      } else if (
+        percentage >= 60
+      ) {
+
+
+        good++;
+
+
+      } else if (
+        percentage >= 40
+      ) {
+
+
+        satisfactory++;
+
+
+      } else {
+
+
+        needsImprovement++;
+
       }
 
     }
@@ -1118,6 +1454,30 @@ function calculateDashboard(records) {
   ).textContent =
     highest + "%";
 
+
+  document.getElementById(
+    "excellentCount"
+  ).textContent =
+    excellent;
+
+
+  document.getElementById(
+    "goodCount"
+  ).textContent =
+    good;
+
+
+  document.getElementById(
+    "satisfactoryCount"
+  ).textContent =
+    satisfactory;
+
+
+  document.getElementById(
+    "needsImprovementCount"
+  ).textContent =
+    needsImprovement;
+
 }
 
 
@@ -1126,6 +1486,7 @@ function calculateDashboard(records) {
 ========================================= */
 
 function filterRecords() {
+
 
   const keyword =
     document.getElementById(
@@ -1139,6 +1500,7 @@ function filterRecords() {
   const filtered =
     allRecords.filter(
       function(record) {
+
 
         const name =
           String(
@@ -1159,9 +1521,13 @@ function filterRecords() {
 
 
         return (
+
           name.includes(keyword) ||
+
           studentClass.includes(keyword) ||
+
           module.includes(keyword)
+
         );
 
       }
@@ -1181,11 +1547,15 @@ function filterRecords() {
 
 function teacherLogout() {
 
+
   sessionStorage.removeItem(
     "seqsTeacherToken"
   );
 
-  allRecords = [];
+
+  allRecords =
+    [];
+
 
   showLogin();
 
@@ -1197,6 +1567,7 @@ function teacherLogout() {
 ========================================= */
 
 function showLogin() {
+
 
   document.getElementById(
     "dashboardSection"
@@ -1229,6 +1600,7 @@ function showLogin() {
 ========================================= */
 
 function escapeHTML(value) {
+
 
   return String(value)
 
@@ -1266,6 +1638,7 @@ function escapeHTML(value) {
 
 async function checkExistingSession() {
 
+
   const token =
     sessionStorage.getItem(
       "seqsTeacherToken"
@@ -1274,13 +1647,17 @@ async function checkExistingSession() {
 
   if (!token) {
 
+
     showLogin();
 
+
     return;
+
   }
 
 
   try {
+
 
     const url =
       GOOGLE_SCRIPT_URL +
@@ -1303,13 +1680,17 @@ async function checkExistingSession() {
       data.authenticated === true
     ) {
 
+
       showDashboard();
 
+
     } else {
+
 
       sessionStorage.removeItem(
         "seqsTeacherToken"
       );
+
 
       showLogin();
 
@@ -1318,9 +1699,11 @@ async function checkExistingSession() {
 
   } catch (error) {
 
+
     sessionStorage.removeItem(
       "seqsTeacherToken"
     );
+
 
     showLogin();
 
@@ -1329,7 +1712,9 @@ async function checkExistingSession() {
 }
 
 
-/* ENTER KEY LOGIN */
+/* =========================================
+   ENTER KEY LOGIN
+========================================= */
 
 document
   .getElementById(
@@ -1339,9 +1724,11 @@ document
     "keydown",
     function(event) {
 
+
       if (
         event.key === "Enter"
       ) {
+
 
         teacherLogin();
 
@@ -1351,9 +1738,12 @@ document
   );
 
 
-/* START */
+/* =========================================
+   START
+========================================= */
 
 checkExistingSession();
+
 
 </script>
 
