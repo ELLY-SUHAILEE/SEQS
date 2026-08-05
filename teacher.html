@@ -1,548 +1,183 @@
+
+
+
+DATA PPK 4 OGOS 2026(2).xlsx
+Spreadsheet
+buatkan poster berdasarkan data ppk hrmis setakat 4 ogos 2026 guru dan akp yang mencapai 40 jam dan belum mencapai
+
+Worked for 1m 6s
+Generated image: PPK HRMIS Training Hours Dashboard
+
+
+Edit
+
+
+Worked for 1m 40s
+Generated image: HRMIS Training Competency Summary Dashboard
+
+
+Edit
+
+
+Generated image: Malaysian PPK HRMIS Competency Dashboard
+
+
+Edit
+
+
+859cb375-4dc4-4830-b39f-d9b4468bba4e.png
+
+2fa3e965-ab7e-403f-90e1-3ec9734a344c.png
+
+7dbb1777-ab84-4572-b3d7-3aae7efc5b05.png
+
+c052292e-c31e-43b8-bd63-92fba0eaf7a5.png
+
+9fc04f1f-3e5b-4d9b-a3b0-6761565b076f.png
+
+ee6c2f6b-f7df-4fdb-b9e2-38abd59ef0f9.png
+
+1ab20401-729a-4fed-bb68-32c7c29711ce.png
+
+a03386ac-0f6f-431d-8628-620130d44b69.png
+
+ebd889e3-f38b-4751-a967-a566c4b415d9.png
+
+5a01b3e0-c49f-4b0b-88fd-d76f3c9a627b.png
+
+4806f3b1-e327-4d71-929f-63b5cd170e40.png
+
+e05e9615-0540-4aa8-9d81-0dad1f45dcb7.png
+
+35d982f7-42fb-49bb-af6e-e8ac309a562e.png
+
+2b83f8e1-41b2-410e-b995-de10f913f3b5.png
+
+cca2565e-097c-4000-9ff8-40e906861766.png
+
+c9441e31-4ec8-434d-8f9c-7757899ce8dc.png
+
+4ef3fe86-cb75-43cd-be84-3a1d8ac44ebb.png
+
+
+Pasted text(14).txt
+Document
+
+
+Pasted text(15).txt
+Document
+
+
+Pasted code.js
+JavaScript
+
+
+Pasted text(16).txt
+Document
+
+
+Pasted text(17).txt
+Document
+
+
+Pasted text(18).txt
+Document
+
+B
+
+Okay, jelas puncanya. B = kod v2.4 memang belum masuk ke teacher.html. Sebab itu dashboard masih v2.3.
+
+Tak perlu sentuh Code.gs atau Google Sheets, dan jangan delete apa-apa lagi.
+
+Kita buat semula dengan cara paling selamat sebab Cikgu memang lebih yakin dengan full code: saya akan gunakan v2.3 yang telah terbukti berjaya sebagai asas dan sediakan semula FULL CODE v2.4, tetapi kali ini kita akan buat satu semakan sebelum Commit.
+
+Selepas paste kod baru nanti, jangan terus Commit. Tekan Ctrl + F dan cari:
+
+Smart Intervention Recommendation
+Kalau jumpa, barulah kita Commit. Dengan cara ini kita tahu pasti v2.4 memang sudah masuk sebelum buka dashboard.
+
+Sekarang kekal di teacher.html. Jangan delete dulu. Saya terus sediakan semula FULL CODE v2.4.
+
+
+OK BAIK
+
+Baik 👍 Kita buat semula FULL CODE v2.4 dengan semakan sebelum Commit.
+
+Tetapi saya tak mahu ulang kesilapan tadi dengan menyalin semula kod panjang yang mungkin tidak sama dengan v2.3 yang benar-benar sedang berada di GitHub sekarang.
+
+Langkah sekarang sahaja: jangan delete apa-apa. Dalam teacher.html yang sedang terbuka, Ctrl+A → Ctrl+C, kemudian paste keseluruhan kod itu di sini atau upload fail teacher.html.
+
+Selepas Cikgu hantar, saya akan ambil kod v2.3 sebenar itu, masukkan Smart Intervention Recommendation terus ke dalamnya, dan beri balik FULL CODE v2.4.
+
+Kali ini sebelum Commit kita buat semakan wajib:
+
+Ctrl + F → cari Smart Intervention Recommendation
+
+Jumpa → Commit.
+Tak jumpa → jangan Commit.
+
+Dengan cara ini kita tak akan ganggu v2.3 yang sudah berfungsi.
+
+
+
+Pasted text(19).txt
+Document
+
+Ya, saya dah semak fail yang Cikgu hantar. Berita baik: kod v2.4 sebenarnya SUDAH LENGKAP dalam fail ini. 
+
+
+Saya nampak ketiga-tiga komponen penting memang ada:
+
+CSS /* SMART RECOMMENDATION */ ✅
+
+Paparan Smart Intervention Recommendation dengan 4 kad ✅
+
+Fungsi JavaScript displaySmartRecommendation(records) dan ia sudah dipanggil dalam updateAllDashboard(records) ✅
+
+Jadi tak perlu saya buat kod baru lagi. Kod yang Cikgu hantar ini ialah kod yang kita mahu.
+
+Sekarang buat begini sahaja:
+
+Di GitHub teacher.html → Ctrl+A → Delete
+
+Paste KESELURUHAN kod yang Cikgu baru hantar kepada saya ini
+
+JANGAN Commit lagi
+
+Tekan Ctrl+F
+
+Cari:
+Smart Intervention Recommendation
+
+Kalau kali ini JUMPA, barulah tekan Commit changes.
+
+Selepas Commit, tunggu sekejap → buka semula Teacher Dashboard → tekan Ctrl+F5.
+
+Sepatutnya susunan dashboard menjadi:
+
+Overall Performance → Performance Level → Module Performance → Average Score by Module → Smart Intervention Recommendation → Students Requiring Intervention → Student Records
+
+Dan Smart Intervention akan ada 4 kotak: 🎯 Intensive Support, 📘 Guided Practice, 👍 Reinforcement, 🌟 Enrichment.
+
+Buat sampai langkah Ctrl+F dahulu. Bila sudah jumpa “Smart Intervention Recommendation”, beritahu saya “jumpa”. Jangan Commit sebelum kita sahkan.
+
+
+
 <!DOCTYPE html>
+
 <html lang="en">
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SEQS | Teacher Dashboard</title>
 
-<style>
+<style> *{box-sizing:border-box} body{ margin:0; font-family:Arial,sans-serif; background:#eef6ff; color:#17324d; min-height:100vh; } header{ background:linear-gradient(135deg,#0d47a1,#1976d2); color:white; text-align:center; padding:30px 15px; } header h1{ margin:0; font-size:40px; letter-spacing:3px; } header p{ margin:7px 0 0; font-size:17px; } .container{ max-width:1200px; margin:auto; padding:25px 15px; } /* LOGIN */ .login-wrapper{ max-width:430px; margin:50px auto; } .login-card{ background:white; border-radius:20px; padding:35px; box-shadow:0 8px 25px rgba(0,0,0,.12); text-align:center; } .lock{ font-size:50px; margin-bottom:10px; } .login-card h2{ margin:5px 0 10px; color:#1557a6; } .login-card p{ color:#718096; line-height:1.5; } .password-input{ width:100%; padding:14px; margin-top:15px; border:1px solid #ccd8e5; border-radius:10px; font-size:16px; } .password-input:focus{ outline:none; border-color:#1976d2; } .login-btn{ width:100%; border:none; padding:14px; margin-top:15px; border-radius:30px; background:#1976d2; color:white; font-size:16px; font-weight:bold; cursor:pointer; } .login-btn:hover{ background:#0d47a1; } .login-btn:disabled{ opacity:.6; cursor:not-allowed; } .login-message{ min-height:22px; margin-top:15px; font-size:14px; font-weight:bold; } .home-link{ display:inline-block; margin-top:20px; color:#1557a6; text-decoration:none; font-weight:bold; } /* DASHBOARD */ #dashboardSection{ display:none; } .teacher-bar{ background:white; border-radius:15px; padding:15px 18px; margin-bottom:20px; box-shadow:0 4px 12px rgba(0,0,0,.08); display:flex; justify-content:space-between; align-items:center; gap:15px; } .teacher-bar strong{ color:#1557a6; } .logout-btn{ border:none; background:#c62828; color:white; padding:10px 18px; border-radius:25px; cursor:pointer; font-weight:bold; } .logout-btn:hover{ background:#a51f1f; } /* HEADINGS */ .section-heading{ margin:28px 0 15px; color:#1557a6; font-size:20px; } /* FILTER */ .analysis-filter{ background:white; padding:20px; border-radius:16px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,.08); } .analysis-filter h3{ margin:0 0 15px; color:#1557a6; } .filter-grid{ display:grid; grid-template-columns:1fr 1fr 1.5fr auto; gap:12px; align-items:end; } .filter-item label{ display:block; margin-bottom:6px; font-size:13px; font-weight:bold; color:#607080; } .filter-item select, .filter-item input{ width:100%; padding:12px; border:1px solid #ccd8e5; border-radius:9px; font-size:14px; background:white; } .reset-btn{ border:none; background:#607080; color:white; padding:12px 18px; border-radius:9px; font-weight:bold; cursor:pointer; min-height:42px; } .reset-btn:hover{ background:#455a64; } .filter-result{ margin-top:14px; padding:10px; border-radius:8px; background:#f4f9ff; color:#174a7c; font-size:13px; text-align:center; } /* SUMMARY */ .dashboard{ display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin-bottom:22px; } .performance-dashboard{ display:grid; grid-template-columns:repeat(4,1fr); gap:15px; margin-bottom:22px; } .card{ background:white; border-radius:16px; padding:22px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,.08); } .card h3{ margin:0 0 10px; color:#607080; font-size:14px; } .number{ font-size:36px; font-weight:bold; color:#1976d2; } .level-label{ margin-top:6px; color:#718096; font-size:12px; } /* MODULE */ .module-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:15px; margin-bottom:25px; } .module-card{ background:white; border-radius:16px; padding:18px 20px; box-shadow:0 4px 12px rgba(0,0,0,.08); } .module-name{ font-weight:bold; color:#1557a6; margin-bottom:13px; } .module-stats{ display:flex; justify-content:space-between; gap:15px; color:#607080; font-size:14px; } .module-average{ color:#1976d2; font-weight:bold; } /* CHART */ .chart-box{ background:white; padding:25px; border-radius:18px; box-shadow:0 4px 12px rgba(0,0,0,.08); margin-bottom:25px; } .chart-description{ color:#718096; font-size:14px; margin:0 0 22px; } .chart-row{ display:grid; grid-template-columns:95px 1fr 55px; align-items:center; gap:12px; margin-bottom:15px; } .chart-label{ font-weight:bold; color:#174a7c; font-size:14px; } .chart-track{ width:100%; height:25px; background:#e8eef5; border-radius:20px; overflow:hidden; } .chart-bar{ height:100%; width:0%; background:linear-gradient(90deg,#1976d2,#42a5f5); border-radius:20px; transition:width .7s ease; } .chart-value{ text-align:right; font-weight:bold; color:#1557a6; } /* SMART RECOMMENDATION */ .recommendation-box{ background:white; border-radius:16px; padding:20px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,.08); } .recommendation-intro{ background:#e8f3ff; color:#174a7c; padding:14px; border-radius:10px; margin-bottom:18px; font-size:14px; line-height:1.6; } .recommendation-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:15px; } .recommendation-card{ border-radius:14px; padding:18px; border:1px solid #e1e7ee; } .recommendation-card h3{ margin:0 0 7px; font-size:16px; } .recommendation-count{ font-size:32px; font-weight:bold; margin:8px 0; } .recommendation-card p{ margin:5px 0; font-size:13px; line-height:1.5; } .intensive{ background:#ffebee; color:#a51f1f; } .guided{ background:#fff8e1; color:#8a6100; } .reinforcement{ background:#e8f5e9; color:#256029; } .enrichment{ background:#e3f2fd; color:#1557a6; } /* INTERVENTION */ .intervention-box{ background:white; border-radius:16px; padding:20px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,.08); border-top:5px solid #ef6c00; } .intervention-summary{ background:#fff3e0; color:#9a4d00; padding:12px; border-radius:9px; margin-bottom:15px; font-size:14px; } .intervention-table{ overflow-x:auto; } .intervention-table table{ min-width:650px; } .intervention-table th{ background:#ef6c00; } /* STATUS */ .status{ background:#e8f3ff; color:#174a7c; padding:12px; border-radius:10px; margin-bottom:18px; text-align:center; font-size:14px; } /* TABLE */ .table-box{ background:white; border-radius:15px; padding:15px; overflow-x:auto; box-shadow:0 4px 12px rgba(0,0,0,.08); } table{ width:100%; border-collapse:collapse; min-width:800px; } th{ background:#1557a6; color:white; padding:12px 10px; font-size:14px; } td{ padding:11px 10px; border-bottom:1px solid #e1e7ee; text-align:center; font-size:14px; } tbody tr:hover{ background:#f4f9ff; } .empty{ text-align:center; padding:30px; color:#718096; } /* ACTIONS */ .actions{ text-align:center; margin-top:25px; } .btn{ display:inline-block; background:#1557a6; color:white; text-decoration:none; padding:11px 22px; border-radius:25px; margin:5px; border:none; cursor:pointer; font-weight:bold; } .btn:hover{ background:#0d47a1; } footer{ text-align:center; padding:25px; color:#718096; font-size:13px; line-height:1.6; } /* MOBILE */ @media(max-width:900px){ .performance-dashboard{ grid-template-columns:repeat(2,1fr); } .filter-grid{ grid-template-columns:1fr 1fr; } } @media(max-width:700px){ .dashboard, .performance-dashboard, .module-grid, .filter-grid, .recommendation-grid{ grid-template-columns:1fr; } .teacher-bar{ flex-direction:column; text-align:center; } .module-stats{ flex-direction:column; } .chart-row{ grid-template-columns:75px 1fr 45px; gap:8px; } } </style>
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#eef6ff;
-  color:#17324d;
-  min-height:100vh;
-}
-
-header{
-  background:linear-gradient(135deg,#0d47a1,#1976d2);
-  color:white;
-  text-align:center;
-  padding:30px 15px;
-}
-
-header h1{
-  margin:0;
-  font-size:40px;
-  letter-spacing:3px;
-}
-
-header p{
-  margin:7px 0 0;
-  font-size:17px;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:25px 15px;
-}
-
-
-/* LOGIN */
-
-.login-wrapper{
-  max-width:430px;
-  margin:50px auto;
-}
-
-.login-card{
-  background:white;
-  border-radius:20px;
-  padding:35px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
-  text-align:center;
-}
-
-.lock{
-  font-size:50px;
-  margin-bottom:10px;
-}
-
-.login-card h2{
-  margin:5px 0 10px;
-  color:#1557a6;
-}
-
-.login-card p{
-  color:#718096;
-  line-height:1.5;
-}
-
-.password-input{
-  width:100%;
-  padding:14px;
-  margin-top:15px;
-  border:1px solid #ccd8e5;
-  border-radius:10px;
-  font-size:16px;
-}
-
-.password-input:focus{
-  outline:none;
-  border-color:#1976d2;
-}
-
-.login-btn{
-  width:100%;
-  border:none;
-  padding:14px;
-  margin-top:15px;
-  border-radius:30px;
-  background:#1976d2;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.login-btn:hover{
-  background:#0d47a1;
-}
-
-.login-btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
-
-.login-message{
-  min-height:22px;
-  margin-top:15px;
-  font-size:14px;
-  font-weight:bold;
-}
-
-.home-link{
-  display:inline-block;
-  margin-top:20px;
-  color:#1557a6;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-
-/* DASHBOARD */
-
-#dashboardSection{
-  display:none;
-}
-
-.teacher-bar{
-  background:white;
-  border-radius:15px;
-  padding:15px 18px;
-  margin-bottom:20px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.teacher-bar strong{
-  color:#1557a6;
-}
-
-.logout-btn{
-  border:none;
-  background:#c62828;
-  color:white;
-  padding:10px 18px;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.logout-btn:hover{
-  background:#a51f1f;
-}
-
-
-/* HEADINGS */
-
-.section-heading{
-  margin:28px 0 15px;
-  color:#1557a6;
-  font-size:20px;
-}
-
-
-/* FILTER PANEL */
-
-.analysis-filter{
-  background:white;
-  padding:20px;
-  border-radius:16px;
-  margin-bottom:25px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.analysis-filter h3{
-  margin:0 0 15px;
-  color:#1557a6;
-}
-
-.filter-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr 1.5fr auto;
-  gap:12px;
-  align-items:end;
-}
-
-.filter-item label{
-  display:block;
-  margin-bottom:6px;
-  font-size:13px;
-  font-weight:bold;
-  color:#607080;
-}
-
-.filter-item select,
-.filter-item input{
-  width:100%;
-  padding:12px;
-  border:1px solid #ccd8e5;
-  border-radius:9px;
-  font-size:14px;
-  background:white;
-}
-
-.reset-btn{
-  border:none;
-  background:#607080;
-  color:white;
-  padding:12px 18px;
-  border-radius:9px;
-  font-weight:bold;
-  cursor:pointer;
-  min-height:42px;
-}
-
-.reset-btn:hover{
-  background:#455a64;
-}
-
-.filter-result{
-  margin-top:14px;
-  padding:10px;
-  border-radius:8px;
-  background:#f4f9ff;
-  color:#174a7c;
-  font-size:13px;
-  text-align:center;
-}
-
-
-/* SUMMARY */
-
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-bottom:22px;
-}
-
-.performance-dashboard{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:22px;
-}
-
-.card{
-  background:white;
-  border-radius:16px;
-  padding:22px;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.card h3{
-  margin:0 0 10px;
-  color:#607080;
-  font-size:14px;
-}
-
-.number{
-  font-size:36px;
-  font-weight:bold;
-  color:#1976d2;
-}
-
-.level-label{
-  margin-top:6px;
-  color:#718096;
-  font-size:12px;
-}
-
-
-/* MODULE PERFORMANCE */
-
-.module-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-bottom:25px;
-}
-
-.module-card{
-  background:white;
-  border-radius:16px;
-  padding:18px 20px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.module-name{
-  font-weight:bold;
-  color:#1557a6;
-  margin-bottom:13px;
-}
-
-.module-stats{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  color:#607080;
-  font-size:14px;
-}
-
-.module-average{
-  color:#1976d2;
-  font-weight:bold;
-}
-
-
-/* PERFORMANCE CHART */
-
-.chart-box{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  margin-bottom:25px;
-}
-
-.chart-description{
-  color:#718096;
-  font-size:14px;
-  margin:0 0 22px;
-}
-
-.chart-row{
-  display:grid;
-  grid-template-columns:95px 1fr 55px;
-  align-items:center;
-  gap:12px;
-  margin-bottom:15px;
-}
-
-.chart-label{
-  font-weight:bold;
-  color:#174a7c;
-  font-size:14px;
-}
-
-.chart-track{
-  width:100%;
-  height:25px;
-  background:#e8eef5;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.chart-bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#1976d2,#42a5f5);
-  border-radius:20px;
-  transition:width .7s ease;
-}
-
-.chart-value{
-  text-align:right;
-  font-weight:bold;
-  color:#1557a6;
-}
-
-
-/* INTERVENTION */
-
-.intervention-box{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:25px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  border-top:5px solid #ef6c00;
-}
-
-.intervention-summary{
-  background:#fff3e0;
-  color:#9a4d00;
-  padding:12px;
-  border-radius:9px;
-  margin-bottom:15px;
-  font-size:14px;
-}
-
-.intervention-table{
-  overflow-x:auto;
-}
-
-.intervention-table table{
-  min-width:650px;
-}
-
-.intervention-table th{
-  background:#ef6c00;
-}
-
-
-/* STATUS */
-
-.status{
-  background:#e8f3ff;
-  color:#174a7c;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:18px;
-  text-align:center;
-  font-size:14px;
-}
-
-
-/* TABLE */
-
-.table-box{
-  background:white;
-  border-radius:15px;
-  padding:15px;
-  overflow-x:auto;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:800px;
-}
-
-th{
-  background:#1557a6;
-  color:white;
-  padding:12px 10px;
-  font-size:14px;
-}
-
-td{
-  padding:11px 10px;
-  border-bottom:1px solid #e1e7ee;
-  text-align:center;
-  font-size:14px;
-}
-
-tbody tr:hover{
-  background:#f4f9ff;
-}
-
-.empty{
-  text-align:center;
-  padding:30px;
-  color:#718096;
-}
-
-
-/* ACTIONS */
-
-.actions{
-  text-align:center;
-  margin-top:25px;
-}
-
-.btn{
-  display:inline-block;
-  background:#1557a6;
-  color:white;
-  text-decoration:none;
-  padding:11px 22px;
-  border-radius:25px;
-  margin:5px;
-  border:none;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.btn:hover{
-  background:#0d47a1;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  color:#718096;
-  font-size:13px;
-  line-height:1.6;
-}
-
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .performance-dashboard{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .filter-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-}
-
-@media(max-width:700px){
-
-  .dashboard,
-  .performance-dashboard,
-  .module-grid,
-  .filter-grid{
-    grid-template-columns:1fr;
-  }
-
-  .teacher-bar{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .module-stats{
-    flex-direction:column;
-  }
-
-  .chart-row{
-    grid-template-columns:75px 1fr 45px;
-    gap:8px;
-  }
-
-}
-
-</style>
 </head>
-
 
 <body>
 
-<header>
-
-<h1>SEQS</h1>
-
-<p>SMART ENGLISH QUIZ SYSTEM</p>
-
-</header>
-
+<header> <h1>SEQS</h1> <p>SMART ENGLISH QUIZ SYSTEM</p> </header>
 
 <!-- LOGIN -->
 
@@ -556,9 +191,7 @@ footer{
 
 <h2>TEACHER ACCESS</h2>
 
-<p>
-This section is restricted to authorised teachers only.
-</p>
+<p> This section is restricted to authorised teachers only. </p>
 
 <input
 type="password"
@@ -566,54 +199,47 @@ id="teacherPassword"
 class="password-input"
 placeholder="Enter teacher password"
 autocomplete="current-password"
->
+
+
 
 <button
 type="button"
 class="login-btn"
 id="loginButton"
 onclick="teacherLogin()"
->
+
+
+
 LOGIN
 </button>
 
-<div
-class="login-message"
-id="loginMessage"
-></div>
+<div class="login-message" id="loginMessage" ></div>
 
-<a href="index.html" class="home-link">
-← BACK TO SEQS
-</a>
+<a href="index.html" class="home-link"> ← BACK TO SEQS </a>
 
-</div>
-</div>
-</div>
-
+</div> </div> </div>
 
 <!-- DASHBOARD -->
 
 <div class="container" id="dashboardSection">
 
-
 <div class="teacher-bar">
 
-<div>
-🔒 <strong>AUTHORISED TEACHER</strong>
-</div>
+<div> 🔒 <strong>AUTHORISED TEACHER</strong> </div>
 
 <button
 type="button"
 class="logout-btn"
 onclick="teacherLogout()"
->
+
+
+
 LOGOUT
 </button>
 
 </div>
 
-
-<!-- ANALYSIS FILTER -->
+<!-- FILTER -->
 
 <div class="analysis-filter">
 
@@ -623,225 +249,179 @@ LOGOUT
 
 <div class="filter-item">
 
-<label for="classFilter">
-CLASS
-</label>
+<label for="classFilter"> CLASS </label>
 
 <select
 id="classFilter"
 onchange="applyFilters()"
->
-<option value="">All Classes</option>
-</select>
+
+
+
+<option value="">All Classes</option> </select>
 
 </div>
 
-
 <div class="filter-item">
 
-<label for="moduleFilter">
-MODULE
-</label>
+<label for="moduleFilter"> MODULE </label>
 
 <select
 id="moduleFilter"
 onchange="applyFilters()"
->
 
-<option value="">
-All Modules
-</option>
 
-<option value="1">
-Module 1 – Welcome!
-</option>
 
-<option value="2">
-Module 2 – Every Day
-</option>
-
-<option value="3">
-Module 3 – Right Now
-</option>
-
-<option value="4">
-Module 4 – Year In, Year Out
-</option>
-
-<option value="5">
-Module 5 – My New House
-</option>
-
-<option value="6">
-Module 6 – Food, Please!
-</option>
-
-<option value="7">
-Module 7 – Out and About
-</option>
-
-<option value="8">
-Module 8 – Where Were You Yesterday?
-</option>
-
-<option value="9">
-Module 9 – On Holiday
-</option>
-
-<option value="10">
-Module 10 – The World Around Us
-</option>
+<option value="">All Modules</option> <option value="1">Module 1 – Welcome!</option> <option value="2">Module 2 – Every Day</option> <option value="3">Module 3 – Right Now</option> <option value="4">Module 4 – Year In, Year Out</option> <option value="5">Module 5 – My New House</option> <option value="6">Module 6 – Food, Please!</option> <option value="7">Module 7 – Out and About</option> <option value="8">Module 8 – Where Were You Yesterday?</option> <option value="9">Module 9 – On Holiday</option> <option value="10">Module 10 – The World Around Us</option>
 
 </select>
 
 </div>
 
-
 <div class="filter-item">
 
-<label for="searchBox">
-SEARCH
-</label>
+<label for="searchBox"> SEARCH </label>
 
 <input
 type="text"
 id="searchBox"
 placeholder="Student name, class or module..."
 oninput="applyFilters()"
->
+
+
 
 </div>
-
 
 <button
 type="button"
 class="reset-btn"
 onclick="resetFilters()"
->
+
+
+
 RESET FILTER
 </button>
 
 </div>
 
-
-<div
-class="filter-result"
-id="filterResult"
->
-Showing all student records.
-</div>
+<div class="filter-result" id="filterResult" > Showing all student records. </div>
 
 </div>
-
 
 <!-- OVERALL -->
 
-<h2 class="section-heading">
-Overall Performance
-</h2>
+<h2 class="section-heading"> Overall Performance </h2>
 
 <div class="dashboard">
 
-<div class="card">
-<h3>TOTAL ATTEMPTS</h3>
-<div class="number" id="totalAttempts">0</div>
-</div>
+<div class="card"> <h3>TOTAL ATTEMPTS</h3> <div class="number" id="totalAttempts">0</div> </div>
 
-<div class="card">
-<h3>AVERAGE SCORE</h3>
-<div class="number" id="averageScore">0%</div>
-</div>
+<div class="card"> <h3>AVERAGE SCORE</h3> <div class="number" id="averageScore">0%</div> </div>
 
-<div class="card">
-<h3>HIGHEST SCORE</h3>
-<div class="number" id="highestScore">0%</div>
-</div>
+<div class="card"> <h3>HIGHEST SCORE</h3> <div class="number" id="highestScore">0%</div> </div>
 
 </div>
-
 
 <!-- PERFORMANCE LEVEL -->
 
-<h2 class="section-heading">
-Performance Level
-</h2>
+<h2 class="section-heading"> Performance Level </h2>
 
 <div class="performance-dashboard">
 
-<div class="card">
-<h3>EXCELLENT</h3>
-<div class="number" id="excellentCount">0</div>
-<div class="level-label">80% – 100%</div>
-</div>
+<div class="card"> <h3>EXCELLENT</h3> <div class="number" id="excellentCount">0</div> <div class="level-label">80% – 100%</div> </div>
 
-<div class="card">
-<h3>GOOD</h3>
-<div class="number" id="goodCount">0</div>
-<div class="level-label">60% – 79%</div>
-</div>
+<div class="card"> <h3>GOOD</h3> <div class="number" id="goodCount">0</div> <div class="level-label">60% – 79%</div> </div>
 
-<div class="card">
-<h3>SATISFACTORY</h3>
-<div class="number" id="satisfactoryCount">0</div>
-<div class="level-label">40% – 59%</div>
-</div>
+<div class="card"> <h3>SATISFACTORY</h3> <div class="number" id="satisfactoryCount">0</div> <div class="level-label">40% – 59%</div> </div>
 
-<div class="card">
-<h3>NEEDS IMPROVEMENT</h3>
-<div class="number" id="needsImprovementCount">0</div>
-<div class="level-label">0% – 39%</div>
-</div>
+<div class="card"> <h3>NEEDS IMPROVEMENT</h3> <div class="number" id="needsImprovementCount">0</div> <div class="level-label">0% – 39%</div> </div>
 
 </div>
-
 
 <!-- MODULE PERFORMANCE -->
 
-<h2 class="section-heading">
-Module Performance
-</h2>
+<h2 class="section-heading"> Module Performance </h2>
 
-<div
-class="module-grid"
-id="modulePerformance"
->
-<div class="module-card">
-Loading module analysis...
-</div>
-</div>
+<div class="module-grid" id="modulePerformance" > <div class="module-card"> Loading module analysis... </div> </div>
 
+<!-- CHART -->
 
-<!-- PERFORMANCE CHART -->
-
-<h2 class="section-heading">
-📊 Average Score by Module
-</h2>
+<h2 class="section-heading"> 📊 Average Score by Module </h2>
 
 <div class="chart-box">
 
-<p class="chart-description">
-Average student performance based on the selected analysis filter.
-</p>
+<p class="chart-description"> Average student performance based on the selected analysis filter. </p>
 
 <div id="moduleChart"></div>
 
 </div>
 
+<!-- SMART RECOMMENDATION -->
+
+<h2 class="section-heading"> Smart Intervention Recommendation </h2>
+
+<div class="recommendation-box">
+
+<div class="recommendation-intro" id="recommendationIntro" > Analysing student performance... </div>
+
+<div class="recommendation-grid">
+
+<div class="recommendation-card intensive">
+
+<h3>🎯 Intensive Support</h3>
+
+<div class="recommendation-count" id="intensiveCount" > 0 </div>
+
+<p> <strong>Achievement:</strong> 0% – 39% </p>
+
+<p> Provide targeted remedial activities, teacher guidance and additional practice. </p>
+
+</div>
+
+<div class="recommendation-card guided">
+
+<h3>📘 Guided Practice</h3>
+
+<div class="recommendation-count" id="guidedCount" > 0 </div>
+
+<p> <strong>Achievement:</strong> 40% – 59% </p>
+
+<p> Provide guided exercises, vocabulary support and structured practice. </p>
+
+</div>
+
+<div class="recommendation-card reinforcement">
+
+<h3>👍 Reinforcement</h3>
+
+<div class="recommendation-count" id="reinforcementCount" > 0 </div>
+
+<p> <strong>Achievement:</strong> 60% – 79% </p>
+
+<p> Reinforce current skills through revision, practice and application activities. </p>
+
+</div>
+
+<div class="recommendation-card enrichment">
+
+<h3>🌟 Enrichment</h3>
+
+<div class="recommendation-count" id="enrichmentCount" > 0 </div>
+
+<p> <strong>Achievement:</strong> 80% – 100% </p>
+
+<p> Provide enrichment, higher-order thinking tasks and more challenging activities. </p>
+
+</div>
+
+</div> </div>
 
 <!-- INTERVENTION -->
 
-<h2 class="section-heading">
-Students Requiring Intervention
-</h2>
+<h2 class="section-heading"> Students Requiring Intervention </h2>
 
 <div class="intervention-box">
 
-<div
-class="intervention-summary"
-id="interventionSummary"
->
-Checking intervention records...
-</div>
+<div class="intervention-summary" id="interventionSummary" > Checking intervention records... </div>
 
 <div class="intervention-table">
 
@@ -849,48 +429,27 @@ Checking intervention records...
 
 <thead>
 
-<tr>
-<th>NAME</th>
-<th>CLASS</th>
-<th>MODULE</th>
-<th>SCORE</th>
-<th>PERCENTAGE</th>
-</tr>
+<tr> <th>NAME</th> <th>CLASS</th> <th>MODULE</th> <th>SCORE</th> <th>PERCENTAGE</th> </tr>
 
 </thead>
 
 <tbody id="interventionBody">
 
-<tr>
-<td colspan="5" class="empty">
-Loading...
-</td>
-</tr>
+<tr> <td colspan="5" class="empty"> Loading... </td> </tr>
 
 </tbody>
 
 </table>
 
-</div>
-
-</div>
-
+</div> </div>
 
 <!-- STATUS -->
 
-<div
-class="status"
-id="statusMessage"
->
-Loading student records...
-</div>
-
+<div class="status" id="statusMessage" > Loading student records... </div>
 
 <!-- STUDENT RECORDS -->
 
-<h2 class="section-heading">
-Student Records
-</h2>
+<h2 class="section-heading"> Student Records </h2>
 
 <div class="table-box">
 
@@ -898,24 +457,13 @@ Student Records
 
 <thead>
 
-<tr>
-<th>DATE / TIME</th>
-<th>NAME</th>
-<th>CLASS</th>
-<th>MODULE</th>
-<th>SCORE</th>
-<th>PERCENTAGE</th>
-</tr>
+<tr> <th>DATE / TIME</th> <th>NAME</th> <th>CLASS</th> <th>MODULE</th> <th>SCORE</th> <th>PERCENTAGE</th> </tr>
 
 </thead>
 
 <tbody id="recordBody">
 
-<tr>
-<td colspan="6" class="empty">
-Loading records...
-</td>
-</tr>
+<tr> <td colspan="6" class="empty"> Loading records... </td> </tr>
 
 </tbody>
 
@@ -923,25 +471,23 @@ Loading records...
 
 </div>
 
-
 <div class="actions">
 
 <button
 type="button"
 class="btn"
 onclick="loadTeacherRecords()"
->
+
+
+
 REFRESH RECORDS
 </button>
 
-<a href="index.html" class="btn">
-BACK TO HOME
-</a>
+<a href="index.html" class="btn"> BACK TO HOME </a>
 
 </div>
 
 </div>
-
 
 <footer>
 
@@ -953,1435 +499,9 @@ Teacher Dashboard | English Year 3 | 2026
 
 </footer>
 
+<script> const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec"; let allRecords=[]; /* MODULE INFORMATION */ const moduleList=[ {number:1,name:"Welcome!"}, {number:2,name:"Every Day"}, {number:3,name:"Right Now"}, {number:4,name:"Year In, Year Out"}, {number:5,name:"My New House"}, {number:6,name:"Food, Please!"}, {number:7,name:"Out and About"}, {number:8,name:"Where Were You Yesterday?"}, {number:9,name:"On Holiday"}, {number:10,name:"The World Around Us"} ]; /* LOGIN */ async function teacherLogin(){ const password= document.getElementById( "teacherPassword" ).value; const message= document.getElementById( "loginMessage" ); const button= document.getElementById( "loginButton" ); if(!password){ message.style.color="#c62828"; message.textContent= "Please enter the teacher password."; return; } button.disabled=true; button.textContent="CHECKING..."; message.style.color="#1557a6"; message.textContent= "Verifying teacher access..."; try{ const response= await fetch( GOOGLE_SCRIPT_URL, { method:"POST", headers:{ "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ action:"teacherLogin", password:password }) } ); const data= await response.json(); if( data.authenticated===true && data.token ){ sessionStorage.setItem( "seqsTeacherToken", data.token ); document.getElementById( "teacherPassword" ).value=""; showDashboard(); return; } message.style.color="#c62828"; message.textContent= "Incorrect teacher password."; }catch(error){ console.error(error); message.style.color="#c62828"; message.textContent= "Unable to verify teacher access."; }finally{ button.disabled=false; button.textContent="LOGIN"; } } /* SHOW DASHBOARD */ function showDashboard(){ document.getElementById( "loginSection" ).style.display="none"; document.getElementById( "dashboardSection" ).style.display="block"; loadTeacherRecords(); } /* LOAD RECORDS */ async function loadTeacherRecords(){ const token= sessionStorage.getItem( "seqsTeacherToken" ); if(!token){ showLogin(); return; } document.getElementById( "statusMessage" ).textContent= "Loading student records..."; try{ const url= GOOGLE_SCRIPT_URL+ "?action=teacherRecords"+ "&token="+ encodeURIComponent(token)+ "&t="+ Date.now(); const response= await fetch(url); const data= await response.json(); if(data.status==="unauthorized"){ sessionStorage.removeItem( "seqsTeacherToken" ); alert( "Teacher session has expired. Please login again." ); showLogin(); return; } if(data.status==="error"){ throw new Error( data.message || "Unable to load records." ); } if(!Array.isArray(data)){ throw new Error( "Invalid student record format." ); } allRecords= data.slice().reverse(); populateClassFilter(); applyFilters(); document.getElementById( "statusMessage" ).textContent= "✓ Student records loaded successfully."; }catch(error){ console.error(error); document.getElementById( "statusMessage" ).textContent= "Unable to load student records."; } } /* CLASS FILTER */ function populateClassFilter(){ const select= document.getElementById( "classFilter" ); const currentValue= select.value; const classes=[ ...new Set( allRecords .map(function(record){ return String( record.studentClass || "" ).trim(); }) .filter(Boolean) ) ].sort( function(a,b){ return a.localeCompare( b, undefined, { numeric:true, sensitivity:"base" } ); } ); select.innerHTML= '<option value="">All Classes</option>'; classes.forEach( function(className){ const option= document.createElement( "option" ); option.value=className; option.textContent=className; select.appendChild(option); } ); if(classes.includes(currentValue)){ select.value=currentValue; } } /* PERCENTAGE */ function getPercentage(value){ let percentage= parseFloat( String(value || "0") .replace("%","") .trim() ); if(isNaN(percentage)){ return 0; } if( percentage>=0 && percentage<=1 ){ percentage= percentage*100; } return Math.round( percentage ); } function formatPercentage(value){ return getPercentage(value)+"%"; } /* SCORE */ function formatScore( score, percentage ){ if( typeof score==="string" && /^\d+\s*\/\s*20$/.test( score.trim() ) ){ return score.trim(); } const p= getPercentage( percentage ); const calculatedScore= Math.round( (p/100)*20 ); return calculatedScore+"/20"; } /* MODULE MATCH */ function recordMatchesModule( record, moduleNumber ){ if(!moduleNumber){ return true; } const pattern= new RegExp( "^Module\\s+"+ moduleNumber+ "(?:\\s|\\s*-|$)", "i" ); const moduleName= String( record.module || "" ).trim(); return pattern.test( moduleName ); } /* APPLY FILTER */ function applyFilters(){ const classValue= document.getElementById( "classFilter" ).value.trim(); const moduleValue= document.getElementById( "moduleFilter" ).value.trim(); const keyword= document.getElementById( "searchBox" ) .value .toLowerCase() .trim(); const filtered= allRecords.filter( function(record){ const recordClass= String( record.studentClass || "" ).trim(); const name= String( record.name || "" ).toLowerCase(); const studentClass= recordClass.toLowerCase(); const moduleName= String( record.module || "" ).toLowerCase(); const classMatch= !classValue || recordClass===classValue; const moduleMatch= recordMatchesModule( record, moduleValue ); const keywordMatch= !keyword || name.includes(keyword) || studentClass.includes(keyword) || moduleName.includes(keyword); return( classMatch && moduleMatch && keywordMatch ); } ); updateAllDashboard( filtered ); updateFilterResult( filtered.length ); } /* UPDATE DASHBOARD */ function updateAllDashboard(records){ displayRecords(records); calculateDashboard(records); calculateModulePerformance(records); drawModuleChart(records); displaySmartRecommendation(records); displayIntervention(records); } /* FILTER MESSAGE */ function updateFilterResult(count){ const classValue= document.getElementById( "classFilter" ).value; const moduleValue= document.getElementById( "moduleFilter" ).value; const keyword= document.getElementById( "searchBox" ).value.trim(); let description=[]; if(classValue){ description.push( "Class: "+classValue ); } if(moduleValue){ description.push( "Module: "+moduleValue ); } if(keyword){ description.push( 'Search: "'+keyword+'"' ); } const message= document.getElementById( "filterResult" ); if(description.length===0){ message.textContent= "Showing all student records ("+ count+ " attempts)."; }else{ message.textContent= "Showing "+ count+ " attempt(s) | "+ description.join(" | "); } } /* RESET */ function resetFilters(){ document.getElementById( "classFilter" ).value=""; document.getElementById( "moduleFilter" ).value=""; document.getElementById( "searchBox" ).value=""; applyFilters(); } /* DISPLAY RECORDS */ function displayRecords(records){ const body= document.getElementById( "recordBody" ); body.innerHTML=""; if(records.length===0){ body.innerHTML= ` <tr> <td colspan="6" class="empty"> No matching student records. </td> </tr> `; return; } records.forEach( function(record){ const row= document.createElement( "tr" ); let date="-"; if(record.timestamp){ const parsedDate= new Date( record.timestamp ); if( !isNaN( parsedDate.getTime() ) ){ date= parsedDate.toLocaleString( "en-MY", { timeZone: "Asia/Kuala_Lumpur" } ); } } const displayScore= formatScore( record.score, record.percentage ); const displayPercentage= formatPercentage( record.percentage ); row.innerHTML= ` <td> ${escapeHTML(date)} </td> <td> ${escapeHTML( record.name || "-" )} </td> <td> ${escapeHTML( record.studentClass || "-" )} </td> <td> ${escapeHTML( record.module || "-" )} </td> <td> ${escapeHTML( displayScore )} </td> <td> ${escapeHTML( displayPercentage )} </td> `; body.appendChild( row ); } ); } /* OVERALL */ function calculateDashboard(records){ const total= records.length; let sum=0; let highest=0; let excellent=0; let good=0; let satisfactory=0; let needsImprovement=0; records.forEach( function(record){ const percentage= getPercentage( record.percentage ); sum+=percentage; if(percentage>highest){ highest=percentage; } if(percentage>=80){ excellent++; }else if(percentage>=60){ good++; }else if(percentage>=40){ satisfactory++; }else{ needsImprovement++; } } ); const average= total>0 ? Math.round( sum/total ) : 0; document.getElementById( "totalAttempts" ).textContent=total; document.getElementById( "averageScore" ).textContent= average+"%"; document.getElementById( "highestScore" ).textContent= highest+"%"; document.getElementById( "excellentCount" ).textContent= excellent; document.getElementById( "goodCount" ).textContent= good; document.getElementById( "satisfactoryCount" ).textContent= satisfactory; document.getElementById( "needsImprovementCount" ).textContent= needsImprovement; } /* MODULE DATA */ function getModuleData( records, moduleNumber ){ const moduleRecords= records.filter( function(record){ return recordMatchesModule( record, moduleNumber ); } ); const attempts= moduleRecords.length; let totalPercentage=0; moduleRecords.forEach( function(record){ totalPercentage+= getPercentage( record.percentage ); } ); const average= attempts>0 ? Math.round( totalPercentage/ attempts ) : 0; return{ attempts:attempts, average:average }; } /* MODULE PERFORMANCE */ function calculateModulePerformance( records ){ const container= document.getElementById( "modulePerformance" ); container.innerHTML=""; moduleList.forEach( function(moduleInfo){ const stats= getModuleData( records, moduleInfo.number ); const card= document.createElement( "div" ); card.className= "module-card"; card.innerHTML= ` <div class="module-name"> Module ${moduleInfo.number} – ${escapeHTML( moduleInfo.name )} </div> <div class="module-stats"> <span> Attempts: <strong> ${stats.attempts} </strong> </span> <span class="module-average"> Average: ${stats.average}% </span> </div> `; container.appendChild( card ); } ); } /* MODULE CHART */ function drawModuleChart(records){ const chart= document.getElementById( "moduleChart" ); chart.innerHTML=""; moduleList.forEach( function(moduleInfo){ const stats= getModuleData( records, moduleInfo.number ); const row= document.createElement( "div" ); row.className= "chart-row"; row.innerHTML= ` <div class="chart-label"> Module ${moduleInfo.number} </div> <div class="chart-track"> <div class="chart-bar" style="width:${stats.average}%" ></div> </div> <div class="chart-value"> ${stats.average}% </div> `; chart.appendChild( row ); } ); } /* SMART INTERVENTION RECOMMENDATION */ function displaySmartRecommendation( records ){ let intensive=0; let guided=0; let reinforcement=0; let enrichment=0; records.forEach( function(record){ const percentage= getPercentage( record.percentage ); if(percentage<40){ intensive++; }else if(percentage<60){ guided++; }else if(percentage<80){ reinforcement++; }else{ enrichment++; } } ); document.getElementById( "intensiveCount" ).textContent= intensive; document.getElementById( "guidedCount" ).textContent= guided; document.getElementById( "reinforcementCount" ).textContent= reinforcement; document.getElementById( "enrichmentCount" ).textContent= enrichment; const intro= document.getElementById( "recommendationIntro" ); if(records.length===0){ intro.textContent= "No student records available for the selected filter."; return; } const total= records.reduce( function(sum,record){ return sum+ getPercentage( record.percentage ); }, 0 ); const average= Math.round( total/records.length ); let recommendation=""; if(average<40){ recommendation= "Priority: Intensive Support. The selected group requires targeted remedial activities and closer teacher guidance."; }else if(average<60){ recommendation= "Priority: Guided Practice. Provide structured exercises and additional teacher-supported practice."; }else if(average<80){ recommendation= "Priority: Reinforcement. Continue strengthening skills through revision and application activities."; }else{ recommendation= "Priority: Enrichment. The selected group is performing well and can progress to higher-order and more challenging activities."; } intro.textContent= "Group Average: "+ average+ "%. "+ recommendation; } /* INTERVENTION */ function displayIntervention( records ){ const interventionRecords= records.filter( function(record){ return getPercentage( record.percentage )<40; } ); const body= document.getElementById( "interventionBody" ); const summary= document.getElementById( "interventionSummary" ); body.innerHTML=""; summary.textContent= interventionRecords.length+ " attempt(s) below 40% require attention."; if( interventionRecords.length===0 ){ body.innerHTML= ` <tr> <td colspan="5" class="empty" > No students currently require intervention for this selection. </td> </tr> `; return; } interventionRecords.forEach( function(record){ const row= document.createElement( "tr" ); row.innerHTML= ` <td> ${escapeHTML( record.name || "-" )} </td> <td> ${escapeHTML( record.studentClass || "-" )} </td> <td> ${escapeHTML( record.module || "-" )} </td> <td> ${escapeHTML( formatScore( record.score, record.percentage ) )} </td> <td> ${escapeHTML( formatPercentage( record.percentage ) )} </td> `; body.appendChild( row ); } ); } /* LOGOUT */ function teacherLogout(){ sessionStorage.removeItem( "seqsTeacherToken" ); allRecords=[]; showLogin(); } /* SHOW LOGIN */ function showLogin(){ document.getElementById( "dashboardSection" ).style.display= "none"; document.getElementById( "loginSection" ).style.display= "block"; document.getElementById( "loginMessage" ).textContent= ""; document.getElementById( "teacherPassword" ).value= ""; } /* SECURITY */ function escapeHTML(value){ return String(value) .replaceAll( "&", "&amp;" ) .replaceAll( "<", "&lt;" ) .replaceAll( ">", "&gt;" ) .replaceAll( '"', "&quot;" ) .replaceAll( "'", "&#039;" ); } /* CHECK SESSION */ async function checkExistingSession(){ const token= sessionStorage.getItem( "seqsTeacherToken" ); if(!token){ showLogin(); return; } try{ const url= GOOGLE_SCRIPT_URL+ "?action=checkTeacher"+ "&token="+ encodeURIComponent(token)+ "&t="+ Date.now(); const response= await fetch(url); const data= await response.json(); if( data.authenticated===true ){ showDashboard(); }else{ sessionStorage.removeItem( "seqsTeacherToken" ); showLogin(); } }catch(error){ sessionStorage.removeItem( "seqsTeacherToken" ); showLogin(); } } /* ENTER KEY */ document .getElementById( "teacherPassword" ) .addEventListener( "keydown", function(event){ if(event.key==="Enter"){ teacherLogin(); } } ); /* START */ checkExistingSession(); </script>
 
-<script>
+</body> </html>
 
-const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
 
-
-let allRecords=[];
-
-
-/* MODULE INFORMATION */
-
-const moduleList=[
-
-{number:1,name:"Welcome!"},
-{number:2,name:"Every Day"},
-{number:3,name:"Right Now"},
-{number:4,name:"Year In, Year Out"},
-{number:5,name:"My New House"},
-{number:6,name:"Food, Please!"},
-{number:7,name:"Out and About"},
-{number:8,name:"Where Were You Yesterday?"},
-{number:9,name:"On Holiday"},
-{number:10,name:"The World Around Us"}
-
-];
-
-
-/* LOGIN */
-
-async function teacherLogin(){
-
-const password=
-document.getElementById(
-"teacherPassword"
-).value;
-
-const message=
-document.getElementById(
-"loginMessage"
-);
-
-const button=
-document.getElementById(
-"loginButton"
-);
-
-
-if(!password){
-
-message.style.color="#c62828";
-
-message.textContent=
-"Please enter the teacher password.";
-
-return;
-
-}
-
-
-button.disabled=true;
-
-button.textContent="CHECKING...";
-
-message.style.color="#1557a6";
-
-message.textContent=
-"Verifying teacher access...";
-
-
-try{
-
-const response=
-await fetch(
-GOOGLE_SCRIPT_URL,
-{
-
-method:"POST",
-
-headers:{
-"Content-Type":
-"text/plain;charset=utf-8"
-},
-
-body:
-JSON.stringify({
-action:"teacherLogin",
-password:password
-})
-
-}
-);
-
-
-const data=
-await response.json();
-
-
-if(
-data.authenticated===true &&
-data.token
-){
-
-sessionStorage.setItem(
-"seqsTeacherToken",
-data.token
-);
-
-document.getElementById(
-"teacherPassword"
-).value="";
-
-showDashboard();
-
-return;
-
-}
-
-
-message.style.color="#c62828";
-
-message.textContent=
-"Incorrect teacher password.";
-
-
-}catch(error){
-
-console.error(error);
-
-message.style.color="#c62828";
-
-message.textContent=
-"Unable to verify teacher access.";
-
-}finally{
-
-button.disabled=false;
-
-button.textContent="LOGIN";
-
-}
-
-}
-
-
-/* SHOW DASHBOARD */
-
-function showDashboard(){
-
-document.getElementById(
-"loginSection"
-).style.display="none";
-
-document.getElementById(
-"dashboardSection"
-).style.display="block";
-
-loadTeacherRecords();
-
-}
-
-
-/* LOAD RECORDS */
-
-async function loadTeacherRecords(){
-
-const token=
-sessionStorage.getItem(
-"seqsTeacherToken"
-);
-
-
-if(!token){
-
-showLogin();
-
-return;
-
-}
-
-
-document.getElementById(
-"statusMessage"
-).textContent=
-"Loading student records...";
-
-
-try{
-
-const url=
-GOOGLE_SCRIPT_URL+
-"?action=teacherRecords"+
-"&token="+
-encodeURIComponent(token)+
-"&t="+
-Date.now();
-
-
-const response=
-await fetch(url);
-
-const data=
-await response.json();
-
-
-if(data.status==="unauthorized"){
-
-sessionStorage.removeItem(
-"seqsTeacherToken"
-);
-
-alert(
-"Teacher session has expired. Please login again."
-);
-
-showLogin();
-
-return;
-
-}
-
-
-if(data.status==="error"){
-
-throw new Error(
-data.message ||
-"Unable to load records."
-);
-
-}
-
-
-if(!Array.isArray(data)){
-
-throw new Error(
-"Invalid student record format."
-);
-
-}
-
-
-allRecords=
-data.slice().reverse();
-
-
-populateClassFilter();
-
-applyFilters();
-
-
-document.getElementById(
-"statusMessage"
-).textContent=
-"✓ Student records loaded successfully.";
-
-
-}catch(error){
-
-console.error(error);
-
-document.getElementById(
-"statusMessage"
-).textContent=
-"Unable to load student records.";
-
-}
-
-}
-
-
-/* CLASS FILTER OPTIONS */
-
-function populateClassFilter(){
-
-const select=
-document.getElementById(
-"classFilter"
-);
-
-const currentValue=
-select.value;
-
-
-const classes=[
-...new Set(
-allRecords
-.map(function(record){
-
-return String(
-record.studentClass || ""
-).trim();
-
-})
-.filter(Boolean)
-)
-].sort(
-function(a,b){
-
-return a.localeCompare(
-b,
-undefined,
-{
-numeric:true,
-sensitivity:"base"
-}
-);
-
-}
-);
-
-
-select.innerHTML=
-'<option value="">All Classes</option>';
-
-
-classes.forEach(
-function(className){
-
-const option=
-document.createElement(
-"option"
-);
-
-option.value=
-className;
-
-option.textContent=
-className;
-
-select.appendChild(
-option
-);
-
-}
-);
-
-
-if(
-classes.includes(
-currentValue
-)
-){
-
-select.value=
-currentValue;
-
-}
-
-}
-
-
-/* PERCENTAGE */
-
-function getPercentage(value){
-
-let percentage=
-parseFloat(
-String(value || "0")
-.replace("%","")
-.trim()
-);
-
-
-if(isNaN(percentage)){
-
-return 0;
-
-}
-
-
-if(
-percentage>=0 &&
-percentage<=1
-){
-
-percentage=
-percentage*100;
-
-}
-
-
-return Math.round(
-percentage
-);
-
-}
-
-
-function formatPercentage(value){
-
-return getPercentage(value)+"%";
-
-}
-
-
-/* SCORE */
-
-function formatScore(
-score,
-percentage
-){
-
-if(
-typeof score==="string" &&
-/^\d+\s*\/\s*20$/.test(
-score.trim()
-)
-){
-
-return score.trim();
-
-}
-
-
-const p=
-getPercentage(
-percentage
-);
-
-const calculatedScore=
-Math.round(
-(p/100)*20
-);
-
-
-return calculatedScore+"/20";
-
-}
-
-
-/* MODULE MATCH */
-
-function recordMatchesModule(
-record,
-moduleNumber
-){
-
-if(!moduleNumber){
-
-return true;
-
-}
-
-
-const pattern=
-new RegExp(
-"^Module\\s+"+
-moduleNumber+
-"(?:\\s|\\s*-|$)",
-"i"
-);
-
-
-const moduleName=
-String(
-record.module || ""
-).trim();
-
-
-return pattern.test(
-moduleName
-);
-
-}
-
-
-/* APPLY FILTERS */
-
-function applyFilters(){
-
-const classValue=
-document.getElementById(
-"classFilter"
-).value.trim();
-
-
-const moduleValue=
-document.getElementById(
-"moduleFilter"
-).value.trim();
-
-
-const keyword=
-document.getElementById(
-"searchBox"
-)
-.value
-.toLowerCase()
-.trim();
-
-
-const filtered=
-allRecords.filter(
-function(record){
-
-const recordClass=
-String(
-record.studentClass || ""
-).trim();
-
-
-const name=
-String(
-record.name || ""
-).toLowerCase();
-
-
-const studentClass=
-recordClass.toLowerCase();
-
-
-const moduleName=
-String(
-record.module || ""
-).toLowerCase();
-
-
-const classMatch=
-!classValue ||
-recordClass===classValue;
-
-
-const moduleMatch=
-recordMatchesModule(
-record,
-moduleValue
-);
-
-
-const keywordMatch=
-!keyword ||
-name.includes(keyword) ||
-studentClass.includes(keyword) ||
-moduleName.includes(keyword);
-
-
-return(
-classMatch &&
-moduleMatch &&
-keywordMatch
-);
-
-}
-);
-
-
-updateAllDashboard(
-filtered
-);
-
-
-updateFilterResult(
-filtered.length
-);
-
-}
-
-
-/* UPDATE EVERYTHING */
-
-function updateAllDashboard(records){
-
-displayRecords(
-records
-);
-
-calculateDashboard(
-records
-);
-
-calculateModulePerformance(
-records
-);
-
-drawModuleChart(
-records
-);
-
-displayIntervention(
-records
-);
-
-}
-
-
-/* FILTER MESSAGE */
-
-function updateFilterResult(count){
-
-const classValue=
-document.getElementById(
-"classFilter"
-).value;
-
-
-const moduleValue=
-document.getElementById(
-"moduleFilter"
-).value;
-
-
-const keyword=
-document.getElementById(
-"searchBox"
-).value.trim();
-
-
-let description=[];
-
-
-if(classValue){
-
-description.push(
-"Class: "+classValue
-);
-
-}
-
-
-if(moduleValue){
-
-description.push(
-"Module: "+moduleValue
-);
-
-}
-
-
-if(keyword){
-
-description.push(
-'Search: "'+keyword+'"'
-);
-
-}
-
-
-const message=
-document.getElementById(
-"filterResult"
-);
-
-
-if(description.length===0){
-
-message.textContent=
-"Showing all student records ("+
-count+
-" attempts).";
-
-}else{
-
-message.textContent=
-"Showing "+
-count+
-" attempt(s) | "+
-description.join(" | ");
-
-}
-
-}
-
-
-/* RESET FILTER */
-
-function resetFilters(){
-
-document.getElementById(
-"classFilter"
-).value="";
-
-document.getElementById(
-"moduleFilter"
-).value="";
-
-document.getElementById(
-"searchBox"
-).value="";
-
-applyFilters();
-
-}
-
-
-/* DISPLAY RECORDS */
-
-function displayRecords(records){
-
-const body=
-document.getElementById(
-"recordBody"
-);
-
-body.innerHTML="";
-
-
-if(records.length===0){
-
-body.innerHTML=
-`
-<tr>
-<td colspan="6" class="empty">
-No matching student records.
-</td>
-</tr>
-`;
-
-return;
-
-}
-
-
-records.forEach(
-function(record){
-
-const row=
-document.createElement(
-"tr"
-);
-
-let date="-";
-
-
-if(record.timestamp){
-
-const parsedDate=
-new Date(
-record.timestamp
-);
-
-if(
-!isNaN(
-parsedDate.getTime()
-)
-){
-
-date=
-parsedDate.toLocaleString(
-"en-MY",
-{
-timeZone:
-"Asia/Kuala_Lumpur"
-}
-);
-
-}
-
-}
-
-
-const displayScore=
-formatScore(
-record.score,
-record.percentage
-);
-
-
-const displayPercentage=
-formatPercentage(
-record.percentage
-);
-
-
-row.innerHTML=
-`
-
-<td>
-${escapeHTML(date)}
-</td>
-
-<td>
-${escapeHTML(
-record.name || "-"
-)}
-</td>
-
-<td>
-${escapeHTML(
-record.studentClass || "-"
-)}
-</td>
-
-<td>
-${escapeHTML(
-record.module || "-"
-)}
-</td>
-
-<td>
-${escapeHTML(
-displayScore
-)}
-</td>
-
-<td>
-${escapeHTML(
-displayPercentage
-)}
-</td>
-
-`;
-
-
-body.appendChild(
-row
-);
-
-}
-);
-
-}
-
-
-/* OVERALL DASHBOARD */
-
-function calculateDashboard(records){
-
-const total=
-records.length;
-
-let sum=0;
-
-let highest=0;
-
-let excellent=0;
-
-let good=0;
-
-let satisfactory=0;
-
-let needsImprovement=0;
-
-
-records.forEach(
-function(record){
-
-const percentage=
-getPercentage(
-record.percentage
-);
-
-
-sum+=percentage;
-
-
-if(
-percentage>highest
-){
-
-highest=
-percentage;
-
-}
-
-
-if(
-percentage>=80
-){
-
-excellent++;
-
-}else if(
-percentage>=60
-){
-
-good++;
-
-}else if(
-percentage>=40
-){
-
-satisfactory++;
-
-}else{
-
-needsImprovement++;
-
-}
-
-}
-);
-
-
-const average=
-total>0
-?
-Math.round(
-sum/total
-)
-:
-0;
-
-
-document.getElementById(
-"totalAttempts"
-).textContent=
-total;
-
-
-document.getElementById(
-"averageScore"
-).textContent=
-average+"%";
-
-
-document.getElementById(
-"highestScore"
-).textContent=
-highest+"%";
-
-
-document.getElementById(
-"excellentCount"
-).textContent=
-excellent;
-
-
-document.getElementById(
-"goodCount"
-).textContent=
-good;
-
-
-document.getElementById(
-"satisfactoryCount"
-).textContent=
-satisfactory;
-
-
-document.getElementById(
-"needsImprovementCount"
-).textContent=
-needsImprovement;
-
-}
-
-
-/* GET MODULE DATA */
-
-function getModuleData(
-records,
-moduleNumber
-){
-
-const moduleRecords=
-records.filter(
-function(record){
-
-return recordMatchesModule(
-record,
-moduleNumber
-);
-
-}
-);
-
-
-const attempts=
-moduleRecords.length;
-
-
-let totalPercentage=0;
-
-
-moduleRecords.forEach(
-function(record){
-
-totalPercentage+=
-getPercentage(
-record.percentage
-);
-
-}
-);
-
-
-const average=
-attempts>0
-?
-Math.round(
-totalPercentage/
-attempts
-)
-:
-0;
-
-
-return{
-attempts:attempts,
-average:average
-};
-
-}
-
-
-/* MODULE PERFORMANCE */
-
-function calculateModulePerformance(
-records
-){
-
-const container=
-document.getElementById(
-"modulePerformance"
-);
-
-container.innerHTML="";
-
-
-moduleList.forEach(
-function(moduleInfo){
-
-const stats=
-getModuleData(
-records,
-moduleInfo.number
-);
-
-
-const card=
-document.createElement(
-"div"
-);
-
-card.className=
-"module-card";
-
-
-card.innerHTML=
-`
-
-<div class="module-name">
-
-Module ${moduleInfo.number}
-– ${escapeHTML(
-moduleInfo.name
-)}
-
-</div>
-
-<div class="module-stats">
-
-<span>
-Attempts:
-<strong>
-${stats.attempts}
-</strong>
-</span>
-
-<span class="module-average">
-Average:
-${stats.average}%
-</span>
-
-</div>
-
-`;
-
-
-container.appendChild(
-card
-);
-
-}
-);
-
-}
-
-
-/* MODULE CHART */
-
-function drawModuleChart(records){
-
-const chart=
-document.getElementById(
-"moduleChart"
-);
-
-chart.innerHTML="";
-
-
-moduleList.forEach(
-function(moduleInfo){
-
-const stats=
-getModuleData(
-records,
-moduleInfo.number
-);
-
-
-const row=
-document.createElement(
-"div"
-);
-
-row.className=
-"chart-row";
-
-
-row.innerHTML=
-`
-
-<div class="chart-label">
-Module ${moduleInfo.number}
-</div>
-
-<div class="chart-track">
-
-<div
-class="chart-bar"
-style="width:${stats.average}%"
-></div>
-
-</div>
-
-<div class="chart-value">
-${stats.average}%
-</div>
-
-`;
-
-
-chart.appendChild(
-row
-);
-
-}
-);
-
-}
-
-
-/* INTERVENTION */
-
-function displayIntervention(
-records
-){
-
-const interventionRecords=
-records.filter(
-function(record){
-
-return getPercentage(
-record.percentage
-)<40;
-
-}
-);
-
-
-const body=
-document.getElementById(
-"interventionBody"
-);
-
-
-const summary=
-document.getElementById(
-"interventionSummary"
-);
-
-
-body.innerHTML="";
-
-
-summary.textContent=
-interventionRecords.length+
-" attempt(s) below 40% require attention.";
-
-
-if(
-interventionRecords.length===0
-){
-
-body.innerHTML=
-`
-<tr>
-
-<td
-colspan="5"
-class="empty"
->
-
-No students currently require intervention for this selection.
-
-</td>
-
-</tr>
-`;
-
-return;
-
-}
-
-
-interventionRecords.forEach(
-function(record){
-
-const row=
-document.createElement(
-"tr"
-);
-
-
-row.innerHTML=
-`
-
-<td>
-${escapeHTML(
-record.name || "-"
-)}
-</td>
-
-<td>
-${escapeHTML(
-record.studentClass || "-"
-)}
-</td>
-
-<td>
-${escapeHTML(
-record.module || "-"
-)}
-</td>
-
-<td>
-${escapeHTML(
-formatScore(
-record.score,
-record.percentage
-)
-)}
-</td>
-
-<td>
-${escapeHTML(
-formatPercentage(
-record.percentage
-)
-)}
-</td>
-
-`;
-
-
-body.appendChild(
-row
-);
-
-}
-);
-
-}
-
-
-/* LOGOUT */
-
-function teacherLogout(){
-
-sessionStorage.removeItem(
-"seqsTeacherToken"
-);
-
-allRecords=[];
-
-showLogin();
-
-}
-
-
-/* SHOW LOGIN */
-
-function showLogin(){
-
-document.getElementById(
-"dashboardSection"
-).style.display=
-"none";
-
-
-document.getElementById(
-"loginSection"
-).style.display=
-"block";
-
-
-document.getElementById(
-"loginMessage"
-).textContent=
-"";
-
-
-document.getElementById(
-"teacherPassword"
-).value=
-"";
-
-}
-
-
-/* SECURITY */
-
-function escapeHTML(value){
-
-return String(value)
-
-.replaceAll(
-"&",
-"&amp;"
-)
-
-.replaceAll(
-"<",
-"&lt;"
-)
-
-.replaceAll(
-">",
-"&gt;"
-)
-
-.replaceAll(
-'"',
-"&quot;"
-)
-
-.replaceAll(
-"'",
-"&#039;"
-);
-
-}
-
-
-/* CHECK SESSION */
-
-async function checkExistingSession(){
-
-const token=
-sessionStorage.getItem(
-"seqsTeacherToken"
-);
-
-
-if(!token){
-
-showLogin();
-
-return;
-
-}
-
-
-try{
-
-const url=
-GOOGLE_SCRIPT_URL+
-"?action=checkTeacher"+
-"&token="+
-encodeURIComponent(token)+
-"&t="+
-Date.now();
-
-
-const response=
-await fetch(url);
-
-const data=
-await response.json();
-
-
-if(
-data.authenticated===true
-){
-
-showDashboard();
-
-}else{
-
-sessionStorage.removeItem(
-"seqsTeacherToken"
-);
-
-showLogin();
-
-}
-
-
-}catch(error){
-
-sessionStorage.removeItem(
-"seqsTeacherToken"
-);
-
-showLogin();
-
-}
-
-}
-
-
-/* ENTER KEY LOGIN */
-
-document
-.getElementById(
-"teacherPassword"
-)
-.addEventListener(
-"keydown",
-function(event){
-
-if(
-event.key==="Enter"
-){
-
-teacherLogin();
-
-}
-
-}
-);
-
-
-/* START */
-
-checkExistingSession();
-
-</script>
-
-</body>
-</html>
+Close
