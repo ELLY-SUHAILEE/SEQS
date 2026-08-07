@@ -973,60 +973,43 @@
         }
 
         // Send Results to Google Sheets
-        syncResultsToGoogleSheets(accuracy);
+       async function syncResultsToGoogleSheets(accuracy) {
+
+    const syncStatus = document.getElementById('sync-status');
+
+    syncStatus.style.color = "var(--primary)";
+    syncStatus.innerText = "⏳ Saving results to Google Sheets...";
+
+    const payload = {
+        timestamp: new Date().toISOString(),
+        name: studentData.name,
+        studentClass: studentData.class,
+        score: score,
+        accuracy: accuracy,
+        correct: correctCount,
+        wrong: wrongCount
+    };
+
+    try {
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        syncStatus.style.color = "green";
+        syncStatus.innerText = "✅ Result successfully saved!";
+
+    } catch (error) {
+
+        console.error(error);
+
+        syncStatus.style.color = "red";
+        syncStatus.innerText = "❌ Failed to save result.";
+
     }
 
-    async function syncResultsToGoogleSheets(accuracy) {
-        const syncStatus = document.getElementById('sync-status');
-        syncStatus.style.color = "var(--primary)";
-        syncStatus.innerText = "⏳ Saving results to Google Sheets...";
-
-        const payload = {
-    timestamp: new Date().toISOString(),
-    name: studentData.name,
-    studentClass: studentData.class,
-    score: score,
-    accuracy: accuracy,
-    correct: correctCount,
-    wrong: wrongCount
-        };
-
-        try {
-        
-    await fetch(GOOGLE_SCRIPT_URL,{
-    method:'POST',
-    headers:{
-        "Content-Type":"application/json"
-    },
-    body:JSON.stringify(payload)
-});
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            syncStatus.style.color = "var(--success-dark)";
-            syncStatus.innerText = "✅ Result successfully saved!";
-        } catch (error) {
-            console.error("Sync error:", error);
-            syncStatus.style.color = "var(--danger)";
-            syncStatus.innerText = "⚠️ Could not save online. (Local test mode active)";
-        }
-    }
-
-    function restartQuiz() {
-        startQuiz();
-    }
-
-    /* ==========================================================================
-       6. HELPER FUNCTIONS
-       ========================================================================== */
-    function shuffleArray(array) {
-        const arr = [...array];
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-    }
-</script>
-</body>
-</html>
+}
