@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEQS - Smart English Quiz System | Module: On Holiday</title>
+    <style>
+        /* ==========================================================================
+           1. CORE SYSTEM & DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            --primary: #4A90E2;
+            --primary-dark: #357ABD;
+            --secondary: #F5A623;
+            --secondary-light: #FDEBD0;
+            --success: #2ECC71;
+            --success-dark: #27AE60;
+            --danger: #E74C3C;
+            --danger-dark: #C0392B;
+            --bg-gradient: linear-gradient(135deg, #E0F7FA 0%, #FFF9C4 100%);
+            --surface: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-muted: #7F8C8D;
+            --border-radius-lg: 24px;
+            --border-radius-md: 16px;
+            --border-radius-sm: 8px;
+            --box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Fredoka', cursive, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+
+        /* Focus & Accessibility */
+        :focus-visible {
+            outline: 4px solid var(--secondary);
+            outline-offset: 4px;
+        }
+
+        /* ==========================================================================
+           2. MAIN CONTAINER & SCREEN NAVIGATION
+           ========================================================================== */
+        #app-container {
+            background: var(--surface);
+            width: 100%;
+            max-width: 960px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #BEE3F8;
+        }
+
+        .screen {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+        }
+
+        .screen.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ==========================================================================
+           3. UI COMPONENTS & BADGES
+           ========================================================================== */
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px dashed #E2E8F0;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .app-title h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            text-shadow: 2px 2px 0px #EBF8FF;
+        }
+
+        .app-title p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .badge-slot {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #EDF2F7;
+            border: 3px solid #CBD5E0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .badge-slot.unlocked {
+            opacity: 1;
+            background: var(--secondary-light);
+            border-color: var(--secondary);
+            animation: bounce 0.6s ease;
+        }
+
+        /* ==========================================================================
+           4. FORM & BUTTON STYLES (LARGE FOR KIDS)
+           ========================================================================== */
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.2rem;
+            border: 3px solid #CBD5E0;
+            border-radius: var(--border-radius-md);
+            transition: var(--transition-smooth);
+            background: #F7FAFC;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background: #FFF;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 32px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: none;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            box-shadow: 0 6px 0px rgba(0,0,0,0.2);
+            user-select: none;
+        }
+
+        .btn:active:not(:disabled) {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: #E09112;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            background: var(--success-dark);
+        }
+
+        .btn:disabled {
+            background: #A0AEC0;
+            cursor: not-allowed;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        /* ==========================================================================
+           5. SCREEN 1: REGISTRATION STYLES
+           ========================================================================== */
+        .instruction-card {
+            background: #EBF8FF;
+            border-left: 8px solid var(--primary);
+            padding: 20px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .instruction-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        /* ==========================================================================
+           6. SCREEN 2: QUIZ INTERFACE
+           ========================================================================== */
+        .progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background: #EDF2F7;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            border: 2px solid #CBD5E0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--success) 100%);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .quiz-stats-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            background: #FFF5F5;
+            padding: 12px 20px;
+            border-radius: var(--border-radius-sm);
+            border: 2px solid #FED7D7;
+        }
+
+        .story-banner {
+            background: #F0FFF4;
+            border: 3px solid #C6F6D5;
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .story-svg-box {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+
+        .story-text-box h4 {
+            color: var(--success-dark);
+            font-size: 1.2rem;
+        }
+
+        .story-text-box p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Question Box with 30px Specific Requirement */
+        .question-card {
+            background: #FFF;
+            border: 3px solid #E2E8F0;
+            border-radius: var(--border-radius-md);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .question-text {
+            font-size: 30px; /* REQUIRED EXPLICIT FONT SIZE */
+            font-weight: bold;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .svg-illustration {
+            width: 100%;
+            max-height: 160px;
+            margin: 12px 0;
+        }
+
+        /* Answer Grid with 30px Specific Requirement */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .btn-answer {
+            font-size: 30px; /* REQUIRED EXPLICIT FONT SIZE */
+            padding: 20px;
+            background: #FFF;
+            border: 4px solid #E2E8F0;
+            border-radius: var(--border-radius-md);
+            color: var(--text-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        .btn-answer:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: #EBF8FF;
+            transform: scale(1.02);
+        }
+
+        .btn-answer.correct {
+            background: #DEF7EC !important;
+            border-color: var(--success) !important;
+            color: var(--success-dark) !important;
+        }
+
+        .btn-answer.incorrect {
+            background: #FDE8E8 !important;
+            border-color: var(--danger) !important;
+            color: var(--danger-dark) !important;
+        }
+
+        /* Grammar Coach Panel & Formula Box */
+        .coach-panel {
+            display: none;
+            background: #FEFCBF;
+            border: 3px solid #F6E05E;
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            margin-bottom: 24px;
+            animation: pulse 0.5s ease;
+        }
+
+        .coach-panel h3 {
+            color: #975A16;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .formula-box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #FFF;
+            padding: 12px;
+            border-radius: var(--border-radius-sm);
+            border: 2px dashed #D69E2E;
+            margin: 12px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #744210;
+            flex-wrap: wrap;
+        }
+
+        .formula-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .formula-step span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hint-panel {
+            display: none;
+            background: #EBF8FF;
+            border: 3px solid #90CDF4;
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+            color: #2B6CB0;
+        }
+
+        .quiz-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        /* ==========================================================================
+           7. SCREEN 3: RESULT DASHBOARD
+           ========================================================================== */
+        .result-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .result-score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 24px;
+            border: 8px solid #BEE3F8;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .result-score-circle .score-num {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .result-score-circle .score-lbl {
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #F7FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+        }
+
+        .stat-card .val {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-card .lbl {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .motivational-box {
+            background: var(--secondary-light);
+            border: 3px solid var(--secondary);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #9C4221;
+            margin-bottom: 32px;
+        }
+
+        /* ==========================================================================
+           8. RESPONSIVE BREAKPOINTS (MOBILE DESIGN)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            #app-container {
+                padding: 16px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .question-text {
+                font-size: 24px; /* Scaled down slightly for tiny mobile screens */
+            }
+
+            .btn-answer {
+                font-size: 22px;
+                padding: 16px;
+            }
+
+            .quiz-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .formula-box {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="app-container" role="main">
+    <!-- GLOBAL HEADER & BADGES -->
+    <header class="app-header">
+        <div class="app-title">
+            <h1>SEQS: On Holiday</h1>
+            <p>Get Smart Plus Year 3 | Module 9</p>
+        </div>
+        <div class="badge-container" id="badge-bar" aria-label="Badges Earned">
+            <div class="badge-slot" id="badge-1" title="Packing Expert">📦</div>
+            <div class="badge-slot" id="badge-2" title="Traveller">🚂</div>
+            <div class="badge-slot" id="badge-3" title="Beach Explorer">🏖️</div>
+            <div class="badge-slot" id="badge-4" title="Smart Shopper">🛍️</div>
+            <div class="badge-slot" id="badge-5" title="Holiday Champion">🏆</div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       SCREEN 1: STUDENT REGISTRATION
+       ========================================================================== -->
+    <section id="screen-start" class="screen active" aria-label="Student Registration">
+        <div class="instruction-card">
+            <h3>👋 Welcome Young Explorer!</h3>
+            <p>Get ready for a grand grammar journey. Test your <strong>Simple Past Tense</strong> skills, collect all 5 badges, and become the ultimate Holiday Champion!</p>
+        </div>
+
+        <form id="registration-form" onsubmit="event.preventDefault(); startQuiz();">
+            <div class="form-group">
+                <label for="student-name">Full Name:</label>
+                <input type="text" id="student-name" class="form-control" required placeholder="Enter your name..." autocomplete="name">
+            </div>
+
+            <div class="form-group">
+                <label for="student-class">Class:</label>
+                <input type="text" id="student-class" class="form-control" required placeholder="e.g. 3 Cemerlang" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">🚀 Start Adventure</button>
+        </form>
+    </section>
+
+    <!-- ==========================================================================
+       SCREEN 2: QUIZ INTERFACE
+       ========================================================================== -->
+    <section id="screen-quiz" class="screen" aria-label="Quiz Workspace">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+
+        <!-- Live Stats Bar -->
+        <div class="quiz-stats-bar">
+            <span id="txt-level">Level 1: Word Hunt</span>
+            <span id="txt-count">Question 1/50</span>
+            <span id="txt-score">Score: 0</span>
+        </div>
+
+        <!-- Story Mode Banner -->
+        <div class="story-banner">
+            <div class="story-svg-box">
+                <svg viewBox="0 0 100 100" width="100%" height="100%">
+                    <circle cx="50" cy="50" r="45" fill="#4A90E2"/>
+                    <path d="M30 65 L50 35 L70 65 Z" fill="#FFF"/>
+                    <circle cx="50" cy="30" r="8" fill="#F5A623"/>
+                </svg>
+            </div>
+            <div class="story-text-box">
+                <h4 id="txt-chapter">Chapter 1: Packing for Holiday</h4>
+                <p id="txt-story">You are preparing your bags for a wonderful holiday trip!</p>
+            </div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card">
+            <div class="question-text" id="txt-question">Loading question...</div>
+            <div id="svg-container">
+                <!-- SVG Illustration injected here dynamically -->
+            </div>
+        </div>
+
+        <!-- Answer Options (Grid 2x2 or 1col) -->
+        <div class="options-grid" id="options-container" role="radiogroup" aria-label="Answers">
+            <!-- Dynamic 30px Answer Buttons -->
+        </div>
+
+        <!-- Hint System -->
+        <div class="hint-panel" id="hint-panel" role="status">
+            💡 <strong>Hint:</strong> <span id="txt-hint">Think about actions in the past!</span>
+        </div>
+
+        <!-- Grammar Coach Box -->
+        <div class="coach-panel" id="coach-panel" role="status">
+            <h3>👨‍🏫 Grammar Coach Says:</h3>
+            <p id="txt-coach">Remember to use Past Simple for finished actions!</p>
+            <div class="formula-box">
+                <div class="formula-step">TIME <span>(Yesterday)</span></div>
+                <div>↓</div>
+                <div class="formula-step">SUBJECT <span>(I / They)</span></div>
+                <div>↓</div>
+                <div class="formula-step">VERB 2 <span>(went / played)</span></div>
+                <div>↓</div>
+                <div class="formula-step">OBJECT <span>(a ball)</span></div>
+                <div>↓</div>
+                <div class="formula-step">PLACE <span>(at beach)</span></div>
+            </div>
+        </div>
+
+        <!-- Quiz Action Controls -->
+        <div class="quiz-actions">
+            <button type="button" class="btn btn-secondary" id="btn-hint" onclick="toggleHint()">💡 Hint</button>
+            <button type="button" class="btn btn-primary" id="btn-next" onclick="nextQuestion()" disabled>Next Question ➔</button>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       SCREEN 3: RESULT DASHBOARD
+       ========================================================================== -->
+    <section id="screen-result" class="screen" aria-label="Quiz Results">
+        <div class="result-card">
+            <h2>🎉 Fantastic Effort!</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 24px;">
+                <span id="res-name">Student Name</span> (<span id="res-class">Class</span>)
+            </p>
+
+            <div class="result-score-circle">
+                <div class="score-num" id="res-score">0</div>
+                <div class="score-lbl">Total Score</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="val" id="res-accuracy">0%</div>
+                    <div class="lbl">Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="val" id="res-correct" style="color: var(--success);">0</div>
+                    <div class="lbl">Correct</div>
+                </div>
+                <div class="stat-card">
+                    <div class="val" id="res-wrong" style="color: var(--danger);">0</div>
+                    <div class="lbl">Wrong</div>
+                </div>
+            </div>
+
+            <div class="motivational-box" id="res-message">
+                🌟 You are a true Grammar Explorer!
+            </div>
+
+            <div id="sync-status" style="margin-bottom: 20px; font-weight: bold; color: var(--primary);">
+                Saving results to Google Sheets...
+            </div>
+
+            <button type="button" class="btn btn-success" onclick="restartQuiz()">🔄 Play Again</button>
+        </div>
+    </section>
+</div>
+
+<script>
+    /* ==========================================================================
+       1. CONFIGURATION & STATE MANAGEMENT
+       ========================================================================== */
+    // Replace with your Google Apps Script Web App Deployment URL
+    const GOOGLE_SCRIPT_URL ="https://script.google.com/macros/s/AKfycby84aD1yrCse0CKs78jKTG_bDAhA42TlsCjLJsRL3PkDEhXZadGcmu-moxorgP_IXN8/exec";
+
+    // Standardized Inline SVGs for Question Visuals
+    const SVG_LIB = {
+        packing: `<svg class="svg-illustration" viewBox="0 0 200 100"><rect x="50" y="20" width="100" height="70" rx="10" fill="#F5A623"/><path d="M80 20 V10 A10 10 0 0 1 120 10 V20" fill="none" stroke="#D69E2E" stroke-width="6"/><rect x="85" y="40" width="30" height="50" fill="#FFF" opacity="0.3"/></svg>`,
+        beach: `<svg class="svg-illustration" viewBox="0 0 200 100"><path d="M0 80 Q 50 60, 100 80 T 200 80 L 200 100 L 0 100 Z" fill="#F6AD55"/><circle cx="160" cy="30" r="20" fill="#F6E05E"/><path d="M30 80 L50 30 L55 30 L35 80 Z" fill="#744210"/><path d="M30 30 Q50 10 70 30 Q50 20 30 30 Z" fill="#38A169"/></svg>`,
+        journey: `<svg class="svg-illustration" viewBox="0 0 200 100"><rect x="20" y="40" width="140" height="40" rx="5" fill="#4A90E2"/><circle cx="50" cy="80" r="12" fill="#2D3748"/><circle cx="130" cy="80" r="12" fill="#2D3748"/><rect x="110" y="48" width="40" height="20" fill="#EBF8FF"/></svg>`,
+        shopping: `<svg class="svg-illustration" viewBox="0 0 200 100"><path d="M60 30 L140 30 L130 80 L70 80 Z" fill="#ED64A6"/><path d="M80 30 Q100 10 120 30" fill="none" stroke="#D53F8C" stroke-width="5"/></svg>`,
+        camera: `<svg class="svg-illustration" viewBox="0 0 200 100"><rect x="50" y="30" width="100" height="60" rx="8" fill="#4FD1C5"/><circle cx="100" cy="60" r="20" fill="#2B6CB0"/><circle cx="100" cy="60" r="12" fill="#EBF8FF"/><rect x="120" y="18" width="20" height="12" fill="#319795"/></svg>`
+    };
+
+    // 50 ORIGINAL QUESTIONS (Get Smart Plus Year 3 - On Holiday)
+    const QUESTIONS_DATABASE = [
+        // CHAPTER 1: PACKING FOR HOLIDAY (Level 1: Word Hunt - Q1 to Q10)
+        { id: 1, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "You are getting your bag ready for the trip!", q: "Yesterday, I ________ my shirt into the bag.", options: ["packed", "pack", "packing", "packs"], answer: 0, hint: "Look for the past simple verb ending in -ed.", coach: "'Packed' is the past simple form of 'pack'.", svg: SVG_LIB.packing },
+        { id: 2, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Checking off items on the list.", q: "Siti ________ her sun hat on the bed last night.", options: ["put", "puts", "putten", "putting"], answer: 0, hint: "The verb 'put' stays the same in the past tense!", coach: "'Put' is an irregular verb that does not change in Past Simple.", svg: SVG_LIB.packing },
+        { id: 3, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Choosing footwear for the beach.", q: "They ________ sandals for the holiday yesterday.", options: ["chose", "choose", "choosing", "chooses"], answer: 0, hint: "Past tense of 'choose'.", coach: "'Chose' is the irregular past simple of 'choose'.", svg: SVG_LIB.packing },
+        { id: 4, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Don't forget your towel!", q: "Raja ________ a blue towel into his bag.", options: ["folded", "fold", "folds", "folding"], answer: 0, hint: "Add -ed for regular past tense.", coach: "Fold + ed = Folded.", svg: SVG_LIB.packing },
+        { id: 5, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Looking for the swimming costume.", q: "I ________ my swimsuit in the drawer this morning.", options: ["found", "find", "finded", "finding"], answer: 0, hint: "Past tense of 'find'.", coach: "'Found' is the irregular past tense of 'find'.", svg: SVG_LIB.packing },
+        { id: 6, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Getting the luggage closed.", q: "Dad ________ the heavy suitcase two hours ago.", options: ["closed", "close", "closes", "closing"], answer: 0, hint: "Regular verb ending in -d.", coach: "Close + d = Closed.", svg: SVG_LIB.packing },
+        { id: 7, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Writing labels for bags.", q: "Mum ________ our names on the bags.", options: ["wrote", "write", "writes", "writing"], answer: 0, hint: "Past tense of 'write'.", coach: "'Wrote' is the irregular past simple of 'write'.", svg: SVG_LIB.packing },
+        { id: 8, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Carrying suitcases to the doorway.", q: "We ________ our bags to the door.", options: ["carried", "carry", "carries", "carrying"], answer: 0, hint: "Change 'y' to 'i' and add -ed.", coach: "Carry becomes Carried in past simple.", svg: SVG_LIB.packing },
+        { id: 9, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Making sure nothing is missing.", q: "He ________ his guidebook last night.", options: ["checked", "check", "checks", "checking"], answer: 0, hint: "Regular past simple ending.", coach: "Check + ed = Checked.", svg: SVG_LIB.packing },
+        { id: 10, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "Ready to leave the house!", q: "The family ________ early this morning.", options: ["woke up", "wake up", "wakes up", "waking up"], answer: 0, hint: "Past tense of 'wake'.", coach: "'Woke up' is the past simple form.", svg: SVG_LIB.packing },
+
+        // CHAPTER 2: THE JOURNEY (Level 2: Sentence Puzzle - Q11 to Q20)
+        { id: 11, level: 2, chap: 2, chapterTitle: "The Journey", story: "Riding on the road to the island.", q: "We ________ on a big bus to the jetty.", options: ["rode", "ride", "rides", "riding"], answer: 0, hint: "Past tense of 'ride'.", coach: "'Rode' is the irregular past tense of 'ride'.", svg: SVG_LIB.journey },
+        { id: 12, level: 2, chap: 2, chapterTitle: "The Journey", story: "Looking out the bus window.", q: "Mei Mei ________ many green trees along the road.", options: ["saw", "see", "sees", "seeing"], answer: 0, hint: "Past tense of 'see'.", coach: "'Saw' is the irregular past tense of 'see'.", svg: SVG_LIB.journey },
+        { id: 13, level: 2, chap: 2, chapterTitle: "The Journey", story: "Boarding the ferry boat.", q: "The ferry ________ at the island pier at noon.", options: ["arrived", "arrive", "arrives", "arriving"], answer: 0, hint: "Regular verb ending in -d.", coach: "Arrive + d = Arrived.", svg: SVG_LIB.journey },
+        { id: 14, level: 2, chap: 2, chapterTitle: "The Journey", story: "Feeling the cool breeze.", q: "A gentle wind ________ across the boat.", options: ["blew", "blow", "blows", "blowing"], answer: 0, hint: "Past tense of 'blow'.", coach: "'Blew' is the past simple of 'blow'.", svg: SVG_LIB.journey },
+        { id: 15, level: 2, chap: 2, chapterTitle: "The Journey", story: "Taking photos during the ride.", q: "I ________ a photo of the sea.", options: ["took", "take", "takes", "taking"], answer: 0, hint: "Past tense of 'take'.", coach: "'Took' is the past simple form of 'take'.", svg: SVG_LIB.journey },
+        { id: 16, level: 2, chap: 2, chapterTitle: "The Journey", story: "Listening to music on the bus.", q: "They ________ to songs during the trip.", options: ["listened", "listen", "listens", "listening"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Listen + ed = Listened.", svg: SVG_LIB.journey },
+        { id: 17, level: 2, chap: 2, chapterTitle: "The Journey", story: "Eating snacks on the way.", q: "We ________ delicious sandwiches on the bus.", options: ["ate", "eat", "eats", "eating"], answer: 0, hint: "Past tense of 'eat'.", coach: "'Ate' is the irregular past tense of 'eat'.", svg: SVG_LIB.journey },
+        { id: 18, level: 2, chap: 2, chapterTitle: "The Journey", story: "Drinking water in the heat.", q: "He ________ cold juice when he was thirsty.", options: ["drank", "drink", "drinks", "drinking"], answer: 0, hint: "Past tense of 'drink'.", coach: "'Drank' is the past simple form of 'drink'.", svg: SVG_LIB.journey },
+        { id: 19, level: 2, chap: 2, chapterTitle: "The Journey", story: "Sleeping during the long ride.", q: "The baby ________ all the way to the hotel.", options: ["slept", "sleep", "sleeps", "sleeping"], answer: 0, hint: "Past tense of 'sleep'.", coach: "'Slept' is the irregular past form.", svg: SVG_LIB.journey },
+        { id: 20, level: 2, chap: 2, chapterTitle: "The Journey", story: "Reaching the resort entrance.", q: "We ________ at the hotel lobby at 2 o'clock.", options: ["met", "meet", "meets", "meeting"], answer: 0, hint: "Past tense of 'meet'.", coach: "'Met' is the irregular past simple of 'meet'.", svg: SVG_LIB.journey },
+
+        // CHAPTER 3: HOLIDAY ACTIVITIES (Level 3: Complete It - Q21 to Q30)
+        { id: 21, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Fun on the sandy beach!", q: "Yesterday, Ali and Nina ________ a big sandcastle.", options: ["built", "build", "builds", "building"], answer: 0, hint: "Past tense of 'build'.", coach: "'Built' is the past simple form of 'build'.", svg: SVG_LIB.beach },
+        { id: 22, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Splashing in the sea.", q: "We ________ in the blue ocean all afternoon.", options: ["swam", "swim", "swims", "swimming"], answer: 0, hint: "Past tense of 'swim'.", coach: "'Swam' is the irregular past simple of 'swim'.", svg: SVG_LIB.beach },
+        { id: 23, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Searching for beach treasures.", q: "Siti ________ pretty shells on the shore.", options: ["collected", "collect", "collects", "collecting"], answer: 0, hint: "Regular verb + ed.", coach: "Collect + ed = Collected.", svg: SVG_LIB.beach },
+        { id: 24, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Going on a forest walk.", q: "They ________ up the hill behind the beach.", options: ["climbed", "climb", "climbs", "climbing"], answer: 0, hint: "Regular verb + ed.", coach: "Climb + ed = Climbed.", svg: SVG_LIB.beach },
+        { id: 25, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Nighttime around the fire.", q: "We ________ marshmallows by the campfire.", options: ["roasted", "roast", "roasts", "roasting"], answer: 0, hint: "Regular verb + ed.", coach: "Roast + ed = Roasted.", svg: SVG_LIB.beach },
+        { id: 26, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Playing beach games.", q: "The boys ________ volleyball on the sand.", options: ["played", "play", "plays", "playing"], answer: 0, hint: "Regular verb + ed.", coach: "Play + ed = Played.", svg: SVG_LIB.beach },
+        { id: 27, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Catching fish at the river.", q: "Uncle Kumar ________ a huge fish yesterday.", options: ["caught", "catch", "catches", "catching"], answer: 0, hint: "Past tense of 'catch'.", coach: "'Caught' is the past simple of 'catch'.", svg: SVG_LIB.beach },
+        { id: 28, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Resting under the tree.", q: "Grandpa ________ in the hammock yesterday.", options: ["rested", "rest", "rests", "resting"], answer: 0, hint: "Regular verb + ed.", coach: "Rest + ed = Rested.", svg: SVG_LIB.beach },
+        { id: 29, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Rowing a small wooden boat.", q: "We ________ a boat across the quiet lake.", options: ["rowed", "row", "rows", "rowing"], answer: 0, hint: "Regular verb + ed.", coach: "Row + ed = Rowed.", svg: SVG_LIB.beach },
+        { id: 30, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Watching the sun go down.", q: "She ________ the beautiful sunset yesterday evening.", options: ["watched", "watch", "watches", "watching"], answer: 0, hint: "Regular verb + ed.", coach: "Watch + ed = Watched.", svg: SVG_LIB.beach },
+
+        // CHAPTER 4: SHOPPING (Level 4: Picture Builder - Q31 to Q40)
+        { id: 31, level: 4, chap: 4, chapterTitle: "Shopping", story: "Visiting the night market.", q: "Mum ________ cute souvenirs for our friends.", options: ["bought", "buy", "buys", "buying"], answer: 0, hint: "Past tense of 'buy'.", coach: "'Bought' is the past simple form of 'buy'.", svg: SVG_LIB.shopping },
+        { id: 32, level: 4, chap: 4, chapterTitle: "Shopping", story: "Paying for snacks.", q: "I ________ ten ringgit for the fruit salad.", options: ["paid", "pay", "pays", "paying"], answer: 0, hint: "Past tense of 'pay'.", coach: "'Paid' is the irregular past tense of 'pay'.", svg: SVG_LIB.shopping },
+        { id: 33, level: 4, chap: 4, chapterTitle: "Shopping", story: "Choosing postcards.", q: "He ________ three postcards at the gift shop.", options: ["chose", "choose", "chooses", "choosing"], answer: 0, hint: "Past tense of 'choose'.", coach: "'Chose' is the past simple form.", svg: SVG_LIB.shopping },
+        { id: 34, level: 4, chap: 4, chapterTitle: "Shopping", story: "Talking to the shopkeeper.", q: "We ________ to the polite market seller.", options: ["talked", "talk", "talks", "talking"], answer: 0, hint: "Regular verb + ed.", coach: "Talk + ed = Talked.", svg: SVG_LIB.shopping },
+        { id: 35, level: 4, chap: 4, chapterTitle: "Shopping", story: "Carrying shopping bags.", q: "Brother ________ the heavy bags for Mum.", options: ["carried", "carry", "carries", "carrying"], answer: 0, hint: "Change 'y' to 'i' + ed.", coach: "Carry becomes Carried.", svg: SVG_LIB.shopping },
+        { id: 36, level: 4, chap: 4, chapterTitle: "Shopping", story: "Looking at keychains.", q: "Siti ________ a shiny turtle keychain.", options: ["liked", "like", "likes", "liking"], answer: 0, hint: "Regular verb + d.", coach: "Like + d = Liked.", svg: SVG_LIB.shopping },
+        { id: 37, level: 4, chap: 4, chapterTitle: "Shopping", story: "Giving money to the seller.", q: "Dad ________ the shopkeeper fifty ringgit.", options: ["gave", "give", "gives", "giving"], answer: 0, hint: "Past tense of 'give'.", coach: "'Gave' is the irregular past simple.", svg: SVG_LIB.shopping },
+        { id: 38, level: 4, chap: 4, chapterTitle: "Shopping", story: "Selling ice cream on the street.", q: "The vendor ________ delicious coconut ice cream.", options: ["sold", "sell", "sells", "selling"], answer: 0, hint: "Past tense of 'sell'.", coach: "'Sold' is the irregular past tense.", svg: SVG_LIB.shopping },
+        { id: 39, level: 4, chap: 4, chapterTitle: "Shopping", story: "Trying on a sun hat.", q: "She ________ on a big yellow hat.", options: ["tried", "try", "tries", "trying"], answer: 0, hint: "Change 'y' to 'i' + ed.", coach: "Try becomes Tried.", svg: SVG_LIB.shopping },
+        { id: 40, level: 4, chap: 4, chapterTitle: "Shopping", story: "Returning to the hotel with treats.", q: "We ________ back to the hotel with our gifts.", options: ["walked", "walk", "walks", "walking"], answer: 0, hint: "Regular verb + ed.", coach: "Walk + ed = Walked.", svg: SVG_LIB.shopping },
+
+        // CHAPTER 5: HOLIDAY MEMORIES (Level 5: Holiday Champion - Q41 to Q50)
+        { id: 41, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Writing in the diary.", q: "I ________ about my holiday in my diary last night.", options: ["wrote", "write", "writes", "writing"], answer: 0, hint: "Past tense of 'write'.", coach: "'Wrote' is the irregular past tense.", svg: SVG_LIB.camera },
+        { id: 42, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Showing photos to friends.", q: "Ming ________ his photos to the class yesterday.", options: ["showed", "show", "shows", "showing"], answer: 0, hint: "Regular verb + ed.", coach: "Show + ed = Showed.", svg: SVG_LIB.camera },
+        { id: 43, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Feeling happy about the trip.", q: "We ________ very happy during our trip.", options: ["were", "are", "was", "be"], answer: 0, hint: "Plural past form of 'be'.", coach: "Use 'were' for plural subjects (We/They).", svg: SVG_LIB.camera },
+        { id: 44, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Having a great holiday.", q: "She ________ a wonderful time on the island.", options: ["had", "have", "has", "having"], answer: 0, hint: "Past tense of 'have'.", coach: "'Had' is the past simple form of 'have'.", svg: SVG_LIB.camera },
+        { id: 45, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Sending a postcard.", q: "They ________ a postcard to their teacher.", options: ["sent", "send", "sends", "sending"], answer: 0, hint: "Past tense of 'send'.", coach: "'Sent' is the irregular past form.", svg: SVG_LIB.camera },
+        { id: 46, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Telling stories to family.", q: "Grandmother ________ us a story about the beach.", options: ["told", "tell", "tells", "telling"], answer: 0, hint: "Past tense of 'tell'.", coach: "'Told' is the past simple form.", svg: SVG_LIB.camera },
+        { id: 47, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Drawing a picture of the trip.", q: "Raju ________ a picture of the sea yesterday.", options: ["drew", "draw", "draws", "drawing"], answer: 0, hint: "Past tense of 'draw'.", coach: "'Drew' is the irregular past tense.", svg: SVG_LIB.camera },
+        { id: 48, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Flying back home.", q: "We ________ back home in an aeroplane.", options: ["flew", "fly", "flies", "flying"], answer: 0, hint: "Past tense of 'fly'.", coach: "'Flew' is the past simple of 'fly'.", svg: SVG_LIB.camera },
+        { id: 49, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Remembering the fun times.", q: "I ________ my holiday memories forever.", options: ["remembered", "remember", "remembers", "remembering"], answer: 0, hint: "Regular verb + ed.", coach: "Remember + ed = Remembered.", svg: SVG_LIB.camera },
+        { id: 50, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "The end of a wonderful journey!", q: "We all ________ 'Goodbye!' to the beautiful island.", options: ["said", "say", "says", "saying"], answer: 0, hint: "Past tense of 'say'.", coach: "'Said' is the irregular past tense of 'say'.", svg: SVG_LIB.camera }
+    ];
+
+    // Engine App State
+    let currentQIndex = 0;
+    let currentScore = 0;
+    let correctCount = 0;
+    let wrongCount = 0;
+    let studentData = { name: "", class: "" };
+    let badgesUnlocked = [false, false, false, false, false];
+    let selectedOption = null;
+
+    // Level Mapping Metadata
+    const LEVEL_NAMES = [
+        "Level 1: Word Hunt",
+        "Level 2: Sentence Puzzle",
+        "Level 3: Complete It",
+        "Level 4: Picture Builder",
+        "Level 5: Holiday Champion"
+    ];
+
+    /* ==========================================================================
+       2. SCREEN NAVIGATION ENGINE
+       ========================================================================== */
+    function showScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(scr => {
+            scr.classList.remove('active');
+        });
+        const activeScr = document.getElementById(screenId);
+        if (activeScr) {
+            activeScr.classList.add('active');
+        }
+    }
+
+    function startQuiz() {
+        const nameVal = document.getElementById('student-name').value.trim();
+        const classVal = document.getElementById('student-class').value.trim();
+
+        if (!nameVal || !classVal) {
+            alert("Please enter both your name and class!");
+            return;
+        }
+
+        studentData.name = nameVal;
+        studentData.class = classVal;
+
+        // Reset Engine State
+        currentQIndex = 0;
+        currentScore = 0;
+        correctCount = 0;
+        wrongCount = 0;
+        badgesUnlocked = [false, false, false, false, false];
+        updateBadgesUI();
+
+        showScreen('screen-quiz');
+        loadQuestion();
+    }
+
+    /* ==========================================================================
+       3. QUIZ RENDER & QUESTION FLOW
+       ========================================================================== */
+    function loadQuestion() {
+        const q = QUESTIONS_DATABASE[currentQIndex];
+        selectedOption = null;
+
+        // Reset Panels
+        document.getElementById('coach-panel').style.display = 'none';
+        document.getElementById('hint-panel').style.display = 'none';
+        document.getElementById('btn-next').disabled = true;
+        document.getElementById('btn-hint').disabled = false;
+
+        // Progress Bar
+        const progressPercent = Math.round(((currentQIndex) / QUESTIONS_DATABASE.length) * 100);
+        document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+        // Update Stats Bar
+        document.getElementById('txt-level').innerText = LEVEL_NAMES[q.level - 1];
+        document.getElementById('txt-count').innerText = `Question ${currentQIndex + 1}/${QUESTIONS_DATABASE.length}`;
+        document.getElementById('txt-score').innerText = `Score: ${currentScore}`;
+
+        // Update Story Banner
+        document.getElementById('txt-chapter').innerText = `Chapter ${q.chap}: ${q.chapterTitle}`;
+        document.getElementById('txt-story').innerText = q.story;
+
+        // Update Question & SVG
+        document.getElementById('txt-question').innerText = q.q;
+        document.getElementById('svg-container').innerHTML = q.svg;
+        document.getElementById('txt-hint').innerText = q.hint;
+        document.getElementById('txt-coach').innerText = q.coach;
+
+        // Render Options (Shuffled while keeping track of answer)
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
+
+        // Create options with original index tracking
+        let optsWithIndex = q.options.map((text, originalIndex) => ({ text, originalIndex }));
+        
+        // Shuffle options for kid engagement
+        optsWithIndex = shuffleArray(optsWithIndex);
+
+        optsWithIndex.forEach((item) => {
+            const btn = document.createElement('button');
+            btn.className = 'btn-answer';
+            btn.type = 'button';
+            btn.innerText = item.text;
+            btn.onclick = () => checkAnswer(item.originalIndex, btn);
+            container.appendChild(btn);
+        });
+
+        // Evaluate Badges Unlocking at milestones
+        evaluateBadges();
+    }
+
+    function shuffleArray(arr) {
+        let array = [...arr];
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function checkAnswer(chosenIndex, btnEl) {
+        if (selectedOption !== null) return; // Prevent double taps
+        selectedOption = chosenIndex;
+
+        const q = QUESTIONS_DATABASE[currentQIndex];
+        const allBtns = document.querySelectorAll('.btn-answer');
+
+        // Disable all buttons once selected
+        allBtns.forEach(b => b.disabled = true);
+
+        if (chosenIndex === q.answer) {
+            btnEl.classList.add('correct');
+            currentScore += 10;
+            correctCount++;
+            document.getElementById('txt-score').innerText = `Score: ${currentScore}`;
+        } else {
+            btnEl.classList.add('incorrect');
+            wrongCount++;
+            
+            // Highlight correct answer
+            allBtns.forEach(b => {
+                if (b.innerText === q.options[q.answer]) {
+                    b.classList.add('correct');
+                }
+            });
+
+            // Show Grammar Coach on Wrong Answer (Required)
+            document.getElementById('coach-panel').style.display = 'block';
+        }
+
+        document.getElementById('btn-next').disabled = false;
+        document.getElementById('btn-hint').disabled = true;
+    }
+
+    function toggleHint() {
+        const hintPanel = document.getElementById('hint-panel');
+        if (hintPanel.style.display === 'block') {
+            hintPanel.style.display = 'none';
+        } else {
+            hintPanel.style.display = 'block';
+        }
+    }
+
+    function nextQuestion() {
+        currentQIndex++;
+        if (currentQIndex < QUESTIONS_DATABASE.length) {
+            loadQuestion();
+        } else {
+            finishQuiz();
+        }
+    }
+
+    /* ==========================================================================
+       4. BADGE EVALUATION SYSTEM
+       ========================================================================== */
+    function evaluateBadges() {
+        // Unlock badges based on progression through Chapters/Levels
+        if (currentQIndex >= 10 && !badgesUnlocked[0]) badgesUnlocked[0] = true; // Packing Expert
+        if (currentQIndex >= 20 && !badgesUnlocked[1]) badgesUnlocked[1] = true; // Traveller
+        if (currentQIndex >= 30 && !badgesUnlocked[2]) badgesUnlocked[2] = true; // Beach Explorer
+        if (currentQIndex >= 40 && !badgesUnlocked[3]) badgesUnlocked[3] = true; // Smart Shopper
+        if (currentQIndex >= 49 && !badgesUnlocked[4]) badgesUnlocked[4] = true; // Holiday Champion
+
+        updateBadgesUI();
+    }
+
+    function updateBadgesUI() {
+        badgesUnlocked.forEach((unlocked, idx) => {
+            const badgeEl = document.getElementById(`badge-${idx + 1}`);
+            if (badgeEl) {
+                if (unlocked) {
+                    badgeEl.classList.add('unlocked');
+                } else {
+                    badgeEl.classList.remove('unlocked');
+                }
+            }
+        });
+    }
+
+    /* ==========================================================================
+       5. RESULTS & GOOGLE SHEETS INTEGRATION
+       ========================================================================== */
+    function finishQuiz() {
+        showScreen('screen-result');
+
+        const totalQ = QUESTIONS_DATABASE.length;
+        const accuracy = Math.round((correctCount / totalQ) * 100);
+
+        document.getElementById('res-name').innerText = studentData.name;
+        document.getElementById('res-class').innerText = studentData.class;
+        document.getElementById('res-score').innerText = currentScore;
+        document.getElementById('res-accuracy').innerText = `${accuracy}%`;
+        document.getElementById('res-correct').innerText = correctCount;
+        document.getElementById('res-wrong').innerText = wrongCount;
+
+        // Dynamic Motivational Message
+        const msgEl = document.getElementById('res-message');
+        if (accuracy >= 80) {
+            msgEl.innerText = "🌟 Outstanding! You are a Holiday Grammar Superstar!";
+        } else if (accuracy >= 50) {
+            msgEl.innerText = "👍 Great Job! You know your holiday past tense well!";
+        } else {
+            msgEl.innerText = "💪 Good Effort! Keep practicing your past simple verbs!";
+        }
+
+        // Save Payload to Google Sheets
+        saveToGoogleSheets({
+            timestamp: new Date().toISOString(),
+            name: studentData.name,
+            studentClass: studentData.class,
+            score: currentScore,
+            accuracy: accuracy,
+            correct: correctCount,
+            wrong: wrongCount
+        });
+    }
+
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function saveToGoogleSheets(data, isRetry = false) {
+
+    const syncStatus = document.getElementById('sync-status');
+
+    if (!syncStatus) return;
+
+    if (!isRetry) {
+        syncStatus.style.color = "var(--primary)";
+        syncStatus.innerText = "Saving results to Google Sheets...";
+    } else {
+        syncStatus.style.color = "var(--secondary)";
+        syncStatus.innerText = "Retrying connection...";
+    }
+
+    try {
+
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+
+            syncStatus.style.color = "var(--success)";
+            syncStatus.innerText = "✓ Data saved successfully";
+
+        } else {
+
+            throw new Error("Failed");
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        if (!isRetry) {
+
+            await delay(2000);
+
+            return saveToGoogleSheets(data, true);
+
+        }
+
+        syncStatus.style.color = "var(--danger)";
+        syncStatus.innerText = "❌ Failed to save data";
+
+    }
+
+}
+          const syncStatus = document.getElementById('sync-status');
+        syncStatus.style.color = "var(--primary)";
+        syncStatus.innerText = "Saving results to Google Sheets...";
+
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8',
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(() => {
+            syncStatus.style.color = "var(--success)";
+            syncStatus.innerText = "✓ Results successfully saved to Google Sheets!";
+        })
+        .catch(err => {
+            console.error("Sheets Sync Error:", err);
+            syncStatus.style.color = "var(--danger)";
+            syncStatus.innerText = "⚠ Note: Could not connect to Google Sheets (Offline/Trial).";
+        });
+    }
+
+    function restartQuiz() {
+        document.getElementById('registration-form').reset();
+        showScreen('screen-start');
+    }
+</script>
+</body>
+</html>
