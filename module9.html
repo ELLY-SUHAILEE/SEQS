@@ -910,15 +910,13 @@
         const totalQ = QUESTIONS_DATABASE.length;
         const accuracy = Math.round((correctCount / totalQ) * 100);
 
-        const payload = {
-            timestamp: new Date().toISOString(),
-            name: studentData.name,
-            studentClass: studentData.class,
-            score: score,
-            accuracy: accuracy,
-            correct: correctCount,
-            wrong: wrongCount
-        };
+       const payload = {
+    name: studentData.name,
+    studentClass: studentData.class,
+    module: "Module 9 - On Holiday",
+    score: correctCount + "/" + QUESTIONS_DATABASE.length,
+    percentage: accuracy + "%"
+};
 
         fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
