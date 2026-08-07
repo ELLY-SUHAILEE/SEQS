@@ -899,55 +899,60 @@
             msgBox.innerText = "💪 Don't give up! Try again to earn higher scores!";
         }
 
-        syncResultsToGoogleSheets();
-    }
-
     function syncResultsToGoogleSheets() {
-        const syncStatus = document.getElementById('sync-status');
-        syncStatus.innerText = "Saving results to Google Sheets...";
-        syncStatus.style.color = "var(--primary)";
 
-        const totalQ = QUESTIONS_DATABASE.length;
-        const accuracy = Math.round((correctCount / totalQ) * 100);
+    const syncStatus = document.getElementById("sync-status");
 
-        const payload = {
-            timestamp: new Date().toISOString(),
-            name: studentData.name,
-            studentClass: studentData.class,
-            score: score,
-            accuracy: accuracy,
-            correct: correctCount,
-            wrong: wrongCount
-        };
+    syncStatus.innerText = "Saving results to Google Sheets...";
+    syncStatus.style.color = "#1976d2";
 
-        fetch(GOOGLE_SCRIPT_URL, {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(payload)
-})
-        .then(() => {
-            syncStatus.innerText = "✅ Score successfully saved!";
-            syncStatus.style.color = "var(--success-dark)";
-        })
-        .catch(err => {
-            console.error('Submission error:', err);
-            syncStatus.innerText = "⚠️ Unable to sync automatically. (Score logged locally)";
-            syncStatus.style.color = "var(--danger)";
-        });
-    }
+    const totalQuestions = QUESTIONS_DATABASE.length;
+    const accuracy = Math.round((correctCount / totalQuestions) * 100);
 
-    function restartQuiz() {
-        currentIndex = 0;
-        score = 0;
-        correctCount = 0;
-        wrongCount = 0;
-        unlockedBadges = [false, false, false, false, false];
-        updateBadgesUI();
-        showScreen('screen-quiz');
-        loadQuestion();
-    }
-</script>
-</body>
-</html>
+    const payload = {
+
+        name: studentData.name,
+
+        studentClass: studentData.class,
+
+        module: "Module 9 – On Holiday",
+
+        score: correctCount + "/" + totalQuestions,
+
+        percentage: accuracy + "%"
+
+    };
+
+    fetch(GOOGLE_SCRIPT_URL, {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+
+            "Content-Type": "text/plain;charset=utf-8"
+
+        },
+
+        body: JSON.stringify(payload)
+
+    })
+
+    .then(function () {
+
+        syncStatus.innerText = "✓ Result recorded successfully.";
+        syncStatus.style.color = "green";
+
+    })
+
+    .catch(function (error) {
+
+        console.error(error);
+
+        syncStatus.innerText = "Unable to confirm the record.";
+        syncStatus.style.color = "red";
+
+    });
+
+}
