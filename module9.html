@@ -992,9 +992,14 @@
         };
 
         try {
-            await fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
+        
+    await fetch(GOOGLE_SCRIPT_URL,{
+    method:'POST',
+    headers:{
+        "Content-Type":"application/json"
+    },
+    body:JSON.stringify(payload)
+});
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
