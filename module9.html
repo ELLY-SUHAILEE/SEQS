@@ -561,33 +561,9 @@
     </header>
 
     <!-- ==========================================================================
-        SCREEN 1: STUDENT REGISTRATION
-        ========================================================================== -->
-    <section id="screen-start" class="screen active" aria-label="Student Registration">
-        <div class="instruction-card">
-            <h3>👋 Welcome Young Explorer!</h3>
-            <p>Get ready for a grand grammar journey. Test your <strong>Simple Past Tense</strong> skills, collect all 5 badges, and become the ultimate Holiday Champion!</p>
-        </div>
-
-        <form id="registration-form" onsubmit="event.preventDefault(); startQuiz();">
-            <div class="form-group">
-                <label for="student-name">Full Name:</label>
-                <input type="text" id="student-name" class="form-control" required placeholder="Enter your name..." autocomplete="name">
-            </div>
-
-            <div class="form-group">
-                <label for="student-class">Class:</label>
-                <input type="text" id="student-class" class="form-control" required placeholder="e.g. 3 Cemerlang" autocomplete="off">
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">🚀 Start Adventure</button>
-        </form>
-    </section>
-
-    <!-- ==========================================================================
         SCREEN 2: QUIZ INTERFACE
         ========================================================================== -->
-    <section id="screen-quiz" class="screen" aria-label="Quiz Workspace">
+    <section id="screen-quiz" class="screen active" aria-label="Quiz Workspace">
         <!-- Progress Bar -->
         <div class="progress-bar-container">
             <div class="progress-bar-fill" id="progress-bar"></div>
@@ -796,6 +772,32 @@
     let hasAnswered = false;
 
     /* ==========================================================================
+       INITIALIZATION
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+        const studentName = localStorage.getItem("seqsName");
+        const studentClass = localStorage.getItem("seqsClass");
+
+        if (!studentName || !studentClass) {
+            alert("Please start from the SEQS Home Page.");
+            window.location.href = "index.html";
+            return;
+        }
+
+        studentData.name = studentName;
+        studentData.class = studentClass;
+
+        currentQIndex = 0;
+        score = 0;
+        correctCount = 0;
+        wrongCount = 0;
+
+        resetBadges();
+        showScreen('screen-quiz');
+        loadQuestion();
+    });
+
+    /* ==========================================================================
        2. NAVIGATION & SCREEN CONTROL
        ========================================================================== */
     function showScreen(screenId) {
@@ -807,17 +809,6 @@
     }
 
     function startQuiz() {
-        const nameInput = document.getElementById('student-name').value.trim();
-        const classInput = document.getElementById('student-class').value.trim();
-
-        if (!nameInput || !classInput) {
-            alert("Please fill in your Name and Class!");
-            return;
-        }
-
-        studentData.name = nameInput;
-        studentData.class = classInput;
-
         currentQIndex = 0;
         score = 0;
         correctCount = 0;
@@ -991,13 +982,13 @@
         syncStatus.innerText = "⏳ Saving results to Google Sheets...";
 
         const payload = {
-            timestamp: new Date().toISOString(),
-            studentName: studentData.name,
-            class: studentData.class,
-            score: score,
-            accuracy: accuracy,
-            correct: correctCount,
-            wrong: wrongCount
+    timestamp: new Date().toISOString(),
+    name: studentData.name,
+    studentClass: studentData.class,
+    score: score,
+    accuracy: accuracy,
+    correct: correctCount,
+    wrong: wrongCount
         };
 
         try {
@@ -1017,7 +1008,7 @@
     }
 
     function restartQuiz() {
-        showScreen('screen-start');
+        startQuiz();
     }
 
     /* ==========================================================================
