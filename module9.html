@@ -561,8 +561,8 @@
     </header>
 
     <!-- ==========================================================================
-       SCREEN 1: STUDENT REGISTRATION
-       ========================================================================== -->
+        SCREEN 1: STUDENT REGISTRATION
+        ========================================================================== -->
     <section id="screen-start" class="screen active" aria-label="Student Registration">
         <div class="instruction-card">
             <h3>👋 Welcome Young Explorer!</h3>
@@ -585,8 +585,8 @@
     </section>
 
     <!-- ==========================================================================
-       SCREEN 2: QUIZ INTERFACE
-       ========================================================================== -->
+        SCREEN 2: QUIZ INTERFACE
+        ========================================================================== -->
     <section id="screen-quiz" class="screen" aria-label="Quiz Workspace">
         <!-- Progress Bar -->
         <div class="progress-bar-container">
@@ -658,8 +658,8 @@
     </section>
 
     <!-- ==========================================================================
-       SCREEN 3: RESULT DASHBOARD
-       ========================================================================== -->
+        SCREEN 3: RESULT DASHBOARD
+        ========================================================================== -->
     <section id="screen-result" class="screen" aria-label="Quiz Results">
         <div class="result-card">
             <h2>🎉 Fantastic Effort!</h2>
@@ -704,8 +704,7 @@
     /* ==========================================================================
        1. CONFIGURATION & STATE MANAGEMENT
        ========================================================================== */
-    // Replace with your Google Apps Script Web App Deployment URL
-    const GOOGLE_SCRIPT_URL ="https://script.google.com/macros/s/AKfycby84aD1yrCse0CKs78jKTG_bDAhA42TlsCjLJsRL3PkDEhXZadGcmu-moxorgP_IXN8/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby84aD1yrCse0CKs78jKTG_bDAhA42TlsCjLJsRL3PkDEhXZadGcmu-moxorgP_IXN8/exec";
 
     // Standardized Inline SVGs for Question Visuals
     const SVG_LIB = {
@@ -716,7 +715,7 @@
         camera: `<svg class="svg-illustration" viewBox="0 0 200 100"><rect x="50" y="30" width="100" height="60" rx="8" fill="#4FD1C5"/><circle cx="100" cy="60" r="20" fill="#2B6CB0"/><circle cx="100" cy="60" r="12" fill="#EBF8FF"/><rect x="120" y="18" width="20" height="12" fill="#319795"/></svg>`
     };
 
-    // 50 ORIGINAL QUESTIONS (Get Smart Plus Year 3 - On Holiday)
+    // 50 COMPLETE ORIGINAL QUESTIONS (Get Smart Plus Year 3 - On Holiday)
     const QUESTIONS_DATABASE = [
         // CHAPTER 1: PACKING FOR HOLIDAY (Level 1: Word Hunt - Q1 to Q10)
         { id: 1, level: 1, chap: 1, chapterTitle: "Packing for Holiday", story: "You are getting your bag ready for the trip!", q: "Yesterday, I ________ my shirt into the bag.", options: ["packed", "pack", "packing", "packs"], answer: 0, hint: "Look for the past simple verb ending in -ed.", coach: "'Packed' is the past simple form of 'pack'.", svg: SVG_LIB.packing },
@@ -744,201 +743,170 @@
 
         // CHAPTER 3: HOLIDAY ACTIVITIES (Level 3: Complete It - Q21 to Q30)
         { id: 21, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Fun on the sandy beach!", q: "Yesterday, Ali and Nina ________ a big sandcastle.", options: ["built", "build", "builds", "building"], answer: 0, hint: "Past tense of 'build'.", coach: "'Built' is the past simple form of 'build'.", svg: SVG_LIB.beach },
-        { id: 22, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Splashing in the sea.", q: "We ________ in the blue ocean all afternoon.", options: ["swam", "swim", "swims", "swimming"], answer: 0, hint: "Past tense of 'swim'.", coach: "'Swam' is the irregular past simple of 'swim'.", svg: SVG_LIB.beach },
-        { id: 23, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Searching for beach treasures.", q: "Siti ________ pretty shells on the shore.", options: ["collected", "collect", "collects", "collecting"], answer: 0, hint: "Regular verb + ed.", coach: "Collect + ed = Collected.", svg: SVG_LIB.beach },
-        { id: 24, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Going on a forest walk.", q: "They ________ up the hill behind the beach.", options: ["climbed", "climb", "climbs", "climbing"], answer: 0, hint: "Regular verb + ed.", coach: "Climb + ed = Climbed.", svg: SVG_LIB.beach },
-        { id: 25, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Nighttime around the fire.", q: "We ________ marshmallows by the campfire.", options: ["roasted", "roast", "roasts", "roasting"], answer: 0, hint: "Regular verb + ed.", coach: "Roast + ed = Roasted.", svg: SVG_LIB.beach },
-        { id: 26, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Playing beach games.", q: "The boys ________ volleyball on the sand.", options: ["played", "play", "plays", "playing"], answer: 0, hint: "Regular verb + ed.", coach: "Play + ed = Played.", svg: SVG_LIB.beach },
-        { id: 27, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Catching fish at the river.", q: "Uncle Kumar ________ a huge fish yesterday.", options: ["caught", "catch", "catches", "catching"], answer: 0, hint: "Past tense of 'catch'.", coach: "'Caught' is the past simple of 'catch'.", svg: SVG_LIB.beach },
-        { id: 28, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Resting under the tree.", q: "Grandpa ________ in the hammock yesterday.", options: ["rested", "rest", "rests", "resting"], answer: 0, hint: "Regular verb + ed.", coach: "Rest + ed = Rested.", svg: SVG_LIB.beach },
-        { id: 29, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Rowing a small wooden boat.", q: "We ________ a boat across the quiet lake.", options: ["rowed", "row", "rows", "rowing"], answer: 0, hint: "Regular verb + ed.", coach: "Row + ed = Rowed.", svg: SVG_LIB.beach },
-        { id: 30, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Watching the sun go down.", q: "She ________ the beautiful sunset yesterday evening.", options: ["watched", "watch", "watches", "watching"], answer: 0, hint: "Regular verb + ed.", coach: "Watch + ed = Watched.", svg: SVG_LIB.beach },
+        { id: 22, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Splashing in the sea waves.", q: "We ________ in the clear ocean water.", options: ["swam", "swim", "swims", "swimming"], answer: 0, hint: "Past tense of 'swim'.", coach: "'Swam' is the irregular past simple of 'swim'.", svg: SVG_LIB.beach },
+        { id: 23, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Searching for pretty seashells.", q: "She ________ red and white shells on the shore.", options: ["collected", "collect", "collects", "collecting"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Collect + ed = Collected.", svg: SVG_LIB.beach },
+        { id: 24, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Playing beach volleyball.", q: "The boys ________ ball on the sand.", options: ["played", "play", "plays", "playing"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Play + ed = Played.", svg: SVG_LIB.beach },
+        { id: 25, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Resting under the umbrella.", q: "Dad ________ under the big sunshade.", options: ["rested", "rest", "rests", "resting"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Rest + ed = Rested.", svg: SVG_LIB.beach },
+        { id: 26, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Going on a boat voyage.", q: "We ________ to a nearby island on a speedboat.", options: ["went", "go", "goes", "going"], answer: 0, hint: "Past tense of 'go'.", coach: "'Went' is the irregular past form of 'go'.", svg: SVG_LIB.beach },
+        { id: 27, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Looking at colourful fish.", q: "I ________ beautiful fish underwater.", options: ["saw", "see", "sees", "seeing"], answer: 0, hint: "Past tense of 'see'.", coach: "'Saw' is the past simple of 'see'.", svg: SVG_LIB.beach },
+        { id: 28, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Walking on the soft sand.", q: "They ________ along the beach at sunset.", options: ["walked", "walk", "walks", "walking"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Walk + ed = Walked.", svg: SVG_LIB.beach },
+        { id: 29, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Catching tiny beach crabs.", q: "Kiran ________ a little crab near the rocks.", options: ["caught", "catch", "catches", "catching"], answer: 0, hint: "Past tense of 'catch'.", coach: "'Caught' is the past simple form of 'catch'.", svg: SVG_LIB.beach },
+        { id: 30, level: 3, chap: 3, chapterTitle: "Holiday Activities", story: "Having a picnic lunch.", q: "We ________ fresh watermelon on the beach mat.", options: ["ate", "eat", "eats", "eating"], answer: 0, hint: "Past tense of 'eat'.", coach: "'Ate' is the past simple of 'eat'.", svg: SVG_LIB.beach },
 
-        // CHAPTER 4: SHOPPING (Level 4: Picture Builder - Q31 to Q40)
-        { id: 31, level: 4, chap: 4, chapterTitle: "Shopping", story: "Visiting the night market.", q: "Mum ________ cute souvenirs for our friends.", options: ["bought", "buy", "buys", "buying"], answer: 0, hint: "Past tense of 'buy'.", coach: "'Bought' is the past simple form of 'buy'.", svg: SVG_LIB.shopping },
-        { id: 32, level: 4, chap: 4, chapterTitle: "Shopping", story: "Paying for snacks.", q: "I ________ ten ringgit for the fruit salad.", options: ["paid", "pay", "pays", "paying"], answer: 0, hint: "Past tense of 'pay'.", coach: "'Paid' is the irregular past tense of 'pay'.", svg: SVG_LIB.shopping },
-        { id: 33, level: 4, chap: 4, chapterTitle: "Shopping", story: "Choosing postcards.", q: "He ________ three postcards at the gift shop.", options: ["chose", "choose", "chooses", "choosing"], answer: 0, hint: "Past tense of 'choose'.", coach: "'Chose' is the past simple form.", svg: SVG_LIB.shopping },
-        { id: 34, level: 4, chap: 4, chapterTitle: "Shopping", story: "Talking to the shopkeeper.", q: "We ________ to the polite market seller.", options: ["talked", "talk", "talks", "talking"], answer: 0, hint: "Regular verb + ed.", coach: "Talk + ed = Talked.", svg: SVG_LIB.shopping },
-        { id: 35, level: 4, chap: 4, chapterTitle: "Shopping", story: "Carrying shopping bags.", q: "Brother ________ the heavy bags for Mum.", options: ["carried", "carry", "carries", "carrying"], answer: 0, hint: "Change 'y' to 'i' + ed.", coach: "Carry becomes Carried.", svg: SVG_LIB.shopping },
-        { id: 36, level: 4, chap: 4, chapterTitle: "Shopping", story: "Looking at keychains.", q: "Siti ________ a shiny turtle keychain.", options: ["liked", "like", "likes", "liking"], answer: 0, hint: "Regular verb + d.", coach: "Like + d = Liked.", svg: SVG_LIB.shopping },
-        { id: 37, level: 4, chap: 4, chapterTitle: "Shopping", story: "Giving money to the seller.", q: "Dad ________ the shopkeeper fifty ringgit.", options: ["gave", "give", "gives", "giving"], answer: 0, hint: "Past tense of 'give'.", coach: "'Gave' is the irregular past simple.", svg: SVG_LIB.shopping },
-        { id: 38, level: 4, chap: 4, chapterTitle: "Shopping", story: "Selling ice cream on the street.", q: "The vendor ________ delicious coconut ice cream.", options: ["sold", "sell", "sells", "selling"], answer: 0, hint: "Past tense of 'sell'.", coach: "'Sold' is the irregular past tense.", svg: SVG_LIB.shopping },
-        { id: 39, level: 4, chap: 4, chapterTitle: "Shopping", story: "Trying on a sun hat.", q: "She ________ on a big yellow hat.", options: ["tried", "try", "tries", "trying"], answer: 0, hint: "Change 'y' to 'i' + ed.", coach: "Try becomes Tried.", svg: SVG_LIB.shopping },
-        { id: 40, level: 4, chap: 4, chapterTitle: "Shopping", story: "Returning to the hotel with treats.", q: "We ________ back to the hotel with our gifts.", options: ["walked", "walk", "walks", "walking"], answer: 0, hint: "Regular verb + ed.", coach: "Walk + ed = Walked.", svg: SVG_LIB.shopping },
+        // CHAPTER 4: SOUVENIR SHOPPING (Level 4: Grammar Master - Q31 to Q40)
+        { id: 31, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Visiting local shops.", q: "Yesterday, Mum ________ keychains for her friends.", options: ["bought", "buy", "buys", "buying"], answer: 0, hint: "Past tense of 'buy'.", coach: "'Bought' is the past simple form of 'buy'.", svg: SVG_LIB.shopping },
+        { id: 32, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Paying for cool gifts.", q: "Dad ________ five ringgits for the postcard.", options: ["paid", "pay", "pays", "paying"], answer: 0, hint: "Past tense of 'pay'.", coach: "'Paid' is the past simple of 'pay'.", svg: SVG_LIB.shopping },
+        { id: 33, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Choosing a magnet for the fridge.", q: "I ________ a turtle magnet from the stall.", options: ["chose", "choose", "chooses", "choosing"], answer: 0, hint: "Past tense of 'choose'.", coach: "'Chose' is the past simple of 'choose'.", svg: SVG_LIB.shopping },
+        { id: 34, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Talking to the friendly seller.", q: "The shopkeeper ________ 'Thank you' to us.", options: ["said", "say", "says", "saying"], answer: 0, hint: "Past tense of 'say'.", coach: "'Said' is the past simple form of 'say'.", svg: SVG_LIB.shopping },
+        { id: 35, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Giving a tip or gift.", q: "We ________ a cute straw hat to Grandma.", options: ["gave", "give", "gives", "giving"], answer: 0, hint: "Past tense of 'give'.", coach: "'Gave' is the past simple of 'give'.", svg: SVG_LIB.shopping },
+        { id: 36, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Looking at batik shirts.", q: "Brother ________ a colourful shirt.", options: ["liked", "like", "likes", "liking"], answer: 0, hint: "Regular verb ending in -d.", coach: "Like + d = Liked.", svg: SVG_LIB.shopping },
+        { id: 37, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Carrying shopping bags.", q: "They ________ their souvenir bags happily.", options: ["carried", "carry", "carries", "carrying"], answer: 0, hint: "Change 'y' to 'i' and add -ed.", coach: "Carry becomes Carried.", svg: SVG_LIB.shopping },
+        { id: 38, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Spending money wisely.", q: "She ________ ten ringgits on a toy boat.", options: ["spent", "spend", "spends", "spending"], answer: 0, hint: "Past tense of 'spend'.", coach: "'Spent' is the irregular past tense of 'spend'.", svg: SVG_LIB.shopping },
+        { id: 39, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Holding a pretty seashell necklace.", q: "I ________ the necklace in my hands.", options: ["held", "hold", "holds", "holding"], answer: 0, hint: "Past tense of 'hold'.", coach: "'Held' is the past simple of 'hold'.", svg: SVG_LIB.shopping },
+        { id: 40, level: 4, chap: 4, chapterTitle: "Souvenir Shopping", story: "Leaving the market.", q: "We ________ the market at 6 o'clock.", options: ["left", "leave", "leaves", "leaving"], answer: 0, hint: "Past tense of 'leave'.", coach: "'Left' is the irregular past tense of 'leave'.", svg: SVG_LIB.shopping },
 
-        // CHAPTER 5: HOLIDAY MEMORIES (Level 5: Holiday Champion - Q41 to Q50)
-        { id: 41, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Writing in the diary.", q: "I ________ about my holiday in my diary last night.", options: ["wrote", "write", "writes", "writing"], answer: 0, hint: "Past tense of 'write'.", coach: "'Wrote' is the irregular past tense.", svg: SVG_LIB.camera },
-        { id: 42, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Showing photos to friends.", q: "Ming ________ his photos to the class yesterday.", options: ["showed", "show", "shows", "showing"], answer: 0, hint: "Regular verb + ed.", coach: "Show + ed = Showed.", svg: SVG_LIB.camera },
-        { id: 43, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Feeling happy about the trip.", q: "We ________ very happy during our trip.", options: ["were", "are", "was", "be"], answer: 0, hint: "Plural past form of 'be'.", coach: "Use 'were' for plural subjects (We/They).", svg: SVG_LIB.camera },
-        { id: 44, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Having a great holiday.", q: "She ________ a wonderful time on the island.", options: ["had", "have", "has", "having"], answer: 0, hint: "Past tense of 'have'.", coach: "'Had' is the past simple form of 'have'.", svg: SVG_LIB.camera },
-        { id: 45, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Sending a postcard.", q: "They ________ a postcard to their teacher.", options: ["sent", "send", "sends", "sending"], answer: 0, hint: "Past tense of 'send'.", coach: "'Sent' is the irregular past form.", svg: SVG_LIB.camera },
-        { id: 46, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Telling stories to family.", q: "Grandmother ________ us a story about the beach.", options: ["told", "tell", "tells", "telling"], answer: 0, hint: "Past tense of 'tell'.", coach: "'Told' is the past simple form.", svg: SVG_LIB.camera },
-        { id: 47, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Drawing a picture of the trip.", q: "Raju ________ a picture of the sea yesterday.", options: ["drew", "draw", "draws", "drawing"], answer: 0, hint: "Past tense of 'draw'.", coach: "'Drew' is the irregular past tense.", svg: SVG_LIB.camera },
-        { id: 48, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Flying back home.", q: "We ________ back home in an aeroplane.", options: ["flew", "fly", "flies", "flying"], answer: 0, hint: "Past tense of 'fly'.", coach: "'Flew' is the past simple of 'fly'.", svg: SVG_LIB.camera },
-        { id: 49, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "Remembering the fun times.", q: "I ________ my holiday memories forever.", options: ["remembered", "remember", "remembers", "remembering"], answer: 0, hint: "Regular verb + ed.", coach: "Remember + ed = Remembered.", svg: SVG_LIB.camera },
-        { id: 50, level: 5, chap: 5, chapterTitle: "Holiday Memories", story: "The end of a wonderful journey!", q: "We all ________ 'Goodbye!' to the beautiful island.", options: ["said", "say", "says", "saying"], answer: 0, hint: "Past tense of 'say'.", coach: "'Said' is the irregular past tense of 'say'.", svg: SVG_LIB.camera }
+        // CHAPTER 5: MEMORIES & RETURNING (Level 5: Ultimate Challenge - Q41 to Q50)
+        { id: 41, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Reflecting on the best holiday ever!", q: "We ________ a wonderful time on the island.", options: ["had", "have", "has", "having"], answer: 0, hint: "Past tense of 'have'.", coach: "'Had' is the past simple form of 'have'.", svg: SVG_LIB.camera },
+        { id: 42, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Taking final group photos.", q: "The photographer ________ our photo together.", options: ["took", "take", "takes", "taking"], answer: 0, hint: "Past tense of 'take'.", coach: "'Took' is the past simple of 'take'.", svg: SVG_LIB.camera },
+        { id: 43, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Traveling back home.", q: "We ________ back home by train.", options: ["returned", "return", "returns", "returning"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Return + ed = Returned.", svg: SVG_LIB.camera },
+        { id: 44, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Sharing stories with friends.", q: "I ________ my friends all about the trip.", options: ["told", "tell", "tells", "telling"], answer: 0, hint: "Past tense of 'tell'.", coach: "'Told' is the past simple of 'tell'.", svg: SVG_LIB.camera },
+        { id: 45, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Showing pictures to Grandpa.", q: "She ________ her holiday album to Grandpa.", options: ["showed", "show", "shows", "showing"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Show + ed = Showed.", svg: SVG_LIB.camera },
+        { id: 46, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Unpacking bags at home.", q: "Dad ________ our suitcases in the living room.", options: ["unpacked", "unpack", "unpacks", "unpacking"], answer: 0, hint: "Regular verb ending in -ed.", coach: "Unpack + ed = Unpacked.", svg: SVG_LIB.camera },
+        { id: 47, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Writing a holiday diary entry.", q: "I ________ in my diary before sleeping.", options: ["wrote", "write", "writes", "writing"], answer: 0, hint: "Past tense of 'write'.", coach: "'Wrote' is the past simple of 'write'.", svg: SVG_LIB.camera },
+        { id: 48, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Feeling happy after a great break.", q: "Everyone ________ very happy after the trip.", options: ["felt", "feel", "feels", "feeling"], answer: 0, hint: "Past tense of 'feel'.", coach: "'Felt' is the irregular past tense of 'feel'.", svg: SVG_LIB.camera },
+        { id: 49, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Sleeping early for school tomorrow.", q: "We ________ early last night.", options: ["slept", "sleep", "sleeps", "sleeping"], answer: 0, hint: "Past tense of 'sleep'.", coach: "'Slept' is the past simple form.", svg: SVG_LIB.camera },
+        { id: 50, level: 5, chap: 5, chapterTitle: "Memories & Returning", story: "Dreaming of the next adventure!", q: "I ________ about swimming with dolphins.", options: ["dreamt", "dream", "dreams", "dreaming"], answer: 0, hint: "Past tense of 'dream'.", coach: "'Dreamt' (or dreamed) is the past tense form.", svg: SVG_LIB.camera }
     ];
 
-    // Engine App State
+    // LEVEL NAMES MAPPING
+    const LEVEL_NAMES = {
+        1: "Level 1: Word Hunt",
+        2: "Level 2: Sentence Puzzle",
+        3: "Level 3: Complete It",
+        4: "Level 4: Grammar Master",
+        5: "Level 5: Ultimate Challenge"
+    };
+
+    // STATE VARIABLES
+    let studentData = { name: "", class: "" };
     let currentQIndex = 0;
-    let currentScore = 0;
+    let score = 0;
     let correctCount = 0;
     let wrongCount = 0;
-    let studentData = { name: "", class: "" };
-    let badgesUnlocked = [false, false, false, false, false];
-    let selectedOption = null;
-
-    // Level Mapping Metadata
-    const LEVEL_NAMES = [
-        "Level 1: Word Hunt",
-        "Level 2: Sentence Puzzle",
-        "Level 3: Complete It",
-        "Level 4: Picture Builder",
-        "Level 5: Holiday Champion"
-    ];
+    let hasAnswered = false;
 
     /* ==========================================================================
-       2. SCREEN NAVIGATION ENGINE
+       2. NAVIGATION & SCREEN CONTROL
        ========================================================================== */
     function showScreen(screenId) {
-        document.querySelectorAll('.screen').forEach(scr => {
-            scr.classList.remove('active');
-        });
-        const activeScr = document.getElementById(screenId);
-        if (activeScr) {
-            activeScr.classList.add('active');
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        const target = document.getElementById(screenId);
+        if (target) {
+            target.classList.add('active');
         }
     }
 
     function startQuiz() {
-        const nameVal = document.getElementById('student-name').value.trim();
-        const classVal = document.getElementById('student-class').value.trim();
+        const nameInput = document.getElementById('student-name').value.trim();
+        const classInput = document.getElementById('student-class').value.trim();
 
-        if (!nameVal || !classVal) {
-            alert("Please enter both your name and class!");
+        if (!nameInput || !classInput) {
+            alert("Please fill in your Name and Class!");
             return;
         }
 
-        studentData.name = nameVal;
-        studentData.class = classVal;
+        studentData.name = nameInput;
+        studentData.class = classInput;
 
-        // Reset Engine State
         currentQIndex = 0;
-        currentScore = 0;
+        score = 0;
         correctCount = 0;
         wrongCount = 0;
-        badgesUnlocked = [false, false, false, false, false];
-        updateBadgesUI();
 
+        resetBadges();
         showScreen('screen-quiz');
         loadQuestion();
     }
 
     /* ==========================================================================
-       3. QUIZ RENDER & QUESTION FLOW
+       3. QUIZ ENGINE & QUESTION RENDERER
        ========================================================================== */
     function loadQuestion() {
-        const q = QUESTIONS_DATABASE[currentQIndex];
-        selectedOption = null;
-
-        // Reset Panels
+        hasAnswered = false;
         document.getElementById('coach-panel').style.display = 'none';
         document.getElementById('hint-panel').style.display = 'none';
         document.getElementById('btn-next').disabled = true;
-        document.getElementById('btn-hint').disabled = false;
 
-        // Progress Bar
-        const progressPercent = Math.round(((currentQIndex) / QUESTIONS_DATABASE.length) * 100);
-        document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+        const qData = QUESTIONS_DATABASE[currentQIndex];
 
-        // Update Stats Bar
-        document.getElementById('txt-level').innerText = LEVEL_NAMES[q.level - 1];
+        // Update progress bar
+        const progressPct = ((currentQIndex) / QUESTIONS_DATABASE.length) * 100;
+        document.getElementById('progress-bar').style.width = `${progressPct}%`;
+
+        // Update top info bar
+        document.getElementById('txt-level').innerText = LEVEL_NAMES[qData.level];
         document.getElementById('txt-count').innerText = `Question ${currentQIndex + 1}/${QUESTIONS_DATABASE.length}`;
-        document.getElementById('txt-score').innerText = `Score: ${currentScore}`;
+        document.getElementById('txt-score').innerText = `Score: ${score}`;
 
-        // Update Story Banner
-        document.getElementById('txt-chapter').innerText = `Chapter ${q.chap}: ${q.chapterTitle}`;
-        document.getElementById('txt-story').innerText = q.story;
+        // Update story mode banner
+        document.getElementById('txt-chapter').innerText = `Chapter ${qData.chap}: ${qData.chapterTitle}`;
+        document.getElementById('txt-story').innerText = qData.story;
 
-        // Update Question & SVG
-        document.getElementById('txt-question').innerText = q.q;
-        document.getElementById('svg-container').innerHTML = q.svg;
-        document.getElementById('txt-hint').innerText = q.hint;
-        document.getElementById('txt-coach').innerText = q.coach;
+        // Render question text & SVG
+        document.getElementById('txt-question').innerText = qData.q;
+        document.getElementById('svg-container').innerHTML = qData.svg;
 
-        // Render Options (Shuffled while keeping track of answer)
-        const container = document.getElementById('options-container');
-        container.innerHTML = '';
+        // Render hint & coach content
+        document.getElementById('txt-hint').innerText = qData.hint;
+        document.getElementById('txt-coach').innerText = qData.coach;
 
-        // Create options with original index tracking
-        let optsWithIndex = q.options.map((text, originalIndex) => ({ text, originalIndex }));
-        
-        // Shuffle options for kid engagement
-        optsWithIndex = shuffleArray(optsWithIndex);
+        // Shuffle options for variation while keeping track of correct choice
+        const optionsContainer = document.getElementById('options-container');
+        optionsContainer.innerHTML = '';
 
-        optsWithIndex.forEach((item) => {
+        // Pair options with original index
+        let choices = qData.options.map((opt, idx) => ({ text: opt, isCorrect: idx === qData.answer }));
+        choices = shuffleArray(choices);
+
+        choices.forEach((choice) => {
             const btn = document.createElement('button');
-            btn.className = 'btn-answer';
             btn.type = 'button';
-            btn.innerText = item.text;
-            btn.onclick = () => checkAnswer(item.originalIndex, btn);
-            container.appendChild(btn);
+            btn.className = 'btn-answer';
+            btn.innerText = choice.text;
+            btn.onclick = () => handleAnswer(btn, choice.isCorrect);
+            optionsContainer.appendChild(btn);
         });
 
-        // Evaluate Badges Unlocking at milestones
-        evaluateBadges();
+        // Check level milestone for badge rewards
+        updateBadges();
     }
 
-    function shuffleArray(arr) {
-        let array = [...arr];
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
+    function handleAnswer(selectedBtn, isCorrect) {
+        if (hasAnswered) return;
+        hasAnswered = true;
 
-    function checkAnswer(chosenIndex, btnEl) {
-        if (selectedOption !== null) return; // Prevent double taps
-        selectedOption = chosenIndex;
+        const allButtons = document.querySelectorAll('.btn-answer');
+        allButtons.forEach(btn => btn.disabled = true);
 
-        const q = QUESTIONS_DATABASE[currentQIndex];
-        const allBtns = document.querySelectorAll('.btn-answer');
-
-        // Disable all buttons once selected
-        allBtns.forEach(b => b.disabled = true);
-
-        if (chosenIndex === q.answer) {
-            btnEl.classList.add('correct');
-            currentScore += 10;
+        if (isCorrect) {
+            selectedBtn.classList.add('correct');
+            score += 10;
             correctCount++;
-            document.getElementById('txt-score').innerText = `Score: ${currentScore}`;
         } else {
-            btnEl.classList.add('incorrect');
+            selectedBtn.classList.add('incorrect');
             wrongCount++;
-            
-            // Highlight correct answer
-            allBtns.forEach(b => {
-                if (b.innerText === q.options[q.answer]) {
-                    b.classList.add('correct');
+            // Highlight the correct answer
+            allButtons.forEach(btn => {
+                if (btn.innerText === QUESTIONS_DATABASE[currentQIndex].options[QUESTIONS_DATABASE[currentQIndex].answer]) {
+                    btn.classList.add('correct');
                 }
             });
-
-            // Show Grammar Coach on Wrong Answer (Required)
+            // Show coach feedback on wrong answer
             document.getElementById('coach-panel').style.display = 'block';
         }
 
+        document.getElementById('txt-score').innerText = `Score: ${score}`;
         document.getElementById('btn-next').disabled = false;
-        document.getElementById('btn-hint').disabled = true;
-    }
-
-    function toggleHint() {
-        const hintPanel = document.getElementById('hint-panel');
-        if (hintPanel.style.display === 'block') {
-            hintPanel.style.display = 'none';
-        } else {
-            hintPanel.style.display = 'block';
-        }
     }
 
     function nextQuestion() {
@@ -950,31 +918,39 @@
         }
     }
 
-    /* ==========================================================================
-       4. BADGE EVALUATION SYSTEM
-       ========================================================================== */
-    function evaluateBadges() {
-        // Unlock badges based on progression through Chapters/Levels
-        if (currentQIndex >= 10 && !badgesUnlocked[0]) badgesUnlocked[0] = true; // Packing Expert
-        if (currentQIndex >= 20 && !badgesUnlocked[1]) badgesUnlocked[1] = true; // Traveller
-        if (currentQIndex >= 30 && !badgesUnlocked[2]) badgesUnlocked[2] = true; // Beach Explorer
-        if (currentQIndex >= 40 && !badgesUnlocked[3]) badgesUnlocked[3] = true; // Smart Shopper
-        if (currentQIndex >= 49 && !badgesUnlocked[4]) badgesUnlocked[4] = true; // Holiday Champion
-
-        updateBadgesUI();
+    function toggleHint() {
+        const hintPanel = document.getElementById('hint-panel');
+        if (hintPanel.style.display === 'none' || hintPanel.style.display === '') {
+            hintPanel.style.display = 'block';
+        } else {
+            hintPanel.style.display = 'none';
+        }
     }
 
-    function updateBadgesUI() {
-        badgesUnlocked.forEach((unlocked, idx) => {
-            const badgeEl = document.getElementById(`badge-${idx + 1}`);
-            if (badgeEl) {
-                if (unlocked) {
-                    badgeEl.classList.add('unlocked');
-                } else {
-                    badgeEl.classList.remove('unlocked');
-                }
-            }
-        });
+    /* ==========================================================================
+       4. BADGE SYSTEM
+       ========================================================================== */
+    function updateBadges() {
+        // Unlock badges based on progress milestones
+        if (currentQIndex >= 10) unlockBadge('badge-1');
+        if (currentQIndex >= 20) unlockBadge('badge-2');
+        if (currentQIndex >= 30) unlockBadge('badge-3');
+        if (currentQIndex >= 40) unlockBadge('badge-4');
+        if (currentQIndex >= 49) unlockBadge('badge-5');
+    }
+
+    function unlockBadge(badgeId) {
+        const el = document.getElementById(badgeId);
+        if (el && !el.classList.contains('unlocked')) {
+            el.classList.add('unlocked');
+        }
+    }
+
+    function resetBadges() {
+        for (let i = 1; i <= 5; i++) {
+            const el = document.getElementById(`badge-${i}`);
+            if (el) el.classList.remove('unlocked');
+        }
     }
 
     /* ==========================================================================
@@ -983,119 +959,77 @@
     function finishQuiz() {
         showScreen('screen-result');
 
+        // Fill Student Details
+        document.getElementById('res-name').innerText = studentData.name;
+        document.getElementById('res-class').innerText = studentData.class;
+        document.getElementById('res-score').innerText = score;
+
         const totalQ = QUESTIONS_DATABASE.length;
         const accuracy = Math.round((correctCount / totalQ) * 100);
 
-        document.getElementById('res-name').innerText = studentData.name;
-        document.getElementById('res-class').innerText = studentData.class;
-        document.getElementById('res-score').innerText = currentScore;
         document.getElementById('res-accuracy').innerText = `${accuracy}%`;
         document.getElementById('res-correct').innerText = correctCount;
         document.getElementById('res-wrong').innerText = wrongCount;
 
-        // Dynamic Motivational Message
-        const msgEl = document.getElementById('res-message');
+        // Custom Motivational Messages
+        const msgBox = document.getElementById('res-message');
         if (accuracy >= 80) {
-            msgEl.innerText = "🌟 Outstanding! You are a Holiday Grammar Superstar!";
+            msgBox.innerText = "🏆 Outstanding! You are a Past Tense Master!";
         } else if (accuracy >= 50) {
-            msgEl.innerText = "👍 Great Job! You know your holiday past tense well!";
+            msgBox.innerText = "🌟 Great job! Keep practicing to get an even higher score!";
         } else {
-            msgEl.innerText = "💪 Good Effort! Keep practicing your past simple verbs!";
+            msgBox.innerText = "💪 Don't give up! Try again to boost your grammar skills!";
         }
 
-        // Save Payload to Google Sheets
-        saveToGoogleSheets({
+        // Send Results to Google Sheets
+        syncResultsToGoogleSheets(accuracy);
+    }
+
+    async function syncResultsToGoogleSheets(accuracy) {
+        const syncStatus = document.getElementById('sync-status');
+        syncStatus.style.color = "var(--primary)";
+        syncStatus.innerText = "⏳ Saving results to Google Sheets...";
+
+        const payload = {
             timestamp: new Date().toISOString(),
-            name: studentData.name,
-            studentClass: studentData.class,
-            score: currentScore,
+            studentName: studentData.name,
+            class: studentData.class,
+            score: score,
             accuracy: accuracy,
             correct: correctCount,
             wrong: wrongCount
-        });
-    }
+        };
 
-  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-async function saveToGoogleSheets(data, isRetry = false) {
-
-    const syncStatus = document.getElementById('sync-status');
-
-    if (!syncStatus) return;
-
-    if (!isRetry) {
-        syncStatus.style.color = "var(--primary)";
-        syncStatus.innerText = "Saving results to Google Sheets...";
-    } else {
-        syncStatus.style.color = "var(--secondary)";
-        syncStatus.innerText = "Retrying connection...";
-    }
-
-    try {
-
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-
-            syncStatus.style.color = "var(--success)";
-            syncStatus.innerText = "✓ Data saved successfully";
-
-        } else {
-
-            throw new Error("Failed");
-
-        }
-
-    } catch (error) {
-
-        console.error(error);
-
-        if (!isRetry) {
-
-            await delay(2000);
-
-            return saveToGoogleSheets(data, true);
-
-        }
-
-        syncStatus.style.color = "var(--danger)";
-        syncStatus.innerText = "❌ Failed to save data";
-
-    }
-
-}
-          const syncStatus = document.getElementById('sync-status');
-        syncStatus.style.color = "var(--primary)";
-        syncStatus.innerText = "Saving results to Google Sheets...";
-
-        fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'text/plain;charset=utf-8',
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(() => {
-            syncStatus.style.color = "var(--success)";
-            syncStatus.innerText = "✓ Results successfully saved to Google Sheets!";
-        })
-        .catch(err => {
-            console.error("Sheets Sync Error:", err);
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            syncStatus.style.color = "var(--success-dark)";
+            syncStatus.innerText = "✅ Result successfully saved!";
+        } catch (error) {
+            console.error("Sync error:", error);
             syncStatus.style.color = "var(--danger)";
-            syncStatus.innerText = "⚠ Note: Could not connect to Google Sheets (Offline/Trial).";
-        });
+            syncStatus.innerText = "⚠️ Could not save online. (Local test mode active)";
+        }
     }
 
     function restartQuiz() {
-        document.getElementById('registration-form').reset();
         showScreen('screen-start');
+    }
+
+    /* ==========================================================================
+       6. HELPER FUNCTIONS
+       ========================================================================== */
+    function shuffleArray(array) {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
     }
 </script>
 </body>
