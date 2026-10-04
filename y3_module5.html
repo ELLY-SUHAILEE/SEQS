@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UB Tahun 3: Module 5 – My New House (y3_module5)</title>
+
+<style>
+
+/* ================================
+   GLOBAL & FONT SETTINGS
+   Font: Arial | Size: 14pt
+================================ */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2e2e2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* ================================
+   CONTAINER & HEADER
+================================ */
+
+.quiz-container {
+  max-width: 820px;
+  width: 92%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+}
+
+.header-banner {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.header-banner h1 {
+  margin: 0;
+  font-size: 20pt !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.student-bar {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 12px 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #1b5e20;
+  font-weight: bold;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ================================
+   SECTION BADGES & PASSAGES
+================================ */
+
+.section-badge {
+  background: #388e3c;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 30px 0 15px 0;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.passage-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #2e7d32;
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.passage-box strong {
+  color: #1b5e20;
+}
+
+
+/* ================================
+   QUESTION CARDS
+================================ */
+
+.question-card {
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.question-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #1b5e20;
+  line-height: 1.4;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 2px solid #dddddd;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.option-btn:hover {
+  background: #e8f5e9;
+  border-color: #2e7d32;
+}
+
+.option-btn input[type="radio"] {
+  margin-right: 12px;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+
+/* ================================
+   SUBMIT & RESULT MODAL
+================================ */
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  border: 3px solid #ffffff;
+  padding: 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16pt !important;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-top: 25px;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #1b5e20, #0d3b11);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 4px solid #2e7d32;
+}
+
+.score-text {
+  font-size: 28pt !important;
+  font-weight: bold;
+  color: #2e7d32;
+  margin: 15px 0;
+}
+
+.modal-action-btn {
+  background: #37474f;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.correct-mark {
+  background: #d4edda !important;
+  border-color: #28a745 !important;
+  color: #155724 !important;
+  font-weight: bold;
+}
+
+.wrong-mark {
+  background: #f8d7da !important;
+  border-color: #dc3545 !important;
+  color: #721c24 !important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="quiz-container">
+
+  <!-- HEADER BANNER -->
+  <div class="header-banner">
+    <h1>UB TAHUN 3: MODULE 5 – MY NEW HOUSE</h1>
+    <div class="student-bar">
+      <span>👤 Student: <span id="displayName">Guest</span></span>
+      <span>🎓 Class: <span id="displayClass">-</span></span>
+    </div>
+  </div>
+
+  <form id="quizForm">
+
+    <!-- BAHAGIAN A -->
+    <div class="section-badge">SECTION A: Reading Comprehension 1 (Q1 – Q5)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      Hi, I am Sarah. Welcome to my new house! It is big and blue. Downstairs, there is a large living room, a kitchen, and a dining room. Upstairs, there are three bedrooms and two bathrooms. My favourite room is my bedroom. I have a comfortable bed, a desk, and a big wardrobe. There are slippers on the floor next to my bed.
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card" id="qCard1">
+      <div class="question-title">1. What colour is Sarah's new house?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q1" value="A"> A. Blue</label>
+        <label class="option-btn"><input type="radio" name="q1" value="B"> B. Red</label>
+        <label class="option-btn"><input type="radio" name="q1" value="C"> C. Green</label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" id="qCard2">
+      <div class="question-title">2. Where is the living room located?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q2" value="A"> A. Downstairs</label>
+        <label class="option-btn"><input type="radio" name="q2" value="B"> B. Upstairs</label>
+        <label class="option-btn"><input type="radio" name="q2" value="C"> C. In the garden</label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" id="qCard3">
+      <div class="question-title">3. How many bedrooms are there upstairs?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q3" value="A"> A. Three</label>
+        <label class="option-btn"><input type="radio" name="q3" value="B"> B. Two</label>
+        <label class="option-btn"><input type="radio" name="q3" value="C"> C. Four</label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" id="qCard4">
+      <div class="question-title">4. What is Sarah's favourite room?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q4" value="A"> A. Her bedroom</label>
+        <label class="option-btn"><input type="radio" name="q4" value="B"> B. The kitchen</label>
+        <label class="option-btn"><input type="radio" name="q4" value="C"> C. The dining room</label>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" id="qCard5">
+      <div class="question-title">5. Where are the slippers in Sarah's bedroom?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q5" value="A"> A. On the floor next to the bed</label>
+        <label class="option-btn"><input type="radio" name="q5" value="B"> B. Inside the wardrobe</label>
+        <label class="option-btn"><input type="radio" name="q5" value="C"> C. Under the desk</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN B -->
+    <div class="section-badge">SECTION B: Reading Comprehension 2 (Q6 – Q10)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      This is Adam's house. In the living room, there is a big couch and a television. A round table is in front of the couch. There is a cute cat named Timmy under the table. Adam's coat is behind the door. Whose trainers are those near the door? They are his brother's trainers. They love keeping their house clean and tidy.
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" id="qCard6">
+      <div class="question-title">6. What is in front of the couch in the living room?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q6" value="A"> A. A round table</label>
+        <label class="option-btn"><input type="radio" name="q6" value="B"> B. A television</label>
+        <label class="option-btn"><input type="radio" name="q6" value="C"> C. A wardrobe</label>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card" id="qCard7">
+      <div class="question-title">7. Who is sleeping under the table?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q7" value="A"> A. Timmy the cat</label>
+        <label class="option-btn"><input type="radio" name="q7" value="B"> B. Adam's brother</label>
+        <label class="option-btn"><input type="radio" name="q7" value="C"> C. A puppy</label>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card" id="qCard8">
+      <div class="question-title">8. Where is Adam's coat?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q8" value="A"> A. Behind the door</label>
+        <label class="option-btn"><input type="radio" name="q8" value="B"> B. On the couch</label>
+        <label class="option-btn"><input type="radio" name="q8" value="C"> C. In the kitchen</label>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card" id="qCard9">
+      <div class="question-title">9. Whose trainers are near the door?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q9" value="A"> A. His brother's</label>
+        <label class="option-btn"><input type="radio" name="q9" value="B"> B. Adam's</label>
+        <label class="option-btn"><input type="radio" name="q9" value="C"> C. Timmy's</label>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" id="qCard10">
+      <div class="question-title">10. How do they love keeping their house?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q10" value="A"> A. Clean and tidy</label>
+        <label class="option-btn"><input type="radio" name="q10" value="B"> B. Messy and dirty</label>
+        <label class="option-btn"><input type="radio" name="q10" value="C"> C. Dark and noisy</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN C -->
+    <div class="section-badge">SECTION C: True or False (Q11 – Q15)</div>
+
+    <!-- Q11 -->
+    <div class="question-card" id="qCard11">
+      <div class="question-title">11. We cook food in the kitchen.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q11" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q11" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card" id="qCard12">
+      <div class="question-title">12. A fridge is used to keep food and drinks cool.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q12" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q12" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card" id="qCard13">
+      <div class="question-title">13. You usually sleep on a sofa in the bathroom.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q13" value="A"> A. False</label>
+        <label class="option-btn"><input type="radio" name="q13" value="B"> B. True</label>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card" id="qCard14">
+      <div class="question-title">14. "Behind" means at the back of something.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q14" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q14" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card" id="qCard15">
+      <div class="question-title">15. A house can have bedrooms, bathrooms, and a living room.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q15" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q15" value="B"> B. False</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN D -->
+    <div class="section-badge">SECTION D: Grammar & Vocabulary (Q16 – Q25)</div>
+
+    <!-- Q16 -->
+    <div class="question-card" id="qCard16">
+      <div class="question-title">16. Where __________ the ball? It's under the bed.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q16" value="A"> A. is</label>
+        <label class="option-btn"><input type="radio" name="q16" value="B"> B. are</label>
+        <label class="option-btn"><input type="radio" name="q16" value="C"> C. am</label>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="question-card" id="qCard17">
+      <div class="question-title">17. Where __________ my slippers? They are behind the door.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q17" value="A"> A. are</label>
+        <label class="option-btn"><input type="radio" name="q17" value="B"> B. is</label>
+        <label class="option-btn"><input type="radio" name="q17" value="C"> C. am</label>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="question-card" id="qCard18">
+      <div class="question-title">18. Whose bag is this? It's __________.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q18" value="A"> A. Anna's</label>
+        <label class="option-btn"><input type="radio" name="q18" value="B"> B. Anna</label>
+        <label class="option-btn"><input type="radio" name="q18" value="C"> C. Annas'</label>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="question-card" id="qCard19">
+      <div class="question-title">19. There __________ a big fridge in the kitchen.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q19" value="A"> A. is</label>
+        <label class="option-btn"><input type="radio" name="q19" value="B"> B. are</label>
+        <label class="option-btn"><input type="radio" name="q19" value="C"> C. am</label>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="question-card" id="qCard20">
+      <div class="question-title">20. There __________ two armchairs in the living room.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q20" value="A"> A. are</label>
+        <label class="option-btn"><input type="radio" name="q20" value="B"> B. is</label>
+        <label class="option-btn"><input type="radio" name="q20" value="C"> C. am</label>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="question-card" id="qCard21">
+      <div class="question-title">21. The cat is sleeping __________ the sofa.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q21" value="A"> A. on</label>
+        <label class="option-btn"><input type="radio" name="q21" value="B"> B. between</label>
+        <label class="option-btn"><input type="radio" name="q21" value="C"> C. under of</label>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card" id="qCard22">
+      <div class="question-title">22. Whose coat is that? It's __________ brother's coat.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q22" value="A"> A. my</label>
+        <label class="option-btn"><input type="radio" name="q22" value="B"> B. me</label>
+        <label class="option-btn"><input type="radio" name="q22" value="C"> C. mine</label>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="question-card" id="qCard23">
+      <div class="question-title">23. We wash our hands and brush our teeth in the __________.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q23" value="A"> A. bathroom</label>
+        <label class="option-btn"><input type="radio" name="q23" value="B"> B. kitchen</label>
+        <label class="option-btn"><input type="radio" name="q23" value="C"> C. garden</label>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card" id="qCard24">
+      <div class="question-title">24. The shoes are __________ the bed, so you cannot see them.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q24" value="A"> A. under</label>
+        <label class="option-btn"><input type="radio" name="q24" value="B"> B. on top</label>
+        <label class="option-btn"><input type="radio" name="q24" value="C"> C. over</label>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card" id="qCard25">
+      <div class="question-title">25. Is there a mirror in the room? Yes, __________ is.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q25" value="A"> A. there</label>
+        <label class="option-btn"><input type="radio" name="q25" value="B"> B. it</label>
+        <label class="option-btn"><input type="radio" name="q25" value="C"> C. they</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN E -->
+    <div class="section-badge">SECTION E: Punctuation & Capital Letters (Q26 – Q30)</div>
+
+    <!-- Q26 -->
+    <div class="question-card" id="qCard26">
+      <div class="question-title">26. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q26" value="A"> A. Where is my bag?</label>
+        <label class="option-btn"><input type="radio" name="q26" value="B"> B. where is my bag.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="C"> C. Where is my bag</label>
+      </div>
+    </div>
+
+    <!-- Q27 -->
+    <div class="question-card" id="qCard27">
+      <div class="question-title">27. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q27" value="A"> A. There is a table in the kitchen.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="B"> B. there is a table in the kitchen.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="C"> C. There is a table in the kitchen</label>
+      </div>
+    </div>
+
+    <!-- Q28 -->
+    <div class="question-card" id="qCard28">
+      <div class="question-title">28. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q28" value="A"> A. Whose coat is this?</label>
+        <label class="option-btn"><input type="radio" name="q28" value="B"> B. whose coat is this?</label>
+        <label class="option-btn"><input type="radio" name="q28" value="C"> C. Whose coat is this.</label>
+      </div>
+    </div>
+
+    <!-- Q29 -->
+    <div class="question-card" id="qCard29">
+      <div class="question-title">29. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q29" value="A"> A. It is behind the door.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="B"> B. it is behind the door.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="C"> C. It is behind the door</label>
+      </div>
+    </div>
+
+    <!-- Q30 -->
+    <div class="question-card" id="qCard30">
+      <div class="question-title">30. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q30" value="A"> A. Is there a mirror in the bathroom?</label>
+        <label class="option-btn"><input type="radio" name="q30" value="B"> B. Is there a mirror in the bathroom.</label>
+        <label class="option-btn"><input type="radio" name="q30" value="C"> C. is there a mirror in the bathroom?</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN F -->
+    <div class="section-badge">SECTION F: Sentence Structure & Word Order (Q31 – Q50)</div>
+
+    <!-- Q31 -->
+    <div class="question-card" id="qCard31">
+      <div class="question-title">31. Rearrange: <strong>is / Where / bag? / my</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q31" value="A"> A. Where is my bag?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="B"> B. My bag is where?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="C"> C. Is where my bag?</label>
+      </div>
+    </div>
+
+    <!-- Q32 -->
+    <div class="question-card" id="qCard32">
+      <div class="question-title">32. Rearrange: <strong>under / The / bed. / cat / is / the</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q32" value="A"> A. The cat is under the bed.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="B"> B. Under the bed the cat is.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="C"> C. Is the cat under bed the.</label>
+      </div>
+    </div>
+
+    <!-- Q33 -->
+    <div class="question-card" id="qCard33">
+      <div class="question-title">33. Rearrange: <strong>coat / Whose / this? / is</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q33" value="A"> A. Whose coat is this?</label>
+        <label class="option-btn"><input type="radio" name="q33" value="B"> B. Coat whose is this?</label>
+        <label class="option-btn"><input type="radio" name="q33" value="C"> C. Is this coat whose?</label>
+      </div>
+    </div>
+
+    <!-- Q34 -->
+    <div class="question-card" id="qCard34">
+      <div class="question-title">34. Rearrange: <strong>is / a / fridge / There / kitchen. / in / the</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q34" value="A"> A. There is a fridge in the kitchen.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="B"> B. A fridge is there in kitchen the.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="C"> C. In the kitchen fridge a is there.</label>
+      </div>
+    </div>
+
+    <!-- Q35 -->
+    <div class="question-card" id="qCard35">
+      <div class="question-title">35. Rearrange: <strong>living room. / are / two / sofas / in / the / There</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q35" value="A"> A. There are two sofas in the living room.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="B"> B. Two sofas are there in living room the.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="C"> C. In the living room sofas two are there.</label>
+      </div>
+    </div>
+
+    <!-- Q36 -->
+    <div class="question-card" id="qCard36">
+      <div class="question-title">36. Rearrange: <strong>door. / behind / It / is / the</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q36" value="A"> A. It is behind the door.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="B"> B. Behind the door it is.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="C"> C. Is it door the behind.</label>
+      </div>
+    </div>
+
+    <!-- Q37 -->
+    <div class="question-card" id="qCard37">
+      <div class="question-title">37. Rearrange: <strong>favourite / My / is / bedroom. / room / my</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q37" value="A"> A. My favourite room is my bedroom.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="B"> B. My bedroom is room my favourite.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="C"> C. Favourite my room bedroom is my.</label>
+      </div>
+    </div>
+
+    <!-- Q38 -->
+    <div class="question-card" id="qCard38">
+      <div class="question-title">38. Rearrange: <strong>front / The / table / is / of / in / the / TV.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q38" value="A"> A. The table is in front of the TV.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="B"> B. In front of the table is TV.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="C"> C. The TV is front in table of.</label>
+      </div>
+    </div>
+
+    <!-- Q39 -->
+    <div class="question-card" id="qCard39">
+      <div class="question-title">39. Rearrange: <strong>sleeping / on / The / dog / is / the / mat.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q39" value="A"> A. The dog is sleeping on the mat.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="B"> B. Sleeping on mat the dog is.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="C"> C. Mat on the dog sleeping is.</label>
+      </div>
+    </div>
+
+    <!-- Q40 -->
+    <div class="question-card" id="qCard40">
+      <div class="question-title">40. Rearrange: <strong>clean / house / Keep / your / tidy. / and</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q40" value="A"> A. Keep your house clean and tidy.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="B"> B. Clean and tidy keep house your.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="C"> C. Your house keep tidy clean and.</label>
+      </div>
+    </div>
+
+    <!-- Q41 -->
+    <div class="question-card" id="qCard41">
+      <div class="question-title">41. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q41" value="A"> A. Where are my shoes?</label>
+        <label class="option-btn"><input type="radio" name="q41" value="B"> B. Where is my shoes?</label>
+        <label class="option-btn"><input type="radio" name="q41" value="C"> C. Where am my shoes?</label>
+      </div>
+    </div>
+
+    <!-- Q42 -->
+    <div class="question-card" id="qCard42">
+      <div class="question-title">42. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q42" value="A"> A. Whose hat is this?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="B"> B. Whose hat are this?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="C"> C. Whose hat am this?</label>
+      </div>
+    </div>
+
+    <!-- Q43 -->
+    <div class="question-card" id="qCard43">
+      <div class="question-title">43. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q43" value="A"> A. There is a clock on the wall.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="B"> B. There are a clock on the wall.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="C"> C. There am a clock on the wall.</label>
+      </div>
+    </div>
+
+    <!-- Q44 -->
+    <div class="question-card" id="qCard44">
+      <div class="question-title">44. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q44" value="A"> A. The books are on the desk.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="B"> B. The books is on the desk.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="C"> C. The books am on the desk.</label>
+      </div>
+    </div>
+
+    <!-- Q45 -->
+    <div class="question-card" id="qCard45">
+      <div class="question-title">45. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q45" value="A"> A. Is there a pillow on the bed?</label>
+        <label class="option-btn"><input type="radio" name="q45" value="B"> B. Are there a pillow on the bed?</label>
+        <label class="option-btn"><input type="radio" name="q45" value="C"> C. Am there a pillow on the bed?</label>
+      </div>
+    </div>
+
+    <!-- Q46 -->
+    <div class="question-card" id="qCard46">
+      <div class="question-title">46. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q46" value="A"> A. It is behind the curtain.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="B"> B. It are behind the curtain.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="C"> C. It am behind the curtain.</label>
+      </div>
+    </div>
+
+    <!-- Q47 -->
+    <div class="question-card" id="qCard47">
+      <div class="question-title">47. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q47" value="A"> A. Whose slippers are these?</label>
+        <label class="option-btn"><input type="radio" name="q47" value="B"> B. Whose slippers is these?</label>
+        <label class="option-btn"><input type="radio" name="q47" value="C"> C. Whose slippers am these?</label>
+      </div>
+    </div>
+
+    <!-- Q48 -->
+    <div class="question-card" id="qCard48">
+      <div class="question-title">48. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q48" value="A"> A. She lives in a new house.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="B"> B. She live in a new house.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="C"> C. She living in a new house.</label>
+      </div>
+    </div>
+
+    <!-- Q49 -->
+    <div class="question-card" id="qCard49">
+      <div class="question-title">49. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q49" value="A"> A. There are three chairs in the room.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="B"> B. There is three chairs in the room.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="C"> C. There am three chairs in the room.</label>
+      </div>
+    </div>
+
+    <!-- Q50 -->
+    <div class="question-card" id="qCard50">
+      <div class="question-title">50. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q50" value="A"> A. The ball is under the table.</label>
+        <label class="option-btn"><input type="radio" name="q50" value="B"> B. The ball are under the table.</label>
+        <label class="option-btn"><input type="radio" name="q50" value="C"> C. The ball am under the table.</label>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="button" class="submit-btn" onclick="submitQuiz()">HANTAR JAWAPAN ➔</button>
+
+  </form>
+
+</div>
+
+
+<!-- RESULT MODAL -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-card">
+    <h2>🎉 TAHNIAH / CONGRATULATIONS!</h2>
+    <p>Kuiz y3_module5 telah selesai.</p>
+    <div class="score-text" id="finalScoreText">0 / 50</div>
+    <p id="percentageText">Peratusan: 0%</p>
+    <div>
+      <button class="modal-action-btn" onclick="closeModal()">Semak Jawapan</button>
+      <a href="index.html" class="modal-action-btn" style="background: #2e7d32;">Kembali ke Utama</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+
+/* Skema Jawapan y3_module5 */
+const correctAnswers = {
+  1:'A', 2:'A', 3:'A', 4:'A', 5:'A',
+  6:'A', 7:'A', 8:'A', 9:'A', 10:'A',
+  11:'A', 12:'A', 13:'A', 14:'A', 15:'A',
+  16:'A', 17:'A', 18:'A', 19:'A', 20:'A',
+  21:'A', 22:'A', 23:'A', 24:'A', 25:'A',
+  26:'A', 27:'A', 28:'A', 29:'A', 30:'A',
+  31:'A', 32:'A', 33:'A', 34:'A', 35:'A',
+  36:'A', 37:'A', 38:'A', 39:'A', 40:'A',
+  41:'A', 42:'A', 43:'A', 44:'A', 45:'A',
+  46:'A', 47:'A', 48:'A', 49:'A', 50:'A'
+};
+
+/* Muat Maklumat Murid dari LocalStorage */
+window.onload = function() {
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  document.getElementById("displayName").innerText = name;
+  document.getElementById("displayClass").innerText = studentClass;
+};
+
+function submitQuiz() {
+  let score = 0;
+  let unanswered = 0;
+
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    
+    if (!selectedOption) {
+      unanswered++;
+    } else {
+      if (selectedOption.value === correctAnswers[i]) {
+        score++;
+      }
+    }
+  }
+
+  if (unanswered > 0) {
+    const confirmSubmit = confirm(`Anda masih mempunyai ${unanswered} soalan yang belum dijawab. Adakah anda pasti mahu menghantar?`);
+    if (!confirmSubmit) return;
+  }
+
+  /* Semak & Tandakan Jawapan */
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    const options = document.querySelectorAll(`input[name="q${i}"]`);
+
+    options.forEach(opt => {
+      const parentLabel = opt.parentElement;
+      if (opt.value === correctAnswers[i]) {
+        parentLabel.classList.add("correct-mark");
+      } else if (selectedOption && opt.checked && opt.value !== correctAnswers[i]) {
+        parentLabel.classList.add("wrong-mark");
+      }
+    });
+  }
+
+  /* Paparkan Skor */
+  const percentage = Math.round((score / 50) * 100);
+  document.getElementById("finalScoreText").innerText = `${score} / 50`;
+  document.getElementById("percentageText").innerText = `Peratusan: ${percentage}%`;
+  document.getElementById("resultModal").style.display = "flex";
+
+  /* Simpan keputusan ke LocalStorage */
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  
+  const resultData = {
+    name: name,
+    class: studentClass,
+    module: "UB Tahun 3 - y3_module5",
+    score: score,
+    total: 50,
+    percentage: percentage,
+    date: new Date().toLocaleDateString()
+  };
+
+  let allResults = JSON.parse(localStorage.getItem("seqsResults")) || [];
+  allResults.push(resultData);
+  localStorage.setItem("seqsResults", JSON.stringify(allResults));
+}
+
+function closeModal() {
+  document.getElementById("resultModal").style.display = "none";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+
+</body>
+
+</html>
