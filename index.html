@@ -23,9 +23,10 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif !important;
   font-size: 14pt !important;
-  background: linear-gradient(135deg, #eef5ff 0%, #d8e8ff 100%);
+  background: linear-gradient(180deg, #00b4db 0%, #0083b0 40%, #004e92 100%);
   color: #1a2b4c;
   min-height: 100vh;
   display: flex;
@@ -35,38 +36,28 @@ body {
 
 
 /* ================================
-   HEADER
+   HEADER SECTION
 ================================ */
 
 header {
-  background: linear-gradient(135deg, #0d47a1, #1976d2);
-  color: white;
   text-align: center;
-  padding: 35px 20px 25px 20px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  box-shadow: 0 6px 20px rgba(13, 71, 161, 0.2);
+  padding: 30px 20px 15px 20px;
+  color: white;
 }
 
 .logo {
-  font-weight: bold;
-  letter-spacing: 3px;
-  margin-bottom: 6px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 22pt !important;
+  text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
 }
 
 .subtitle {
-  margin-top: 4px;
-  opacity: 0.95;
-}
-
-.year {
-  margin-top: 12px;
+  margin-top: 6px;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
-  display: inline-block;
-  padding: 6px 18px;
-  border-radius: 20px;
-  color: #ffffff;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0.95;
 }
 
 
@@ -75,125 +66,204 @@ header {
 ================================ */
 
 .container {
-  max-width: 680px;
-  width: 100%;
-  margin: auto;
-  padding: 25px 20px;
+  max-width: 900px;
+  width: 92%;
+  margin: 0 auto;
+  padding-bottom: 30px;
 }
 
 
 /* ================================
-   WELCOME
+   STUDENT INFO BAR (ORANGE CONTAINER)
 ================================ */
 
-.welcome {
-  text-align: center;
-  margin-bottom: 22px;
+.student-info-bar {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+  border: 3px solid #ffffff;
 }
 
-.welcome h2 {
-  color: #0d47a1;
-  margin-bottom: 6px;
-  font-weight: bold;
-}
-
-.welcome p {
-  color: #50647b;
-  line-height: 1.5;
-  margin: 0;
-}
-
-
-/* ================================
-   STUDENT CARD
-================================ */
-
-.student-card {
+.input-box {
   background: #ffffff;
-  padding: 30px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(25, 118, 210, 0.12);
-  border: 1px solid rgba(203, 216, 230, 0.5);
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
-
-/* ================================
-   FORM CONTROLS
-================================ */
-
-.form-group {
-  margin-bottom: 20px;
+.input-icon {
+  font-size: 18pt !important;
+  background: #ffe0b2;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
 }
 
-label {
-  display: block;
+.input-field-wrapper {
+  flex: 1;
+}
+
+.input-label {
+  font-size: 10pt !important;
   font-weight: bold;
-  margin-bottom: 8px;
-  color: #0d47a1;
+  color: #e65100;
+  display: block;
+  text-transform: uppercase;
 }
 
-input,
-select {
+input, select {
   width: 100%;
-  padding: 14px 16px;
-  border: 2px solid #cbd8e6;
-  border-radius: 12px;
-  background-color: #fbfdff;
-  color: #1a2b4c;
-  transition: all 0.25s ease;
+  border: none;
   outline: none;
-}
-
-input:hover,
-select:hover {
-  border-color: #90caf9;
-  background-color: #ffffff;
-}
-
-input:focus,
-select:focus {
-  border-color: #1976d2;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.15);
+  background: transparent;
+  font-weight: bold;
+  color: #333333;
+  padding: 4px 0;
 }
 
 
 /* ================================
-   INTERACTIVE START BUTTON
+   SECTION TITLE BADGE
 ================================ */
+
+.section-badge {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.section-badge span {
+  background: #003366;
+  color: #ffeb3b;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: inline-block;
+}
+
+
+/* ================================
+   MODULE CARDS GRID (SIDE BY SIDE)
+================================ */
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.module-card {
+  border-radius: 22px;
+  padding: 22px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* Card Y3 (Blue) */
+.card-y3 {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+}
+
+/* Card Y4 (Pink) */
+.card-y4 {
+  background: linear-gradient(135deg, #ff007f, #ff5252);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-icon {
+  background: rgba(255, 255, 255, 0.25);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16pt !important;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 15pt !important;
+}
+
+.card-desc {
+  font-size: 11pt !important;
+  opacity: 0.95;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.card-select {
+  background: #ffffff !important;
+  color: #1a2b4c !important;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .start-btn {
   width: 100%;
   border: none;
   padding: 16px;
   border-radius: 30px;
-  background: linear-gradient(135deg, #1976d2, #0d47a1);
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
   color: white;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(25, 118, 210, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   transition: all 0.25s ease;
-  margin-top: 10px;
+  border: 2px solid #ffffff;
+  text-align: center;
 }
 
 .start-btn:hover {
-  background: linear-gradient(135deg, #1565c0, #0a3880);
+  background: linear-gradient(135deg, #43a047, #1b5e20);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(25, 118, 210, 0.45);
-}
-
-.start-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25);
-}
-
-
-/* ================================
-   BOTTOM MENU (REKOD GURU)
-================================ */
-
-.menu {
-  margin-top: 22px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
 }
 
 .menu-btn {
@@ -201,28 +271,22 @@ select:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  background: #ffffff;
-  border: 2px solid #1976d2;
-  color: #1557a6;
-  padding: 12px 20px;
-  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #ffffff;
+  color: #004e92;
+  border-radius: 25px;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.25s ease;
 }
 
 .menu-btn:hover {
-  background: #1976d2;
-  color: #ffffff;
+  background: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(25, 118, 210, 0.25);
-}
-
-.menu-btn:active {
-  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -232,9 +296,24 @@ select:focus {
 
 footer {
   text-align: center;
-  color: #607080;
-  padding: 24px 15px;
-  line-height: 1.6;
+  color: #e0f2fe;
+  padding: 20px 15px;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN (MOBILE)
+================================ */
+
+@media (max-width: 650px) {
+  .student-info-bar {
+    grid-template-columns: 1fr;
+  }
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 </style>
@@ -252,117 +331,111 @@ footer {
 <header>
 
   <div class="logo">
-    SEQS
+    PORTAL SEQS ENGLISH
   </div>
 
   <div class="subtitle">
-    SMART ENGLISH QUIZ SYSTEM
-  </div>
-
-  <div class="year">
-    UB Year 3 & UB Year 4
+    Enter your details and choose a learning module to begin.
   </div>
 
 </header>
 
 
 <!-- ================================
-     MAIN
+     MAIN CONTAINER
 ================================ -->
 
 <div class="container">
 
 
-  <!-- WELCOME -->
+  <!-- ================================
+        1. BAR MAKLUMAT MURID (OREN)
+  ================================= -->
 
-  <div class="welcome">
+  <div class="student-info-bar">
 
-    <h2>
-      Welcome to SEQS!
-    </h2>
+    <!-- NAMA PENUH -->
+    <div class="input-box">
+      <div class="input-icon">👤</div>
+      <div class="input-field-wrapper">
+        <span class="input-label">Student Name</span>
+        <input
+          type="text"
+          id="studentName"
+          placeholder="Type your name..."
+          autocomplete="off"
+        >
+      </div>
+    </div>
 
-    <p>
-      Enter your details and select a module to start your quiz.
-    </p>
+    <!-- PILIHAN KELAS -->
+    <div class="input-box">
+      <div class="input-icon">🎓</div>
+      <div class="input-field-wrapper">
+        <span class="input-label">Class</span>
+        <select id="studentClass">
+          <option value="">Select Class</option>
+          <optgroup label="TAHUN 3">
+            <option value="3 ARIF">3 ARIF</option>
+            <option value="3 BESTARI">3 BESTARI</option>
+            <option value="3 CERDIK">3 CERDIK</option>
+            <option value="3 DEDIKASI">3 DEDIKASI</option>
+            <option value="3 ELIT">3 ELIT</option>
+            <option value="3 FIRDAUS">3 FIRDAUS</option>
+            <option value="3 GIGIH">3 GIGIH</option>
+            <option value="3 HARMONI">3 HARMONI</option>
+            <option value="3 INOVATIF">3 INOVATIF</option>
+            <option value="3 JUARA">3 JUARA</option>
+            <option value="3 KREATIF">3 KREATIF</option>
+          </optgroup>
+          <optgroup label="TAHUN 4">
+            <option value="4 ARIF">4 ARIF</option>
+            <option value="4 BESTARI">4 BESTARI</option>
+            <option value="4 CERDIK">4 CERDIK</option>
+            <option value="4 DEDIKASI">4 DEDIKASI</option>
+            <option value="4 ELIT">4 ELIT</option>
+            <option value="4 FIRDAUS">4 FIRDAUS</option>
+            <option value="4 GIGIH">4 GIGIH</option>
+            <option value="4 HARMONI">4 HARMONI</option>
+            <option value="4 INOVATIF">4 INOVATIF</option>
+            <option value="4 JUARA">4 JUARA</option>
+            <option value="4 KREATIF">4 KREATIF</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
 
   </div>
 
 
   <!-- ================================
-        STUDENT INFORMATION FORM
+        2. TAJUK SEKSYEN MODUL
   ================================= -->
 
-  <div class="student-card">
+  <div class="section-badge">
+    <span>⭐ MAIN MODULES ⭐</span>
+  </div>
 
 
-    <!-- 1. NAMA PENUH -->
+  <!-- ================================
+        3. KAD MODUL (BERSEBELAHAN)
+  ================================= -->
 
-    <div class="form-group">
-      <label for="studentName">
-        NAMA PENUH
-      </label>
+  <div class="modules-grid">
 
-      <input
-        type="text"
-        id="studentName"
-        placeholder="Masukkan nama penuh anda"
-        autocomplete="off"
-      >
-    </div>
-
-
-    <!-- 2. PILIHAN KELAS -->
-
-    <div class="form-group">
-      <label for="studentClass">
-        PILIHAN KELAS
-      </label>
-
-      <select id="studentClass">
-
-        <option value="">Pilih Kelas</option>
-
-        <optgroup label="TAHUN 3">
-          <option value="3 ARIF">3 ARIF</option>
-          <option value="3 BESTARI">3 BESTARI</option>
-          <option value="3 CERDIK">3 CERDIK</option>
-          <option value="3 DEDIKASI">3 DEDIKASI</option>
-          <option value="3 ELIT">3 ELIT</option>
-          <option value="3 FIRDAUS">3 FIRDAUS</option>
-          <option value="3 GIGIH">3 GIGIH</option>
-          <option value="3 HARMONI">3 HARMONI</option>
-          <option value="3 INOVATIF">3 INOVATIF</option>
-          <option value="3 JUARA">3 JUARA</option>
-          <option value="3 KREATIF">3 KREATIF</option>
-        </optgroup>
-
-        <optgroup label="TAHUN 4">
-          <option value="4 ARIF">4 ARIF</option>
-          <option value="4 BESTARI">4 BESTARI</option>
-          <option value="4 CERDIK">4 CERDIK</option>
-          <option value="4 DEDIKASI">4 DEDIKASI</option>
-          <option value="4 ELIT">4 ELIT</option>
-          <option value="4 FIRDAUS">4 FIRDAUS</option>
-          <option value="4 GIGIH">4 GIGIH</option>
-          <option value="4 HARMONI">4 HARMONI</option>
-          <option value="4 INOVATIF">4 INOVATIF</option>
-          <option value="4 JUARA">4 JUARA</option>
-          <option value="4 KREATIF">4 KREATIF</option>
-        </optgroup>
-
-      </select>
-    </div>
-
-
-    <!-- 3. MODULE UB TAHUN 3 -->
-
-    <div class="form-group">
-      <label for="moduleY3">
-        MODULE UB TAHUN 3
-      </label>
-
-      <select id="moduleY3" onchange="handleModuleSelect('y3')">
-
+    <!-- KAD TAHUN 3 (BIRU) -->
+    <div class="module-card card-y3">
+      <div>
+        <div class="card-header">
+          <div class="card-icon">💡</div>
+          <div class="card-title">UB TAHUN 3</div>
+        </div>
+        <div class="card-desc">
+          Improve your English skills with fun and challenging Year 3 questions.
+        </div>
+      </div>
+      
+      <select id="moduleY3" class="card-select" onchange="handleModuleSelect('y3')">
         <option value="">Pilih Module UB Tahun 3</option>
         <option value="module1">Module 1 – Welcome!</option>
         <option value="module2">Module 2 – Every Day</option>
@@ -374,20 +447,22 @@ footer {
         <option value="module8">Module 8 – Where Were You Yesterday?</option>
         <option value="module9">Module 9 – On Holiday</option>
         <option value="module10">Module 10 – The World Around Us</option>
-
       </select>
     </div>
 
+    <!-- KAD TAHUN 4 (PINK) -->
+    <div class="module-card card-y4">
+      <div>
+        <div class="card-header">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">UB TAHUN 4</div>
+        </div>
+        <div class="card-desc">
+          Practice and strengthen your understanding step by step for Year 4.
+        </div>
+      </div>
 
-    <!-- 4. MODULE UB TAHUN 4 -->
-
-    <div class="form-group">
-      <label for="moduleY4">
-        MODULE UB TAHUN 4
-      </label>
-
-      <select id="moduleY4" onchange="handleModuleSelect('y4')">
-
+      <select id="moduleY4" class="card-select" onchange="handleModuleSelect('y4')">
         <option value="">Pilih Module UB Tahun 4</option>
         <option value="module1">Module 1 – Where Are You From?</option>
         <option value="module2">Module 2 – My Week</option>
@@ -399,36 +474,27 @@ footer {
         <option value="module8">Module 8 – Amazing Animals</option>
         <option value="module9">Module 9 – Get Active!</option>
         <option value="module10">Module 10 – What's The Matter?</option>
-
       </select>
     </div>
 
+  </div>
 
-    <!-- START QUIZ BUTTON -->
+
+  <!-- ================================
+        4. BUTANG TINDAKAN
+  ================================= -->
+
+  <div class="actions-container">
 
     <button
       type="button"
       class="start-btn"
       onclick="startQuiz()"
     >
-      START QUIZ
+      START MODULE ➔
     </button>
 
-  </div>
-
-
-  <!-- ================================
-        MENU (REKOD GURU)
-  ================================= -->
-
-  <div class="menu">
-
-    <!-- REKOD GURU -->
-
-    <a
-      href="teacher.html"
-      class="menu-btn"
-    >
+    <a href="teacher.html" class="menu-btn">
       👩‍🏫 REKOD GURU
     </a>
 
