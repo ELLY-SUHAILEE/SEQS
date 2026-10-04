@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UB Tahun 3: Module 2 – Every Day</title>
+
+<style>
+
+/* ================================
+   GLOBAL & FONT SETTINGS
+   Font: Arial | Size: 14pt
+================================ */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2e2e2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* ================================
+   CONTAINER & HEADER
+================================ */
+
+.quiz-container {
+  max-width: 820px;
+  width: 92%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+}
+
+.header-banner {
+  background: linear-gradient(135deg, #1b5e20, #388e3c);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.header-banner h1 {
+  margin: 0;
+  font-size: 20pt !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.student-bar {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 12px 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #1b5e20;
+  font-weight: bold;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ================================
+   SECTION BADGES & PASSAGES
+================================ */
+
+.section-badge {
+  background: #e65100;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 30px 0 15px 0;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.passage-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #795548;
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.passage-box strong {
+  color: #5d4037;
+}
+
+
+/* ================================
+   QUESTION CARDS
+================================ */
+
+.question-card {
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.question-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #1b5e20;
+  line-height: 1.4;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 2px solid #dddddd;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.option-btn:hover {
+  background: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.option-btn input[type="radio"] {
+  margin-right: 12px;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+
+/* ================================
+   SUBMIT & RESULT MODAL
+================================ */
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  border: 3px solid #ffffff;
+  padding: 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16pt !important;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-top: 25px;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #43a047, #1b5e20);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 4px solid #2e7d32;
+}
+
+.score-text {
+  font-size: 28pt !important;
+  font-weight: bold;
+  color: #2e7d32;
+  margin: 15px 0;
+}
+
+.modal-action-btn {
+  background: #5d4037;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.correct-mark {
+  background: #d4edda !important;
+  border-color: #28a745 !important;
+  color: #155724 !important;
+  font-weight: bold;
+}
+
+.wrong-mark {
+  background: #f8d7da !important;
+  border-color: #dc3545 !important;
+  color: #721c24 !important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="quiz-container">
+
+  <!-- HEADER BANNER -->
+  <div class="header-banner">
+    <h1>UB TAHUN 3: MODULE 2 – EVERY DAY</h1>
+    <div class="student-bar">
+      <span>👤 Student: <span id="displayName">Guest</span></span>
+      <span>🎓 Class: <span id="displayClass">-</span></span>
+    </div>
+  </div>
+
+  <form id="quizForm">
+
+    <!-- BAHAGIAN A -->
+    <div class="section-badge">SECTION A: Reading Comprehension 1 (Q1 – Q5)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      Hi, I am Dan. Every day, I get up at seven o'clock in the morning. I brush my teeth and comb my hair. At half past seven, I have breakfast with my family. I go to school at eight o'clock. After school, I do my homework at five o'clock and go to bed at nine o'clock.
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card" id="qCard1">
+      <div class="question-title">1. What time does Dan get up?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q1" value="A"> A. Seven o'clock</label>
+        <label class="option-btn"><input type="radio" name="q1" value="B"> B. Eight o'clock</label>
+        <label class="option-btn"><input type="radio" name="q1" value="C"> C. Nine o'clock</label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" id="qCard2">
+      <div class="question-title">2. What does Dan do at half past seven?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q2" value="A"> A. Brush his teeth</label>
+        <label class="option-btn"><input type="radio" name="q2" value="B"> B. Have breakfast</label>
+        <label class="option-btn"><input type="radio" name="q2" value="C"> C. Go to bed</label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" id="qCard3">
+      <div class="question-title">3. Dan goes to school at __________.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q3" value="A"> A. half past seven</label>
+        <label class="option-btn"><input type="radio" name="q3" value="B"> B. seven o'clock</label>
+        <label class="option-btn"><input type="radio" name="q3" value="C"> C. eight o'clock</label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" id="qCard4">
+      <div class="question-title">4. What does Dan do at five o'clock?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q4" value="A"> A. Have breakfast</label>
+        <label class="option-btn"><input type="radio" name="q4" value="B"> B. Do his homework</label>
+        <label class="option-btn"><input type="radio" name="q4" value="C"> C. Take a shower</label>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" id="qCard5">
+      <div class="question-title">5. When does Dan go to bed?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q5" value="A"> A. Nine o'clock</label>
+        <label class="option-btn"><input type="radio" name="q5" value="B"> B. Seven o'clock</label>
+        <label class="option-btn"><input type="radio" name="q5" value="C"> C. Eight o'clock</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN B -->
+    <div class="section-badge">SECTION B: Reading Comprehension 2 (Q6 – Q10)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      My father is a firefighter. He works at a fire station. He drives a big red fire truck and saves people from fires. My mother is a doctor. She works in a hospital and helps sick people. I want to be a police officer when I grow up!
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" id="qCard6">
+      <div class="question-title">6. What is the father's job?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q6" value="A"> A. Doctor</label>
+        <label class="option-btn"><input type="radio" name="q6" value="B"> B. Firefighter</label>
+        <label class="option-btn"><input type="radio" name="q6" value="C"> C. Police officer</label>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card" id="qCard7">
+      <div class="question-title">7. Where does the father work?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q7" value="A"> A. Hospital</label>
+        <label class="option-btn"><input type="radio" name="q7" value="B"> B. School</label>
+        <label class="option-btn"><input type="radio" name="q7" value="C"> C. Fire station</label>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card" id="qCard8">
+      <div class="question-title">8. What does the father drive?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q8" value="A"> A. A red fire truck</label>
+        <label class="option-btn"><input type="radio" name="q8" value="B"> B. A police car</label>
+        <label class="option-btn"><input type="radio" name="q8" value="C"> C. An ambulance</label>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card" id="qCard9">
+      <div class="question-title">9. Where does the mother work?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q9" value="A"> A. Fire station</label>
+        <label class="option-btn"><input type="radio" name="q9" value="B"> B. Hospital</label>
+        <label class="option-btn"><input type="radio" name="q9" value="C"> C. Police station</label>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" id="qCard10">
+      <div class="question-title">10. What does the writer want to be?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q10" value="A"> A. Firefighter</label>
+        <label class="option-btn"><input type="radio" name="q10" value="B"> B. Doctor</label>
+        <label class="option-btn"><input type="radio" name="q10" value="C"> C. Police officer</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN C -->
+    <div class="section-badge">SECTION C: True or False (Q11 – Q15)</div>
+
+    <!-- Q11 -->
+    <div class="question-card" id="qCard11">
+      <div class="question-title">11. A dentist puts out fires.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q11" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q11" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card" id="qCard12">
+      <div class="question-title">12. A lifeguard works at the beach or swimming pool.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q12" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q12" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card" id="qCard13">
+      <div class="question-title">13. "Half past three" means 3:30.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q13" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q13" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card" id="qCard14">
+      <div class="question-title">14. We brush our teeth before we go to sleep.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q14" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q14" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card" id="qCard15">
+      <div class="question-title">15. A teacher works in a hospital.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q15" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q15" value="B"> B. False</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN D -->
+    <div class="section-badge">SECTION D: Grammar (Q16 – Q25)</div>
+
+    <!-- Q16 -->
+    <div class="question-card" id="qCard16">
+      <div class="question-title">16. He __________ his teeth every morning.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q16" value="A"> A. brush</label>
+        <label class="option-btn"><input type="radio" name="q16" value="B"> B. brushes</label>
+        <label class="option-btn"><input type="radio" name="q16" value="C"> C. brushing</label>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="question-card" id="qCard17">
+      <div class="question-title">17. What __________ the time? It's six o'clock.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q17" value="A"> A. is</label>
+        <label class="option-btn"><input type="radio" name="q17" value="B"> B. are</label>
+        <label class="option-btn"><input type="radio" name="q17" value="C"> C. do</label>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="question-card" id="qCard18">
+      <div class="question-title">18. __________ she work in a school? Yes, she does.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q18" value="A"> A. Do</label>
+        <label class="option-btn"><input type="radio" name="q18" value="B"> B. Does</label>
+        <label class="option-btn"><input type="radio" name="q18" value="C"> C. Is</label>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="question-card" id="qCard19">
+      <div class="question-title">19. A chef __________ food in a restaurant.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q19" value="A"> A. cook</label>
+        <label class="option-btn"><input type="radio" name="q19" value="B"> B. cooks</label>
+        <label class="option-btn"><input type="radio" name="q19" value="C"> C. cooking</label>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="question-card" id="qCard20">
+      <div class="question-title">20. I __________ to school at eight o'clock.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q20" value="A"> A. go</label>
+        <label class="option-btn"><input type="radio" name="q20" value="B"> B. goes</label>
+        <label class="option-btn"><input type="radio" name="q20" value="C"> C. going</label>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="question-card" id="qCard21">
+      <div class="question-title">21. Does he drive a police car? No, he __________.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q21" value="A"> A. doesn't</label>
+        <label class="option-btn"><input type="radio" name="q21" value="B"> B. don't</label>
+        <label class="option-btn"><input type="radio" name="q21" value="C"> C. isn't</label>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card" id="qCard22">
+      <div class="question-title">22. They __________ their homework in the evening.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q22" value="A"> A. does</label>
+        <label class="option-btn"><input type="radio" name="q22" value="B"> B. do</label>
+        <label class="option-btn"><input type="radio" name="q22" value="C"> C. doing</label>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="question-card" id="qCard23">
+      <div class="question-title">23. She __________ a shower at seven o'clock.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q23" value="A"> A. takes</label>
+        <label class="option-btn"><input type="radio" name="q23" value="B"> B. take</label>
+        <label class="option-btn"><input type="radio" name="q23" value="C"> C. taking</label>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card" id="qCard24">
+      <div class="question-title">24. What do you do? I am a __________. I fix teeth.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q24" value="A"> A. lifeguard</label>
+        <label class="option-btn"><input type="radio" name="q24" value="B"> B. dentist</label>
+        <label class="option-btn"><input type="radio" name="q24" value="C"> C. firefighter</label>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card" id="qCard25">
+      <div class="question-title">25. He __________ up at six o'clock every day.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q25" value="A"> A. get</label>
+        <label class="option-btn"><input type="radio" name="q25" value="B"> B. gets</label>
+        <label class="option-btn"><input type="radio" name="q25" value="C"> C. getting</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN E -->
+    <div class="section-badge">SECTION E: Punctuation & Capital Letters (Q26 – Q30)</div>
+
+    <!-- Q26 -->
+    <div class="question-card" id="qCard26">
+      <div class="question-title">26. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q26" value="A"> A. he gets up at seven o'clock.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="B"> B. He gets up at seven o'clock.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="C"> C. He gets up at Seven o'clock</label>
+      </div>
+    </div>
+
+    <!-- Q27 -->
+    <div class="question-card" id="qCard27">
+      <div class="question-title">27. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q27" value="A"> A. Does she work in a hospital?</label>
+        <label class="option-btn"><input type="radio" name="q27" value="B"> B. Does she work in a hospital.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="C"> C. does she work in a hospital?</label>
+      </div>
+    </div>
+
+    <!-- Q28 -->
+    <div class="question-card" id="qCard28">
+      <div class="question-title">28. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q28" value="A"> A. My mother is a doctor</label>
+        <label class="option-btn"><input type="radio" name="q28" value="B"> B. My mother is a doctor.</label>
+        <label class="option-btn"><input type="radio" name="q28" value="C"> C. my mother is a doctor.</label>
+      </div>
+    </div>
+
+    <!-- Q29 -->
+    <div class="question-card" id="qCard29">
+      <div class="question-title">29. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q29" value="A"> A. What's the time?</label>
+        <label class="option-btn"><input type="radio" name="q29" value="B"> B. what's the time?</label>
+        <label class="option-btn"><input type="radio" name="q29" value="C"> C. What's the time.</label>
+      </div>
+    </div>
+
+    <!-- Q30 -->
+    <div class="question-card" id="qCard30">
+      <div class="question-title">30. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q30" value="A"> A. I brush my teeth at night.</label>
+        <label class="option-btn"><input type="radio" name="q30" value="B"> B. i brush my teeth at night.</label>
+        <label class="option-btn"><input type="radio" name="q30" value="C"> C. I brush my teeth at night</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN F -->
+    <div class="section-badge">SECTION F: Sentence Structure & Word Order (Q31 – Q50)</div>
+
+    <!-- Q31 -->
+    <div class="question-card" id="qCard31">
+      <div class="question-title">31. Rearrange: <strong>gets / up / He / six / at / o'clock.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q31" value="A"> A. He gets up at six o'clock.</label>
+        <label class="option-btn"><input type="radio" name="q31" value="B"> B. Six o'clock he gets up at.</label>
+        <label class="option-btn"><input type="radio" name="q31" value="C"> C. Gets up he at six o'clock.</label>
+      </div>
+    </div>
+
+    <!-- Q32 -->
+    <div class="question-card" id="qCard32">
+      <div class="question-title">32. Rearrange: <strong>teeth / She / brushes / her / every / morning.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q32" value="A"> A. She brushes her teeth every morning.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="B"> B. Her teeth brushes she every morning.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="C"> C. She her teeth brushes every morning.</label>
+      </div>
+    </div>
+
+    <!-- Q33 -->
+    <div class="question-card" id="qCard33">
+      <div class="question-title">33. Rearrange: <strong>a / works / hospital. / in / She</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q33" value="A"> A. She works in a hospital.</label>
+        <label class="option-btn"><input type="radio" name="q33" value="B"> B. In a hospital works she.</label>
+        <label class="option-btn"><input type="radio" name="q33" value="C"> C. She in a hospital works.</label>
+      </div>
+    </div>
+
+    <!-- Q34 -->
+    <div class="question-card" id="qCard34">
+      <div class="question-title">34. Rearrange: <strong>time? / What / the / is</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q34" value="A"> A. What is the time?</label>
+        <label class="option-btn"><input type="radio" name="q34" value="B"> B. The time what is?</label>
+        <label class="option-btn"><input type="radio" name="q34" value="C"> C. What the time is?</label>
+      </div>
+    </div>
+
+    <!-- Q35 -->
+    <div class="question-card" id="qCard35">
+      <div class="question-title">35. Rearrange: <strong>do / homework. / I / my / at / five</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q35" value="A"> A. I do my homework at five.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="B"> B. My homework I do at five.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="C"> C. Do I my homework at five.</label>
+      </div>
+    </div>
+
+    <!-- Q36 -->
+    <div class="question-card" id="qCard36">
+      <div class="question-title">36. Rearrange: <strong>firefighter. / My / a / father / is</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q36" value="A"> A. My father is a firefighter.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="B"> B. Firefighter my father is a.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="C"> C. Is my father a firefighter.</label>
+      </div>
+    </div>
+
+    <!-- Q37 -->
+    <div class="question-card" id="qCard37">
+      <div class="question-title">37. Rearrange: <strong>bed / go / to / I / half / past / eight. / at</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q37" value="A"> A. I go to bed at half past eight.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="B"> B. Half past eight I go to bed at.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="C"> C. Go to bed I at half past eight.</label>
+      </div>
+    </div>
+
+    <!-- Q38 -->
+    <div class="question-card" id="qCard38">
+      <div class="question-title">38. Rearrange: <strong>Does / in / work / school? / a / he</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q38" value="A"> A. Does he work in a school?</label>
+        <label class="option-btn"><input type="radio" name="q38" value="B"> B. He work in a school does?</label>
+        <label class="option-btn"><input type="radio" name="q38" value="C"> C. Work he does in a school?</label>
+      </div>
+    </div>
+
+    <!-- Q39 -->
+    <div class="question-card" id="qCard39">
+      <div class="question-title">39. Rearrange: <strong>drives / a / police / He / car.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q39" value="A"> A. He drives a police car.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="B"> B. A police car drives he.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="C"> C. Drives he a police car.</label>
+      </div>
+    </div>
+
+    <!-- Q40 -->
+    <div class="question-card" id="qCard40">
+      <div class="question-title">40. Rearrange: <strong>at / eats / breakfast / seven. / She</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q40" value="A"> A. She eats breakfast at seven.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="B"> B. Breakfast eats she at seven.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="C"> C. At seven breakfast eats she.</label>
+      </div>
+    </div>
+
+    <!-- Q41 -->
+    <div class="question-card" id="qCard41">
+      <div class="question-title">41. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q41" value="A"> A. He get up at seven.</label>
+        <label class="option-btn"><input type="radio" name="q41" value="B"> B. He gets up at seven.</label>
+        <label class="option-btn"><input type="radio" name="q41" value="C"> C. He getting up at seven.</label>
+      </div>
+    </div>
+
+    <!-- Q42 -->
+    <div class="question-card" id="qCard42">
+      <div class="question-title">42. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q42" value="A"> A. Does she works in a shop?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="B"> B. Does she work in a shop?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="C"> C. Do she work in a shop?</label>
+      </div>
+    </div>
+
+    <!-- Q43 -->
+    <div class="question-card" id="qCard43">
+      <div class="question-title">43. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q43" value="A"> A. It is half past six.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="B"> B. It is half six past.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="C"> C. It half past six is.</label>
+      </div>
+    </div>
+
+    <!-- Q44 -->
+    <div class="question-card" id="qCard44">
+      <div class="question-title">44. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q44" value="A"> A. A chef cook delicious food.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="B"> B. A chef cooks delicious food.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="C"> C. A chef cooking delicious food.</label>
+      </div>
+    </div>
+
+    <!-- Q45 -->
+    <div class="question-card" id="qCard45">
+      <div class="question-title">45. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q45" value="A"> A. I brush my teeth every day.</label>
+        <label class="option-btn"><input type="radio" name="q45" value="B"> B. I brushes my teeth every day.</label>
+        <label class="option-btn"><input type="radio" name="q45" value="C"> C. I brushing my teeth every day.</label>
+      </div>
+    </div>
+
+    <!-- Q46 -->
+    <div class="question-card" id="qCard46">
+      <div class="question-title">46. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q46" value="A"> A. Where does he works?</label>
+        <label class="option-btn"><input type="radio" name="q46" value="B"> B. Where does he work?</label>
+        <label class="option-btn"><input type="radio" name="q46" value="C"> C. Where do he work?</label>
+      </div>
+    </div>
+
+    <!-- Q47 -->
+    <div class="question-card" id="qCard47">
+      <div class="question-title">47. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q47" value="A"> A. She takes a shower at night.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="B"> B. She take a shower at night.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="C"> C. She taking a shower at night.</label>
+      </div>
+    </div>
+
+    <!-- Q48 -->
+    <div class="question-card" id="qCard48">
+      <div class="question-title">48. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q48" value="A"> A. A lifeguard saves people at the beach.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="B"> B. A lifeguard save people at the beach.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="C"> C. A lifeguard saving people at the beach.</label>
+      </div>
+    </div>
+
+    <!-- Q49 -->
+    <div class="question-card" id="qCard49">
+      <div class="question-title">49. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q49" value="A"> A. What time do you go to school?</label>
+        <label class="option-btn"><input type="radio" name="q49" value="B"> B. What time does you go to school?</label>
+        <label class="option-btn"><input type="radio" name="q49" value="C"> C. What time you go to school?</label>
+      </div>
+    </div>
+
+    <!-- Q50 -->
+    <div class="question-card" id="qCard50">
+      <div class="question-title">50. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q50" value="A"> A. They goes to bed at nine o'clock.</label>
+        <label class="option-btn"><input type="radio" name="q50" value="B"> B. They go to bed at nine o'clock.</label>
+        <label class="option-btn"><input type="radio" name="q50" value="C"> C. They going to bed at nine o'clock.</label>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="button" class="submit-btn" onclick="submitQuiz()">HANTAR JAWAPAN ➔</button>
+
+  </form>
+
+</div>
+
+
+<!-- RESULT MODAL -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-card">
+    <h2>🎉 TAHNIAH / CONGRATULATIONS!</h2>
+    <p>Kuiz Module 2 telah selesai.</p>
+    <div class="score-text" id="finalScoreText">0 / 50</div>
+    <p id="percentageText">Peratusan: 0%</p>
+    <div>
+      <button class="modal-action-btn" onclick="closeModal()">Semak Jawapan</button>
+      <a href="index.html" class="modal-action-btn" style="background: #2e7d32;">Kembali ke Utama</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+
+/* Skema Jawapan Module 2 */
+const correctAnswers = {
+  1:'A', 2:'B', 3:'C', 4:'B', 5:'A',
+  6:'B', 7:'C', 8:'A', 9:'B', 10:'C',
+  11:'B', 12:'A', 13:'A', 14:'A', 15:'B',
+  16:'B', 17:'A', 18:'B', 19:'B', 20:'A',
+  21:'A', 22:'B', 23:'A', 24:'B', 25:'B',
+  26:'B', 27:'A', 28:'B', 29:'A', 30:'A',
+  31:'A', 32:'A', 33:'A', 34:'A', 35:'A',
+  36:'A', 37:'A', 38:'A', 39:'A', 40:'A',
+  41:'B', 42:'B', 43:'A', 44:'B', 45:'A',
+  46:'B', 47:'A', 48:'A', 49:'A', 50:'B'
+};
+
+/* Muat Maklumat Murid dari LocalStorage */
+window.onload = function() {
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  document.getElementById("displayName").innerText = name;
+  document.getElementById("displayClass").innerText = studentClass;
+};
+
+function submitQuiz() {
+  let score = 0;
+  let unanswered = 0;
+
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    
+    if (!selectedOption) {
+      unanswered++;
+    } else {
+      if (selectedOption.value === correctAnswers[i]) {
+        score++;
+      }
+    }
+  }
+
+  if (unanswered > 0) {
+    const confirmSubmit = confirm(`Anda masih mempunyai ${unanswered} soalan yang belum dijawab. Adakah anda pasti mahu menghantar?`);
+    if (!confirmSubmit) return;
+  }
+
+  /* Semak & Tandakan Jawapan */
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    const options = document.querySelectorAll(`input[name="q${i}"]`);
+
+    options.forEach(opt => {
+      const parentLabel = opt.parentElement;
+      if (opt.value === correctAnswers[i]) {
+        parentLabel.classList.add("correct-mark");
+      } else if (selectedOption && opt.checked && opt.value !== correctAnswers[i]) {
+        parentLabel.classList.add("wrong-mark");
+      }
+    });
+  }
+
+  /* Paparkan Skor */
+  const percentage = Math.round((score / 50) * 100);
+  document.getElementById("finalScoreText").innerText = `${score} / 50`;
+  document.getElementById("percentageText").innerText = `Peratusan: ${percentage}%`;
+  document.getElementById("resultModal").style.display = "flex";
+
+  /* Simpan keputusan ke LocalStorage */
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  
+  const resultData = {
+    name: name,
+    class: studentClass,
+    module: "UB Tahun 3 - Module 2",
+    score: score,
+    total: 50,
+    percentage: percentage,
+    date: new Date().toLocaleDateString()
+  };
+
+  let allResults = JSON.parse(localStorage.getItem("seqsResults")) || [];
+  allResults.push(resultData);
+  localStorage.setItem("seqsResults", JSON.stringify(allResults));
+}
+
+function closeModal() {
+  document.getElementById("resultModal").style.display = "none";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+
+</body>
+
+</html>
