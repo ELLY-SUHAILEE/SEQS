@@ -64,36 +64,34 @@ header {
 
 
 /* ================================
-   CONTAINER (KAD PAPAN SEPARA LUTSOSINAR)
+   CONTAINER (TANPA KOTAK PUTIH/BACKGROUND)
 ================================ */
 
 .container {
-  max-width: 720px;
-  width: 90%;
-  margin: 10px auto;
-  padding: 25px;
-  background: rgba(255, 253, 245, 0.92);
-  border-radius: 25px;
-  border: 4px solid #5d4037;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
+  max-width: 760px;
+  width: 92%;
+  margin: 0 auto;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 
 /* ================================
-   STUDENT INFO BAR (TEMA ORAN/KAYU)
+   STUDENT INFO BAR (TEMA OREN)
 ================================ */
 
 .student-info-bar {
   background: linear-gradient(135deg, #e65100, #f57c00);
   padding: 18px;
   border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
   margin-bottom: 20px;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
 }
 
 .input-box {
@@ -158,7 +156,7 @@ input, select {
   font-weight: bold;
   letter-spacing: 1px;
   border: 2px solid #ffffff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   display: inline-block;
 }
 
@@ -178,8 +176,8 @@ input, select {
   border-radius: 18px;
   padding: 18px;
   color: white;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  border: 3px solid #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -260,16 +258,15 @@ input, select {
   color: white;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
   transition: all 0.25s ease;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
   text-align: center;
 }
 
 .start-btn:hover {
   background: linear-gradient(135deg, #43a047, #1b5e20);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
 }
 
 .menu-btn {
@@ -279,13 +276,13 @@ input, select {
   justify-content: center;
   padding: 12px;
   background: #5d4037;
-  border: 2px solid #ffffff;
+  border: 3px solid #ffffff;
   color: #ffffff;
   border-radius: 25px;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.25s ease;
 }
 
@@ -529,7 +526,6 @@ footer {
 
 <script>
 
-/* Reset modul bertentangan jika salah satu dipilih */
 function handleModuleSelect(selectedYear) {
   if (selectedYear === 'y3') {
     document.getElementById("moduleY4").value = "";
@@ -559,7 +555,6 @@ function startQuiz() {
     selectedModuleName = "UB TAHUN 4: " + modY4.options[modY4.selectedIndex].text;
   }
 
-  /* Validation Checks */
   if (name === "") {
     alert("Sila masukkan NAMA PENUH anda.");
     document.getElementById("studentName").focus();
@@ -577,14 +572,12 @@ function startQuiz() {
     return;
   }
 
-  /* Simpan Maklumat Murid ke LocalStorage */
   localStorage.setItem("seqsName", name);
   localStorage.setItem("seqsClass", studentClass);
   localStorage.setItem("seqsYear", selectedYear === "y3" ? "Year 3" : "Year 4");
   localStorage.setItem("seqsModule", selectedModuleCode);
   localStorage.setItem("seqsModuleName", selectedModuleName);
 
-  /* Buka Muka Surat Soalan Kuiz (Contoh: y3_module1.html / y4_module1.html) */
   window.location.href = selectedYear + "_" + selectedModuleCode + ".html";
 
 }
