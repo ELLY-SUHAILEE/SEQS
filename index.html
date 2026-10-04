@@ -11,16 +11,25 @@
 <style>
 
 /* ================================
-   GENERAL
+   FONT & GLOBAL SETTINGS
+   Font: Syazalina | Size: 12pt
 ================================ */
+
+@font-face {
+  font-family: 'Syazalina';
+  src: local('Syazalina');
+}
 
 * {
   box-sizing: border-box;
+  font-family: 'Syazalina', Arial, sans-serif !important;
+  font-size: 12pt !important;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Syazalina', Arial, sans-serif !important;
+  font-size: 12pt !important;
   background: linear-gradient(135deg, #e8f3ff, #f7fbff);
   color: #17324d;
   min-height: 100vh;
@@ -35,17 +44,16 @@ header {
   background: linear-gradient(135deg, #0d47a1, #1976d2);
   color: white;
   text-align: center;
-  padding: 35px 20px;
+  padding: 30px 20px;
 }
 
 .logo {
-  font-size: 50px;
-  font-weight: 800;
-  letter-spacing: 4px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
 }
 
 .subtitle {
-  font-size: 18px;
   margin-top: 5px;
 }
 
@@ -113,11 +121,10 @@ label {
 input,
 select {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #cbd8e6;
   border-radius: 10px;
-  font-size: 16px;
   background: white;
 }
 
@@ -139,7 +146,6 @@ select:focus {
   border-radius: 30px;
   background: #1976d2;
   color: white;
-  font-size: 17px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -164,17 +170,16 @@ select:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 58px;
+  min-height: 55px;
 
   background: white;
   border: 2px solid #1976d2;
   color: #1557a6;
 
-  padding: 15px 10px;
+  padding: 12px 10px;
   border-radius: 15px;
 
   font-weight: bold;
-  font-size: 15px;
 
   text-decoration: none;
   cursor: pointer;
@@ -196,7 +201,6 @@ footer {
   text-align: center;
   color: #718096;
   padding: 28px 15px;
-  font-size: 13px;
   line-height: 1.6;
 }
 
@@ -206,10 +210,6 @@ footer {
 ================================ */
 
 @media (max-width: 500px) {
-
-  .logo {
-    font-size: 38px;
-  }
 
   .menu {
     grid-template-columns: 1fr;
@@ -240,7 +240,7 @@ footer {
   </div>
 
   <div class="year">
-    English Year 3
+    UB Year 3 & UB Year 4
   </div>
 
 </header>
@@ -262,104 +262,121 @@ footer {
     </h2>
 
     <p>
-      Enter your name and class,
-      then choose a module to begin.
+      Enter your details and select a module to start your quiz.
     </p>
 
   </div>
 
 
   <!-- ================================
-       STUDENT INFORMATION
+        STUDENT INFORMATION FORM
   ================================= -->
 
   <div class="student-card">
 
 
-    <!-- NAME -->
+    <!-- 1. NAMA PENUH -->
 
     <label for="studentName">
-      NAME
+      NAMA PENUH
     </label>
 
     <input
       type="text"
       id="studentName"
-      placeholder="Enter your name"
+      placeholder="Masukkan nama penuh anda"
       autocomplete="off"
     >
 
 
-    <!-- CLASS -->
+    <!-- 2. PILIHAN KELAS -->
 
     <label for="studentClass">
-      CLASS
+      PILIHAN KELAS
     </label>
 
-    <input
-      type="text"
-      id="studentClass"
-      placeholder="Enter your class"
-      autocomplete="off"
-    >
+    <select id="studentClass">
 
+      <option value="">Pilih Kelas</option>
 
-    <!-- MODULE -->
+      <optgroup label="TAHUN 3">
+        <option value="3 ARIF">3 ARIF</option>
+        <option value="3 BESTARI">3 BESTARI</option>
+        <option value="3 CERDIK">3 CERDIK</option>
+        <option value="3 DEDIKASI">3 DEDIKASI</option>
+        <option value="3 ELIT">3 ELIT</option>
+        <option value="3 FIRDAUS">3 FIRDAUS</option>
+        <option value="3 GIGIH">3 GIGIH</option>
+        <option value="3 HARMONI">3 HARMONI</option>
+        <option value="3 INOVATIF">3 INOVATIF</option>
+        <option value="3 JUARA">3 JUARA</option>
+        <option value="3 KREATIF">3 KREATIF</option>
+      </optgroup>
 
-    <label for="module">
-      MODULE
-    </label>
-
-    <select id="module">
-
-      <option value="">
-        Choose a module
-      </option>
-
-      <option value="module1">
-        Module 1 – Welcome!
-      </option>
-
-      <option value="module2">
-        Module 2 – Every Day
-      </option>
-
-      <option value="module3">
-        Module 3 – Right Now
-      </option>
-
-      <option value="module4">
-        Module 4 – Year In, Year Out
-      </option>
-
-      <option value="module5">
-        Module 5 – My New House
-      </option>
-
-      <option value="module6">
-        Module 6 – Food, Please!
-      </option>
-
-      <option value="module7">
-        Module 7 – Out and About
-      </option>
-
-      <option value="module8">
-        Module 8 – Where Were You Yesterday?
-      </option>
-
-      <option value="module9">
-        Module 9 – On Holiday
-      </option>
-
-      <option value="module10">
-        Module 10 – The World Around Us
-      </option>
+      <optgroup label="TAHUN 4">
+        <option value="4 ARIF">4 ARIF</option>
+        <option value="4 BESTARI">4 BESTARI</option>
+        <option value="4 CERDIK">4 CERDIK</option>
+        <option value="4 DEDIKASI">4 DEDIKASI</option>
+        <option value="4 ELIT">4 ELIT</option>
+        <option value="4 FIRDAUS">4 FIRDAUS</option>
+        <option value="4 GIGIH">4 GIGIH</option>
+        <option value="4 HARMONI">4 HARMONI</option>
+        <option value="4 INOVATIF">4 INOVATIF</option>
+        <option value="4 JUARA">4 JUARA</option>
+        <option value="4 KREATIF">4 KREATIF</option>
+      </optgroup>
 
     </select>
 
 
-    <!-- START QUIZ -->
+    <!-- 3. MODULE UB TAHUN 3 -->
+
+    <label for="moduleY3">
+      MODULE UB TAHUN 3
+    </label>
+
+    <select id="moduleY3" onchange="handleModuleSelect('y3')">
+
+      <option value="">Pilih Module UB Tahun 3</option>
+      <option value="module1">Module 1 – Welcome!</option>
+      <option value="module2">Module 2 – Every Day</option>
+      <option value="module3">Module 3 – Right Now</option>
+      <option value="module4">Module 4 – Year In, Year Out</option>
+      <option value="module5">Module 5 – My New House</option>
+      <option value="module6">Module 6 – Food, Please!</option>
+      <option value="module7">Module 7 – Out and About</option>
+      <option value="module8">Module 8 – Where Were You Yesterday?</option>
+      <option value="module9">Module 9 – On Holiday</option>
+      <option value="module10">Module 10 – The World Around Us</option>
+
+    </select>
+
+
+    <!-- 4. MODULE UB TAHUN 4 -->
+
+    <label for="moduleY4">
+      MODULE UB TAHUN 4
+    </label>
+
+    <select id="moduleY4" onchange="handleModuleSelect('y4')">
+
+      <option value="">Pilih Module UB Tahun 4</option>
+      <option value="module1">Module 1 – Where Are You From?</option>
+      <option value="module2">Module 2 – My Week</option>
+      <option value="module3">Module 3 – In The Past</option>
+      <option value="module4">Module 4 – Celebrations</option>
+      <option value="module5">Module 5 – Eating Right</option>
+      <option value="module6">Module 6 – Getting Around</option>
+      <option value="module7">Module 7 – Helping Out</option>
+      <option value="module8">Module 8 – Amazing Animals</option>
+      <option value="module9">Module 9 – Get Active!</option>
+      <option value="module10">Module 10 – What's The Matter?</option>
+
+    </select>
+
+
+    <!-- START QUIZ BUTTON -->
 
     <button
       type="button"
@@ -373,11 +390,10 @@ footer {
 
 
   <!-- ================================
-       MENU
+        MENU (REKOD GURU & LEADERBOARD)
   ================================= -->
 
   <div class="menu">
-
 
     <!-- LEADERBOARD -->
 
@@ -388,16 +404,14 @@ footer {
       🏆 LEADERBOARD
     </a>
 
-
-    <!-- TEACHER RECORD -->
+    <!-- 5. REKOD GURU -->
 
     <a
       href="teacher.html"
       class="menu-btn"
     >
-      👩‍🏫 TEACHER RECORD
+      👩‍🏫 REKOD GURU
     </a>
-
 
   </div>
 
@@ -414,140 +428,78 @@ footer {
 
   <br>
 
-  English Year 3 | 2026
+  UB Year 3 & UB Year 4 | 2026
 
 </footer>
 
 
 <!-- ================================
-     JAVASCRIPT
+     JAVASCRIPT LOGIC
 ================================ -->
 
 <script>
 
-
-/* ================================
-   START QUIZ
-================================ */
+/* Reset modul bertentangan jika salah satu dipilih */
+function handleModuleSelect(selectedYear) {
+  if (selectedYear === 'y3') {
+    document.getElementById("moduleY4").value = "";
+  } else if (selectedYear === 'y4') {
+    document.getElementById("moduleY3").value = "";
+  }
+}
 
 function startQuiz() {
 
+  const name = document.getElementById("studentName").value.trim();
+  const studentClass = document.getElementById("studentClass").value;
+  const modY3 = document.getElementById("moduleY3");
+  const modY4 = document.getElementById("moduleY4");
 
-  const name =
-    document
-      .getElementById("studentName")
-      .value
-      .trim();
+  let selectedYear = "";
+  let selectedModuleCode = "";
+  let selectedModuleName = "";
 
-
-  const studentClass =
-    document
-      .getElementById("studentClass")
-      .value
-      .trim();
-
-
-  const moduleSelect =
-    document
-      .getElementById("module");
-
-
-  const module =
-    moduleSelect.value;
-
-
-  const moduleText =
-    moduleSelect
-      .options[moduleSelect.selectedIndex]
-      .text;
-
-
-  /* ================================
-     VALIDATION
-  ================================= */
-
-  if (name === "") {
-
-    alert(
-      "Please enter your name."
-    );
-
-    document
-      .getElementById("studentName")
-      .focus();
-
-    return;
+  if (modY3.value !== "") {
+    selectedYear = "y3";
+    selectedModuleCode = modY3.value;
+    selectedModuleName = "UB TAHUN 3: " + modY3.options[modY3.selectedIndex].text;
+  } else if (modY4.value !== "") {
+    selectedYear = "y4";
+    selectedModuleCode = modY4.value;
+    selectedModuleName = "UB TAHUN 4: " + modY4.options[modY4.selectedIndex].text;
   }
 
+  /* Validation Checks */
+  if (name === "") {
+    alert("Sila masukkan NAMA PENUH anda.");
+    document.getElementById("studentName").focus();
+    return;
+  }
 
   if (studentClass === "") {
-
-    alert(
-      "Please enter your class."
-    );
-
-    document
-      .getElementById("studentClass")
-      .focus();
-
+    alert("Sila pilih KELAS anda.");
+    document.getElementById("studentClass").focus();
     return;
   }
 
-
-  if (module === "") {
-
-    alert(
-      "Please choose a module."
-    );
-
-    document
-      .getElementById("module")
-      .focus();
-
+  if (selectedYear === "") {
+    alert("Sila pilih satu modul daripada MODULE UB TAHUN 3 atau MODULE UB TAHUN 4.");
     return;
   }
 
+  /* Simpan Maklumat Murid ke LocalStorage */
+  localStorage.setItem("seqsName", name);
+  localStorage.setItem("seqsClass", studentClass);
+  localStorage.setItem("seqsYear", selectedYear === "y3" ? "Year 3" : "Year 4");
+  localStorage.setItem("seqsModule", selectedModuleCode);
+  localStorage.setItem("seqsModuleName", selectedModuleName);
 
-  /* ================================
-     SAVE STUDENT INFORMATION
-  ================================= */
-
-  localStorage.setItem(
-    "seqsName",
-    name
-  );
-
-
-  localStorage.setItem(
-    "seqsClass",
-    studentClass
-  );
-
-
-  localStorage.setItem(
-    "seqsModule",
-    module
-  );
-
-
-  localStorage.setItem(
-    "seqsModuleName",
-    moduleText
-  );
-
-
-  /* ================================
-     OPEN QUIZ
-  ================================= */
-
-  window.location.href =
-    module + ".html";
+  /* Buka Muka Surat Soalan Kuiz (Contoh: y3_module1.html / y4_module1.html) */
+  window.location.href = selectedYear + "_" + selectedModuleCode + ".html";
 
 }
 
-
 </script>
-
 
 </body>
 
