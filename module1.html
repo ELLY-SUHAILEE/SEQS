@@ -6,144 +6,241 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SEQS | Module 1 - Welcome!</title>
+<title>UB Tahun 3: Module 1 – Welcome!</title>
 
 <style>
 
+/* ================================
+   GLOBAL & FONT SETTINGS
+   Font: Arial | Size: 14pt
+================================ */
+
 * {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef6ff;
-  color: #17324d;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2e2e2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header {
-  background: linear-gradient(135deg, #0d47a1, #1976d2);
+
+/* ================================
+   CONTAINER & HEADER
+================================ */
+
+.quiz-container {
+  max-width: 820px;
+  width: 92%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+}
+
+.header-banner {
+  background: linear-gradient(135deg, #1b5e20, #388e3c);
   color: white;
+  padding: 20px;
+  border-radius: 20px;
   text-align: center;
-  padding: 25px 15px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 38px;
-}
-
-header h2 {
-  margin: 8px 0 0;
-  font-size: 20px;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 25px 15px;
-}
-
-.student-info {
-  background: white;
-  border-radius: 15px;
-  padding: 18px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
 }
 
-.student-info p {
-  margin: 7px 0;
+.header-banner h1 {
+  margin: 0;
+  font-size: 20pt !important;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-.question {
-  background: white;
-  padding: 22px;
+.student-bar {
+  background: #ffffff;
   border-radius: 15px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  padding: 12px 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #1b5e20;
+  font-weight: bold;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.question h3 {
-  margin-top: 0;
-  color: #1557a6;
+
+/* ================================
+   SECTION BADGES & PASSAGES
+================================ */
+
+.section-badge {
+  background: #e65100;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 30px 0 15px 0;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
-.option {
-  display: block;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 8px;
+.passage-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #795548;
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.passage-box strong {
+  color: #5d4037;
+}
+
+
+/* ================================
+   QUESTION CARDS
+================================ */
+
+.question-card {
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.question-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #1b5e20;
+  line-height: 1.4;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 2px solid #dddddd;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.option-btn:hover {
+  background: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.option-btn input[type="radio"] {
+  margin-right: 12px;
+  transform: scale(1.3);
   cursor: pointer;
 }
 
-.option:hover {
-  background: #edf6ff;
-}
+
+/* ================================
+   SUBMIT & RESULT MODAL
+================================ */
 
 .submit-btn {
   width: 100%;
-  border: none;
-  padding: 15px;
-  border-radius: 30px;
-  background: #1976d2;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
   color: white;
-  font-size: 17px;
+  border: 3px solid #ffffff;
+  padding: 18px;
+  border-radius: 30px;
   font-weight: bold;
+  font-size: 16pt !important;
   cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-top: 25px;
+  transition: transform 0.2s ease;
 }
 
 .submit-btn:hover {
-  background: #0d47a1;
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #43a047, #1b5e20);
 }
 
-.submit-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.result {
+.modal-overlay {
   display: none;
-  background: white;
-  margin-top: 22px;
-  padding: 25px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,.10);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.score {
-  font-size: 42px;
+.modal-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 4px solid #2e7d32;
+}
+
+.score-text {
+  font-size: 28pt !important;
   font-weight: bold;
-  color: #1976d2;
+  color: #2e7d32;
   margin: 15px 0;
 }
 
-.save-status {
-  margin-top: 15px;
-  padding: 12px;
-  background: #eef6ff;
-  border-radius: 10px;
-  font-size: 14px;
-  color: #174a7c;
-}
-
-.home-btn {
-  display: inline-block;
-  margin-top: 18px;
-  text-decoration: none;
-  background: #174a7c;
+.modal-action-btn {
+  background: #5d4037;
   color: white;
-  padding: 11px 22px;
-  border-radius: 25px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #718096;
-  font-size: 13px;
-  line-height: 1.6;
+.correct-mark {
+  background: #d4edda !important;
+  border-color: #28a745 !important;
+  color: #155724 !important;
+  font-weight: bold;
+}
+
+.wrong-mark {
+  background: #f8d7da !important;
+  border-color: #dc3545 !important;
+  color: #721c24 !important;
 }
 
 </style>
@@ -153,722 +250,662 @@ footer {
 
 <body>
 
+<div class="quiz-container">
 
-<header>
-
-  <h1>SEQS</h1>
-
-  <h2>
-    Module 1 – Welcome!
-  </h2>
-
-</header>
-
-
-<div class="container">
-
-
-  <!-- STUDENT INFORMATION -->
-
-  <div class="student-info">
-
-    <p>
-      <strong>Name:</strong>
-      <span id="displayName"></span>
-    </p>
-
-    <p>
-      <strong>Class:</strong>
-      <span id="displayClass"></span>
-    </p>
-
-    <p>
-      <strong>Module:</strong>
-      Module 1 – Welcome!
-    </p>
-
+  <!-- HEADER BANNER -->
+  <div class="header-banner">
+    <h1>UB TAHUN 3: MODULE 1 – WELCOME!</h1>
+    <div class="student-bar">
+      <span>👤 Student: <span id="displayName">Guest</span></span>
+      <span>🎓 Class: <span id="displayClass">-</span></span>
+    </div>
   </div>
-
-
-  <!-- QUIZ -->
 
   <form id="quizForm">
 
+    <!-- BAHAGIAN A -->
+    <div class="section-badge">SECTION A: Reading Comprehension 1 (Q1 – Q5)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      Hi! My name is Maya. I am nine years old. I have got long, curly hair and brown eyes. I have got a brother named Adam. He is ten years old. He has got short, straight hair and green eyes. I can play basketball, but I can't swim. Adam can swim very well, but he can't play basketball.
+    </div>
 
-    <!-- QUESTION 1 -->
+    <!-- Q1 -->
+    <div class="question-card" id="qCard1">
+      <div class="question-title">1. How old is Maya?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q1" value="A"> A. Eight years old</label>
+        <label class="option-btn"><input type="radio" name="q1" value="B"> B. Nine years old</label>
+        <label class="option-btn"><input type="radio" name="q1" value="C"> C. Ten years old</label>
+      </div>
+    </div>
 
-    <div class="question">
+    <!-- Q2 -->
+    <div class="question-card" id="qCard2">
+      <div class="question-title">2. What does Maya's hair look like?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q2" value="A"> A. Short and straight</label>
+        <label class="option-btn"><input type="radio" name="q2" value="B"> B. Long and curly</label>
+        <label class="option-btn"><input type="radio" name="q2" value="C"> C. Short and curly</label>
+      </div>
+    </div>
 
-      <h3>
-        1. Hello! What's your ______?
-      </h3>
+    <!-- Q3 -->
+    <div class="question-card" id="qCard3">
+      <div class="question-title">3. Who is Adam?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q3" value="A"> A. Maya's father</label>
+        <label class="option-btn"><input type="radio" name="q3" value="B"> B. Maya's teacher</label>
+        <label class="option-btn"><input type="radio" name="q3" value="C"> C. Maya's brother</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q1" value="A">
-        old
-      </label>
+    <!-- Q4 -->
+    <div class="question-card" id="qCard4">
+      <div class="question-title">4. Adam has got __________ eyes.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q4" value="A"> A. brown</label>
+        <label class="option-btn"><input type="radio" name="q4" value="B"> B. blue</label>
+        <label class="option-btn"><input type="radio" name="q4" value="C"> C. green</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q1" value="B">
-        name
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q1" value="C">
-        colour
-      </label>
-
+    <!-- Q5 -->
+    <div class="question-card" id="qCard5">
+      <div class="question-title">5. What can Adam do very well?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q5" value="A"> A. Swim</label>
+        <label class="option-btn"><input type="radio" name="q5" value="B"> B. Play basketball</label>
+        <label class="option-btn"><input type="radio" name="q5" value="C"> C. Dance</label>
+      </div>
     </div>
 
 
-    <!-- QUESTION 2 -->
+    <!-- BAHAGIAN B -->
+    <div class="section-badge">SECTION B: Reading Comprehension 2 (Q6 – Q10)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      Hello, I am Greg. These are my smart friends, Anna and Tony. Anna has got blonde hair and blue eyes. She has got twenty shells. She can dance and sing. Tony has got big brown eyes and dark hair. He has got fifty shells. Tony can do karate, but he can't dive. We love collecting shells at the beach!
+    </div>
 
-    <div class="question">
+    <!-- Q6 -->
+    <div class="question-card" id="qCard6">
+      <div class="question-title">6. What color is Anna's hair?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q6" value="A"> A. Dark</label>
+        <label class="option-btn"><input type="radio" name="q6" value="B"> B. Blonde</label>
+        <label class="option-btn"><input type="radio" name="q6" value="C"> C. Brown</label>
+      </div>
+    </div>
 
-      <h3>
-        2. “How are you?”
-      </h3>
+    <!-- Q7 -->
+    <div class="question-card" id="qCard7">
+      <div class="question-title">7. How many shells has Anna got?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q7" value="A"> A. Ten</label>
+        <label class="option-btn"><input type="radio" name="q7" value="B"> B. Twenty</label>
+        <label class="option-btn"><input type="radio" name="q7" value="C"> C. Fifty</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q2" value="A">
-        I'm fine, thank you.
-      </label>
+    <!-- Q8 -->
+    <div class="question-card" id="qCard8">
+      <div class="question-title">8. What can Anna do?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q8" value="A"> A. Dive</label>
+        <label class="option-btn"><input type="radio" name="q8" value="B"> B. Do karate</label>
+        <label class="option-btn"><input type="radio" name="q8" value="C"> C. Dance and sing</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q2" value="B">
-        I'm nine years old.
-      </label>
+    <!-- Q9 -->
+    <div class="question-card" id="qCard9">
+      <div class="question-title">9. Tony has got __________ shells.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q9" value="A"> A. 20</label>
+        <label class="option-btn"><input type="radio" name="q9" value="B"> B. 30</label>
+        <label class="option-btn"><input type="radio" name="q9" value="C"> C. 50</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q2" value="C">
-        My name is Adam.
-      </label>
-
+    <!-- Q10 -->
+    <div class="question-card" id="qCard10">
+      <div class="question-title">10. What can Tony NOT do?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q10" value="A"> A. Do karate</label>
+        <label class="option-btn"><input type="radio" name="q10" value="B"> B. Dive</label>
+        <label class="option-btn"><input type="radio" name="q10" value="C"> C. Sing</label>
+      </div>
     </div>
 
 
-    <!-- QUESTION 3 -->
+    <!-- BAHAGIAN C -->
+    <div class="section-badge">SECTION C: True or False (Q11 – Q15)</div>
 
-    <div class="question">
+    <!-- Q11 -->
+    <div class="question-card" id="qCard11">
+      <div class="question-title">11. A spider has got eight legs.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q11" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q11" value="B"> B. False</label>
+      </div>
+    </div>
 
-      <h3>
-        3. “How old are you?”
-      </h3>
+    <!-- Q12 -->
+    <div class="question-card" id="qCard12">
+      <div class="question-title">12. Thirty plus twenty is sixty.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q12" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q12" value="B"> B. False</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q3" value="A">
-        I'm fine.
-      </label>
+    <!-- Q13 -->
+    <div class="question-card" id="qCard13">
+      <div class="question-title">13. "He has got curly hair" means his hair is straight.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q13" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q13" value="B"> B. False</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q3" value="B">
-        I'm nine years old.
-      </label>
+    <!-- Q14 -->
+    <div class="question-card" id="qCard14">
+      <div class="question-title">14. Fish can swim in the water.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q14" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q14" value="B"> B. False</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q3" value="C">
-        Goodbye.
-      </label>
-
+    <!-- Q15 -->
+    <div class="question-card" id="qCard15">
+      <div class="question-title">15. "She hasn't got blonde hair" means she has got blonde hair.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q15" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q15" value="B"> B. False</label>
+      </div>
     </div>
 
 
-    <!-- QUESTION 4 -->
+    <!-- BAHAGIAN D -->
+    <div class="section-badge">SECTION D: Grammar (Q16 – Q25)</div>
 
-    <div class="question">
+    <!-- Q16 -->
+    <div class="question-card" id="qCard16">
+      <div class="question-title">16. She __________ got long, blonde hair.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q16" value="A"> A. have</label>
+        <label class="option-btn"><input type="radio" name="q16" value="B"> B. has</label>
+        <label class="option-btn"><input type="radio" name="q16" value="C"> C. is</label>
+      </div>
+    </div>
 
-      <h3>
-        4. Choose the correct spelling.
-      </h3>
+    <!-- Q17 -->
+    <div class="question-card" id="qCard17">
+      <div class="question-title">17. They __________ got thirty shells in their box.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q17" value="A"> A. have</label>
+        <label class="option-btn"><input type="radio" name="q17" value="B"> B. has</label>
+        <label class="option-btn"><input type="radio" name="q17" value="C"> C. is</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q4" value="A">
-        teacher
-      </label>
+    <!-- Q18 -->
+    <div class="question-card" id="qCard18">
+      <div class="question-title">18. __________ he got big green eyes? Yes, he has.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q18" value="A"> A. Have</label>
+        <label class="option-btn"><input type="radio" name="q18" value="B"> B. Has</label>
+        <label class="option-btn"><input type="radio" name="q18" value="C"> C. Is</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q4" value="B">
-        teecher
-      </label>
+    <!-- Q19 -->
+    <div class="question-card" id="qCard19">
+      <div class="question-title">19. I __________ dive, but I can swim.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q19" value="A"> A. can't</label>
+        <label class="option-btn"><input type="radio" name="q19" value="B"> B. haven't</label>
+        <label class="option-btn"><input type="radio" name="q19" value="C"> C. hasn't</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q4" value="C">
-        techer
-      </label>
+    <!-- Q20 -->
+    <div class="question-card" id="qCard20">
+      <div class="question-title">20. He __________ do karate. He is very good at it!</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q20" value="A"> A. can</label>
+        <label class="option-btn"><input type="radio" name="q20" value="B"> B. can't</label>
+        <label class="option-btn"><input type="radio" name="q20" value="C"> C. has</label>
+      </div>
+    </div>
 
+    <!-- Q21 -->
+    <div class="question-card" id="qCard21">
+      <div class="question-title">21. This is __________ bag.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q21" value="A"> A. Greg</label>
+        <label class="option-btn"><input type="radio" name="q21" value="B"> B. Gregs</label>
+        <label class="option-btn"><input type="radio" name="q21" value="C"> C. Greg's</label>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card" id="qCard22">
+      <div class="question-title">22. How many shells have you got? I have got __________ shells. (10 + 30)</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q22" value="A"> A. twenty</label>
+        <label class="option-btn"><input type="radio" name="q22" value="B"> B. thirty</label>
+        <label class="option-btn"><input type="radio" name="q22" value="C"> C. forty</label>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="question-card" id="qCard23">
+      <div class="question-title">23. Sarah and Kelly __________ got straight hair.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q23" value="A"> A. has</label>
+        <label class="option-btn"><input type="radio" name="q23" value="B"> B. have</label>
+        <label class="option-btn"><input type="radio" name="q23" value="C"> C. is</label>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card" id="qCard24">
+      <div class="question-title">24. __________ you play the piano? No, I can't.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q24" value="A"> A. Have</label>
+        <label class="option-btn"><input type="radio" name="q24" value="B"> B. Has</label>
+        <label class="option-btn"><input type="radio" name="q24" value="C"> C. Can</label>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card" id="qCard25">
+      <div class="question-title">25. My brother hasn't __________ brown eyes.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q25" value="A"> A. get</label>
+        <label class="option-btn"><input type="radio" name="q25" value="B"> B. got</label>
+        <label class="option-btn"><input type="radio" name="q25" value="C"> C. getting</label>
+      </div>
     </div>
 
 
-    <!-- QUESTION 5 -->
+    <!-- BAHAGIAN E -->
+    <div class="section-badge">SECTION E: Punctuation & Capital Letters (Q26 – Q30)</div>
 
-    <div class="question">
+    <!-- Q26 -->
+    <div class="question-card" id="qCard26">
+      <div class="question-title">26. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q26" value="A"> A. my name is anna.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="B"> B. My name is Anna.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="C"> C. My name is anna</label>
+      </div>
+    </div>
 
-      <h3>
-        5. Which one is a classroom object?
-      </h3>
+    <!-- Q27 -->
+    <div class="question-card" id="qCard27">
+      <div class="question-title">27. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q27" value="A"> A. Has he got blonde hair?</label>
+        <label class="option-btn"><input type="radio" name="q27" value="B"> B. Has he got blonde hair.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="C"> C. has he got blonde hair?</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q5" value="A">
-        pencil
-      </label>
+    <!-- Q28 -->
+    <div class="question-card" id="qCard28">
+      <div class="question-title">28. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q28" value="A"> A. i can swim, but i can't dive.</label>
+        <label class="option-btn"><input type="radio" name="q28" value="B"> B. I can swim, but I can't dive.</label>
+        <label class="option-btn"><input type="radio" name="q28" value="C"> C. I can swim but I cant dive</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q5" value="B">
-        tiger
-      </label>
+    <!-- Q29 -->
+    <div class="question-card" id="qCard29">
+      <div class="question-title">29. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q29" value="A"> A. This is Sarah's pencil case.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="B"> B. This is sarah's pencil case.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="C"> C. This is Sarahs pencil case.</label>
+      </div>
+    </div>
 
-      <label class="option">
-        <input type="radio" name="q5" value="C">
-        banana
-      </label>
-
+    <!-- Q30 -->
+    <div class="question-card" id="qCard30">
+      <div class="question-title">30. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q30" value="A"> A. They have got 40 shells</label>
+        <label class="option-btn"><input type="radio" name="q30" value="B"> B. They have got 40 shells.</label>
+        <label class="option-btn"><input type="radio" name="q30" value="C"> C. they have got 40 shells.</label>
+      </div>
     </div>
 
 
-    <!-- QUESTION 6 -->
+    <!-- BAHAGIAN F -->
+    <div class="section-badge">SECTION F: Sentence Structure & Word Order (Q31 – Q50)</div>
 
-    <div class="question">
-
-      <h3>
-        6. This ______ my book.
-      </h3>
-
-      <label class="option">
-        <input type="radio" name="q6" value="A">
-        am
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q6" value="B">
-        are
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q6" value="C">
-        is
-      </label>
-
+    <!-- Q31 -->
+    <div class="question-card" id="qCard31">
+      <div class="question-title">31. Rearrange: <strong>got / She / blonde / hair. / has</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q31" value="A"> A. She has got blonde hair.</label>
+        <label class="option-btn"><input type="radio" name="q31" value="B"> B. Blonde hair she has got.</label>
+        <label class="option-btn"><input type="radio" name="q31" value="C"> C. She got blonde hair has.</label>
+      </div>
     </div>
 
-
-    <!-- QUESTION 7 -->
-
-    <div class="question">
-
-      <h3>
-        7. I ______ a pupil.
-      </h3>
-
-      <label class="option">
-        <input type="radio" name="q7" value="A">
-        am
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q7" value="B">
-        is
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q7" value="C">
-        are
-      </label>
-
+    <!-- Q32 -->
+    <div class="question-card" id="qCard32">
+      <div class="question-title">32. Rearrange: <strong>I / dive. / swim, / can / but / I / can't</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q32" value="A"> A. I can dive, but I can't swim.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="B"> B. I can swim, but I can't dive.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="C"> C. Swim I can, but dive I can't.</label>
+      </div>
     </div>
 
-
-    <!-- QUESTION 8 -->
-
-    <div class="question">
-
-      <h3>
-        8. They ______ my friends.
-      </h3>
-
-      <label class="option">
-        <input type="radio" name="q8" value="A">
-        am
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q8" value="B">
-        is
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q8" value="C">
-        are
-      </label>
-
+    <!-- Q33 -->
+    <div class="question-card" id="qCard33">
+      <div class="question-title">33. Rearrange: <strong>got / Have / shells? / twenty / you</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q33" value="A"> A. Have you got twenty shells?</label>
+        <label class="option-btn"><input type="radio" name="q33" value="B"> B. You have got shells twenty?</label>
+        <label class="option-btn"><input type="radio" name="q33" value="C"> C. Have shells you got twenty?</label>
+      </div>
     </div>
 
-
-    <!-- QUESTION 9 -->
-
-    <div class="question">
-
-      <h3>
-        9. Which word is a colour?
-      </h3>
-
-      <label class="option">
-        <input type="radio" name="q9" value="A">
-        blue
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q9" value="B">
-        desk
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q9" value="C">
-        ruler
-      </label>
-
+    <!-- Q34 -->
+    <div class="question-card" id="qCard34">
+      <div class="question-title">34. Rearrange: <strong>karate. / can / He / do</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q34" value="A"> A. He can do karate.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="B"> B. Do karate he can.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="C"> C. He do karate can.</label>
+      </div>
     </div>
 
-
-    <!-- QUESTION 10 -->
-
-    <div class="question">
-
-      <h3>
-        10. “Goodbye!” means...
-      </h3>
-
-      <label class="option">
-        <input type="radio" name="q10" value="A">
-        Hello!
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q10" value="B">
-        See you!
-      </label>
-
-      <label class="option">
-        <input type="radio" name="q10" value="C">
-        Thank you!
-      </label>
-
+    <!-- Q35 -->
+    <div class="question-card" id="qCard35">
+      <div class="question-title">35. Rearrange: <strong>short / hair. / My / brother / has / got</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q35" value="A"> A. My brother has got short hair.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="B"> B. Short hair my brother has got.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="C"> C. Has got short hair my brother.</label>
+      </div>
     </div>
 
+    <!-- Q36 -->
+    <div class="question-card" id="qCard36">
+      <div class="question-title">36. Rearrange: <strong>piano. / She / play / can't / the</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q36" value="A"> A. She can't play the piano.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="B"> B. The piano she can't play.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="C"> C. She play can't the piano.</label>
+      </div>
+    </div>
 
-    <!-- SUBMIT -->
+    <!-- Q37 -->
+    <div class="question-card" id="qCard37">
+      <div class="question-title">37. Rearrange: <strong>is / Greg's / This / ball.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q37" value="A"> A. This is Greg's ball.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="B"> B. Greg's ball this is.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="C"> C. This Greg's ball is.</label>
+      </div>
+    </div>
 
-    <button
-      type="button"
-      class="submit-btn"
-      id="submitButton"
-      onclick="submitQuiz()"
-    >
-      SUBMIT ANSWERS
-    </button>
+    <!-- Q38 -->
+    <div class="question-card" id="qCard38">
+      <div class="question-title">38. Rearrange: <strong>fifty / We / got / have / shells.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q38" value="A"> A. We have got fifty shells.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="B"> B. Fifty shells we got have.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="C"> C. We got have fifty shells.</label>
+      </div>
+    </div>
 
+    <!-- Q39 -->
+    <div class="question-card" id="qCard39">
+      <div class="question-title">39. Rearrange: <strong>green / Has / got / eyes? / she</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q39" value="A"> A. Has she got green eyes?</label>
+        <label class="option-btn"><input type="radio" name="q39" value="B"> B. She has got green eyes?</label>
+        <label class="option-btn"><input type="radio" name="q39" value="C"> C. Got she green eyes has?</label>
+      </div>
+    </div>
+
+    <!-- Q40 -->
+    <div class="question-card" id="qCard40">
+      <div class="question-title">40. Rearrange: <strong>hair / straight / is / Her / brown. / and</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q40" value="A"> A. Her hair is straight and brown.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="B"> B. Straight and brown her hair is.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="C"> C. Her hair straight and brown is.</label>
+      </div>
+    </div>
+
+    <!-- Q41 -->
+    <div class="question-card" id="qCard41">
+      <div class="question-title">41. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q41" value="A"> A. They hasn't got any shells.</label>
+        <label class="option-btn"><input type="radio" name="q41" value="B"> B. They haven't got any shells.</label>
+        <label class="option-btn"><input type="radio" name="q41" value="C"> C. They no got any shells.</label>
+      </div>
+    </div>
+
+    <!-- Q42 -->
+    <div class="question-card" id="qCard42">
+      <div class="question-title">42. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q42" value="A"> A. Can she dance?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="B"> B. She can dance?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="C"> C. Dance can she?</label>
+      </div>
+    </div>
+
+    <!-- Q43 -->
+    <div class="question-card" id="qCard43">
+      <div class="question-title">43. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q43" value="A"> A. Anna has got dark hair.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="B"> B. Anna got has dark hair.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="C"> C. Has Anna dark hair got.</label>
+      </div>
+    </div>
+
+    <!-- Q44 -->
+    <div class="question-card" id="qCard44">
+      <div class="question-title">44. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q44" value="A"> A. I can play basketball very well.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="B"> B. I can play very well basketball.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="C"> C. Very well I can play basketball.</label>
+      </div>
+    </div>
+
+    <!-- Q45 -->
+    <div class="question-card" id="qCard45">
+      <div class="question-title">45. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q45" value="A"> A. What is your name?</label>
+        <label class="option-btn"><input type="radio" name="q45" value="B"> B. What your name is?</label>
+        <label class="option-btn"><input type="radio" name="q45" value="C"> C. Your name is what?</label>
+      </div>
+    </div>
+
+    <!-- Q46 -->
+    <div class="question-card" id="qCard46">
+      <div class="question-title">46. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q46" value="A"> A. He has got sixty puzzle pieces.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="B"> B. He have got sixty puzzle pieces.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="C"> C. He is got sixty puzzle pieces.</label>
+      </div>
+    </div>
+
+    <!-- Q47 -->
+    <div class="question-card" id="qCard47">
+      <div class="question-title">47. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q47" value="A"> A. This is my mother's car.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="B"> B. This is my mothers car.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="C"> C. This my mother's car is.</label>
+      </div>
+    </div>
+
+    <!-- Q48 -->
+    <div class="question-card" id="qCard48">
+      <div class="question-title">48. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q48" value="A"> A. Can you swim in the river?</label>
+        <label class="option-btn"><input type="radio" name="q48" value="B"> B. You can swim in river the?</label>
+        <label class="option-btn"><input type="radio" name="q48" value="C"> C. Swim you can in the river?</label>
+      </div>
+    </div>
+
+    <!-- Q49 -->
+    <div class="question-card" id="qCard49">
+      <div class="question-title">49. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q49" value="A"> A. She hasn't got curly hair.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="B"> B. She haven't got curly hair.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="C"> C. She don't got curly hair.</label>
+      </div>
+    </div>
+
+    <!-- Q50 -->
+    <div class="question-card" id="qCard50">
+      <div class="question-title">50. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q50" value="A"> A. How many shells have you got?</label>
+        <label class="option-btn"><input type="radio" name="q50" value="B"> B. How many shells you have got?</label>
+        <label class="option-btn"><input type="radio" name="q50" value="C"> C. You have got how many shells?</label>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="button" class="submit-btn" onclick="submitQuiz()">HANTAR JAWAPAN ➔</button>
 
   </form>
-
-
-  <!-- RESULT -->
-
-  <div
-    class="result"
-    id="resultBox"
-  >
-
-    <h2>
-      Quiz Completed!
-    </h2>
-
-    <p>
-      Well done,
-      <strong id="resultName"></strong>!
-    </p>
-
-    <div
-      class="score"
-      id="scoreText"
-    >
-    </div>
-
-    <h3 id="percentageText"></h3>
-
-    <p id="feedback"></p>
-
-
-    <div
-      class="save-status"
-      id="saveStatus"
-    >
-      Saving your result...
-    </div>
-
-
-    <a
-      href="index.html"
-      class="home-btn"
-    >
-      BACK TO HOME
-    </a>
-
-  </div>
-
 
 </div>
 
 
-<footer>
+<!-- RESULT MODAL -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-card">
+    <h2>🎉 TAHNIAH / CONGRATULATIONS!</h2>
+    <p>Kuiz Module 1 telah selesai.</p>
+    <div class="score-text" id="finalScoreText">0 / 50</div>
+    <p id="percentageText">Peratusan: 0%</p>
+    <div>
+      <button class="modal-action-btn" onclick="closeModal()">Semak Jawapan</button>
+      <a href="index.html" class="modal-action-btn" style="background: #2e7d32;">Kembali ke Utama</a>
+    </div>
+  </div>
+</div>
 
-  SEQS – Smart English Quiz System
 
-  <br>
-
-  English Year 3 | 2026
-
-</footer>
-
-
+<!-- JAVASCRIPT LOGIC -->
 <script>
 
+/* Skema Jawapan */
+const correctAnswers = {
+  1:'B', 2:'B', 3:'C', 4:'C', 5:'A',
+  6:'B', 7:'B', 8:'C', 9:'C', 10:'B',
+  11:'A', 12:'B', 13:'B', 14:'A', 15:'B',
+  16:'B', 17:'A', 18:'B', 19:'A', 20:'A',
+  21:'C', 22:'C', 23:'B', 24:'C', 25:'B',
+  26:'B', 27:'A', 28:'B', 29:'A', 30:'B',
+  31:'A', 32:'B', 33:'A', 34:'A', 35:'A',
+  36:'A', 37:'A', 38:'A', 39:'A', 40:'A',
+  41:'B', 42:'A', 43:'A', 44:'A', 45:'A',
+  46:'A', 47:'A', 48:'A', 49:'A', 50:'A'
+};
 
-/* =========================================
-   STUDENT INFORMATION
-========================================= */
-
-
-const studentName =
-  localStorage.getItem("seqsName")
-  || "Student";
-
-
-const studentClass =
-  localStorage.getItem("seqsClass")
-  || "-";
-
-
-document
-  .getElementById("displayName")
-  .textContent =
-  studentName;
-
-
-document
-  .getElementById("displayClass")
-  .textContent =
-  studentClass;
-
-
-
-/* =========================================
-   NEW GOOGLE APPS SCRIPT URL
-========================================= */
-
-
-const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzYMS62FFAqgmxOMSSCENvdHvFnjInHB8nHWQoStKsaFbkGrAlPsADr-Od2v8vkrC1L/exec";
-
-
-
-/* =========================================
-   SUBMIT QUIZ
-========================================= */
-
+/* Muat Maklumat Murid dari LocalStorage */
+window.onload = function() {
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  document.getElementById("displayName").innerText = name;
+  document.getElementById("displayClass").innerText = studentClass;
+};
 
 function submitQuiz() {
-
-
-  /* ANSWER KEY */
-
-  const answers = {
-
-    q1: "B",
-    q2: "A",
-    q3: "B",
-    q4: "A",
-    q5: "A",
-    q6: "C",
-    q7: "A",
-    q8: "C",
-    q9: "A",
-    q10: "B"
-
-  };
-
-
   let score = 0;
+  let unanswered = 0;
 
-
-
-  /* =====================================
-     CHECK ANSWERS
-  ===================================== */
-
-
-  for (let question in answers) {
-
-
-    const selected =
-      document.querySelector(
-        'input[name="' +
-        question +
-        '"]:checked'
-      );
-
-
-    if (!selected) {
-
-      alert(
-        "Please answer all questions before submitting."
-      );
-
-      return;
-
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    
+    if (!selectedOption) {
+      unanswered++;
+    } else {
+      if (selectedOption.value === correctAnswers[i]) {
+        score++;
+      }
     }
-
-
-    if (
-      selected.value ===
-      answers[question]
-    ) {
-
-      score++;
-
-    }
-
   }
 
-
-
-  /* =====================================
-     CALCULATE RESULT
-  ===================================== */
-
-
-  const totalQuestions = 10;
-
-
-  const percentage =
-    Math.round(
-      (score / totalQuestions)
-      * 100
-    );
-
-
-
-  /* =====================================
-     DISABLE SUBMIT
-  ===================================== */
-
-
-  document
-    .getElementById("submitButton")
-    .disabled =
-    true;
-
-
-
-  /* =====================================
-     SAVE RESULT LOCALLY
-  ===================================== */
-
-
-  localStorage.setItem(
-    "seqsLastScore",
-    score
-  );
-
-
-  localStorage.setItem(
-    "seqsLastPercentage",
-    percentage
-  );
-
-
-
-  /* =====================================
-     DISPLAY RESULT
-  ===================================== */
-
-
-  document
-    .getElementById("resultName")
-    .textContent =
-    studentName;
-
-
-  document
-    .getElementById("scoreText")
-    .textContent =
-    score +
-    " / " +
-    totalQuestions;
-
-
-  document
-    .getElementById("percentageText")
-    .textContent =
-    percentage + "%";
-
-
-
-  /* =====================================
-     FEEDBACK
-  ===================================== */
-
-
-  let feedback = "";
-
-
-  if (percentage >= 80) {
-
-    feedback =
-      "Excellent work! Keep it up!";
-
+  if (unanswered > 0) {
+    const confirmSubmit = confirm(`Anda masih mempunyai ${unanswered} soalan yang belum dijawab. Adakah anda pasti mahu menghantar?`);
+    if (!confirmSubmit) return;
   }
 
-  else if (percentage >= 60) {
+  /* Semak & Tandakan Jawapan */
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    const options = document.querySelectorAll(`input[name="q${i}"]`);
 
-    feedback =
-      "Good job! Keep practising!";
-
+    options.forEach(opt => {
+      const parentLabel = opt.parentElement;
+      if (opt.value === correctAnswers[i]) {
+        parentLabel.classList.add("correct-mark");
+      } else if (selectedOption && opt.checked && opt.value !== correctAnswers[i]) {
+        parentLabel.classList.add("wrong-mark");
+      }
+    });
   }
 
-  else {
+  /* Paparkan Skor */
+  const percentage = Math.round((score / 50) * 100);
+  document.getElementById("finalScoreText").innerText = `${score} / 50`;
+  document.getElementById("percentageText").innerText = `Peratusan: ${percentage}%`;
+  document.getElementById("resultModal").style.display = "flex";
 
-    feedback =
-      "Keep trying! You can do it!";
-
-  }
-
-
-  document
-    .getElementById("feedback")
-    .textContent =
-    feedback;
-
-
-
-  /* =====================================
-     SHOW RESULT BOX
-  ===================================== */
-
-
-  document
-    .getElementById("quizForm")
-    .style.display =
-    "none";
-
-
-  document
-    .getElementById("resultBox")
-    .style.display =
-    "block";
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-
-
-  /* =====================================
-     PREPARE AUTO RECORD
-  ===================================== */
-
-
-  const recordData = {
-
-    name:
-      studentName,
-
-    studentClass:
-      studentClass,
-
-    module:
-      "Module 1 – Welcome!",
-
-    score:
-      score + "/" + totalQuestions,
-
-    percentage:
-      percentage + "%"
-
+  /* Simpan keputusan ke LocalStorage */
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  
+  const resultData = {
+    name: name,
+    class: studentClass,
+    module: "UB Tahun 3 - Module 1",
+    score: score,
+    total: 50,
+    percentage: percentage,
+    date: new Date().toLocaleDateString()
   };
 
-
-
-  /* =====================================
-     SEND TO GOOGLE SHEETS
-  ===================================== */
-
-
-  document
-    .getElementById("saveStatus")
-    .textContent =
-    "Saving your result...";
-
-
-  fetch(
-    GOOGLE_SCRIPT_URL,
-    {
-
-      method: "POST",
-
-      mode: "no-cors",
-
-      headers: {
-
-        "Content-Type":
-        "text/plain;charset=utf-8"
-
-      },
-
-      body:
-        JSON.stringify(
-          recordData
-        )
-
-    }
-  )
-
-
-  .then(function() {
-
-
-    document
-      .getElementById("saveStatus")
-      .textContent =
-      "✓ Result recorded successfully.";
-
-
-  })
-
-
-  .catch(function(error) {
-
-
-    console.error(
-      "SEQS record error:",
-      error
-    );
-
-
-    document
-      .getElementById("saveStatus")
-      .textContent =
-      "Unable to confirm the record. Please inform your teacher.";
-
-
-  });
-
-
+  let allResults = JSON.parse(localStorage.getItem("seqsResults")) || [];
+  allResults.push(resultData);
+  localStorage.setItem("seqsResults", JSON.stringify(allResults));
 }
 
+function closeModal() {
+  document.getElementById("resultModal").style.display = "none";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 </script>
-
 
 </body>
 
