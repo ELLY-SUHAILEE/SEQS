@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UB Tahun 3: Module 4 – Year In, Year Out (y3_module4)</title>
+
+<style>
+
+/* ================================
+   GLOBAL & FONT SETTINGS
+   Font: Arial | Size: 14pt
+================================ */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 14pt !important;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2e2e2e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* ================================
+   CONTAINER & HEADER
+================================ */
+
+.quiz-container {
+  max-width: 820px;
+  width: 92%;
+  margin: 20px auto;
+  padding-bottom: 40px;
+}
+
+.header-banner {
+  background: linear-gradient(135deg, #0288d1, #01579b);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.header-banner h1 {
+  margin: 0;
+  font-size: 20pt !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.student-bar {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 12px 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #01579b;
+  font-weight: bold;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ================================
+   SECTION BADGES & PASSAGES
+================================ */
+
+.section-badge {
+  background: #00838f;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 30px 0 15px 0;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.passage-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #0288d1;
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.passage-box strong {
+  color: #01579b;
+}
+
+
+/* ================================
+   QUESTION CARDS
+================================ */
+
+.question-card {
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.question-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #01579b;
+  line-height: 1.4;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 2px solid #dddddd;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.option-btn:hover {
+  background: #e1f5fe;
+  border-color: #0288d1;
+}
+
+.option-btn input[type="radio"] {
+  margin-right: 12px;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+
+/* ================================
+   SUBMIT & RESULT MODAL
+================================ */
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0288d1, #01579b);
+  color: white;
+  border: 3px solid #ffffff;
+  padding: 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16pt !important;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-top: 25px;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0277bd, #002f6c);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 25px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 4px solid #0288d1;
+}
+
+.score-text {
+  font-size: 28pt !important;
+  font-weight: bold;
+  color: #0288d1;
+  margin: 15px 0;
+}
+
+.modal-action-btn {
+  background: #37474f;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.correct-mark {
+  background: #d4edda !important;
+  border-color: #28a745 !important;
+  color: #155724 !important;
+  font-weight: bold;
+}
+
+.wrong-mark {
+  background: #f8d7da !important;
+  border-color: #dc3545 !important;
+  color: #721c24 !important;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="quiz-container">
+
+  <!-- HEADER BANNER -->
+  <div class="header-banner">
+    <h1>UB TAHUN 3: MODULE 4 – YEAR IN, YEAR OUT</h1>
+    <div class="student-bar">
+      <span>👤 Student: <span id="displayName">Guest</span></span>
+      <span>🎓 Class: <span id="displayClass">-</span></span>
+    </div>
+  </div>
+
+  <form id="quizForm">
+
+    <!-- BAHAGIAN A -->
+    <div class="section-badge">SECTION A: Reading Comprehension 1 (Q1 – Q5)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      Hi, my name is Ethan. My favourite season is summer. In summer, it is hot and sunny. I go to the beach with my family. We swim in the sea and make sandcastles. In December, January, and February, it is winter in some countries and very cold. My favourite month is July because it is my birthday!
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card" id="qCard1">
+      <div class="question-title">1. What is Ethan's favourite season?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q1" value="A"> A. Summer</label>
+        <label class="option-btn"><input type="radio" name="q1" value="B"> B. Winter</label>
+        <label class="option-btn"><input type="radio" name="q1" value="C"> C. Autumn</label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" id="qCard2">
+      <div class="question-title">2. What is the weather like in summer?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q2" value="A"> A. Hot and sunny</label>
+        <label class="option-btn"><input type="radio" name="q2" value="B"> B. Cold and snowing</label>
+        <label class="option-btn"><input type="radio" name="q2" value="C"> C. Rainy and windy</label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" id="qCard3">
+      <div class="question-title">3. What does Ethan do at the beach?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q3" value="A"> A. Swims and makes sandcastles</label>
+        <label class="option-btn"><input type="radio" name="q3" value="B"> B. Goes skiing</label>
+        <label class="option-btn"><input type="radio" name="q3" value="C"> C. Rakes leaves</label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" id="qCard4">
+      <div class="question-title">4. Which months are winter months in some countries?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q4" value="A"> A. December, January, and February</label>
+        <label class="option-btn"><input type="radio" name="q4" value="B"> B. June, July, and August</label>
+        <label class="option-btn"><input type="radio" name="q4" value="C"> C. March, April, and May</label>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" id="qCard5">
+      <div class="question-title">5. Why is July Ethan's favourite month?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q5" value="A"> A. Because it is his birthday</label>
+        <label class="option-btn"><input type="radio" name="q5" value="B"> B. Because it is snowing</label>
+        <label class="option-btn"><input type="radio" name="q5" value="C"> C. Because school starts</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN B -->
+    <div class="section-badge">SECTION B: Reading Comprehension 2 (Q6 – Q10)</div>
+    
+    <div class="passage-box">
+      <strong>Read the text carefully:</strong><br>
+      There are four seasons in many countries: spring, summer, autumn, and winter. In spring, beautiful flowers grow and trees have green leaves. In autumn, leaves turn yellow and brown and fall from the trees. Children love wind-surfing in summer and ice-skating in winter. My sister's birthday is in May, which is in spring.
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" id="qCard6">
+      <div class="question-title">6. How many seasons are mentioned in the text?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q6" value="A"> A. Four</label>
+        <label class="option-btn"><input type="radio" name="q6" value="B"> B. Three</label>
+        <label class="option-btn"><input type="radio" name="q6" value="C"> C. Five</label>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card" id="qCard7">
+      <div class="question-title">7. What happens in spring?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q7" value="A"> A. Beautiful flowers grow</label>
+        <label class="option-btn"><input type="radio" name="q7" value="B"> B. It snows all day</label>
+        <label class="option-btn"><input type="radio" name="q7" value="C"> C. Leaves turn brown and fall</label>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card" id="qCard8">
+      <div class="question-title">8. What colour do leaves turn in autumn?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q8" value="A"> A. Yellow and brown</label>
+        <label class="option-btn"><input type="radio" name="q8" value="B"> B. Pink and purple</label>
+        <label class="option-btn"><input type="radio" name="q8" value="C"> C. Blue and green</label>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card" id="qCard9">
+      <div class="question-title">9. What activity do children love doing in winter?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q9" value="A"> A. Ice-skating</label>
+        <label class="option-btn"><input type="radio" name="q9" value="B"> B. Swimming</label>
+        <label class="option-btn"><input type="radio" name="q9" value="C"> C. Wind-surfing</label>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" id="qCard10">
+      <div class="question-title">10. When is the sister's birthday?</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q10" value="A"> A. In May</label>
+        <label class="option-btn"><input type="radio" name="q10" value="B"> B. In August</label>
+        <label class="option-btn"><input type="radio" name="q10" value="C"> C. In December</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN C -->
+    <div class="section-badge">SECTION C: True or False (Q11 – Q15)</div>
+
+    <!-- Q11 -->
+    <div class="question-card" id="qCard11">
+      <div class="question-title">11. There are twelve months in a year.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q11" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q11" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card" id="qCard12">
+      <div class="question-title">12. It snows in summer.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q12" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q12" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card" id="qCard13">
+      <div class="question-title">13. August comes right after July.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q13" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q13" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card" id="qCard14">
+      <div class="question-title">14. Autumn is also called fall.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q14" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q14" value="B"> B. False</label>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card" id="qCard15">
+      <div class="question-title">15. People go ice-skating on the beach in summer.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q15" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q15" value="B"> B. False</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN D -->
+    <div class="section-badge">SECTION D: Grammar & Vocabulary (Q16 – Q25)</div>
+
+    <!-- Q16 -->
+    <div class="question-card" id="qCard16">
+      <div class="question-title">16. When's your birthday? It's __________ March.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q16" value="A"> A. in</label>
+        <label class="option-btn"><input type="radio" name="q16" value="B"> B. on</label>
+        <label class="option-btn"><input type="radio" name="q16" value="C"> C. at</label>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="question-card" id="qCard17">
+      <div class="question-title">17. What's your __________ season? I like spring.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q17" value="A"> A. favourite</label>
+        <label class="option-btn"><input type="radio" name="q17" value="B"> B. happy</label>
+        <label class="option-btn"><input type="radio" name="q17" value="C"> C. weather</label>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="question-card" id="qCard18">
+      <div class="question-title">18. What __________ you do in autumn? I rake leaves.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q18" value="A"> A. do</label>
+        <label class="option-btn"><input type="radio" name="q18" value="B"> B. does</label>
+        <label class="option-btn"><input type="radio" name="q18" value="C"> C. doing</label>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="question-card" id="qCard19">
+      <div class="question-title">19. He __________ swimming in summer.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q19" value="A"> A. goes</label>
+        <label class="option-btn"><input type="radio" name="q19" value="B"> B. go</label>
+        <label class="option-btn"><input type="radio" name="q19" value="C"> C. going</label>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="question-card" id="qCard20">
+      <div class="question-title">20. There are __________ months in a year.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q20" value="A"> A. twelve</label>
+        <label class="option-btn"><input type="radio" name="q20" value="B"> B. ten</label>
+        <label class="option-btn"><input type="radio" name="q20" value="C"> C. seven</label>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="question-card" id="qCard21">
+      <div class="question-title">21. December is the __________ month of the year.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q21" value="A"> A. twelfth</label>
+        <label class="option-btn"><input type="radio" name="q21" value="B"> B. first</label>
+        <label class="option-btn"><input type="radio" name="q21" value="C"> C. fifth</label>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card" id="qCard22">
+      <div class="question-title">22. It is cold and snowing outside. It is __________.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q22" value="A"> A. winter</label>
+        <label class="option-btn"><input type="radio" name="q22" value="B"> B. summer</label>
+        <label class="option-btn"><input type="radio" name="q22" value="C"> C. spring</label>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="question-card" id="qCard23">
+      <div class="question-title">23. She __________ go ice-skating in summer because it is hot.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q23" value="A"> A. doesn't</label>
+        <label class="option-btn"><input type="radio" name="q23" value="B"> B. don't</label>
+        <label class="option-btn"><input type="radio" name="q23" value="C"> C. isn't</label>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card" id="qCard24">
+      <div class="question-title">24. What is the weather __________ today? It's windy.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q24" value="A"> A. like</label>
+        <label class="option-btn"><input type="radio" name="q24" value="B"> B. do</label>
+        <label class="option-btn"><input type="radio" name="q24" value="C"> C. looking</label>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card" id="qCard25">
+      <div class="question-title">25. January is the __________ month of the year.</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q25" value="A"> A. first</label>
+        <label class="option-btn"><input type="radio" name="q25" value="B"> B. second</label>
+        <label class="option-btn"><input type="radio" name="q25" value="C"> C. last</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN E -->
+    <div class="section-badge">SECTION E: Punctuation & Capital Letters (Q26 – Q30)</div>
+
+    <!-- Q26 -->
+    <div class="question-card" id="qCard26">
+      <div class="question-title">26. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q26" value="A"> A. When is your birthday?</label>
+        <label class="option-btn"><input type="radio" name="q26" value="B"> B. when is your birthday.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="C"> C. When is your birthday</label>
+      </div>
+    </div>
+
+    <!-- Q27 -->
+    <div class="question-card" id="qCard27">
+      <div class="question-title">27. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q27" value="A"> A. My favourite season is summer.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="B"> B. my favourite season is summer.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="C"> C. My favourite season is summer</label>
+      </div>
+    </div>
+
+    <!-- Q28 -->
+    <div class="question-card" id="qCard28">
+      <div class="question-title">28. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q28" value="A"> A. It is cold and windy in autumn.</label>
+        <label class="option-btn"><input type="radio" name="q28" value="B"> B. It is cold and windy in autumn</label>
+        <label class="option-btn"><input type="radio" name="q28" value="C"> C. it is cold and windy in autumn.</label>
+      </div>
+    </div>
+
+    <!-- Q29 -->
+    <div class="question-card" id="qCard29">
+      <div class="question-title">29. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q29" value="A"> A. Is your birthday in November?</label>
+        <label class="option-btn"><input type="radio" name="q29" value="B"> B. Is your birthday in November.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="C"> C. is your birthday in november?</label>
+      </div>
+    </div>
+
+    <!-- Q30 -->
+    <div class="question-card" id="qCard30">
+      <div class="question-title">30. Choose the correct punctuation:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q30" value="A"> A. I go skiing in winter.</label>
+        <label class="option-btn"><input type="radio" name="q30" value="B"> B. I go skiing in winter</label>
+        <label class="option-btn"><input type="radio" name="q30" value="C"> C. i go skiing in winter.</label>
+      </div>
+    </div>
+
+
+    <!-- BAHAGIAN F -->
+    <div class="section-badge">SECTION F: Sentence Structure & Word Order (Q31 – Q50)</div>
+
+    <!-- Q31 -->
+    <div class="question-card" id="qCard31">
+      <div class="question-title">31. Rearrange: <strong>favourite / season? / What / is / your</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q31" value="A"> A. What is your favourite season?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="B"> B. Favourite season what is your?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="C"> C. Is your favourite season what?</label>
+      </div>
+    </div>
+
+    <!-- Q32 -->
+    <div class="question-card" id="qCard32">
+      <div class="question-title">32. Rearrange: <strong>birthday / in / My / is / July.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q32" value="A"> A. My birthday is in July.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="B"> B. In July my birthday is.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="C"> C. Birthday my in July is.</label>
+      </div>
+    </div>
+
+    <!-- Q33 -->
+    <div class="question-card" id="qCard33">
+      <div class="question-title">33. Rearrange: <strong>summer. / go / I / swimming / in</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q33" value="A"> A. I go swimming in summer.</label>
+        <label class="option-btn"><input type="radio" name="q33" value="B"> B. Swimming I go in summer.</label>
+        <label class="option-btn"><input type="radio" name="q33" value="C"> C. In summer swimming I go.</label>
+      </div>
+    </div>
+
+    <!-- Q34 -->
+    <div class="question-card" id="qCard34">
+      <div class="question-title">34. Rearrange: <strong>cold / It / is / winter. / in</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q34" value="A"> A. It is cold in winter.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="B"> B. In winter cold it is.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="C"> C. Cold is it winter in.</label>
+      </div>
+    </div>
+
+    <!-- Q35 -->
+    <div class="question-card" id="qCard35">
+      <div class="question-title">35. Rearrange: <strong>do / What / you / autumn? / do / in</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q35" value="A"> A. What do you do in autumn?</label>
+        <label class="option-btn"><input type="radio" name="q35" value="B"> B. Do you what do in autumn?</label>
+        <label class="option-btn"><input type="radio" name="q35" value="C"> C. In autumn what you do do?</label>
+      </div>
+    </div>
+
+    <!-- Q36 -->
+    <div class="question-card" id="qCard36">
+      <div class="question-title">36. Rearrange: <strong>rake / I / leaves / in / autumn.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q36" value="A"> A. I rake leaves in autumn.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="B"> B. Leaves rake I in autumn.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="C"> C. In autumn rake leaves I.</label>
+      </div>
+    </div>
+
+    <!-- Q37 -->
+    <div class="question-card" id="qCard37">
+      <div class="question-title">37. Rearrange: <strong>season / Spring / is / favourite / my.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q37" value="A"> A. Spring is my favourite season.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="B"> B. Favourite season is my spring.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="C"> C. Season spring my favourite is.</label>
+      </div>
+    </div>
+
+    <!-- Q38 -->
+    <div class="question-card" id="qCard38">
+      <div class="question-title">38. Rearrange: <strong>sunny / and / It / hot. / is</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q38" value="A"> A. It is hot and sunny.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="B"> B. Hot sunny is it and.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="C"> C. Sunny and hot it is.</label>
+      </div>
+    </div>
+
+    <!-- Q39 -->
+    <div class="question-card" id="qCard39">
+      <div class="question-title">39. Rearrange: <strong>is / month / March / third / the.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q39" value="A"> A. March is the third month.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="B"> B. Third month is March the.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="C"> C. Is March third month the.</label>
+      </div>
+    </div>
+
+    <!-- Q40 -->
+    <div class="question-card" id="qCard40">
+      <div class="question-title">40. Rearrange: <strong>flowers / grow / In / spring, / beautiful.</strong></div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q40" value="A"> A. In spring, beautiful flowers grow.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="B"> B. Beautiful flowers grow in spring.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="C"> C. Grow flowers spring beautiful in.</label>
+      </div>
+    </div>
+
+    <!-- Q41 -->
+    <div class="question-card" id="qCard41">
+      <div class="question-title">41. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q41" value="A"> A. My birthday is in October.</label>
+        <label class="option-btn"><input type="radio" name="q41" value="B"> B. My birthday am in October.</label>
+        <label class="option-btn"><input type="radio" name="q41" value="C"> C. My birthday are in October.</label>
+      </div>
+    </div>
+
+    <!-- Q42 -->
+    <div class="question-card" id="qCard42">
+      <div class="question-title">42. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q42" value="A"> A. What do you do in winter?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="B"> B. What does you do in winter?</label>
+        <label class="option-btn"><input type="radio" name="q42" value="C"> C. What doing you do in winter?</label>
+      </div>
+    </div>
+
+    <!-- Q43 -->
+    <div class="question-card" id="qCard43">
+      <div class="question-title">43. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q43" value="A"> A. Leaves fall in autumn.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="B"> B. Leaves falls in autumn.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="C"> C. Leaves falling in autumn.</label>
+      </div>
+    </div>
+
+    <!-- Q44 -->
+    <div class="question-card" id="qCard44">
+      <div class="question-title">44. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q44" value="A"> A. It is cold and snowing in winter.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="B"> B. It are cold and snowing in winter.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="C"> C. It am cold and snowing in winter.</label>
+      </div>
+    </div>
+
+    <!-- Q45 -->
+    <div class="question-card" id="qCard45">
+      <div class="question-title">45. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q45" value="A"> A. When is your birthday?</label>
+        <label class="option-btn"><input type="radio" name="q45" value="B"> B. When are your birthday?</label>
+        <label class="option-btn"><input type="radio" name="q45" value="C"> C. When am your birthday?</label>
+      </div>
+    </div>
+
+    <!-- Q46 -->
+    <div class="question-card" id="qCard46">
+      <div class="question-title">46. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q46" value="A"> A. She goes skiing in winter.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="B"> B. She go skiing in winter.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="C"> C. She going skiing in winter.</label>
+      </div>
+    </div>
+
+    <!-- Q47 -->
+    <div class="question-card" id="qCard47">
+      <div class="question-title">47. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q47" value="A"> A. There are four seasons in a year.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="B"> B. There is four seasons in a year.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="C"> C. There am four seasons in a year.</label>
+      </div>
+    </div>
+
+    <!-- Q48 -->
+    <div class="question-card" id="qCard48">
+      <div class="question-title">48. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q48" value="A"> A. January is the first month of the year.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="B"> B. January are the first month of the year.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="C"> C. January am the first month of the year.</label>
+      </div>
+    </div>
+
+    <!-- Q49 -->
+    <div class="question-card" id="qCard49">
+      <div class="question-title">49. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q49" value="A"> A. We make sandcastles on the beach.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="B"> B. We makes sandcastles on the beach.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="C"> C. We making sandcastles on the beach.</label>
+      </div>
+    </div>
+
+    <!-- Q50 -->
+    <div class="question-card" id="qCard50">
+      <div class="question-title">50. Choose the correct sentence:</div>
+      <div class="options-group">
+        <label class="option-btn"><input type="radio" name="q50" value="A"> A. What is the weather like today?</label>
+        <label class="option-btn"><input type="radio" name="q50" value="B"> B. What are the weather like today?</label>
+        <label class="option-btn"><input type="radio" name="q50" value="C"> C. What am the weather like today?</label>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="button" class="submit-btn" onclick="submitQuiz()">HANTAR JAWAPAN ➔</button>
+
+  </form>
+
+</div>
+
+
+<!-- RESULT MODAL -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-card">
+    <h2>🎉 TAHNIAH / CONGRATULATIONS!</h2>
+    <p>Kuiz y3_module4 telah selesai.</p>
+    <div class="score-text" id="finalScoreText">0 / 50</div>
+    <p id="percentageText">Peratusan: 0%</p>
+    <div>
+      <button class="modal-action-btn" onclick="closeModal()">Semak Jawapan</button>
+      <a href="index.html" class="modal-action-btn" style="background: #0288d1;">Kembali ke Utama</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+
+/* Skema Jawapan y3_module4 */
+const correctAnswers = {
+  1:'A', 2:'A', 3:'A', 4:'A', 5:'A',
+  6:'A', 7:'A', 8:'A', 9:'A', 10:'A',
+  11:'A', 12:'B', 13:'A', 14:'A', 15:'B',
+  16:'A', 17:'A', 18:'A', 19:'A', 20:'A',
+  21:'A', 22:'A', 23:'A', 24:'A', 25:'A',
+  26:'A', 27:'A', 28:'A', 29:'A', 30:'A',
+  31:'A', 32:'A', 33:'A', 34:'A', 35:'A',
+  36:'A', 37:'A', 38:'A', 39:'A', 40:'A',
+  41:'A', 42:'A', 43:'A', 44:'A', 45:'A',
+  46:'A', 47:'A', 48:'A', 49:'A', 50:'A'
+};
+
+/* Muat Maklumat Murid dari LocalStorage */
+window.onload = function() {
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  document.getElementById("displayName").innerText = name;
+  document.getElementById("displayClass").innerText = studentClass;
+};
+
+function submitQuiz() {
+  let score = 0;
+  let unanswered = 0;
+
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    
+    if (!selectedOption) {
+      unanswered++;
+    } else {
+      if (selectedOption.value === correctAnswers[i]) {
+        score++;
+      }
+    }
+  }
+
+  if (unanswered > 0) {
+    const confirmSubmit = confirm(`Anda masih mempunyai ${unanswered} soalan yang belum dijawab. Adakah anda pasti mahu menghantar?`);
+    if (!confirmSubmit) return;
+  }
+
+  /* Semak & Tandakan Jawapan */
+  for (let i = 1; i <= 50; i++) {
+    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+    const options = document.querySelectorAll(`input[name="q${i}"]`);
+
+    options.forEach(opt => {
+      const parentLabel = opt.parentElement;
+      if (opt.value === correctAnswers[i]) {
+        parentLabel.classList.add("correct-mark");
+      } else if (selectedOption && opt.checked && opt.value !== correctAnswers[i]) {
+        parentLabel.classList.add("wrong-mark");
+      }
+    });
+  }
+
+  /* Paparkan Skor */
+  const percentage = Math.round((score / 50) * 100);
+  document.getElementById("finalScoreText").innerText = `${score} / 50`;
+  document.getElementById("percentageText").innerText = `Peratusan: ${percentage}%`;
+  document.getElementById("resultModal").style.display = "flex";
+
+  /* Simpan keputusan ke LocalStorage */
+  const name = localStorage.getItem("seqsName") || "Murid";
+  const studentClass = localStorage.getItem("seqsClass") || "-";
+  
+  const resultData = {
+    name: name,
+    class: studentClass,
+    module: "UB Tahun 3 - y3_module4",
+    score: score,
+    total: 50,
+    percentage: percentage,
+    date: new Date().toLocaleDateString()
+  };
+
+  let allResults = JSON.parse(localStorage.getItem("seqsResults")) || [];
+  allResults.push(resultData);
+  localStorage.setItem("seqsResults", JSON.stringify(allResults));
+}
+
+function closeModal() {
+  document.getElementById("resultModal").style.display = "none";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+
+</body>
+
+</html>
