@@ -26,12 +26,14 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif !important;
   font-size: 14pt !important;
-  background: linear-gradient(180deg, #00b4db 0%, #0083b0 40%, #004e92 100%);
-  color: #1a2b4c;
+  /* GAMBAR LATAR BELAKANG RIMBA */
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -41,74 +43,79 @@ body {
 
 header {
   text-align: center;
-  padding: 30px 20px 15px 20px;
+  padding: 25px 20px 10px 20px;
   color: white;
 }
 
 .logo {
   font-weight: 900;
-  letter-spacing: 2px;
-  font-size: 22pt !important;
-  text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.4);
+  letter-spacing: 3px;
+  font-size: 24pt !important;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8), 0 0 12px #2e7d32;
   color: #ffffff;
 }
 
 .subtitle {
   margin-top: 6px;
   font-weight: bold;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  color: #f1f8e9;
 }
 
 
 /* ================================
-   CONTAINER
+   CONTAINER (KAD PAPAN SEPARA LUTSOSINAR)
 ================================ */
 
 .container {
-  max-width: 900px;
-  width: 92%;
-  margin: 0 auto;
-  padding-bottom: 30px;
+  max-width: 720px;
+  width: 90%;
+  margin: 10px auto;
+  padding: 25px;
+  background: rgba(255, 253, 245, 0.92);
+  border-radius: 25px;
+  border: 4px solid #5d4037;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
 }
 
 
 /* ================================
-   STUDENT INFO BAR (ORANGE CONTAINER)
+   STUDENT INFO BAR (TEMA ORAN/KAYU)
 ================================ */
 
 .student-info-bar {
-  background: linear-gradient(135deg, #ff9800, #f57c00);
-  padding: 20px;
-  border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #e65100, #f57c00);
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-bottom: 25px;
-  border: 3px solid #ffffff;
+  margin-bottom: 20px;
+  border: 2px solid #ffffff;
 }
 
 .input-box {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 8px 16px;
+  border-radius: 15px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  gap: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .input-icon {
-  font-size: 18pt !important;
+  font-size: 16pt !important;
   background: #ffe0b2;
-  padding: 8px;
+  padding: 6px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
 }
 
 .input-field-wrapper {
@@ -118,7 +125,7 @@ header {
 .input-label {
   font-size: 10pt !important;
   font-weight: bold;
-  color: #e65100;
+  color: #d84315;
   display: block;
   text-transform: uppercase;
 }
@@ -129,8 +136,8 @@ input, select {
   outline: none;
   background: transparent;
   font-weight: bold;
-  color: #333333;
-  padding: 4px 0;
+  color: #2e2e2e;
+  padding: 2px 0;
 }
 
 
@@ -140,95 +147,94 @@ input, select {
 
 .section-badge {
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .section-badge span {
-  background: #003366;
+  background: #2e7d32;
   color: #ffeb3b;
-  padding: 8px 24px;
+  padding: 8px 22px;
   border-radius: 20px;
   font-weight: bold;
   letter-spacing: 1px;
   border: 2px solid #ffffff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   display: inline-block;
 }
 
 
 /* ================================
-   MODULE CARDS GRID (SIDE BY SIDE)
+   MODULE CARDS GRID
 ================================ */
 
 .modules-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 25px;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .module-card {
-  border-radius: 22px;
-  padding: 22px;
+  border-radius: 18px;
+  padding: 18px;
   color: white;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .module-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+  transform: translateY(-3px);
 }
 
-/* Card Y3 (Blue) */
+/* Card Y3 (Hijau Rimba) */
 .card-y3 {
-  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  background: linear-gradient(135deg, #1b5e20, #388e3c);
 }
 
-/* Card Y4 (Pink) */
+/* Card Y4 (Coklat Jingga) */
 .card-y4 {
-  background: linear-gradient(135deg, #ff007f, #ff5252);
+  background: linear-gradient(135deg, #d84315, #f4511e);
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
 .card-icon {
   background: rgba(255, 255, 255, 0.25);
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16pt !important;
+  font-size: 15pt !important;
 }
 
 .card-title {
   font-weight: bold;
-  font-size: 15pt !important;
+  font-size: 14pt !important;
 }
 
 .card-desc {
   font-size: 11pt !important;
   opacity: 0.95;
-  margin-bottom: 15px;
-  line-height: 1.4;
+  margin-bottom: 12px;
+  line-height: 1.3;
 }
 
 .card-select {
   background: #ffffff !important;
   color: #1a2b4c !important;
-  border-radius: 12px;
-  padding: 10px 12px;
+  border-radius: 10px;
+  padding: 8px 10px;
   font-weight: bold;
   border: 2px solid #ffffff;
   cursor: pointer;
@@ -249,7 +255,7 @@ input, select {
   width: 100%;
   border: none;
   padding: 16px;
-  border-radius: 30px;
+  border-radius: 25px;
   background: linear-gradient(135deg, #4caf50, #2e7d32);
   color: white;
   font-weight: bold;
@@ -271,22 +277,21 @@ input, select {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 12px;
+  background: #5d4037;
   border: 2px solid #ffffff;
-  color: #004e92;
+  color: #ffffff;
   border-radius: 25px;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.25s ease;
 }
 
 .menu-btn:hover {
-  background: #ffffff;
+  background: #3e2723;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -296,15 +301,15 @@ input, select {
 
 footer {
   text-align: center;
-  color: #e0f2fe;
-  padding: 20px 15px;
+  color: #ffffff;
+  padding: 15px;
   line-height: 1.5;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 
 /* ================================
-   RESPONSIVE DESIGN (MOBILE)
+   RESPONSIVE DESIGN
 ================================ */
 
 @media (max-width: 650px) {
@@ -349,7 +354,7 @@ footer {
 
 
   <!-- ================================
-        1. BAR MAKLUMAT MURID (OREN)
+        1. BAR MAKLUMAT MURID
   ================================= -->
 
   <div class="student-info-bar">
@@ -423,7 +428,7 @@ footer {
 
   <div class="modules-grid">
 
-    <!-- KAD TAHUN 3 (BIRU) -->
+    <!-- KAD TAHUN 3 -->
     <div class="module-card card-y3">
       <div>
         <div class="card-header">
@@ -450,7 +455,7 @@ footer {
       </select>
     </div>
 
-    <!-- KAD TAHUN 4 (PINK) -->
+    <!-- KAD TAHUN 4 -->
     <div class="module-card card-y4">
       <div>
         <div class="card-header">
