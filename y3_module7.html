@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>UB Tahun 3: Module 7 – Out and About! (y3_module7)</title>
+<title>UB Tahun 3: Module 7 – Out and About</title>
 
 <style>
 
 /* ================================
-   GLOBAL & FONT SETTINGS
-   Font: Arial | Size: 14pt
+    GLOBAL & FONT SETTINGS
+    Font: Arial | Size: 14pt
 ================================ */
 
 * {
@@ -37,7 +37,7 @@ body {
 
 
 /* ================================
-   CONTAINER & HEADER
+    CONTAINER & HEADER
 ================================ */
 
 .quiz-container {
@@ -48,7 +48,7 @@ body {
 }
 
 .header-banner {
-  background: linear-gradient(135deg, #0288d1, #01579b);
+  background: linear-gradient(135deg, #1b5e20, #388e3c);
   color: white;
   padding: 20px;
   border-radius: 20px;
@@ -74,18 +74,18 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
-  color: #01579b;
+  color: #1b5e20;
   font-weight: bold;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 
 /* ================================
-   SECTION BADGES & PASSAGES
+    SECTION BADGES & PASSAGES
 ================================ */
 
 .section-badge {
-  background: #0277bd;
+  background: #e65100;
   color: #ffffff;
   padding: 12px 20px;
   border-radius: 15px;
@@ -98,7 +98,7 @@ body {
 
 .passage-box {
   background: rgba(255, 255, 255, 0.95);
-  border: 3px solid #0288d1;
+  border: 3px solid #795548;
   border-radius: 18px;
   padding: 18px 22px;
   margin-bottom: 20px;
@@ -107,12 +107,12 @@ body {
 }
 
 .passage-box strong {
-  color: #01579b;
+  color: #5d4037;
 }
 
 
 /* ================================
-   QUESTION CARDS
+    QUESTION CARDS
 ================================ */
 
 .question-card {
@@ -128,7 +128,7 @@ body {
 .question-title {
   font-weight: bold;
   margin-bottom: 12px;
-  color: #01579b;
+  color: #1b5e20;
   line-height: 1.4;
 }
 
@@ -139,6 +139,7 @@ body {
 }
 
 .option-btn {
+  /* Dipertingkatkan agar teks opsyen kekal konsisten */
   display: flex;
   align-items: center;
   background: #f5f5f5;
@@ -151,8 +152,8 @@ body {
 }
 
 .option-btn:hover {
-  background: #e1f5fe;
-  border-color: #0288d1;
+  background: #e8f5e9;
+  border-color: #4caf50;
 }
 
 .option-btn input[type="radio"] {
@@ -163,12 +164,12 @@ body {
 
 
 /* ================================
-   SUBMIT & RESULT MODAL
+    SUBMIT & RESULT MODAL
 ================================ */
 
 .submit-btn {
   width: 100%;
-  background: linear-gradient(135deg, #0288d1, #01579b);
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
   color: white;
   border: 3px solid #ffffff;
   padding: 18px;
@@ -183,7 +184,7 @@ body {
 
 .submit-btn:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #01579b, #002171);
+  background: linear-gradient(135deg, #43a047, #1b5e20);
 }
 
 .modal-overlay {
@@ -207,18 +208,18 @@ body {
   width: 90%;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 4px solid #0288d1;
+  border: 4px solid #2e7d32;
 }
 
 .score-text {
   font-size: 28pt !important;
   font-weight: bold;
-  color: #0288d1;
+  color: #2e7d32;
   margin: 15px 0;
 }
 
 .modal-action-btn {
-  background: #37474f;
+  background: #5d4037;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -254,7 +255,7 @@ body {
 
   <!-- HEADER BANNER -->
   <div class="header-banner">
-    <h1>UB TAHUN 3: MODULE 7 – OUT AND ABOUT!</h1>
+    <h1>UB TAHUN 3: MODULE 7 – OUT AND ABOUT</h1>
     <div class="student-bar">
       <span>👤 Student: <span id="displayName">Guest</span></span>
       <span>🎓 Class: <span id="displayClass">-</span></span>
@@ -268,56 +269,56 @@ body {
     
     <div class="passage-box">
       <strong>Read the text carefully:</strong><br>
-      Hi, I am Amir. Today is a sunny Saturday. My family and I are at the park near our house. My sister, Lina, is riding her new bicycle on the path. My father is walking our brown dog, Toby. My mother is sitting on a green bench and reading a magazine. I am flying a big blue kite in the open field. We are all having a wonderful time outdoors!
+      Hi! I am Greg. Today, my family and I are out and about in the town. We want to go to the toy shop. First, we walk past the hospital and turn left at the traffic lights. Then, we walk straight on. The toy shop is next to the big supermarket. I am very excited!
     </div>
 
     <!-- Q1 -->
     <div class="question-card" id="qCard1">
-      <div class="question-title">1. Where are Amir and his family?</div>
+      <div class="question-title">1. Where are Greg and his family?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q1" value="A"> A. At the park</label>
-        <label class="option-btn"><input type="radio" name="q1" value="B"> B. At the supermarket</label>
-        <label class="option-btn"><input type="radio" name="q1" value="C"> C. At school</label>
+        <label class="option-btn"><input type="radio" name="q1" value="A"> A. Out and about in the town</label>
+        <label class="option-btn"><input type="radio" name="q1" value="B"> B. At school</label>
+        <label class="option-btn"><input type="radio" name="q1" value="C"> C. At home</label>
       </div>
     </div>
 
     <!-- Q2 -->
     <div class="question-card" id="qCard2">
-      <div class="question-title">2. What is Lina doing?</div>
+      <div class="question-title">2. Where do they want to go?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q2" value="A"> A. Riding her bicycle</label>
-        <label class="option-btn"><input type="radio" name="q2" value="B"> B. Flying a kite</label>
-        <label class="option-btn"><input type="radio" name="q2" value="C"> C. Reading a book</label>
+        <label class="option-btn"><input type="radio" name="q2" value="A"> A. To the hospital</label>
+        <label class="option-btn"><input type="radio" name="q2" value="B"> B. To the toy shop</label>
+        <label class="option-btn"><input type="radio" name="q2" value="C"> C. To the supermarket</label>
       </div>
     </div>
 
     <!-- Q3 -->
     <div class="question-card" id="qCard3">
-      <div class="question-title">3. Who is walking the dog?</div>
+      <div class="question-title">3. What do they walk past first?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q3" value="A"> A. Amir's father</label>
-        <label class="option-btn"><input type="radio" name="q3" value="B"> B. Amir's mother</label>
-        <label class="option-btn"><input type="radio" name="q3" value="C"> C. Amir</label>
+        <label class="option-btn"><input type="radio" name="q3" value="A"> A. The toy shop</label>
+        <label class="option-btn"><input type="radio" name="q3" value="B"> B. The hospital</label>
+        <label class="option-btn"><input type="radio" name="q3" value="C"> C. The park</label>
       </div>
     </div>
 
     <!-- Q4 -->
     <div class="question-card" id="qCard4">
-      <div class="question-title">4. What is Amir's mother doing on the bench?</div>
+      <div class="question-title">4. Where do they turn left?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q4" value="A"> A. Reading a magazine</label>
-        <label class="option-btn"><input type="radio" name="q4" value="B"> B. Eating snacks</label>
-        <label class="option-btn"><input type="radio" name="q4" value="C"> C. Riding a bike</label>
+        <label class="option-btn"><input type="radio" name="q4" value="A"> A. At the traffic lights</label>
+        <label class="option-btn"><input type="radio" name="q4" value="B"> B. At the supermarket</label>
+        <label class="option-btn"><input type="radio" name="q4" value="C"> C. At the toy shop</label>
       </div>
     </div>
 
     <!-- Q5 -->
     <div class="question-card" id="qCard5">
-      <div class="question-title">5. What colour is Amir's kite?</div>
+      <div class="question-title">5. Where is the toy shop located?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q5" value="A"> A. Blue</label>
-        <label class="option-btn"><input type="radio" name="q5" value="B"> B. Red</label>
-        <label class="option-btn"><input type="radio" name="q5" value="C"> C. Green</label>
+        <label class="option-btn"><input type="radio" name="q5" value="A"> A. Next to the big supermarket</label>
+        <label class="option-btn"><input type="radio" name="q5" value="B"> B. Inside the hospital</label>
+        <label class="option-btn"><input type="radio" name="q5" value="C"> C. Behind the school</label>
       </div>
     </div>
 
@@ -327,56 +328,56 @@ body {
     
     <div class="passage-box">
       <strong>Read the text carefully:</strong><br>
-      It is Sunday morning and Jason is at the beach with his friends. The weather is hot and sunny. Jason and Sam are swimming in the clear blue sea. Their friend Chloe is building a large sandcastle near the shore. They can see boats sailing far away on the water. Everyone is smiling and enjoying the relaxing weekend by the sea.
+      My name is Lily. There are many interesting places in my town. You can buy books at the bookshop. If you are sick, you go to the hospital. To watch a movie, you go to the cinema. My favorite place is the park, where I can ride my bicycle.
     </div>
 
     <!-- Q6 -->
     <div class="question-card" id="qCard6">
-      <div class="question-title">6. Where are Jason and his friends?</div>
+      <div class="question-title">6. Where can you buy books?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q6" value="A"> A. At the beach</label>
-        <label class="option-btn"><input type="radio" name="q6" value="B"> B. At the playground</label>
-        <label class="option-btn"><input type="radio" name="q6" value="C"> C. At the zoo</label>
+        <label class="option-btn"><input type="radio" name="q6" value="A"> A. Cinema</label>
+        <label class="option-btn"><input type="radio" name="q6" value="B"> B. Bookshop</label>
+        <label class="option-btn"><input type="radio" name="q6" value="C"> C. Hospital</label>
       </div>
     </div>
 
     <!-- Q7 -->
     <div class="question-card" id="qCard7">
-      <div class="question-title">7. What are Jason and Sam doing?</div>
+      <div class="question-title">7. Where do you go if you are sick?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q7" value="A"> A. Swimming in the sea</label>
-        <label class="option-btn"><input type="radio" name="q7" value="B"> B. Flying kites</label>
-        <label class="option-btn"><input type="radio" name="q7" value="C"> C. Playing football</label>
+        <label class="option-btn"><input type="radio" name="q7" value="A"> A. Park</label>
+        <label class="option-btn"><input type="radio" name="q7" value="B"> B. Toy shop</label>
+        <label class="option-btn"><input type="radio" name="q7" value="C"> C. Hospital</label>
       </div>
     </div>
 
     <!-- Q8 -->
     <div class="question-card" id="qCard8">
-      <div class="question-title">8. Who is building a sandcastle?</div>
+      <div class="question-title">8. Where do you go to watch a movie?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q8" value="A"> A. Chloe</label>
-        <label class="option-btn"><input type="radio" name="q8" value="B"> B. Jason</label>
-        <label class="option-btn"><input type="radio" name="q8" value="C"> C. Sam</label>
+        <label class="option-btn"><input type="radio" name="q8" value="A"> A. Cinema</label>
+        <label class="option-btn"><input type="radio" name="q8" value="B"> B. Bookshop</label>
+        <label class="option-btn"><input type="radio" name="q8" value="C"> C. Supermarket</label>
       </div>
     </div>
 
     <!-- Q9 -->
     <div class="question-card" id="qCard9">
-      <div class="question-title">9. What can they see sailing on the water?</div>
+      <div class="question-title">9. What is Lily's favorite place?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q9" value="A"> A. Boats</label>
-        <label class="option-btn"><input type="radio" name="q9" value="B"> B. Planes</label>
-        <label class="option-btn"><input type="radio" name="q9" value="C"> C. Birds</label>
+        <label class="option-btn"><input type="radio" name="q9" value="A"> A. Hospital</label>
+        <label class="option-btn"><input type="radio" name="q9" value="B"> B. Park</label>
+        <label class="option-btn"><input type="radio" name="q9" value="C"> C. Cinema</label>
       </div>
     </div>
 
     <!-- Q10 -->
     <div class="question-card" id="qCard10">
-      <div class="question-title">10. How is the weather?</div>
+      <div class="question-title">10. What does Lily do at the park?</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q10" value="A"> A. Hot and sunny</label>
-        <label class="option-btn"><input type="radio" name="q10" value="B"> B. Cold and rainy</label>
-        <label class="option-btn"><input type="radio" name="q10" value="C"> C. Windy and snowy</label>
+        <label class="option-btn"><input type="radio" name="q10" value="A"> A. Ride her bicycle</label>
+        <label class="option-btn"><input type="radio" name="q10" value="B"> B. Buy books</label>
+        <label class="option-btn"><input type="radio" name="q10" value="C"> C. Watch a movie</label>
       </div>
     </div>
 
@@ -386,7 +387,7 @@ body {
 
     <!-- Q11 -->
     <div class="question-card" id="qCard11">
-      <div class="question-title">11. We can swim in the sea.</div>
+      <div class="question-title">11. You can buy food and groceries at a supermarket.</div>
       <div class="options-group">
         <label class="option-btn"><input type="radio" name="q11" value="A"> A. True</label>
         <label class="option-btn"><input type="radio" name="q11" value="B"> B. False</label>
@@ -395,16 +396,16 @@ body {
 
     <!-- Q12 -->
     <div class="question-card" id="qCard12">
-      <div class="question-title">12. A bicycle has four wheels.</div>
+      <div class="question-title">12. A cinema is a place where doctors work.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q12" value="A"> A. False</label>
-        <label class="option-btn"><input type="radio" name="q12" value="B"> B. True</label>
+        <label class="option-btn"><input type="radio" name="q12" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q12" value="B"> B. False</label>
       </div>
     </div>
 
     <!-- Q13 -->
     <div class="question-card" id="qCard13">
-      <div class="question-title">13. People usually fly kites on a windy day.</div>
+      <div class="question-title">13. "Turn left" and "turn right" are directions.</div>
       <div class="options-group">
         <label class="option-btn"><input type="radio" name="q13" value="A"> A. True</label>
         <label class="option-btn"><input type="radio" name="q13" value="B"> B. False</label>
@@ -413,16 +414,16 @@ body {
 
     <!-- Q14 -->
     <div class="question-card" id="qCard14">
-      <div class="question-title">14. You can build a sandcastle in the classroom.</div>
+      <div class="question-title">14. A toy shop sells books and notebooks.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q14" value="A"> A. False</label>
-        <label class="option-btn"><input type="radio" name="q14" value="B"> B. True</label>
+        <label class="option-btn"><input type="radio" name="q14" value="A"> A. True</label>
+        <label class="option-btn"><input type="radio" name="q14" value="B"> B. False</label>
       </div>
     </div>
 
     <!-- Q15 -->
     <div class="question-card" id="qCard15">
-      <div class="question-title">15. Boats sail on the water.</div>
+      <div class="question-title">15. Traffic lights have red, yellow, and green lights.</div>
       <div class="options-group">
         <label class="option-btn"><input type="radio" name="q15" value="A"> A. True</label>
         <label class="option-btn"><input type="radio" name="q15" value="B"> B. False</label>
@@ -435,47 +436,47 @@ body {
 
     <!-- Q16 -->
     <div class="question-card" id="qCard16">
-      <div class="question-title">16. What __________ you doing right now?</div>
+      <div class="question-title">16. Where __________ you going? I am going to the park.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q16" value="A"> A. are</label>
-        <label class="option-btn"><input type="radio" name="q16" value="B"> B. is</label>
+        <label class="option-btn"><input type="radio" name="q16" value="A"> A. is</label>
+        <label class="option-btn"><input type="radio" name="q16" value="B"> B. are</label>
         <label class="option-btn"><input type="radio" name="q16" value="C"> C. am</label>
       </div>
     </div>
 
     <!-- Q17 -->
     <div class="question-card" id="qCard17">
-      <div class="question-title">17. She __________ riding her bicycle in the park.</div>
+      <div class="question-title">17. Turn __________ at the corner.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q17" value="A"> A. is</label>
-        <label class="option-btn"><input type="radio" name="q17" value="B"> B. are</label>
-        <label class="option-btn"><input type="radio" name="q17" value="C"> C. am</label>
+        <label class="option-btn"><input type="radio" name="q17" value="A"> A. right</label>
+        <label class="option-btn"><input type="radio" name="q17" value="B"> B. book</label>
+        <label class="option-btn"><input type="radio" name="q17" value="C"> C. cinema</label>
       </div>
     </div>
 
     <!-- Q18 -->
     <div class="question-card" id="qCard18">
-      <div class="question-title">18. I __________ swimming in the sea with my friend.</div>
+      <div class="question-title">18. He is walking __________ the street.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q18" value="A"> A. am</label>
-        <label class="option-btn"><input type="radio" name="q18" value="B"> B. is</label>
-        <label class="option-btn"><input type="radio" name="q18" value="C"> C. are</label>
+        <label class="option-btn"><input type="radio" name="q18" value="A"> A. down</label>
+        <label class="option-btn"><input type="radio" name="q18" value="B"> B. hospital</label>
+        <label class="option-btn"><input type="radio" name="q18" value="C"> C. toy</label>
       </div>
     </div>
 
     <!-- Q19 -->
     <div class="question-card" id="qCard19">
-      <div class="question-title">19. They __________ playing football in the field.</div>
+      <div class="question-title">19. We __________ go to the cinema on Sunday.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q19" value="A"> A. are</label>
-        <label class="option-btn"><input type="radio" name="q19" value="B"> B. is</label>
-        <label class="option-btn"><input type="radio" name="q19" value="C"> C. am</label>
+        <label class="option-btn"><input type="radio" name="q19" value="A"> A. wants</label>
+        <label class="option-btn"><input type="radio" name="q19" value="B"> B. want to</label>
+        <label class="option-btn"><input type="radio" name="q19" value="C"> C. wanting</label>
       </div>
     </div>
 
     <!-- Q20 -->
     <div class="question-card" id="qCard20">
-      <div class="question-title">20. Is he flying a kite? Yes, he __________.</div>
+      <div class="question-title">20. Is there a bookshop near here? Yes, there __________.</div>
       <div class="options-group">
         <label class="option-btn"><input type="radio" name="q20" value="A"> A. is</label>
         <label class="option-btn"><input type="radio" name="q20" value="B"> B. are</label>
@@ -485,51 +486,51 @@ body {
 
     <!-- Q21 -->
     <div class="question-card" id="qCard21">
-      <div class="question-title">21. Are they listening to music? No, they __________.</div>
+      <div class="question-title">21. The toy shop is __________ the bookshop and the cinema.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q21" value="A"> A. aren't</label>
-        <label class="option-btn"><input type="radio" name="q21" value="B"> B. isn't</label>
-        <label class="option-btn"><input type="radio" name="q21" value="C"> C. don't</label>
+        <label class="option-btn"><input type="radio" name="q21" value="A"> A. between</label>
+        <label class="option-btn"><input type="radio" name="q21" value="B"> B. under</label>
+        <label class="option-btn"><input type="radio" name="q21" value="C"> C. on</label>
       </div>
     </div>
 
     <!-- Q22 -->
     <div class="question-card" id="qCard22">
-      <div class="question-title">22. Look at the children! They are __________ a sandcastle.</div>
+      <div class="question-title">22. They __________ walking to the supermarket now.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q22" value="A"> A. building</label>
-        <label class="option-btn"><input type="radio" name="q22" value="B"> B. riding</label>
-        <label class="option-btn"><input type="radio" name="q22" value="C"> C. flying</label>
+        <label class="option-btn"><input type="radio" name="q22" value="A"> A. is</label>
+        <label class="option-btn"><input type="radio" name="q22" value="B"> B. are</label>
+        <label class="option-btn"><input type="radio" name="q22" value="C"> C. am</label>
       </div>
     </div>
 
     <!-- Q23 -->
     <div class="question-card" id="qCard23">
-      <div class="question-title">23. My brother is __________ a book on the bench.</div>
+      <div class="question-title">23. Walk __________ on this road to find the park.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q23" value="A"> A. reading</label>
-        <label class="option-btn"><input type="radio" name="q23" value="B"> B. swimming</label>
-        <label class="option-btn"><input type="radio" name="q23" value="C"> C. walking</label>
+        <label class="option-btn"><input type="radio" name="q23" value="A"> A. straight</label>
+        <label class="option-btn"><input type="radio" name="q23" value="B"> B. tall</label>
+        <label class="option-btn"><input type="radio" name="q23" value="C"> C. short</label>
       </div>
     </div>
 
     <!-- Q24 -->
     <div class="question-card" id="qCard24">
-      <div class="question-title">24. The boat is __________ on the blue water.</div>
+      <div class="question-title">24. What are you __________? I am reading a book.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q24" value="A"> A. sailing</label>
-        <label class="option-btn"><input type="radio" name="q24" value="B"> B. running</label>
-        <label class="option-btn"><input type="radio" name="q24" value="C"> C. driving</label>
+        <label class="option-btn"><input type="radio" name="q24" value="A"> A. do</label>
+        <label class="option-btn"><input type="radio" name="q24" value="B"> B. doing</label>
+        <label class="option-btn"><input type="radio" name="q24" value="C"> C. does</label>
       </div>
     </div>
 
     <!-- Q25 -->
     <div class="question-card" id="qCard25">
-      <div class="question-title">25. We go to the __________ to play on the swings and slide.</div>
+      <div class="question-title">25. She __________ going to the hospital.</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q25" value="A"> A. park</label>
-        <label class="option-btn"><input type="radio" name="q25" value="B"> B. kitchen</label>
-        <label class="option-btn"><input type="radio" name="q25" value="C"> C. bedroom</label>
+        <label class="option-btn"><input type="radio" name="q25" value="A"> A. is</label>
+        <label class="option-btn"><input type="radio" name="q25" value="B"> B. are</label>
+        <label class="option-btn"><input type="radio" name="q25" value="C"> C. am</label>
       </div>
     </div>
 
@@ -541,9 +542,9 @@ body {
     <div class="question-card" id="qCard26">
       <div class="question-title">26. Choose the correct punctuation:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q26" value="A"> A. What are you doing?</label>
-        <label class="option-btn"><input type="radio" name="q26" value="B"> B. what are you doing.</label>
-        <label class="option-btn"><input type="radio" name="q26" value="C"> C. What are you doing</label>
+        <label class="option-btn"><input type="radio" name="q26" value="A"> A. we are out and about in the town.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="B"> B. We are out and about in the town.</label>
+        <label class="option-btn"><input type="radio" name="q26" value="C"> C. We are out and about in the Town</label>
       </div>
     </div>
 
@@ -551,9 +552,9 @@ body {
     <div class="question-card" id="qCard27">
       <div class="question-title">27. Choose the correct punctuation:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q27" value="A"> A. She is riding her bicycle.</label>
-        <label class="option-btn"><input type="radio" name="q27" value="B"> B. she is riding her bicycle.</label>
-        <label class="option-btn"><input type="radio" name="q27" value="C"> C. She is riding her bicycle</label>
+        <label class="option-btn"><input type="radio" name="q27" value="A"> A. Turn left at the traffic lights.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="B"> B. turn left at the traffic lights.</label>
+        <label class="option-btn"><input type="radio" name="q27" value="C"> C. Turn left at the traffic lights</label>
       </div>
     </div>
 
@@ -561,9 +562,9 @@ body {
     <div class="question-card" id="qCard28">
       <div class="question-title">28. Choose the correct punctuation:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q28" value="A"> A. Are they swimming in the sea?</label>
-        <label class="option-btn"><input type="radio" name="q28" value="B"> B. are they swimming in the sea.</label>
-        <label class="option-btn"><input type="radio" name="q28" value="C"> C. Are they swimming in the sea</label>
+        <label class="option-btn"><input type="radio" name="q28" value="A"> A. Where is the toy shop?</label>
+        <label class="option-btn"><input type="radio" name="q28" value="B"> B. where is the toy shop?</label>
+        <label class="option-btn"><input type="radio" name="q28" value="C"> C. Where is the toy shop.</label>
       </div>
     </div>
 
@@ -571,9 +572,9 @@ body {
     <div class="question-card" id="qCard29">
       <div class="question-title">29. Choose the correct punctuation:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q29" value="A"> A. I am flying a blue kite.</label>
-        <label class="option-btn"><input type="radio" name="q29" value="B"> B. i am flying a blue kite.</label>
-        <label class="option-btn"><input type="radio" name="q29" value="C"> C. I am flying a blue kite</label>
+        <label class="option-btn"><input type="radio" name="q29" value="A"> A. The cinema is next to the park.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="B"> B. the cinema is next to the park.</label>
+        <label class="option-btn"><input type="radio" name="q29" value="C"> C. The cinema is next to the park</label>
       </div>
     </div>
 
@@ -581,9 +582,9 @@ body {
     <div class="question-card" id="qCard30">
       <div class="question-title">30. Choose the correct punctuation:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q30" value="A"> A. They aren't building a sandcastle.</label>
-        <label class="option-btn"><input type="radio" name="q30" value="B"> B. they aren't building a sandcastle.</label>
-        <label class="option-btn"><input type="radio" name="q30" value="C"> C. They aren't building a sandcastle</label>
+        <label class="option-btn"><input type="radio" name="q30" value="A"> A. Are you going to the hospital?</label>
+        <label class="option-btn"><input type="radio" name="q30" value="B"> B. Are you going to the hospital.</label>
+        <label class="option-btn"><input type="radio" name="q30" value="C"> C. are you going to the hospital?</label>
       </div>
     </div>
 
@@ -593,101 +594,101 @@ body {
 
     <!-- Q31 -->
     <div class="question-card" id="qCard31">
-      <div class="question-title">31. Rearrange: <strong>doing / What / you / are?</strong></div>
+      <div class="question-title">31. Rearrange: <strong>going / Where / you / are / ?</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q31" value="A"> A. What are you doing?</label>
-        <label class="option-btn"><input type="radio" name="q31" value="B"> B. Doing what are you?</label>
-        <label class="option-btn"><input type="radio" name="q31" value="C"> C. You are doing what?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="A"> A. Where are you going?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="B"> B. You are going where?</label>
+        <label class="option-btn"><input type="radio" name="q31" value="C"> C. Going where are you?</label>
       </div>
     </div>
 
     <!-- Q32 -->
     <div class="question-card" id="qCard32">
-      <div class="question-title">32. Rearrange: <strong>bicycle / riding / She / is / her.</strong></div>
+      <div class="question-title">32. Rearrange: <strong>left / Turn / traffic / the / at / lights.</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q32" value="A"> A. She is riding her bicycle.</label>
-        <label class="option-btn"><input type="radio" name="q32" value="B"> B. Riding her bicycle she is.</label>
-        <label class="option-btn"><input type="radio" name="q32" value="C"> C. Her bicycle is she riding.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="A"> A. Turn left at the traffic lights.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="B"> B. Traffic lights turn left at the.</label>
+        <label class="option-btn"><input type="radio" name="q32" value="C"> C. Left turn at the traffic lights.</label>
       </div>
     </div>
 
     <!-- Q33 -->
     <div class="question-card" id="qCard33">
-      <div class="question-title">33. Rearrange: <strong>sea / swimming / are / They / the / in.</strong></div>
+      <div class="question-title">33. Rearrange: <strong>is / toy / Where / the / shop / ?</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q33" value="A"> A. They are swimming in the sea.</label>
-        <label class="option-btn"><input type="radio" name="q33" value="B"> B. In the sea swimming they are.</label>
-        <label class="option-btn"><input type="radio" name="q33" value="C"> C. Swimming are they in the sea.</label>
+        <label class="option-btn"><input type="radio" name="q33" value="A"> A. Where is the toy shop?</label>
+        <label class="option-btn"><input type="radio" name="q33" value="B"> B. The toy shop where is?</label>
+        <label class="option-btn"><input type="radio" name="q33" value="C"> C. Is where the toy shop?</label>
       </div>
     </div>
 
     <!-- Q34 -->
     <div class="question-card" id="qCard34">
-      <div class="question-title">34. Rearrange: <strong>kite / flying / a / am / I.</strong></div>
+      <div class="question-title">34. Rearrange: <strong>cinema / to / going / am / I / the / .</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q34" value="A"> A. I am flying a kite.</label>
-        <label class="option-btn"><input type="radio" name="q34" value="B"> B. Flying a kite am I.</label>
-        <label class="option-btn"><input type="radio" name="q34" value="C"> C. A kite flying I am.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="A"> A. I am going to the cinema.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="B"> B. Going to the cinema I am.</label>
+        <label class="option-btn"><input type="radio" name="q34" value="C"> C. Cinema the to am I going.</label>
       </div>
     </div>
 
     <!-- Q35 -->
     <div class="question-card" id="qCard35">
-      <div class="question-title">35. Rearrange: <strong>sandcastle / building / He / is / a.</strong></div>
+      <div class="question-title">35. Rearrange: <strong>hospital / next / The / is / to / the / park / .</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q35" value="A"> A. He is building a sandcastle.</label>
-        <label class="option-btn"><input type="radio" name="q35" value="B"> B. A sandcastle building he is.</label>
-        <label class="option-btn"><input type="radio" name="q35" value="C"> C. Building is he a sandcastle.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="A"> A. The hospital is next to the park.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="B"> B. Park the next to is hospital the.</label>
+        <label class="option-btn"><input type="radio" name="q35" value="C"> C. Is the hospital next to park the.</label>
       </div>
     </div>
 
     <!-- Q36 -->
     <div class="question-card" id="qCard36">
-      <div class="question-title">36. Rearrange: <strong>he / Is / kite? / a / flying</strong></div>
+      <div class="question-title">36. Rearrange: <strong>straight / Walk / road / this / down / .</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q36" value="A"> A. Is he flying a kite?</label>
-        <label class="option-btn"><input type="radio" name="q36" value="B"> B. Flying a kite is he?</label>
-        <label class="option-btn"><input type="radio" name="q36" value="C"> C. A kite is he flying?</label>
+        <label class="option-btn"><input type="radio" name="q36" value="A"> A. Walk straight down this road.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="B"> B. Road this down walk straight.</label>
+        <label class="option-btn"><input type="radio" name="q36" value="C"> C. Straight walk down this road.</label>
       </div>
     </div>
 
     <!-- Q37 -->
     <div class="question-card" id="qCard37">
-      <div class="question-title">37. Rearrange: <strong>they / Are / swimming?</strong></div>
+      <div class="question-title">37. Rearrange: <strong>bookshop / want / to / go / We / to / the / .</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q37" value="A"> A. Are they swimming?</label>
-        <label class="option-btn"><input type="radio" name="q37" value="B"> B. Swimming they are?</label>
-        <label class="option-btn"><input type="radio" name="q37" value="C"> C. They are swimming?</label>
+        <label class="option-btn"><input type="radio" name="q37" value="A"> A. We want to go to the bookshop.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="B"> B. To the bookshop go want we.</label>
+        <label class="option-btn"><input type="radio" name="q37" value="C"> C. Bookshop the to go we want.</label>
       </div>
     </div>
 
     <!-- Q38 -->
     <div class="question-card" id="qCard38">
-      <div class="question-title">38. Rearrange: <strong>park / We / at / are / the.</strong></div>
+      <div class="question-title">38. Rearrange: <strong>supermarket / is / Where / the / ?</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q38" value="A"> A. We are at the park.</label>
-        <label class="option-btn"><input type="radio" name="q38" value="B"> B. At the park we are.</label>
-        <label class="option-btn"><input type="radio" name="q38" value="C"> C. The park we are at.</label>
+        <label class="option-btn"><input type="radio" name="q38" value="A"> A. Where is the supermarket?</label>
+        <label class="option-btn"><input type="radio" name="q38" value="B"> B. The supermarket where is?</label>
+        <label class="option-btn"><input type="radio" name="q38" value="C"> C. Is where the supermarket?</label>
       </div>
     </div>
 
     <!-- Q39 -->
     <div class="question-card" id="qCard39">
-      <div class="question-title">39. Rearrange: <strong>book / reading / is / She / a.</strong></div>
+      <div class="question-title">39. Rearrange: <strong>park / playing / are / They / at / the / .</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q39" value="A"> A. She is reading a book.</label>
-        <label class="option-btn"><input type="radio" name="q39" value="B"> B. A book reading is she.</label>
-        <label class="option-btn"><input type="radio" name="q39" value="C"> C. Reading she is a book.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="A"> A. They are playing at the park.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="B"> B. Park the at playing are they.</label>
+        <label class="option-btn"><input type="radio" name="q39" value="C"> C. Playing are they at the park.</label>
       </div>
     </div>
 
     <!-- Q40 -->
     <div class="question-card" id="qCard40">
-      <div class="question-title">40. Rearrange: <strong>sailing / are / Boats / water. / the / on</strong></div>
+      <div class="question-title">40. Rearrange: <strong>right / Turn / corner / the / at / .</strong></div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q40" value="A"> A. Boats are sailing on the water.</label>
-        <label class="option-btn"><input type="radio" name="q40" value="B"> B. On the water sailing are boats.</label>
-        <label class="option-btn"><input type="radio" name="q40" value="C"> C. Sailing are boats on the water.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="A"> A. Turn right at the corner.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="B"> B. Corner the at turn right.</label>
+        <label class="option-btn"><input type="radio" name="q40" value="C"> C. Right turn at the corner.</label>
       </div>
     </div>
 
@@ -695,9 +696,9 @@ body {
     <div class="question-card" id="qCard41">
       <div class="question-title">41. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q41" value="A"> A. What are you doing in the park?</label>
-        <label class="option-btn"><input type="radio" name="q41" value="B"> B. What is you doing in the park?</label>
-        <label class="option-btn"><input type="radio" name="q41" value="C"> C. What am you doing in the park?</label>
+        <label class="option-btn"><input type="radio" name="q41" value="A"> A. Where is you going?</label>
+        <label class="option-btn"><input type="radio" name="q41" value="B"> B. Where are you going?</label>
+        <label class="option-btn"><input type="radio" name="q41" value="C"> C. Where am you going?</label>
       </div>
     </div>
 
@@ -705,9 +706,9 @@ body {
     <div class="question-card" id="qCard42">
       <div class="question-title">42. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q42" value="A"> A. They are playing football outside.</label>
-        <label class="option-btn"><input type="radio" name="q42" value="B"> B. They is playing football outside.</label>
-        <label class="option-btn"><input type="radio" name="q42" value="C"> C. They am playing football outside.</label>
+        <label class="option-btn"><input type="radio" name="q42" value="A"> A. She is go to the cinema.</label>
+        <label class="option-btn"><input type="radio" name="q42" value="B"> B. She is going to the cinema.</label>
+        <label class="option-btn"><input type="radio" name="q42" value="C"> C. She going to the cinema.</label>
       </div>
     </div>
 
@@ -715,9 +716,9 @@ body {
     <div class="question-card" id="qCard43">
       <div class="question-title">43. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q43" value="A"> A. Is she riding her bicycle?</label>
-        <label class="option-btn"><input type="radio" name="q43" value="B"> B. Are she riding her bicycle?</label>
-        <label class="option-btn"><input type="radio" name="q43" value="C"> C. Am she riding her bicycle?</label>
+        <label class="option-btn"><input type="radio" name="q43" value="A"> A. Turn left at the traffic lights.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="B"> B. Turning left at the traffic lights.</label>
+        <label class="option-btn"><input type="radio" name="q43" value="C"> C. Turn lefting at the traffic lights.</label>
       </div>
     </div>
 
@@ -725,9 +726,9 @@ body {
     <div class="question-card" id="qCard44">
       <div class="question-title">44. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q44" value="A"> A. He is flying a red kite.</label>
-        <label class="option-btn"><input type="radio" name="q44" value="B"> B. He are flying a red kite.</label>
-        <label class="option-btn"><input type="radio" name="q44" value="C"> C. He am flying a red kite.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="A"> A. The toy shop is between the bookshop and the cinema.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="B"> B. The toy shop is under the bookshop and the cinema.</label>
+        <label class="option-btn"><input type="radio" name="q44" value="C"> C. The toy shop is on the bookshop and the cinema.</label>
       </div>
     </div>
 
@@ -735,9 +736,9 @@ body {
     <div class="question-card" id="qCard45">
       <div class="question-title">45. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q45" value="A"> A. We aren't swimming in the river.</label>
-        <label class="option-btn"><input type="radio" name="q45" value="B"> B. We isn't swimming in the river.</label>
-        <label class="option-btn"><input type="radio" name="q45" value="C"> C. We don't swimming in the river.</label>
+        <label class="option-btn"><input type="radio" name="q45" value="A"> A. We wants to visit the park.</label>
+        <label class="option-btn"><input type="radio" name="q45" value="B"> B. We want to visit the park.</label>
+        <label class="option-btn"><input type="radio" name="q45" value="C"> C. We wanting to visit the park.</label>
       </div>
     </div>
 
@@ -745,9 +746,9 @@ body {
     <div class="question-card" id="qCard46">
       <div class="question-title">46. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q46" value="A"> A. Are they building a sandcastle?</label>
-        <label class="option-btn"><input type="radio" name="q46" value="B"> B. Is they building a sandcastle?</label>
-        <label class="option-btn"><input type="radio" name="q46" value="C"> C. Do they building a sandcastle?</label>
+        <label class="option-btn"><input type="radio" name="q46" value="A"> A. He are walking down the street.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="B"> B. He is walking down the street.</label>
+        <label class="option-btn"><input type="radio" name="q46" value="C"> C. He am walking down the street.</label>
       </div>
     </div>
 
@@ -755,9 +756,9 @@ body {
     <div class="question-card" id="qCard47">
       <div class="question-title">47. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q47" value="A"> A. She is reading a magazine.</label>
-        <label class="option-btn"><input type="radio" name="q47" value="B"> B. She are reading a magazine.</label>
-        <label class="option-btn"><input type="radio" name="q47" value="C"> C. She am reading a magazine.</label>
+        <label class="option-btn"><input type="radio" name="q47" value="A"> A. Is there a supermarket near here?</label>
+        <label class="option-btn"><input type="radio" name="q47" value="B"> B. Are there a supermarket near here?</label>
+        <label class="option-btn"><input type="radio" name="q47" value="C"> C. Am there a supermarket near here?</label>
       </div>
     </div>
 
@@ -765,9 +766,9 @@ body {
     <div class="question-card" id="qCard48">
       <div class="question-title">48. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q48" value="A"> A. The boats are sailing on the sea.</label>
-        <label class="option-btn"><input type="radio" name="q48" value="B"> B. The boats is sailing on the sea.</label>
-        <label class="option-btn"><input type="radio" name="q48" value="C"> C. The boats am sailing on the sea.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="A"> A. They is playing football.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="B"> B. They are playing football.</label>
+        <label class="option-btn"><input type="radio" name="q48" value="C"> C. They am playing football.</label>
       </div>
     </div>
 
@@ -775,9 +776,9 @@ body {
     <div class="question-card" id="qCard49">
       <div class="question-title">49. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q49" value="A"> A. I am walking my dog in the park.</label>
-        <label class="option-btn"><input type="radio" name="q49" value="B"> B. I is walking my dog in the park.</label>
-        <label class="option-btn"><input type="radio" name="q49" value="C"> C. I are walking my dog in the park.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="A"> A. Walk straight down this road.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="B"> B. Walking straight down this road.</label>
+        <label class="option-btn"><input type="radio" name="q49" value="C"> C. Walks straight down this road.</label>
       </div>
     </div>
 
@@ -785,13 +786,14 @@ body {
     <div class="question-card" id="qCard50">
       <div class="question-title">50. Choose the correct sentence:</div>
       <div class="options-group">
-        <label class="option-btn"><input type="radio" name="q50" value="A"> A. They are having a wonderful time.</label>
-        <label class="option-btn"><input type="radio" name="q50" value="B"> B. They is having a wonderful time.</label>
-        <label class="option-btn"><input type="radio" name="q50" value="C"> C. They am having a wonderful time.</label>
+        <label class="option-btn"><input type="radio" name="q50" value="A"> A. What are you doing?</label>
+        <label class="option-btn"><input type="radio" name="q50" value="B"> B. What is you doing?</label>
+        <label class="option-btn"><input type="radio" name="q50" value="C"> C. What am you doing?</label>
       </div>
     </div>
 
-    <button type="submit" class="submit-btn">SUBMIT QUIZ</button>
+    <!-- SUBMIT BUTTON -->
+    <button type="button" class="submit-btn" onclick="submitQuiz()">HANTAR JAWAPAN ➔</button>
 
   </form>
 
@@ -802,20 +804,55 @@ body {
   <div class="modal-card">
     <h2>Quiz Results</h2>
     <div class="score-text" id="scoreDisplay">0 / 50</div>
-    <p id="feedbackText">Great job completing the test!</p>
-    <button class="modal-action-btn" onclick="location.reload()">Try Again</button>
+    <p id="feedbackText">Great job completing the quiz!</p>
+    <button class="modal-action-btn" onclick="closeModal()">Review Answers</button>
   </div>
 </div>
 
 <script>
-  // Simple form submission script handler for testing UI preview
-  document.getElementById('quizForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+  // Kunci jawapan betul untuk Q1 hingga Q50 (Module 7: Out and About)
+  const answers = {
+    q1: 'A', q2: 'B', q3: 'B', q4: 'A', q5: 'A',
+    q6: 'B', q7: 'C', q8: 'A', q9: 'B', q10: 'A',
+    q11: 'A', q12: 'B', q13: 'A', q14: 'B', q15: 'A',
+    q16: 'B', q17: 'A', q18: 'A', q19: 'B', q20: 'A',
+    q21: 'A', q22: 'B', q23: 'A', q24: 'B', q25: 'A',
+    q26: 'B', q27: 'A', q28: 'A', q29: 'A', q30: 'A',
+    q31: 'A', q32: 'A', q33: 'A', q34: 'A', q35: 'A',
+    q36: 'A', q37: 'A', q38: 'A', q39: 'A', q40: 'A',
+    q41: 'B', q42: 'B', q43: 'A', q44: 'A', q45: 'B',
+    q46: 'B', q47: 'A', q48: 'B', q49: 'A', q50: 'A'
+  };
+
+  function submitQuiz() {
     let score = 0;
-    // Basic scoring mock logic or check inputs if needed
-    document.getElementById('scoreDisplay').innerText = "Test Ready!";
+    let totalQuestions = Object.keys(answers).length;
+
+    for (let key in answers) {
+      let selected = document.querySelector(`input[name="${key}"]:checked`);
+      let card = document.getElementById('qCard' + key.replace('q', ''));
+      
+      card.classList.remove('correct-mark', 'wrong-mark');
+
+      if (selected) {
+        if (selected.value === answers[key]) {
+          score++;
+          card.classList.add('correct-mark');
+        } else {
+          card.classList.add('wrong-mark');
+        }
+      } else {
+        card.classList.add('wrong-mark');
+      }
+    }
+
+    document.getElementById('scoreDisplay').innerText = `${score} / ${totalQuestions}`;
     document.getElementById('resultModal').style.display = 'flex';
-  });
+  }
+
+  function closeModal() {
+    document.getElementById('resultModal').style.display = 'none';
+  }
 </script>
 
 </body>
